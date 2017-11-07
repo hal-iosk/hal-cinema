@@ -23,6 +23,7 @@ func main() {
 	api := r.Group("/api")
 
 	api.Use(cors.Middleware(middleware.CorsConfig))
+
 	api.GET("/makki", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"name":  "katsuramaki taiki",
