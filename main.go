@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/hal-iosk/server/middleware"
+	"github.com/hal-iosk/hal-cinema/middleware"
 	cors "github.com/itsjamie/gin-cors"
 )
 
