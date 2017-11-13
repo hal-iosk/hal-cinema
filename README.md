@@ -1,18 +1,26 @@
-# Hal Cinema
+# HAL Cinema
 
-# DB設定
+## サーバーの起動
 
-- DBName: halCinema
-- DBUser: iosk
-- DBPass: iosk
+```
+$ go run main.go
+```
 
-初めてDBを触る場合
+## DB設定
+
+```
+DBName: halCinema
+DBUser: iosk
+DBPass: iosk
+```
+
+- 初めてDBを触る場合
 
 ```
 $ make migrate/first
 ```
 
-2回目以降DBをキレイにする場合
+- 2回目以降DBをキレイにする場合
 
 ```
 $ make migrate/clean
