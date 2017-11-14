@@ -10,14 +10,9 @@ type User struct {
 	name string
 }
 
-func NewUserController() User {
-	return User{
-		name: "junjun",
-	}
-}
+func CreateUser(c *gin.Context) {
+	// _ := c.PostForm("name")
+	// _ := c.PostForm("password")
 
-func (self *User) Create(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"name": "junjun",
-	})
+	c.JSON(http.StatusCreated, nil)
 }
