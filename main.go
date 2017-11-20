@@ -1,6 +1,8 @@
 package main
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/hal-iosk/hal-cinema/controller"
 )
@@ -29,7 +31,6 @@ func main() {
 		c.HTML(http.StatusOK, "seatSelection.html", nil)
 	})
 
-	userController := controller.NewUserController()
 	api := r.Group("/api")
 	{
 		api.GET("/users", controller.CreateUser)
