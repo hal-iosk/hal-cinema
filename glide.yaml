@@ -5,4 +5,5 @@ import:
 - package: github.com/itsjamie/gin-cors
 - package: github.com/jinzhu/gorm
 - package: github.com/trevex/golem
+- package: github.com/rubenv/sql-migrate
 - package: gopkg.in/yaml.v2
