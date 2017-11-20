@@ -16,6 +16,7 @@ func main() {
 	r.Static("/js", "./public/js")
 	r.Static("/image", "./public/image")
 	r.Static("/css", "./public/css")
+	r.Static("/media", "./public/media")
 
 	r.LoadHTMLGlob("view/*")
 
@@ -26,7 +27,10 @@ func main() {
 	})
 
 	r.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", nil)
+		c.HTML(http.StatusOK, "seat.html", nil)
+	})
+	r.GET("/seatSelection", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "seatSelection.html", nil)
 	})
 
 	userController := controller.NewUserController()
