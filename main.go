@@ -18,12 +18,6 @@ func main() {
 
 	r.LoadHTMLGlob("view/*")
 
-	r.GET("/live", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"live": true,
-		})
-	})
-
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "seat.html", nil)
 	})
