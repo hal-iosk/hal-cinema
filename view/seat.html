@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="css/seat.css">
 </head>
 <body>
-  <ul>
+  <ul class="navigation">
   	<li class="navi word">STEP1：<br>座席・チケット選択</li>
   	<li class="navi arrow">＞</li>
   	<li class="navi word">STEP2：<br>お支払情報入力</li>
@@ -18,19 +18,25 @@
 
   <h1>ご購入内容</h1>
   <dl>
-  	<dt>作品</dt>
-  	<dd>あさひなぐ</dd>
-  	<dt>日時</dt>
-  	<dd>2017年9月26日（火）<br>16:50~18:45</dd>
-  	<dt>劇場</dt>
-  	<dd>HALシネマ</dd>
+  	<div class="g1">
+	  	<dt>作品</dt>
+	  	<dd>あさひなぐ</dd>
+  	</div>
+  	<div class="g2">
+	  	<dt>日時</dt>
+	  	<dd>2017年9月26日（火）<br>16:50~18:45</dd>
+  	</div>
+  	<div class="g3">
+	  	<dt>劇場</dt>
+	  	<dd>HALシネマ</dd>
+  	</div>
   </dl>
 
-  <a href="seatSelection">座席選択へ</a>
+<div class="btn">
+  	<a href="#!" class="button">戻る</a>
+  	<a href="seatSelection" class="button">座席選択へ</a>
+</div>
 
-
-
-
-  <script src="js/script.js"></script>
+  <script src="js/seat.js"></script>
 </body>
 </html>
