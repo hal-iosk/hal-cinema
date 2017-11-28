@@ -1,9 +1,10 @@
 package main
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
-	"github.com/hal-iosk/hal-cinema/middleware"
-	cors "github.com/itsjamie/gin-cors"
+	"github.com/hal-iosk/hal-cinema/controller"
 )
 
 func main() {
@@ -13,23 +14,21 @@ func main() {
 	r.Static("/js", "./public/js")
 	r.Static("/image", "./public/image")
 	r.Static("/css", "./public/css")
+	r.Static("/media", "./public/media")
 
 	r.LoadHTMLGlob("view/*")
 
 	r.GET("/", func(c *gin.Context) {
-		c.HTML(200, "index.html", nil)
+		c.HTML(http.StatusOK, "seat.html", nil)
+	})
+	r.GET("/seatSelection", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "seatSelection.html", nil)
 	})
 
 	api := r.Group("/api")
+	{
+		api.GET("/users", controller.CreateUser)
+	}
 
-	api.Use(cors.Middleware(middleware.CorsConfig))
-	api.GET("/makki", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"name":  "katsuramaki taiki",
-			"sex":   "man",
-			"email": "llxo2_5oxll@icloud.com",
-		})
-	})
-
-	r.Run(":3000")
+	r.Run(":2000")
 }
