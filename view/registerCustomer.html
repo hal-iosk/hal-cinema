@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>hal-cinema | 会員登録</title>
+  <link rel="stylesheet" href="../public/css/style.css">
+  <link rel="stylesheet" href="../public/css/campaign.css">
+  <script src="../public/js/script.js"></script>
+  <script src="../public/js/registerCustomer.js"></script>
+</head>
+
+<body>
+  <header>
+  </header>
+  <div class="wrapper">
+    <ol class="stepList">
+      <li>
+        STEP1:
+        <br> 申込フォーム入力
+      </li>
+      <li>
+        STEP2:
+        <br> 入力確認
+      </li>
+      <li>
+        STEP3:
+        <br> 登録完了
+      </li>
+    </ol>
+    <div id="mainForm">
+      <h1>hal-cinema@入会申込</h1>
+      <p>会員規約に同意し、必要な情報を入力してください。</p>
+      <form action="">
+        <div>
+          <h2>ユーザーID (※必須項目)</h2>
+          <input type="text" maxlength="50" placeholder="ユーザーID(6文字以上)">
+        </div>
+        <div>
+          <h2>パスワード (※必須項目)</h2>
+          <input type="password" maxlength="12" placeholder="パスワード(8文字以上12文字以下)">
+        </div>
+        <div class="">
+          <h2>お名前 </h2>
+          <p>漢字(※必須項目)</p>
+          <input type="text" maxlength="60" placeholder="漢字(2文字以上)">
+          <p>ふりがな</p>
+          <input type="text" maxlength="60" placeholder="ふりがな">
+        </div>
+
+        <div class="">
+          <h2>生年月日</h2>
+          <div class="form-group">
+            <label for="" class="col-sm-2 control-label">生年月日</label>
+            <div class="form-content col-sm-10">
+              <select class="form-control setDay num4" id="year"></select> 年
+              <select class="form-control setDay num2" id="month"></select> 月
+              <select class="form-control setDay num2" id="date"></select> 日
+              <input type="hidden" id="birthday" value="1990-01-01" />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-default" id="submitBtn">生年月日変更</button>
+      </form>
+      </div>
+
+    </div>
+    <footer>
+      <p>
+        <a href="">企業情報</a>
+      </p>
+      <p>
+        <a href="">サイトマップ</a>
+      </p>
+      <p>
+        <a href="">個人情報の取り扱いについて</a>
+      </p>
+      <p>
+        <a href="">特定商取引法に基づく表記</a>
+      </p>
+      <p>
+        <a href="">ご利用に際して</a>
+      </p>
+    </footer>
+
+  </div>
+</body>
+
+</html>

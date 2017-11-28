@@ -1,0 +1,89 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+body{
+    background-color: #FAFAFA;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+h2{
+    text-decoration: underline #CD1111;
+    margin:20px 50px;
+}
+#campaign_list{
+    width:1400px;
+    margin: 50px auto;
+    overflow: hidden;
+}
+.campaign{
+    width:420px;
+    box-shadow:0px 2px 6px 1px;
+    float:left;
+    margin:20px;
+    background-color: #ffffff;
+    overflow: hidden;
+    position: relative
+}
+
+.campaign_p p{
+    margin:5px 20px;
+    color:#474E6D;
+}
+.detail{
+    position: absolute;
+    right:20px;
+    bottom:5px;
+    color:#474E6D;
+}
+.campaign_01{
+    width:420px;
+    height: 278px;
+    background-image: url("../image/cinema_day.png");
+    background-size: cover;
+}
+.campaign_02{
+    width:420px;
+    height: 278px;
+    background-image: url("../image/ladys_day.png");
+    background-repeat:no-repeat; 
+    background-size: auto;
+    background-position:center; 
+}
+.campaign_03{
+    width:420px;
+    height: 278px;
+    background-image: url("../image/Senior_day.png");
+    background-size: cover;
+}
+.campaign_04{
+    width:420px;
+    height: 278px;
+    background-image: url("../image/couple_day.png");
+    background-size: cover;
+}
+.zoom{
+    width: 420px;
+    height: 278px;
+    overflow: hidden;
+    border-bottom: solid 1px #cccccc;
+}
+.campaign:hover .campaign_01{
+    transition: 0.3s;
+    transform: scale(1.2);
+}
+.campaign:hover .campaign_02{
+    transition: 0.3s;
+    transform: scale(1.2);
+}
+.campaign:hover .campaign_03{
+    transition: 0.3s;
+    transform: scale(1.2);
+}
+.campaign:hover .campaign_04{
+    transition: 0.3s;
+    transform: scale(1.2);
+}

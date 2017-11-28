@@ -1,0 +1,85 @@
+body{
+    background-color: #FAFAFA;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+#welcome h2{
+    text-decoration: underline #CD1111;
+}
+#welcome{
+    width:1300px;
+    margin:20px auto;
+    position: relative;
+    border-bottom:solid 1px #cccccc;
+}
+.logout{
+    position: absolute;
+    right: 20px;
+    top:20px;
+}
+.logout a{
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius:5px; 
+    border:solid 1px #cccccc
+}
+#menu_bar{
+    width:1200px;
+    margin:0 auto;
+    box-shadow:0px 2px 6px 1px;
+    overflow: hidden;
+}
+#menu_bar li{
+    width: 400px;
+    height: 100px;
+    color:#000000;
+    background-color: #ffffff;
+    border-bottom: solid 10px #D8D8D8;
+    float:left;
+    text-align: center;
+    border-right:solid 1px #D8D8D8;
+    list-style:none;
+    line-height: 100px;
+}
+#menu_bar .selected{
+    width: 400px;
+    height: 100px;
+    color:#CD1111;
+    background-color: #ffffff;
+    border-bottom: solid 10px #CD1111;
+    float:left;
+    text-align: center;
+    border-right:solid 1px #D8D8D8;
+    list-style:none;
+    line-height: 100px;
+}
+#history_list{
+    clear:left;
+    width:1200px;
+    margin:50px auto;
+    background-color: #ffffff;
+    box-shadow:0px 2px 6px 1px;
+}
+#history_list h3{
+    padding: 20px;
+    text-decoration: underline #CD1111;
+}
+#history_list table{
+    padding:20px;
+    margin:0 auto;
+}
+#history_list th{
+    font-size:20px;
+    border-bottom:solid 1px #D8D8D8;
+}
+.history_day{
+    width: 10%;
+    text-align: center;
+}
+.firm_title{
+    width:90%;
+    text-align: left;
+}
+
