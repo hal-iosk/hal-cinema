@@ -18,12 +18,19 @@ func main() {
 
 	r.LoadHTMLGlob("view/*")
 
-	r.GET("/", func(c *gin.Context) {
+	r.GET("/seat", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "seat.html", nil)
 	})
 	r.GET("/seatSelection", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "seatSelection.html", nil)
 	})
+	r.GET("/ticket", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "ticket.html", nil)
+	})
+	r.GET("/payment", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "payment.html", nil)
+	})
+
 
 	api := r.Group("/api")
 	{

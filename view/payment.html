@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>チケット選択|HALシネマ</title>
+  <link rel="stylesheet" href="css/payment.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+  <ul class="navigation">
+  	<li class="navi word">STEP1：<br>座席・チケット選択</li>
+  	<li class="navi arrow">＞</li>
+  	<li class="navi word">STEP2：<br>お支払情報入力</li>
+  	<li class="navi arrow">＞</li>
+  	<li class="navi word">STEP3：<br>ご購入内容の確認</li>
+  	<li class="navi arrow">＞</li>
+  	<li class="navi word">STEP4：<br>購入完了</li>
+  </ul>
+
+  <h1>お支払情報を入力してください。</h1>
+  <div class="border">
+    <input type="radio" name="payment" id="card" value="1" checked>
+    <label for="card">クレジットカード</label>
+    <div class="card_img"></div>
+    <input type="radio" name="payment" id="cash" value="0">
+    <label for="cash">現金</label>
+  </div>
+
+
+<div class="btn">
+  	<a href="seatSelection" class="back">戻る</a>
+  	<a href="#!" class="next">次へ</a>
+</div>
+
+</body>
+</html>
