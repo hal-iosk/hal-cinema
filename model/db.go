@@ -8,7 +8,7 @@ import (
 var db = NewDBConn()
 
 func NewDBConn() *gorm.DB {
-	db, err := gorm.Open("mysql", "root:password@tcp(127.0.0.1:3306)/{dbname}?parseTime=true")
+	db, err := gorm.Open("mysql", "iosk:iosk@tcp(127.0.0.1:3306)/halCinema?parseTime=true")
 	if err != nil {
 		panic(err)
 	}

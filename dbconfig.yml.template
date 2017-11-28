@@ -1,4 +1,4 @@
 development:
   dialect: mysql
-  datasource: root:@tcp(127.0.0.1:3306)/{dbname}?parseTime=true
-  dir: migration
+  datasource: iosk:iosk@tcp(localhost:3306)/halCinema?parseTime=true&collation=utf8_general_ci&interpolateParams=true
+  dir: migrations
