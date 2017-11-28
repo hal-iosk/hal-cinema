@@ -16,8 +16,6 @@ footer {
     background-color: #404040;
     width: 100%;
     height: 120px;
-    position: absolute;       /* 絶対位置指定することを定義 */
-    bottom: 0px;              /* 絶対位置指定(左0px,下0px) */
 }
 
 #footerNav {
