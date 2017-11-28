@@ -31,3 +31,5 @@ $ make migrate/clean
 - DBの作成 `make migrate/init`
 - テーブルの作成 `make migrate/up`
 - DBの削除 `make migrate/drop`
+
+すがです
