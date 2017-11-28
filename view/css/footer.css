@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+html ,body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+h1, h2, p {
+    margin: 0;
+}
+#container {
+    position: relative;
+    min-height: 100%;
+}
+footer {
+    background-color: #404040;
+    width: 100%;
+    height: 120px;
+    position: absolute;       /* 絶対位置指定することを定義 */
+    bottom: 0px;              /* 絶対位置指定(左0px,下0px) */
+}
+
+#footerNav {
+    width: 58%;
+    height: 88px;
+    overflow: hidden;
+    list-style: none;
+    margin: 0 auto;
+}
+
+#footerNav li {
+    width: auto;
+    height: auto;
+    float: left;
+    line-height: 100px;
+    padding-top: 10px;
+}
+
+#footerNav li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.5vw;
+    padding-right: 1.5vw;
+}
