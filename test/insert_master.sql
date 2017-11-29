@@ -1,3 +1,4 @@
+
 -- +migrate Up
 INSERT INTO `authorities` (`authority_name`, `authority_code`) VALUES ("なし", 404);
 INSERT INTO `authorities` (`authority_name`, `authority_code`) VALUES ("ルート", 777);
@@ -14,3 +15,4 @@ INSERT INTO `prices` (`customer_type`, `price`, `last_updated_administrator_id`)
 INSERT INTO `prices` (`customer_type`, `price`, `last_updated_administrator_id`) VALUES ("3D専用メガネ代", 300, "0");
 
 -- +migrate Down
+

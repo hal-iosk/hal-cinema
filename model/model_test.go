@@ -13,8 +13,8 @@ func TestMigration(t *testing.T) {
 	db.AutoMigrate(&ScreeningSchedule{})
 }
 
-func TestReserve(t *testing.T) {
-	file := &Reserve{
+func TestReserveStore(t *testing.T) {
+	reserve := &Reserve{
 		ReserveNumber:  1,
 		MovieName:      "君の名は。",
 		ReserveTime:    "2016-06-15:12:00",
@@ -26,5 +26,10 @@ func TestReserve(t *testing.T) {
 		SeatNumber:     "A-1",
 		CustomerID:     "1",
 		CancelCheck:    false,
+	}
+
+	err := db.Create(reserve)
+	if err != nil {
+		t.Error(err)
 	}
 }
