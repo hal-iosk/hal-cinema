@@ -20,18 +20,21 @@
 
   <h1>お支払情報を選択してください。</h1>
   <div class="border">
-    <input type="radio" name="payment" id="card" value="1" checked>
-    <label for="card">クレジットカード</label>
-    <div class="card_img"></div>
-    <input type="radio" name="payment" id="cash" value="0">
-    <label for="cash">現金</label>
+    <form id='payment'>
+      <input type="radio" name="payment" id="card" value="1" checked>
+      <label for="card">クレジットカード</label>
+      <div class="card_img"></div>
+      <input type="radio" name="payment" id="cash" value="2">
+      <label for="cash">現金</label>
+    </form>
   </div>
 
-
 <div class="btn">
-  	<a href="seatSelection" class="back">戻る</a>
-  	<a href="#!" class="next">次へ</a>
+  	<a href="ticket" class="back">戻る</a>
+  	<a href="confirm" class="next" onclick="paymentSelect()">次へ</a>
 </div>
+
+<script src="js/payment.js"></script>
 
 </body>
 </html>

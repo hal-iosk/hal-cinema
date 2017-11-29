@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>購入内容確認|HALシネマ</title>
+  <link rel="stylesheet" href="css/confirm.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+  <ul class="navigation">
+  	<li class="navi word">STEP1：<br>座席・チケット選択</li>
+  	<li class="navi arrow">＞</li>
+  	<li class="navi word">STEP2：<br>お支払情報入力</li>
+  	<li class="navi arrow">＞</li>
+  	<li class="navi word">STEP3：<br>ご購入内容の確認</li>
+  	<li class="navi arrow">＞</li>
+  	<li class="navi word">STEP4：<br>購入完了</li>
+  </ul>
+
+  <h1>ご購入内容を確認してください。</h1>
+  <dl class="border">
+    <div class="movie">
+      <dt>作品</dt>
+      <dd>あさひなぐ</dd>
+    </div>
+    <div class="time">
+      <dt>日時</dt>
+      <dd>2017年9月26日（火）<br>16:50~18:45</dd>
+    </div>
+    <div class="theater">
+      <dt>劇場</dt>
+      <dd>HALシネマ</dd>
+    </div>
+  </dl>
+
+  <div id="seats"></div>
+  <div id="payment"></div>
+  <div id="price"><span class="total">合計</span><span class="yen">1800円</span></div>
+
+
+<div class="btn">
+  	<a href="payment" class="back">戻る</a>
+  	<a href="#!" class="next">次へ</a>
+</div>
+
+<script src="js/confirm.js"></script>
+
+</body>
+</html>
