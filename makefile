@@ -5,6 +5,9 @@ start:
 sql-migrate:
 	which $@ || go get github.com/rubenv/sql-migrate/...
 
+seed:
+	go run cmd/seed.go
+
 migrate/first:
 	make migrate/init
 	make migrate/up
