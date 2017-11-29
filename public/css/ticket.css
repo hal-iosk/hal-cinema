@@ -78,6 +78,35 @@ dt {
 	color: #9B9B9B;
 }
 
+.button{
+    display: inline-block;
+    padding: 0.5em 6em;
+    text-decoration: none;
+    font-weight: bold;
+    color: #4A4A4A;
+    border: solid 1px #9B9B9B;
+    border-radius: 3px;
+    transition: .4s;
+    margin-left: 40px;
+}
+
+.ticket {
+	position: relative;
+	top: -25px;
+	left: 500px;
+	width: 350px;
+	height: 60px;
+	display: inline-block;
+    padding: 0.5em 6em;
+    text-decoration: none;
+   	font-size: 14px;
+    color: #fff;
+    border: solid 1px #9B9B9B;
+    border-radius: 3px;
+    transition: .4s;
+    background-color: #4A7AE2;
+}
+
 .back{
     display: inline-block;
     padding: 0.5em 6em;
@@ -87,7 +116,7 @@ dt {
     border: solid 1px #9B9B9B;
     border-radius: 3px;
     transition: .4s;
-     margin-left: 40px;
+    margin-left: 40px;
 }
 
 .back:hover {
@@ -104,7 +133,7 @@ dt {
     border: solid 1px #9B9B9B;
     border-radius: 3px;
     transition: .4s;
-     margin-left: 40px;
+    margin-left: 40px;
 }
 
 .next:hover {
@@ -112,7 +141,69 @@ dt {
     color: #FFF;
 }
 
+.border img {
+	margin-left: 100px;
+	margin-top: 20px;
+}
+
+.seats {
+	font-size: 30px;
+	margin-left: 30px;
+	position: relative;
+	top: -20px;
+	left: 0px;
+
+}
+
 .btn {
 	padding-top: 200px;
 	padding-left: 400px;
+}
+
+ul {
+	list-style:none;
+}
+
+.list li {
+	margin-top: 35px;
+	margin-left: 130px;
+}
+
+.list a {
+	width: 350px;
+	height: 70px;
+	border-radius:10px;
+	border:2px solid #9B9B9B;
+	text-decoration:none;
+	color: #4A7AE2;
+	display: table-cell;
+    vertical-align: middle;
+}
+
+.selected {
+	position: relative;
+	top: -25px;
+	left: 500px;
+	width: 350px;
+	height: 60px;
+	display: inline-block;
+    padding: 0.5em 6em;
+    text-decoration: none;
+   	font-size: 14px;
+    color: #4A4A4A;
+    border: solid 1px #9B9B9B;
+    border-radius: 10px;
+    transition: .4s;
+}
+
+.name {
+	width: 200px;
+	font-size: 20px;
+	white-space: nowrap;
+}
+
+.price {
+	font-size: 20px;	
+	white-space: nowrap;
+	text-align: right;
 }
