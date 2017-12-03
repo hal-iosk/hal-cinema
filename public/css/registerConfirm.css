@@ -1,0 +1,148 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background-color: #FAFAFA;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+#confirm {
+  width: 810px;
+  margin: 50px auto;
+}
+
+.step {
+  font-weight: 700;
+  padding: 20px 0;
+  color: #9e9e9e;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.step .step-list {
+  font-size: 0;
+  display: table;
+  padding: 0 20px;
+}
+
+.step .step-item {
+  font-size: 18px;
+  line-height: 1.28571;
+  position: relative;
+  display: table-cell;
+}
+
+.current {
+  color: #CD1111;
+}
+
+.step .step-item+.step-item {
+  padding-left: 100px;
+}
+
+.step .step-item+.step-item:after,
+.step .step-item+.step-item:before {
+  position: absolute;
+  left: 40px;
+  display: block;
+  width: 18px;
+  height: 5px;
+  content: '';
+  border-radius: 2px/50%;
+  background-color: #bdbdbd;
+}
+
+.step .step-item+.step-item:before {
+  top: 15px;
+  transform: rotate(45deg);
+}
+
+.step .step-item+.step-item:after {
+  top: 25px;
+  transform: rotate(135deg);
+}
+
+h2 {
+  padding: 20px;
+  color: #616161;
+  font-weight: normal;
+  background-color: #cccccc;
+  clear: left
+}
+
+.space {
+    width:100%;
+  background-color: #ffffff;
+}
+.space p{
+    padding:20px 40px;
+}
+.space_name{
+    width:100%;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.space_birth{
+    width:100%;
+    background-color: #ffffff;
+}
+.col{
+    float:left;
+    width:40%;
+    padding:20px 40px;
+}
+.space_birth{
+    margin:0 auto;
+    overflow: hidden;
+}
+.space_birth p{
+    float:left;
+    padding:20px 40px;
+}
+#confirmNav{
+    width:100%;
+    margin:20px 0;
+}
+#text{
+    text-align: center;
+    margin:20px 0;
+}
+#button{
+    text-align: center;
+}
+.back{
+    font-size:22px;
+    padding:20px 50px;
+    background-color:#ffffff;
+    border:solid 1px;
+    color:#3f3f3f;
+    border-radius: 5px;
+    margin:0 20px;
+    transition: all 350ms 0s ease;
+}
+.back:hover{
+    color:#ffffff;
+    background: #3f3f3f;
+}
+.move{
+    font-size:22px;
+    padding:16px 50px;
+    background-color: #1253A2;
+    border:solid 1px;
+    color:#ffffff;
+    border-radius: 5px;
+    margin:0 20px;
+    cursor:pointer;
+    transition: all 350ms 0s ease;
+}
+.move:hover{
+    color:#ffffff;
+    background: #CD1111;
+}
