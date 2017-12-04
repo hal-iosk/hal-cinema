@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>hal-cinema | 会員登録</title>
+
+  <link rel="stylesheet" href="../public/css/footer.css">
+  <link rel="stylesheet" href="../public/css/registerConfirm.css">
+  <script src="../public/js/script.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <header></header>
+    <div id="main">
+      <div id="confirm">
+        <div class="step">
+          <ol class="step-list">
+            <li class="step-item ">
+              <span class="pc">STEP1:
+                <br>申込フォーム入力</span>
+            </li>
+            <li class="step-item current">STEP2:
+              <br>入力確認</li>
+            <li class="step-item">STEP3:
+              <br>登録完了</li>
+          </ol>
+        </div>
+        <div id="registerConfirm">
+          <form action="">
+            <h1>hal-cinema@会員登録</h1>
+            <p>入力事項のご確認をお願い致します。</p>
+            <h2>ユーザーID</h2>
+            <div class="space">
+              <p>
+                ユーザーID
+                <!--session[userid]-->
+              </p>
+              <input type="hidden" value="session[userid]">
+            </div>
+            <h2>パスワード</h2>
+            <div class="space">
+              <p>
+                p*******
+                <!--session[password]-->
+              </p>
+              <input type="hidden" value="session[password]">
+            </div>
+            <h2>お名前</h2>
+            <div class="space_name">
+              <div class="col">
+                <p>漢字</p>
+                <p>
+                  漢字
+                  <!--session[kanji]-->
+                  <input type="hidden" value="session[kanji]">
+                </p>
+              </div>
+              <div class="col">
+                <p>ふりがな
+                  <p>
+                    <p>
+                      ふりがな
+                      <!--session[huri]-->
+                      <input type="hidden" value="session[huri]">
+                    </p>
+              </div>
+            </div>
+
+            <h2>生年月日</h2>
+            <div class="space">
+              <div class="space_birth">
+                <p>1998
+                  <!--session[year]-->年</p>
+                <input type="hidden" value="session[year]">
+                <p>3
+                  <!--session[month]-->月</p>
+                <input type="hidden" value="session[month]">
+                <p>13
+                  <!--session[date]-->日</p>
+                <input type="hidden" value="session[date]">
+              </div>
+            </div>
+            <h2>電話番号</h2>
+            <div class="space">
+              <p>
+                10240040
+                <!--session[tel]-->
+                <input type="hidden" value="session[tel]">
+              </p>
+            </div>
+            <h2>メールアドレス</h2>
+            <div class="space">
+              <p>
+                abc@gamil.com
+                <!--session[mail]-->
+                <input type="hidden" value="session[mail]">
+              </p>
+            </div>
+            <h2>メールマガジン希望</h2>
+            <div class="space">
+              <p>
+                希望する
+                <!--session[magajin]-->
+                <input type="hidden" value="session[magajin]">
+              </p>
+            </div>
+            <h2>郵便番号</h2>
+            <div class="space">
+              <p>
+                0430400
+                <!--session[address]-->
+                <input type="hidden" value="session[address]">
+              </p>
+            </div>
+            <h2>クレジットカード</h2>
+            <div class="space_name">
+              <div class="col">
+                <p>カード番号</p>
+                <p>
+                  ************1234
+                  <!--session[crNo]-->
+                  <input type="hidden" value="session[address]">
+                </p>
+              </div>
+              <div class="col">
+                <p>名義人</p>
+                <p>
+                  SINEMA HARU
+                  <!--session[crName]-->
+                  <input type="hidden" value="session[address]">
+                </p>
+              </div>
+              <div class="col">
+                    <p>有効期限</p>
+                    <p>
+                      10月
+                      <!--session[crMonth]-->
+                      <input type="hidden" value="session[address]">/
+                      23年
+                      <!--session[crYear]-->
+                      <input type="hidden" value="session[address]">
+                    </p>
+                  </div>
+            </div>
+            <div id="confirmNav">
+              <div id="text">
+                <p>上記の内容が正しい場合は、登録ボタンを押してください。</p>
+                <p>訂正される場合は、以下の戻るボタンを押してください。</p>
+              </div>
+              <div id="button">
+                <a href="" class="back">戻る</a>
+                <button class="move">登録</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <ul id="footerNav">
+      <li>
+        <a href="">企業情報</a>
+      </li>
+      <li>
+        <a href="">サイトマップ</a>
+      </li>
+      <li>
+        <a href="">個人情報の取扱いについて</a>
+      </li>
+      <li>
+        <a href="">特定商取引法に基づく表記</a>
+      </li>
+      <li>
+        <a href="">ご利用に際して</a>
+      </li>
+    </ul>
+  </footer>
+  </div>
+</body>
+
+</html>

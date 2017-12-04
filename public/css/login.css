@@ -1,0 +1,50 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body{
+    background-color: #FAFAFA;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+#main{
+    width:810px;
+    margin:50px auto;
+}
+h1{
+    font-weight:normal;
+}
+#loginForm{
+    width:100%;
+}
+.text{
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #bdbdbd;
+    border-radius: 4px;
+    background-color: #fff;
+}
+button, input,select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.submit{
+    font-size: 20px;
+    padding: 20px 80px;
+    margin: 20px 250px;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 4px;
+    background-color: #1253A2;
+    color:#ffffff;
+    transition: all 350ms 0s ease;
+}
+.submit:hover{
+    background-color: #CD1111;
+}

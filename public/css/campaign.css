@@ -26,7 +26,8 @@ h2{
     margin:20px;
     background-color: #ffffff;
     overflow: hidden;
-    position: relative
+    position: relative;
+    transition: all 300ms 0s ease;
 }
 
 .campaign_p p{
@@ -44,6 +45,7 @@ h2{
     height: 278px;
     background-image: url("../image/cinema_day.png");
     background-size: cover;
+    transition: all 300ms 0s ease;
 }
 .campaign_02{
     width:420px;
@@ -51,19 +53,22 @@ h2{
     background-image: url("../image/ladys_day.png");
     background-repeat:no-repeat; 
     background-size: auto;
-    background-position:center; 
+    background-position:center;
+    transition: all 300ms 0s ease; 
 }
 .campaign_03{
     width:420px;
     height: 278px;
     background-image: url("../image/Senior_day.png");
     background-size: cover;
+    transition: all 300ms 0s ease;
 }
 .campaign_04{
     width:420px;
     height: 278px;
     background-image: url("../image/couple_day.png");
     background-size: cover;
+    transition: all 300ms 0s ease;
 }
 .zoom{
     width: 420px;
@@ -72,18 +77,14 @@ h2{
     border-bottom: solid 1px #cccccc;
 }
 .campaign:hover .campaign_01{
-    transition: 0.3s;
     transform: scale(1.2);
 }
 .campaign:hover .campaign_02{
-    transition: 0.3s;
     transform: scale(1.2);
 }
 .campaign:hover .campaign_03{
-    transition: 0.3s;
     transform: scale(1.2);
 }
 .campaign:hover .campaign_04{
-    transition: 0.3s;
     transform: scale(1.2);
 }
