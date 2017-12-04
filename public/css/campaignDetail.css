@@ -28,13 +28,13 @@ h2{
 .cinema_day{
     width:810px;
     height:540px;
-    background-image: url("../image/cinema_day.png");
+    background-image: url("/image/cinema_day.png");
     background-size: cover;
 }
 .ladys_day{
     width:810px;
     height:540px;
-    background-image: url("../image/Bitmap.png");
+    background-image: url("/image/Bitmap.png");
     background-size: auto;
     background-position:center; 
     background-repeat:no-repeat; 
@@ -42,13 +42,13 @@ h2{
 .senior_day{
     width:810px;
     height:540px;
-    background-image: url("../image/Senior_day.png");
+    background-image: url("/image/Senior_day.png");
     background-size: cover;
 }
 .couple_day{
     width:810px;
     height:540px;
-    background-image: url("../image/couple_day.png");
+    background-image: url("/image/couple_day.png");
     background-size: cover;
 }
 .campaign_p{

@@ -22,12 +22,15 @@ a{
 .nav_noselected{
     width:500px;
     height: 100px;
-    color:#000000;
+    color:#5f5f5f;
     background-color: #ffffff;
     border-bottom: solid 10px #D8D8D8;
     float:left;
     text-align: center;
     border-right:solid 1px #FAFAFA;
+}
+.nav_noselected:hover{
+    color:#CD1111;
 }
 .nav_mean{
     padding:20px 0;
@@ -57,6 +60,7 @@ a{
 .firm_card p{
     padding:15px;
     font-size: 18px;
+    color:#363636;
 }
 #switch{
     clear:left;
@@ -64,7 +68,11 @@ a{
     height:100px;
     background-color: #1253A2;
     margin:50px auto;
-    overflow: hidden
+    overflow: hidden;
+    transition: all 350ms 0s ease;
+}
+#switch:hover{
+    background-color: #CD1111;
 }
 #switch p{
     color:#ffffff;

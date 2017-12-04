@@ -2,98 +2,149 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>hal-cinema | 上映中作品一覧</title>
-    <link rel="stylesheet" href="../public/css/style.css">
-    <link rel="stylesheet" href="../public/css/watchFirm.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>hal-cinema | 上映中作品一覧</title>
+  <link rel="stylesheet" href="../public/css/style.css">
+  <link rel="stylesheet" href="../public/css/watchFirm.css">
 </head>
 
 <body>
-    <header></header>
-    <section>
-            <div id="theater_nav">
-                    <a href="watchFirm.html">
-                        <div class="nav_selected">
-                            <div class="nav_mean">
-                                <p>上映中</p>
-                                <p>now playing</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="comingSoon.html">
-                        <div class="nav_noselected">
-                            <div class="nav_mean">
-                                <p>公開予定</p>
-                                <p>coming soon</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-    </section>
-    <article>
-        <div id="watch_firm">
-            <h2>上映中映画一覧</h2>
-            <div class="firm_card">
-                <a href="">
-                    <div>
-                        <img src="../public/image/20170711-asahinagu_top.png" alt="あさひなぐの画像">
-                        <p>あさひなぐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="firm_card">
-                <a href="">
-                    <div>
-                        <img src="../public/image/20170711-asahinagu_top.png" alt="あさひなぐの画像">
-                        <p>あさひなぐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="firm_card">
-                <a href="">
-                    <div>
-                        <img src="../public/image/20170711-asahinagu_top.png" alt="あさひなぐの画像">
-                        <p>あさひなぐ</p>
-                    </div>
-                </a>
-            </div>
-            <div class="firm_card">
-                <a href="">
-                    <div>
-                        <img src="../public/image/20170711-asahinagu_top.png" alt="あさひなぐの画像">
-                        <p>あさひなぐ</p>
-                    </div>
-                </a>
-            </div>
+  <header></header>
+  <section>
+    <div id="theater_nav">
+      <a href="watchFirm.html">
+        <div class="nav_selected">
+          <div class="nav_mean">
+            <p>上映中</p>
+            <p>now playing</p>
+          </div>
         </div>
-        <div id="switch">
-            <a href="comingSoon.html">
-                <div>
-                    <p>公開予定映画一覧へ</p>
-                </div>
-            </a>
+      </a>
+      <a href="comingSoon.html">
+        <div class="nav_noselected">
+          <div class="nav_mean">
+            <p>公開予定</p>
+            <p>coming soon</p>
+          </div>
         </div>
-    </article>
-    <footer>
-        <p>
-            <a href="">企業情報</a>
-        </p>
-        <p>
-            <a href="">サイトマップ</a>
-        </p>
-        <p>
-            <a href="">個人情報の取り扱いについて</a>
-        </p>
-        <p>
-            <a href="">特定商取引法に基づく表記</a>
-        </p>
-        <p>
-            <a href="">ご利用に際して</a>
-        </p>
-    </footer>
-    <script src="../public/js/script.js"></script>
+      </a>
+    </div>
+  </section>
+  <article>
+    <div id="watch_firm">
+      <h2>映画スケジュール</h2>
+      <div id="scheduleTable">
+        <ul>
+          <li class="three select">9/26</li>
+          <li class="three">9/27</li>
+          <li class="three">9/28</li>
+          <li class="scheduleDate">12/7</li>
+          <li class="scheduleDate">12/8</li>
+          <li class="scheduleDate">12/9</li>
+          <li class="scheduleDate">12/10</li>
+        </ul>
+      </div>
+      <div>
+        <h3>9/26の上映スケジュール</h3>
+        <ul class="firm">
+          <li class="firmTitle">あさひなぐ</li>
+          <li class="firmimage">
+            <img src="../public/image/20170711-asahinagu_top.png" alt="">
+          </li>
+          <a href="seat.html?seat?movie=あさひなぐ&date=2017年9月26日（火）&time=16:50~18:45&theater=シアター1">
+          <div class="firmTime">   
+            <div class="margin">
+              <li class="scrn">シアター4</li>
+              <li class="schImg">
+                <img src="../public/image/03.png" alt="">
+              </li>
+              <li class="watchTime">
+                <span class="fontXL">16:50</span>
+                <br> ~18:45
+              </li>
+            </div> 
+          </div>
+        </a>
+          <div class="firmTime">
+            <div class="margin">
+              <li class="scrn">スクリーン4</li>
+              <li class="schImg">
+                <img src="../public/image/03.png" alt="">
+              </li>
+              <li class="watchTime">
+                <span class="fontXL">9:10</span>
+                <br> ~11:10
+              </li>
+            </div>
+          </div>
+          <div class="firmTime">
+            <div class="margin">
+              <li class="scrn">スクリーン4</li>
+              <li class="schImg">
+                <img src="../public/image/03.png" alt="">
+              </li>
+              <li class="watchTime">
+                <span class="fontXL">9:10</span>
+                <br> ~11:10
+              </li>
+            </div>
+          </div>
+          <div class="firmTime">
+            <div class="margin">
+              <li class="scrn">スクリーン4</li>
+              <li class="schImg">
+                <img src="../public/image/03.png" alt="">
+              </li>
+              <li class="watchTime">
+                <span class="fontXL">9:10</span>
+                <br> ~11:10
+              </li>
+            </div>
+          </div>
+          <div class="firmTime">
+            <div class="margin">
+              <li class="scrn">スクリーン4</li>
+              <li class="schImg">
+                <img src="../public/image/03.png" alt="">
+              </li>
+              <li class="watchTime">
+                <span class="fontXL">9:10</span>
+                <br> ~11:10
+              </li>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <div id="switch">
+      <a href="comingSoon.html">
+        <div>
+          <p>公開予定映画一覧へ</p>
+        </div>
+      </a>
+    </div>
+  </article>
+  <footer>
+    <p>
+      <a href="">企業情報</a>
+    </p>
+    <p>
+      <a href="">サイトマップ</a>
+    </p>
+    <p>
+      <a href="">個人情報の取り扱いについて</a>
+    </p>
+    <p>
+      <a href="">特定商取引法に基づく表記</a>
+    </p>
+    <p>
+      <a href="">ご利用に際して</a>
+    </p>
+  </footer>
+  <script src="/js/script.js"></script>
+  <script src="/js/QuearyString.js"></script>
 </body>
 
 </html>
