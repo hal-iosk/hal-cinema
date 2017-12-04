@@ -36,7 +36,6 @@ func main() {
 	r.GET("/payment", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "payment.html", nil)
 	})
-<<<<<<< HEAD
 	r.GET("/campaign", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "campaign.html", nil)
 	})
@@ -79,8 +78,6 @@ func main() {
 	r.GET("/watchFirm", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "watchFirm.html", nil)
 	})
-=======
->>>>>>> 05327b6cf3c835e4b23d01c41b09c8cb1215b11a
 
 	api := r.Group("/api")
 	{
