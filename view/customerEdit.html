@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>hal-cinema | 会員登録</title>
+
+  <link rel="stylesheet" href="../public/css/footer.css">
+  <link rel="stylesheet" href="../public/css/customerEdit.css">
+  <script src="../public/js/script.js"></script>
+  <script src="../public/js/registerCustomer.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <header>
+    </header>
+    <div id="main">
+      <div id="register">
+        
+        <div id="mainForm">
+          <h1>hal-cinema@登録情報編集</h1>
+          <form action="">
+            <div class="input">
+              <h2>ユーザーID
+                <small>(※必須項目)</small>
+              </h2>
+              <div class="inputBox">
+                <input type="text" class="text" maxlength="50" placeholder="ユーザーID(半角英数字、6文字以上)">
+              </div>
+            </div>
+            <div class="input">
+              <h2>パスワード
+                <small>(※必須項目)</small>
+              </h2>
+              <div class="inputBox">
+                <input type="password" class="text" maxlength="12" placeholder="パスワード(半角英数字8文字以上12文字以下、特殊文字不可)">
+              </div>
+              <div class="inputBox">
+                <input type="password" class="text" maxlength="12" placeholder="確認のためもう一度入力してください">
+              </div>
+            </div>
+            <div class="input">
+              <h2>お名前 </h2>
+              <div class="inputBox">
+                <p>漢字
+                  <small>(※必須項目)</small>
+                </p>
+                <input type="text" class="text" maxlength="60" placeholder="全角漢字(2文字以上)">
+              </div>
+              <div class="inputBox">
+                <p>ふりがな</p>
+                <input type="text" class="text" maxlength="60" placeholder="全角ふりがな">
+              </div>
+            </div>
+
+            <div class="input">
+              <h2>生年月日</h2>
+              <div class="form-group">
+                <div class="form-content col-sm-10">
+                  <select class="form-control setDay num4" id="year"></select> 年
+                  <select class="form-control setDay num2" id="month"></select> 月
+                  <select class="form-control setDay num2" id="date"></select> 日
+                  <input type="hidden" id="birthday" value="1990-01-01" />
+                </div>
+              </div>
+              <div class="input">
+                <h2>電話番号
+                  <small>(※必須項目)</small>
+                </h2>
+                <div class="inputBox">
+                  <input type="text" class="text" maxlength="11" placeholder="半角数字、ハイフンなし">
+                </div>
+              </div>
+              <div class="input">
+                <h2>メールアドレス</h2>
+                <div class="inputBox">
+                  <input type="text" class="text" maxlength="60" placeholder="abc@halCinema.com">
+                </div>
+                <div class="inputBox">
+                  <p>
+                    <input type="checkbox"> メールマガジンを希望する
+                  </p>
+                </div>
+              </div>
+              <div class="input">
+                <h2>郵便番号</h2>
+                <div class="inputBox">
+                  <input type="text" class="text" maxlength="7" placeholder="7文字以下・半角数字、ハイフンなし">
+                </div>
+              </div>
+              <div class="input">
+                <h2>クレジットカード</h2>
+                <div class="inputBox">
+                  <p>カード番号</p>
+                  <input type="text" class="text" maxlength="16" placeholder="半角数字、16文字">
+                  <p>名義人</p>
+                  <input type="text" class="text" maxlength="50" placeholder="SINEMA HARU(半角ローマ字)">
+                  <div class="crGroup">
+                    <div class="form-content col-sm-10">
+                      <p>有効期限</p>
+                      <select class="form-control setDay num2" id="crMonth">
+                        <option value=""></option>
+                      </select> 月/
+                      <select class="form-control setDay num2" id="crYear">
+                        <option value=""></option>
+                      </select> 年
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="submit" class="submit" value="確認へ">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <ul id="footerNav">
+        <li>
+          <a href="">企業情報</a>
+        </li>
+        <li>
+          <a href="">サイトマップ</a>
+        </li>
+        <li>
+          <a href="">個人情報の取扱いについて</a>
+        </li>
+        <li>
+          <a href="">特定商取引法に基づく表記</a>
+        </li>
+        <li>
+          <a href="">ご利用に際して</a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+</body>
+
+</html>
