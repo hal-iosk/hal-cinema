@@ -3,7 +3,8 @@
 ## サーバーの起動
 
 ```
-$ go run main.go
+$ go build main.go
+$ ./main
 ```
 
 ## DB設定
@@ -14,20 +15,26 @@ DBUser: iosk
 DBPass: iosk
 ```
 
-- 初めてDBを触る場合
+- DB作成
 
 ```
-$ make migrate/first
+$ make migrate/init
 ```
 
-- 2回目以降DBをキレイにする場合
+- table作成
 
 ```
-$ make migrate/clean
+$ make migrate/up
 ```
 
----
+- DB削除
 
-- DBの作成 `make migrate/init`
-- テーブルの作成 `make migrate/up`
-- DBの削除 `make migrate/drop`
+```
+$ make migrate/drop
+```
+
+- seed
+
+```
+$ go run cmd/seed.go
+```
