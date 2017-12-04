@@ -22,29 +22,30 @@
 
   <h1>チケットの種類をお選びください。</h1>
   <dl class="border">
-  	<div class="movie">
-	  	<dt>作品</dt>
-	  	<dd>あさひなぐ</dd>
-  	</div>
-  	<div class="time">
-	  	<dt>日時</dt>
-	  	<dd>2017年9月26日（火）<br>16:50~18:45</dd>
-  	</div>
-  	<div class="theater">
-	  	<dt>シアター</dt>
-	  	<dd>シアター1</dd>
-  	</div>
+    <div class="movie">
+      <dt>作品</dt>
+      <dd><span id="movie"></span></dd>
+    </div>
+    <div class="time">
+      <dt>日時</dt>
+      <dd><span id="date"></span><br><span id="time"></span></dd>
+    </div>
+    <div class="theater">
+      <dt>シアター</dt>
+      <dd><span id="theater"></span></dd>
+    </div>
   </dl>
 
-<div id="seats"></div>
+  <div id="seats"></div>
 
-<div id="total"></div>  
+  <div id="total"></div>  
 
-<div class="btn">
-  	<a href="seat" class="back">戻る</a>
-  	<a href="payment" class="next">次へ</a>
-</div>
+  <div class="btn">
+  	<span id="back"></span>
+  	<span id="next"></span>
+  </div>
 
-  <script src="js/ticket.js"></script>
+<script src="js/QueryString.js"></script>
+<script src="js/ticket.js"></script>
 </body>
 </html>

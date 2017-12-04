@@ -1,3 +1,13 @@
+//parse 復号化
+var obj = QueryString.parse(null,null,null,true);
+
+//parameter
+var param = QueryString.stringify({"movie":obj.movie,"date":obj.date,"time":obj.time,"theater":obj.theater},null, null,true);
+
+document.getElementById("back").innerHTML = "<a href='ticket?"+param+"' class='back'>戻る</a>";
+
+document.getElementById("next").innerHTML = "<a href='confirm?"+param+"' class='next' onclick='paymentSelect()'>次へ</a>";
+
 function paymentSelect() {
 	var element = document.getElementById('payment').payment;
 

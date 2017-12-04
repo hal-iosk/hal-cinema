@@ -22,15 +22,15 @@
   <dl class="border">
     <div class="movie">
       <dt>作品</dt>
-      <dd>あさひなぐ</dd>
+      <dd><span id="movie"></span></dd>
     </div>
     <div class="time">
       <dt>日時</dt>
-      <dd>2017年9月26日（火）<br>16:50~18:45</dd>
+      <dd><span id="date"></span><br><span id="time"></dd>
     </div>
     <div class="theater">
       <dt>シアター</dt>
-      <dd>シアター1</dd>
+      <dd><span id="theater"></span></dd>
     </div>
   </dl>
 
@@ -40,11 +40,11 @@
 
 
   <div class="btn">
-  	<a href="payment" class="back">戻る</a>
-  	<a href="complete" class="next">次へ</a>
+  	<span id="back"></span>
+    <span id="next"></span>
   </div>
 
+<script src="js/QueryString.js"></script>
 <script src="js/confirm.js"></script>
-
 </body>
 </html>
