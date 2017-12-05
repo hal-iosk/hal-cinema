@@ -49,3 +49,4 @@ dbconfig.yml
 vendor/
 tmp
 main
+admin/node_modules/
