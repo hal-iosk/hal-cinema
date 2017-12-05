@@ -14,7 +14,7 @@ var param = QueryString.stringify({"movie":obj.movie,"date":obj.date,"time":obj.
 
 document.getElementById("back").innerHTML = "<a href='seat?"+param+"' class='back'>戻る</a>";
 
-document.getElementById("next").innerHTML = "<a href='payment?"+param+"' class='next'>次へ</a>";
+document.getElementById("next").innerHTML = "<a href='confirm?"+param+"' class='next'>次へ</a>";
 
 
 //sessionStorageから席番号を取得
