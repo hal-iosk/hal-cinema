@@ -9,21 +9,20 @@ import (
 // 会員テーブル
 type Customer struct {
 	gorm.Model
-	Email            string `gorm:"not null;unique" json:"email"`
-	Password         string `gorm:"not null" json:"password"`
-	FirstName        string `gorm:"not null" json:"first_name"`
-	LastName         string `gorm:"not null" json:"last_name"`
-	FirstNameRead    string `gorm:"not null" json:"first_name_read"`
-	LastNameRead     string `gorm:"not null" json:"last_name_read"`
-	Phone            string `gorm:"not null" json:"phone"`
-	Address          string `gorm:"not null" json:"address"`
-	Birthdate        string `gorm:"not null" json:"birthday"`
-	Magazine         bool   `gorm:"not null" json:"magazine"`
-	PointCount       int64  `gorm:"not null" json:"point_count"`
-	CreditCardName   string `gorm:"not null" json:"credit_card_name"`
-	CreditCardLimit  string `gorm:"not null" json:"credit_card_limit"`
-	CreditCardNumber string `gorm:"not null" json:"credit_card_number"`
-	SecurityCode     string `gorm:"not null" json:"security_code"`
+	Email            string    `gorm:"not null;unique" json:"email"`
+	Password         string    `gorm:"not null" json:"password"`
+	FirstName        string    `gorm:"not null" json:"first_name"`
+	LastName         string    `gorm:"not null" json:"last_name"`
+	FirstNameRead    string    `gorm:"not null" json:"first_name_read"`
+	LastNameRead     string    `gorm:"not null" json:"last_name_read"`
+	Phone            string    `gorm:"not null" json:"phone"`
+	Address          string    `gorm:"not null" json:"address"`
+	Birthdate        time.Time `gorm:"not null" json:"birthday"`
+	Magazine         bool      `gorm:"not null" json:"magazine"`
+	PointCount       int64     `gorm:"not null" json:"point_count"`
+	CreditCardLimit  string    `gorm:"not null" json:"credit_card_limit"`
+	CreditCardNumber string    `gorm:"not null" json:"credit_card_number"`
+	SecurityCode     string    `gorm:"not null" json:"security_code"`
 }
 
 // 管理者テーブル
