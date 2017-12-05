@@ -58,13 +58,15 @@ func viewRouter(r *gin.Engine) {
 	r.GET("/ticket", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "ticket.html", nil)
 	})
-	r.GET("/payment", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "payment.html", nil)
-	})
 	r.GET("/confirm", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "confirm.html", nil)
 	})
 	r.GET("/complete", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "complete.html", nil)
+	})
+
+	// admin
+	r.GET("/admin", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "admin.html", nil)
 	})
 }
