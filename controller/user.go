@@ -57,23 +57,23 @@ func CreateUser(c *gin.Context) {
 
 func (self CustomerReq) create(c *gin.Context) (CustomerReq, error) {
 	var err error
-	self.Email = c.Query("email")
-	self.Password = c.Query("password")
-	self.FirstName = c.Query("first_name")
-	self.LastName = c.Query("last_name")
-	self.FirstNameRead = c.Query("first_name_read")
-	self.LastNameRead = c.Query("last_name_read")
-	self.Phone = c.Query("phone")
-	self.Address = c.Query("address")
-	self.Birthdate, err = time.Parse(DayFormat, c.Query("birthday"))
+	self.Email = c.PostForm("email")
+	self.Password = c.PostForm("password")
+	self.FirstName = c.PostForm("first_name")
+	self.LastName = c.PostForm("last_name")
+	self.FirstNameRead = c.PostForm("first_name_read")
+	self.LastNameRead = c.PostForm("last_name_read")
+	self.Phone = c.PostForm("phone")
+	self.Address = c.PostForm("address")
+	self.Birthdate, err = time.Parse(DayFormat, c.PostForm("birthday"))
 	if err != nil {
 		Batequest("日付けのフォーマットがおかしいよん", c)
 		return self, err
 	}
-	self.Magazine = toBool(c.Query("magazine"))
-	self.CreditCardLimit = c.Query("credit_card_limit")
-	self.CreditCardNumber = c.Query("credit_card_number")
-	self.SecurityCode = c.Query("security_code")
+	self.Magazine = toBool(c.PostForm("magazine"))
+	self.CreditCardLimit = c.PostForm("credit_card_limit")
+	self.CreditCardNumber = c.PostForm("credit_card_number")
+	self.SecurityCode = c.PostForm("security_code")
 	return self, nil
 }
 

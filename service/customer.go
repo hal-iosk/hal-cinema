@@ -22,13 +22,13 @@ func (c customerImpl) Exists(email string) bool {
 	return len(cus) != 0
 }
 
-func (c customerImpl) Logincheck(email, password string) bool {
+func (c customerImpl) Logincheck(email, password string) (*model.Customer, bool) {
 	var customer model.Customer
 	db.Where("email = ?", email).First(&customer)
 	if customer.Email == "" {
-		return false
+		return nil, false
 	}
-	return customer.Password == hash(password)
+	return &customer, customer.Password == hash(password)
 }
 func hash(s string) string {
 	return s
