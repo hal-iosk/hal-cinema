@@ -73,9 +73,9 @@ type Reserve struct {
 // 上映スケジュールテーブル
 type ScreeningSchedule struct {
 	gorm.Model
-	MovieID       string     `gorm:"not null;unique" json:"movie_id"`
-	StartTime     *time.Time `json:"start_time"`
-	TheaterNumber int64      `gorm:"not null" json:"theater_number"`
+	MovieID       uint      `gorm:"not null" json:"movie_id"`
+	StartTime     time.Time `json:"start_time"`
+	TheaterNumber uint      `gorm:"not null" json:"theater_number"`
 }
 
 type Token struct {

@@ -9,7 +9,7 @@
 #
 # ホスト: 127.0.0.1 (MySQL 5.7.20)
 # データベース: halCinema
-# 作成時刻: 2017-12-06 13:51:41 +0000
+# 作成時刻: 2017-12-06 18:03:34 +0000
 # ************************************************************
 
 
@@ -108,7 +108,7 @@ CREATE TABLE `movies` (
   `start_date` timestamp NULL DEFAULT NULL,
   `end_date` timestamp NULL DEFAULT NULL,
   `image_path` varchar(255) NOT NULL,
-  `watch_time` bigint(20) NOT NULL,
+  `watch_time` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_movies_deleted_at` (`deleted_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -166,11 +166,10 @@ CREATE TABLE `screening_schedules` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `movie_id` varchar(255) NOT NULL,
+  `movie_id` int(10) unsigned NOT NULL,
   `start_time` timestamp NULL DEFAULT NULL,
-  `theater_number` bigint(20) NOT NULL,
+  `theater_number` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `movie_id` (`movie_id`),
   KEY `idx_screening_schedules_deleted_at` (`deleted_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -203,6 +202,7 @@ CREATE TABLE `tokens` (
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
 
 -- +migrate Down
 DROP TABLE `administrators`;

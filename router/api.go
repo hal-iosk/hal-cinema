@@ -17,6 +17,8 @@ func apiRouter(api *gin.RouterGroup) {
 	api.GET("/signin", session.UserLoginHandle)
 	api.GET("/movie", controller.GetMovieAll)
 	api.GET("/movie/:movie_id", controller.GetMovie)
+	api.GET("/schedule", controller.GetScheduleAll)
+	api.GET("/schedule/:schedule_id", controller.GetSchedule)
 
 	authApi.POST("/foo", func(c *gin.Context) {
 		userID, _ := c.Get("userID")
@@ -27,4 +29,7 @@ func apiRouter(api *gin.RouterGroup) {
 	authAdmin.POST("/movie", controller.CreateMovie)
 	authAdmin.PUT("/movie/:movie_id", controller.UpdateMovie)
 	authAdmin.DELETE("/movie/:movie_id", controller.DeleteMovie)
+	authAdmin.POST("/schedule", controller.CreateSchedule)
+	authAdmin.PUT("/schedule/:schedule_id", controller.UpdateSchedule)
+	authAdmin.DELETE("/schedule/:schedule_id", controller.DeleteSchedule)
 }
