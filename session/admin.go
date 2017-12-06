@@ -3,6 +3,8 @@ package session
 import (
 	"net/http"
 
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 	"github.com/hal-iosk/hal-cinema/controller"
 	"github.com/hal-iosk/hal-cinema/model"
@@ -13,8 +15,9 @@ import (
 var AdminTokenKey = "halCinemaAdmin"
 
 func AdminLoginHandle(c *gin.Context) {
-	email := c.Query("email")
-	password := c.Query("password")
+	email := c.PostForm("email")
+	password := c.PostForm("password")
+	fmt.Println(email, password)
 	user, ok := service.Customer.Logincheck(email, password)
 	if !ok {
 		controller.Batequest("ログイン失敗", c)
