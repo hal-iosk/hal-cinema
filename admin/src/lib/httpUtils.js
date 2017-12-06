@@ -14,6 +14,10 @@ class HttpUtils {
     return axios.get("/api/movie")
   }
 
+  GetMovieDetail(id) {
+    return axios.get(`/api/movie/${id}`)
+  }
+
 }
 
 export default new HttpUtils;
