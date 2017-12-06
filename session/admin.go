@@ -54,15 +54,9 @@ func AdminAuthViewMiddleware(c *gin.Context) {
 	}
 	c.Set("userID", user.UserID)
 }
-func Admin(c *gin.Context) {
-	token, err := c.Cookie(CustomerTokenKey)
-	if err != nil {
-		c.JSON(http.StatusForbidden, gin.H{
-			"err": "権限がありまてん＾＾;",
-		})
-		c.Abort()
-		return
-	}
+func AdminAuthApiMiddleware(c *gin.Context) {
+	token := c.Query("token")
+	fmt.Println(token)
 	user, ok := tokenCheck(token)
 	if !ok {
 		c.JSON(http.StatusForbidden, gin.H{

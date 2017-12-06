@@ -41,6 +41,28 @@ func CreateMovie(c *gin.Context) {
 	c.JSON(http.StatusOK, movie)
 }
 
+func UpdateMovie(c *gin.Context) {
+	movieID, err := strconv.Atoi(c.Param("movie_id"))
+	if err != nil {
+		Batequest("数値で頼むわ", c)
+		return
+	}
+	if !service.Movie.Exists(uint(movieID)) {
+		c.JSON(http.StatusNotFound, gin.H{
+			"err": "んなもんねーよ！笑",
+		})
+	}
+	movie, ok := createMovieReq(c)
+	if !ok {
+		return
+	}
+	movieRes := service.Movie.Update(uint(movieID), movie)
+	c.JSON(http.StatusOK, movieRes)
+}
+
+func DeleteMovie() {
+
+}
 func createMovieReq(c *gin.Context) (model.Movie, bool) {
 	movie := model.Movie{
 		MovieName: c.PostForm("movie_name"),
@@ -55,6 +77,7 @@ func createMovieReq(c *gin.Context) (model.Movie, bool) {
 	movie.WatchTime = uint(watchTime)
 	movie.StartDate, err = GetDate("start_date", c)
 	if err != nil {
+		panic(err)
 		Batequest("start_date がちゃうで", c)
 		return movie, false
 	}

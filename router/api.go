@@ -11,7 +11,7 @@ func apiRouter(api *gin.RouterGroup) {
 	authApi.Use(session.AuthApiMiddleware)
 	admin := api.Group("/admin")
 	authAdmin := admin.Group("")
-	authAdmin.Use(session.AuthApiMiddleware)
+	authAdmin.Use(session.AdminAuthApiMiddleware)
 
 	api.POST("/signup", controller.CreateUser)
 	api.GET("/signin", session.UserLoginHandle)
@@ -25,4 +25,6 @@ func apiRouter(api *gin.RouterGroup) {
 
 	admin.POST("/signin", session.AdminLoginHandle)
 	authAdmin.POST("/movie", controller.CreateMovie)
+	authAdmin.PUT("/movie/:movie_id", controller.UpdateMovie)
+	authAdmin.DELETE("/movie/:movie_id", controller.DeleteMovie)
 }

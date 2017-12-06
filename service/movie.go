@@ -38,3 +38,7 @@ func (self movieImpl) All() []model.Movie {
 	db.Find(&movies)
 	return movies
 }
+
+func (self movieImpl) Exists(id uint) bool {
+	return self.Find(id) != nil
+}
