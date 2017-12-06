@@ -10,6 +10,10 @@ class HttpUtils {
     return axios.post("/api/admin/signin", params)
   }
 
+  GetMovies() {
+    return axios.get("/api/movie")
+  }
+
 }
 
 export default new HttpUtils;
