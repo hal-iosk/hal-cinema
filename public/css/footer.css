@@ -16,6 +16,7 @@ footer {
     background-color: #404040;
     width: 100%;
     height: 120px;
+    margin-top: 100px;
 }
 
 #footerNav {
@@ -31,7 +32,6 @@ footer {
     height: auto;
     float: left;
     line-height: 100px;
-    padding-top: 10px;
 }
 
 #footerNav li a {

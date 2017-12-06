@@ -1,5 +1,11 @@
 //parse 復号化
 var obj = QueryString.parse(null,null,null,true);
+
+//URLパラメータを変更された時にリダイレクト
+if (obj.theater === undefined) {
+  location.href = "/";
+}
+
 //作品名
 document.getElementById("movie").textContent = obj.movie;
 //日

@@ -4,46 +4,58 @@
   <meta charset="UTF-8">
   <title>購入内容確認|HALシネマ</title>
   <link rel="stylesheet" href="css/confirm.css">
+  <link rel="stylesheet" href="css/footer.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
+<div id="container">
+  <div id="main">
+    <ul class="navigation">
+    	<li class="navi word">STEP1：<br>座席選択</li>
+      <li class="navi arrow">＞</li>
+      <li class="navi word">STEP2：<br>チケット選択</li>
+      <li class="navi arrow">＞</li>
+      <li class="navi word">STEP3：<br>ご購入内容の確認</li>
+      <li class="navi arrow">＞</li>
+      <li class="navi word">STEP4：<br>購入完了</li>
+    </ul>
 
-  <ul class="navigation">
-  	<li class="navi word">STEP1：<br>座席・チケット選択</li>
-  	<li class="navi arrow">＞</li>
-  	<li class="navi word">STEP2：<br>お支払情報入力</li>
-  	<li class="navi arrow">＞</li>
-  	<li class="navi word">STEP3：<br>ご購入内容の確認</li>
-  	<li class="navi arrow">＞</li>
-  	<li class="navi word">STEP4：<br>購入完了</li>
-  </ul>
+    <h1>ご購入内容を確認してください。</h1>
+    <dl class="border">
+      <div class="movie">
+        <dt>作品</dt>
+        <dd><span id="movie"></span></dd>
+      </div>
+      <div class="time">
+        <dt>日時</dt>
+        <dd><span id="date"></span><br><span id="time"></dd>
+      </div>
+      <div class="theater">
+        <dt>シアター</dt>
+        <dd><span id="theater"></span></dd>
+      </div>
+    </dl>
 
-  <h1>ご購入内容を確認してください。</h1>
-  <dl class="border">
-    <div class="movie">
-      <dt>作品</dt>
-      <dd><span id="movie"></span></dd>
+    <div id="seats"></div>
+    <div class='border'><p><span class='payment'>クレジットカード</span><span class='detail'>xxxx-xxxx-xxxx-1111</span></p></div>
+    <div id="price"><span class="total">合計</span><span class="yen">1800円</span></div>
+
+
+    <div class="btn">
+    	<span id="back"></span>
+      <span id="next"></span>
     </div>
-    <div class="time">
-      <dt>日時</dt>
-      <dd><span id="date"></span><br><span id="time"></dd>
-    </div>
-    <div class="theater">
-      <dt>シアター</dt>
-      <dd><span id="theater"></span></dd>
-    </div>
-  </dl>
-
-  <div id="seats"></div>
-  <div class='border'><p><span class='payment'>クレジットカード</span><span class='detail'>xxxx-xxxx-xxxx-1111</span></p></div>
-  <div id="price"><span class="total">合計</span><span class="yen">1800円</span></div>
-
-
-  <div class="btn">
-  	<span id="back"></span>
-    <span id="next"></span>
   </div>
-
+<footer>
+    <ul id="footerNav">
+        <li><a href="">企業情報</a></li>
+        <li><a href="">サイトマップ</a></li>
+        <li><a href="">個人情報の取扱いについて</a></li>
+        <li><a href="">特定商取引法に基づく表記</a></li>
+        <li><a href="">ご利用に際して</a></li>
+    </ul>
+</footer>
+</div>
 <script src="js/QueryString.js"></script>
 <script src="js/confirm.js"></script>
 </body>

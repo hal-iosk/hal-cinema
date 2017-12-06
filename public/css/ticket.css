@@ -14,7 +14,7 @@ html {
 }
 
 .navigation {
-	padding-left: 300px;
+	padding-left: 370px;
 	font-size: 20px;
 }
 
@@ -23,17 +23,17 @@ html {
 	float: left;
 }
 
-.navi:nth-child(1) {
-	color: red;
-}
-
-.navi:nth-child(n+2) {
+.navi:nth-child(n+1) {
 	color: #9B9B9B;
 }
 
 .word {
 	padding-top: 20px;
 	font-weight: bold;
+}
+
+.word:nth-child(3) {
+    color: red;
 }
 
 .arrow {
@@ -206,4 +206,8 @@ ul {
 	font-size: 20px;	
 	white-space: nowrap;
 	text-align: right;
+}
+
+footer {
+	margin-top: 105px;
 }
