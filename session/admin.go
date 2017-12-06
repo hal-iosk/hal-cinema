@@ -44,12 +44,8 @@ func AdminSetCookie(userID uint, c *gin.Context) string {
 }
 
 func AdminAuthViewMiddleware(c *gin.Context) {
-	token, err := c.Cookie(AdminTokenKey)
-	if err != nil {
-		c.Redirect(300, "/login")
-		c.Abort()
-		return
-	}
+	token := c.Query("token")
+
 	user, ok := tokenCheck(token)
 	if !ok {
 		c.Redirect(300, "/login")
