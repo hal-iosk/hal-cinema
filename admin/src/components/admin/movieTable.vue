@@ -6,7 +6,6 @@
       :striped="true"
       :narrowed="false"
       :hoverable="true"
-      :loading="isLoading"
       :mobile-cards="true"
     >
       <template slot-scope="props">

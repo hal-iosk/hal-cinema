@@ -1,5 +1,4 @@
 function CookieManager() {}
-
 CookieManager.prototype.getCookie = function(name) {
   var result = null;
   var cookieName = name + '=';
@@ -19,3 +18,12 @@ CookieManager.prototype.getCookie = function(name) {
 }
 
 window.cookieManager = new CookieManager();
+
+function AuthManager() {}
+AuthManager.prototype.isLogin = function() {
+  var cookieManager = new CookieManager();
+  var value = cookieManager.getCookie("halCinemaUser");
+  return !(!value || value === "")
+}
+
+window.AuthManager = new AuthManager();

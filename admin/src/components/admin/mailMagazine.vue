@@ -10,6 +10,11 @@
 <script>
 export default {
   name: "mailMagazine",
+  data() {
+    return {
+      text: ""
+    }
+  },
   methods: {
     toast() {
       const text = this.text
