@@ -5,29 +5,27 @@
 
       <h1>HAL CINEMA Admin</h1>
 
-        <form action="/api/admin/signin" method="post">
-          <b-field
-            label="Email"
-          >
-            <b-input
-              type="email"
-              maxlength="30"
-              v-model="email"
-            />
-          </b-field>
+      <b-field
+        label="Email"
+      >
+        <b-input
+          type="email"
+          maxlength="30"
+          v-model="email"
+        />
+      </b-field>
 
-          <b-field
-            label="Password"
-          >
-            <b-input
-              type="password"
-              maxlength="30"
-              v-model="password"
-            />
-          </b-field>
+      <b-field
+        label="Password"
+      >
+        <b-input
+          type="password"
+          maxlength="30"
+          v-model="password"
+        />
+      </b-field>
 
-          <button class="button is-primary login-button" type="submit" @click="openLoading">ログイン</button>
-        </form>
+      <button class="button is-primary login-button">ログイン</button>
 
     </section>
 
@@ -48,7 +46,7 @@ export default {
     }
   },
   methods: {
-    openLoading() {
+    onSubmit(e) {
       const email = this.email.trim()
       const password = this.password.trim()
 
@@ -70,13 +68,12 @@ export default {
 
       httpUtils.Login(email, password)
       .then((res) => {
-        const token = res.data.token
-        document.cookie = cookie.serialize("halCinemaAdmin", token)
-        location.href = "/admin";
+        console.log(res)
       })
       .catch((err) => {
-        console.error(err);
-      });
+        console.log(err);
+      })
+
     }
   }
 }
