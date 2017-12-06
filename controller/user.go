@@ -62,7 +62,7 @@ func (self CustomerReq) create(c *gin.Context) (CustomerReq, error) {
 	self.LastNameRead = c.PostForm("last_name_read")
 	self.Phone = c.PostForm("phone")
 	self.Address = c.PostForm("address")
-	self.Birthdate, err = time.Parse(DayFormat, c.PostForm("birthday"))
+	self.Birthdate, err = GetDate("birthday", c)
 	if err != nil {
 		Batequest("日付けのフォーマットがおかしいよん", c)
 		return self, err

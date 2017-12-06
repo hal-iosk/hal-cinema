@@ -50,7 +50,7 @@ type Movie struct {
 	StartDate time.Time `json:"start_date"`
 	EndDate   time.Time `json:"end_date"`
 	ImagePath string    `gorm:"not null" json:"image_path"`
-	WatchTime int64     `gorm:"not null" json:"watch_time"`
+	WatchTime uint      `gorm:"not null" json:"watch_time"`
 }
 
 // 料金テーブル

@@ -32,18 +32,37 @@ func GetMovie(c *gin.Context) {
 	c.JSON(http.StatusOK, movie)
 }
 
-func CreateMovie(c *gin.Context) model.Movie {
+func CreateMovie(c *gin.Context) {
+	movie, ok := createMovieReq(c)
+	if !ok {
+		return
+	}
+	movie = service.Movie.Create(movie)
+	c.JSON(http.StatusOK, movie)
+}
+
+func createMovieReq(c *gin.Context) (model.Movie, bool) {
 	movie := model.Movie{
 		MovieName: c.PostForm("movie_name"),
 		Details:   c.PostForm("details"),
 		ImagePath: c.PostForm("image_path"),
 	}
-	//movie.WatchTime = strconv.Atoi(c.PostForm(""))
-	//movie.StartDate
-	//movie.EndDate
-	return movie
-}
+	watchTime, err := strconv.Atoi(c.PostForm("watch_time"))
+	if err != nil {
+		Batequest("watch_time 数字入れろカス〜", c)
+		return movie, false
+	}
+	movie.WatchTime = uint(watchTime)
+	movie.StartDate, err = GetDate("start_date", c)
+	if err != nil {
+		Batequest("start_date がちゃうで", c)
+		return movie, false
+	}
+	movie.EndDate, err = GetDate("end_date", c)
+	if err != nil {
+		Batequest("end_date がちゃうで", c)
+		return movie, false
+	}
 
-func MovieCreate(c *gin.Context) {
-
+	return movie, true
 }

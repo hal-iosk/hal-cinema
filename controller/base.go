@@ -3,6 +3,8 @@ package controller
 import (
 	"net/http"
 
+	"time"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -14,4 +16,12 @@ func Batequest(msg string, c *gin.Context) {
 		"err": msg,
 	})
 	c.Abort()
+}
+
+func GetDate(key string, c *gin.Context) (time.Time, error) {
+	return time.Parse(DayFormat, c.PostForm("key"))
+}
+
+func GetDateTime(key string, c *gin.Context) (time.Time, error) {
+	return time.Parse(TimeFormat, c.PostForm("key"))
 }
