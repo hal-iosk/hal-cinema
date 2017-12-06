@@ -23,9 +23,11 @@ func AdminLoginHandle(c *gin.Context) {
 		controller.Batequest("ログイン失敗", c)
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{
-		"token": AdminSetCookie(user.ID, c),
-	})
+	//c.JSON(http.StatusOK, gin.H{
+	//	"token": AdminSetCookie(user.ID, c),
+	//})
+	AdminSetCookie(user.ID, c)
+	c.Redirect(300, "/admin")
 }
 
 func AdminSetCookie(userID uint, c *gin.Context) string {

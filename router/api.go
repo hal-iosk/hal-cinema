@@ -14,7 +14,7 @@ func apiRouter(api *gin.RouterGroup) {
 	authAdmin.Use(session.AuthApiMiddleware)
 
 	api.POST("/signup", controller.CreateUser)
-	api.POST("/signin", session.UserLoginHandle)
+	api.GET("/signin", session.UserLoginHandle)
 
 	authApi.POST("/foo", func(c *gin.Context) {
 		userID, _ := c.Get("userID")
@@ -22,6 +22,7 @@ func apiRouter(api *gin.RouterGroup) {
 	})
 
 	admin.POST("/signin", session.AdminLoginHandle)
+
 	authAdmin.POST("/test", func(c *gin.Context) {
 		id, _ := c.Get("userID")
 		c.JSON(200, gin.H{
