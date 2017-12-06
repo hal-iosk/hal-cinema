@@ -16,6 +16,7 @@ func apiRouter(api *gin.RouterGroup) {
 	api.POST("/signup", controller.CreateUser)
 	api.GET("/signin", session.UserLoginHandle)
 	api.GET("/movie", controller.GetMovieAll)
+	api.GET("/movie/:movie_id", controller.GetMovie)
 
 	authApi.POST("/foo", func(c *gin.Context) {
 		userID, _ := c.Get("userID")
@@ -23,11 +24,5 @@ func apiRouter(api *gin.RouterGroup) {
 	})
 
 	admin.POST("/signin", session.AdminLoginHandle)
-
-	authAdmin.POST("/test", func(c *gin.Context) {
-		id, _ := c.Get("userID")
-		c.JSON(200, gin.H{
-			"err": id,
-		})
-	})
+	authAdmin.POST("/movie", controller.CreateMovie)
 }

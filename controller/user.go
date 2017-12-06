@@ -8,9 +8,6 @@ import (
 	"github.com/hal-iosk/hal-cinema/service"
 )
 
-var DayFormat = "2006/01/02"
-var TimeFormat = "2006-01-02 15:04:05"
-
 type CustomerReq struct {
 	Email            string    `gorm:"not null;unique" json:"email"`
 	Password         string    `gorm:"not null" json:"password"`
