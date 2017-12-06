@@ -23,8 +23,9 @@ func apiRouter(api *gin.RouterGroup) {
 
 	admin.POST("/signin", session.AdminLoginHandle)
 	authAdmin.POST("/test", func(c *gin.Context) {
+		id, _ := c.Get("userID")
 		c.JSON(200, gin.H{
-			"err": c.Get("userID"),
+			"err": id,
 		})
 	})
 }
