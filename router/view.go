@@ -66,10 +66,11 @@ func viewRouter(r *gin.Engine) {
 	})
 
 	// admin
-	r.GET("/admin/login", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "adminLogin.html", nil)
-	})
-	r.GET("/admin", func(c *gin.Context) {
+	r.GET("/admin/:path", func(c *gin.Context) {
+		path := c.Param("path")
+		if path == "login" {
+			c.HTML(http.StatusOK, "adminLogin.html", nil)
+		}
 		c.HTML(http.StatusOK, "adminCtrl.html", nil)
 	})
 }
