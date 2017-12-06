@@ -14,7 +14,7 @@ html {
 }
 
 .navigation {
-	padding-left: 300px;
+	padding-left: 370px;
 	font-size: 20px;
 }
 
@@ -115,4 +115,8 @@ dt {
 .btn {
 	padding-top: 200px;
 	padding-left: 400px;
+}
+
+footer {
+	margin-top: 105px;
 }
