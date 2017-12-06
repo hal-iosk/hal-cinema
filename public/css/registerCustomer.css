@@ -79,9 +79,10 @@ border-bottom: 1px solid #e0e0e0;
 .input{
     margin:20px 0;
     width: 810px;
+    clear: left;
 }
 .inputBox{
-    margin:20px;
+    margin:40px 20px;
 }
 .text{
     width: 90%;
@@ -120,4 +121,21 @@ select{
 }
 .submit:hover{
     background-color: #CD1111;
+}
+.validation{
+    color:#CD1111;
+    text-align:right;
+    margin:5px;
+}
+#textBox{
+    width:100%;
+    overflow: hidden;
+}
+.nameBox{
+    width:40%;
+    float:left;
+    margin:20px;
+}
+.namearea{
+    width:100%;
 }
