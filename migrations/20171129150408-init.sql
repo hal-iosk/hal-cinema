@@ -9,7 +9,7 @@
 #
 # ホスト: 127.0.0.1 (MySQL 5.7.20)
 # データベース: halCinema
-# 作成時刻: 2017-12-06 02:51:42 +0000
+# 作成時刻: 2017-12-06 13:51:41 +0000
 # ************************************************************
 
 
@@ -103,13 +103,12 @@ CREATE TABLE `movies` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  `image_path` varchar(255) NOT NULL,
   `movie_name` varchar(255) NOT NULL,
   `details` varchar(255) NOT NULL,
   `start_date` timestamp NULL DEFAULT NULL,
   `end_date` timestamp NULL DEFAULT NULL,
+  `image_path` varchar(255) NOT NULL,
   `watch_time` bigint(20) NOT NULL,
-  `administrator_id` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_movies_deleted_at` (`deleted_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -128,7 +127,7 @@ CREATE TABLE `prices` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   `customer_type` varchar(255) NOT NULL,
   `price` bigint(20) NOT NULL,
-  `last_updated_administrator_id` varchar(255) NOT NULL,
+  `last_updated_administrator_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_prices_deleted_at` (`deleted_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -170,7 +169,6 @@ CREATE TABLE `screening_schedules` (
   `movie_id` varchar(255) NOT NULL,
   `start_time` timestamp NULL DEFAULT NULL,
   `theater_number` bigint(20) NOT NULL,
-  `last_updated_administrator_id` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `movie_id` (`movie_id`),
   KEY `idx_screening_schedules_deleted_at` (`deleted_at`)
@@ -194,7 +192,7 @@ CREATE TABLE `tokens` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `token` (`token`),
   KEY `idx_tokens_deleted_at` (`deleted_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
