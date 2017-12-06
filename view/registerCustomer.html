@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>hal-cinema | 会員登録</title>
 
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" href="/css/registerCustomer.css">
+  <link rel="stylesheet" href="../public/css/footer.css">
+  <link rel="stylesheet" href="../public/css/registerCustomer.css">
 </head>
 
 <body>
@@ -112,10 +112,14 @@
               </h2>
               <div class="form-group">
                 <div class="form-content col-sm-10">
-                  <select class="form-control setDay num4" id="year" name="yaer"></select> 年
-                  <select class="form-control setDay num2" id="month" name="month"></select> 月
-                  <select class="form-control setDay num2" id="date" name="date"></select> 日
+                  <select class="form-control setDay num4 js-changeYear" id="year" name="yaer"></select> 年
+                  <select class="form-control setDay num2 js-changeMonth" id="month" name="month"></select> 月
+                  <select class="form-control setDay num2 js-changeDay" id="date" name="date"></select> 日
                   <input type="hidden" id="birthday" value="1990-01-01" />
+                  <br>
+                  <span id="e_birth" class="validation">
+                      <!--エラーメッセージ入る-->
+                    </span>
                 </div>
               </div>
               <div class="input">
@@ -164,12 +168,14 @@
                   <div class="crGroup">
                     <div class="form-content col-sm-10">
                       <p>有効期限</p>
-                      <select class="form-control setDay num2" id="crMonth">
-                        <option value=""></option>
+                      <select class="form-control setDay num2" id="limitMonth">
                       </select> 月/
-                      <select class="form-control setDay num2" id="crYear">
-                        <option value=""></option>
+                      <select class="form-control setDay num2" id="limitYear">
                       </select> 年
+                      <br>
+                      <span id="e_limit" class="validation">
+                        <!--エラーメッセージ入る-->
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -201,11 +207,12 @@
       </ul>
     </footer>
   </div>
-  <script src="/js/script.js"></script>
-  <script src="/js/registerCustomer.js"></script>
-  <script src="js/jquery-validation.js"></script>
-  <script src="/js/el_validation.js"></script>
-  <script src="/js/validation.js"></script>
+  <script src="../public/js/script.js"></script>
+  <script src="../public/js/moment.js"></script>
+  <script src="../public/js/registerCustomer.js"></script>
+  <script src="../public/js/jquery-validation.js"></script>
+  <script src="../public/js/el_validation.js"></script>
+  <script src="../public/js/validation.js"></script>
 </body>
 
 </html>
