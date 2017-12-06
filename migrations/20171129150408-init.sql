@@ -190,9 +190,11 @@ CREATE TABLE `tokens` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   `admin_flag` tinyint(1) NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
+  `token` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `token` (`token`),
   KEY `idx_tokens_deleted_at` (`deleted_at`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 
 
