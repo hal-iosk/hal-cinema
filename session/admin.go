@@ -23,10 +23,12 @@ func AdminLoginHandle(c *gin.Context) {
 		controller.Batequest("ログイン失敗", c)
 		return
 	}
-	AdminSetCookie(user.ID, c)
+	c.JSON(http.StatusOK, gin.H{
+		"token": AdminSetCookie(user.ID, c),
+	})
 }
 
-func AdminSetCookie(userID uint, c *gin.Context) {
+func AdminSetCookie(userID uint, c *gin.Context) string {
 	uid := uuid.NewV4().String()
 	token := model.Token{
 		AdminFlag: false,
@@ -38,6 +40,7 @@ func AdminSetCookie(userID uint, c *gin.Context) {
 		panic(err)
 	}
 	http.SetCookie(c.Writer, &http.Cookie{Name: AdminTokenKey, Value: uid})
+	return uid
 }
 
 func AdminAuthViewMiddleware(c *gin.Context) {

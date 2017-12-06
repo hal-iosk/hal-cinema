@@ -21,10 +21,12 @@ func UserLoginHandle(c *gin.Context) {
 		controller.Batequest("ログイン失敗", c)
 		return
 	}
-	SetCookie(user.ID, c)
+	c.JSON(http.StatusOK, gin.H{
+		"token": SetCookie(user.ID, c),
+	})
 }
 
-func SetCookie(userID uint, c *gin.Context) {
+func SetCookie(userID uint, c *gin.Context) string {
 	uid := uuid.NewV4().String()
 	token := model.Token{
 		AdminFlag: false,
@@ -36,6 +38,7 @@ func SetCookie(userID uint, c *gin.Context) {
 		panic(err)
 	}
 	http.SetCookie(c.Writer, &http.Cookie{Name: CustomerTokenKey, Value: uid})
+	return uid
 }
 
 func AuthViewMiddleware(c *gin.Context) {
