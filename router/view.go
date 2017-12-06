@@ -45,7 +45,7 @@ func viewRouter(r *gin.Engine) {
 		c.HTML(http.StatusOK, "seniorDay.html", nil)
 	})
 	r.GET("/watchFirm", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "watchFirm.html", nil)
+		c.HTML(http.StatusOK, "watchFilm.html", nil)
 	})
 
 	// おーえっち
