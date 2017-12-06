@@ -33,8 +33,9 @@
           {{ props.row.watch_time }}分
         </b-table-column>
 
-        <b-table-column label="">
-          <button class="button">編集</button>
+        <b-table-column>
+          <button class="button" @click="moveSchedule(props.row.id)" style="margin-bottom: 10px;">スケジュール</button>
+          <button class="button" @click="movieEdit(props.row.id)">編集</button>
         </b-table-column>
 
       </template>
@@ -61,6 +62,14 @@ import vueStore from '../../vuex'
 
 export default {
   name: "movieTable",
+  methods: {
+    movieEdit(id) {
+      this.$router.push({ path: `/admin/movieedit/${id}` })
+    },
+    moveSchedule(id) {
+      this.$router.push({ path: `/admin/movieedit/${id}` })
+    }
+  },
   data() {
     const tableDataSimple = [
       {
@@ -115,8 +124,6 @@ export default {
     return {
       tableDataSimple
     }
-  },
-  methods: {
   }
 }
 </script>
