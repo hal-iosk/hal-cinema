@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="logout">
-      <button class="button is-danger">ログアウト</button>
+      <button class="button is-danger" @click="logout">ログアウト</button>
     </div>
     <b-tabs v-model="activeTab">
 
@@ -25,6 +25,7 @@
 import MovieTable from './movieTable.vue'
 import SalesManage from './salesManage.vue'
 import MailMagazine from './mailMagazine.vue'
+import CookieDoc from '../../lib/CookieDoc'
 
 export default {
   name: "admin",
@@ -36,6 +37,12 @@ export default {
   data() {
     return {
       activeTab: 0
+    }
+  },
+  methods: {
+    logout() {
+      CookieDoc.removeItem("halCinemaAdmin")
+      location.pathname = "/admin/login"
     }
   }
 }
