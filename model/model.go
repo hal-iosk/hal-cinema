@@ -1,27 +1,28 @@
 package model
 
 import (
+	"time"
+
 	"github.com/jinzhu/gorm"
 )
 
 // 会員テーブル
 type Customer struct {
 	gorm.Model
-	Password         string `gorm:"not null" json:"password"`
-	FirstName        string `gorm:"not null" json:"first_name"`
-	LastName         string `gorm:"not null" json:"last_name"`
-	FirstNameRead    string `gorm:"not null" json:"first_name_read"`
-	LastNameRead     string `gorm:"not null" json:"last_name_read"`
-	Phone            string `gorm:"not null" json:"phone"`
-	Email            string `gorm:"not null;unique" json:"email"`
-	Address          string `gorm:"not null" json:"address"`
-	Birthdate        string `gorm:"not null" json:"birthday"`
-	Magazine         bool   `gorm:"not null" json:"magazine"`
-	PointCount       int64  `gorm:"not null" json:"point_count"`
-	CreditCardName   string `gorm:"not null" json:"credit_card_name"`
-	CreditCardLimit  string `gorm:"not null" json:"credit_card_limit"`
-	CreditCardNumber string `gorm:"not null" json:"credit_card_number"`
-	SecurityCode     string `gorm:"not null" json:"security_code"`
+	Email            string    `gorm:"not null;unique" json:"email"`
+	Password         string    `gorm:"not null" json:"password"`
+	FirstName        string    `gorm:"not null" json:"first_name"`
+	LastName         string    `gorm:"not null" json:"last_name"`
+	FirstNameRead    string    `gorm:"not null" json:"first_name_read"`
+	LastNameRead     string    `gorm:"not null" json:"last_name_read"`
+	Phone            string    `gorm:"not null" json:"phone"`
+	Address          string    `gorm:"not null" json:"address"`
+	Birthdate        time.Time `gorm:"not null" json:"birthday"`
+	Magazine         bool      `gorm:"not null" json:"magazine"`
+	PointCount       int64     `gorm:"not null" json:"point_count"`
+	CreditCardLimit  string    `gorm:"not null" json:"credit_card_limit"`
+	CreditCardNumber string    `gorm:"not null" json:"credit_card_number"`
+	SecurityCode     string    `gorm:"not null" json:"security_code"`
 }
 
 // 管理者テーブル
@@ -52,11 +53,13 @@ type Earning struct {
 // 映画テーブル
 type Movie struct {
 	gorm.Model
-	MovieName       string `gorm:"not null" json:"movie_name"`
-	StartDate       string `gorm:"not null" json:"start_date"`
-	EndDate         string `gorm:"not null" json:"end_date"`
-	WatchTime       int64  `gorm:"not null" json:"watch_time"`
-	AdministratorID string `gorm:"not null" json:"administrator_id"`
+	ImagePath       string    `gorm:"not null" json:"image_path"`
+	MovieName       string    `gorm:"not null" json:"movie_name"`
+	Details         string    `gorm:"not null" json:"details"`
+	StartDate       time.Time `gorm:"not null" json:"start_date"`
+	EndDate         time.Time `gorm:"not null" json:"end_date"`
+	WatchTime       int64     `gorm:"not null" json:"watch_time"`
+	AdministratorID string    `gorm:"not null" json:"administrator_id"`
 }
 
 // 料金テーブル
@@ -70,25 +73,17 @@ type Price struct {
 // 予約テーブル
 type Reserve struct {
 	gorm.Model
-	ReserveNumber  int64  `gorm:"not null" json:"reserve_number"`
-	MovieName      string `gorm:"not null" json:"movie_name"`
-	ReserveTime    string `gorm:"not null" json:"reserve_time"`
-	WatchDate      string `gorm:"not null" json:"watch_date"`
-	WatchStartTime string `gorm:"not null" json:"watch_start_time"`
-	TicketTime     string `gorm:"not null" json:"ticket_time"`
-	TheaterNumber  int64  `gorm:"not null" json:"theater_number"`
-	PriceID        string `gorm:"not null;unique" json:"price_id"`
-	SeatNumber     string `gorm:"not null" json:"seat_number"`
-	CustomerID     string `gorm:"not null;unique" json:"customer_id"`
-	CancelCheck    bool   `gorm:"not null" json:"cancel_check"`
+	PriceID     string `gorm:"not null;unique" json:"price_id"`
+	SeatNumber  string `gorm:"not null" json:"seat_number"`
+	CustomerID  string `gorm:"not null;unique" json:"customer_id"`
+	CancelCheck bool   `gorm:"not null" json:"cancel_check"`
 }
 
 // 上映スケジュールテーブル
 type ScreeningSchedule struct {
 	gorm.Model
-	MovieID                    string `gorm:"not null;unique" json:"movie_id"`
-	WatchStartTime             string `gorm:"not null" json:"watch_start_time"`
-	WatchDate                  string `gorm:"not null" json:"watch_date"`
-	TheaterNumber              int64  `gorm:"not null" json:"theater_number"`
-	LastUpdatedAdministratorID string `gorm:"not null" json:"last_updated_administrator_id"`
+	MovieID                    string    `gorm:"not null;unique" json:"movie_id"`
+	StartTime                  time.Time `gorm:"not null" json:"start_time"`
+	TheaterNumber              int64     `gorm:"not null" json:"theater_number"`
+	LastUpdatedAdministratorID string    `gorm:"not null" json:"last_updated_administrator_id"`
 }

@@ -1,5 +1,11 @@
 //parse 復号化
 var obj = QueryString.parse(null,null,null,true);
+
+//URLパラメータを変更された時にリダイレクト
+if (obj.theater === undefined) {
+  location.href = "/";
+}
+
 //作品名
 document.getElementById("movie").textContent = obj.movie;
 //日
@@ -14,7 +20,7 @@ var param = QueryString.stringify({"movie":obj.movie,"date":obj.date,"time":obj.
 
 document.getElementById("back").innerHTML = "<a href='seat?"+param+"' class='back'>戻る</a>";
 
-document.getElementById("next").innerHTML = "<a href='payment?"+param+"' class='next'>次へ</a>";
+document.getElementById("next").innerHTML = "<a href='confirm?"+param+"' class='next'>次へ</a>";
 
 
 //sessionStorageから席番号を取得

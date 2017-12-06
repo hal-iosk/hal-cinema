@@ -14,7 +14,7 @@ html {
 }
 
 .navigation {
-	padding-left: 300px;
+	padding-left: 370px;
 	font-size: 20px;
 }
 
@@ -64,7 +64,7 @@ h1 {
 
 img {
     margin-top: 100px;
-    margin-left: 550px;
+    margin-left: 560px;
 }
 
 .top {
@@ -85,12 +85,16 @@ img {
 }
 
 .btn {
-    padding-top: 150px;
+    padding-top: 130px;
     padding-left: 430px;
 }
 
 .text {
-    font-size: 34px;
-    margin-left: 250px;
+    font-size: 30px;
+    margin-top: 70px;
+    margin-left: 290px;
 }
 
+footer {
+    margin-top: 105px;
+}

@@ -4,47 +4,60 @@
   <meta charset="UTF-8">
   <title>チケット選択|HALシネマ</title>
   <link rel="stylesheet" href="css/ticket.css">
+  <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/remodal.css">
   <link rel="stylesheet" href="css/remodal-default-theme.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="js/remodal.min.js"></script>
 </head>
 <body>
-  <ul class="navigation">
-  	<li class="navi word">STEP1：<br>座席・チケット選択</li>
-  	<li class="navi arrow">＞</li>
-  	<li class="navi word">STEP2：<br>お支払情報入力</li>
-  	<li class="navi arrow">＞</li>
-  	<li class="navi word">STEP3：<br>ご購入内容の確認</li>
-  	<li class="navi arrow">＞</li>
-  	<li class="navi word">STEP4：<br>購入完了</li>
-  </ul>
+<div id="container">
+  <div id="main">
+    <ul class="navigation">
+    	<li class="navi word">STEP1：<br>座席選択</li>
+      <li class="navi arrow">＞</li>
+      <li class="navi word">STEP2：<br>チケット選択</li>
+      <li class="navi arrow">＞</li>
+      <li class="navi word">STEP3：<br>ご購入内容の確認</li>
+      <li class="navi arrow">＞</li>
+      <li class="navi word">STEP4：<br>購入完了</li>
+    </ul>
 
-  <h1>チケットの種類をお選びください。</h1>
-  <dl class="border">
-    <div class="movie">
-      <dt>作品</dt>
-      <dd><span id="movie"></span></dd>
+    <h1>チケットの種類をお選びください。</h1>
+    <dl class="border">
+      <div class="movie">
+        <dt>作品</dt>
+        <dd><span id="movie"></span></dd>
+      </div>
+      <div class="time">
+        <dt>日時</dt>
+        <dd><span id="date"></span><br><span id="time"></span></dd>
+      </div>
+      <div class="theater">
+        <dt>シアター</dt>
+        <dd><span id="theater"></span></dd>
+      </div>
+    </dl>
+
+    <div id="seats"></div>
+
+    <div id="total"></div>  
+
+    <div class="btn">
+    	<span id="back"></span>
+    	<span id="next"></span>
     </div>
-    <div class="time">
-      <dt>日時</dt>
-      <dd><span id="date"></span><br><span id="time"></span></dd>
-    </div>
-    <div class="theater">
-      <dt>シアター</dt>
-      <dd><span id="theater"></span></dd>
-    </div>
-  </dl>
-
-  <div id="seats"></div>
-
-  <div id="total"></div>  
-
-  <div class="btn">
-  	<span id="back"></span>
-  	<span id="next"></span>
   </div>
-
+  <footer>
+    <ul id="footerNav">
+        <li><a href="">企業情報</a></li>
+        <li><a href="">サイトマップ</a></li>
+        <li><a href="">個人情報の取扱いについて</a></li>
+        <li><a href="">特定商取引法に基づく表記</a></li>
+        <li><a href="">ご利用に際して</a></li>
+    </ul>
+</footer>
+</div>
 <script src="js/QueryString.js"></script>
 <script src="js/ticket.js"></script>
 </body>
