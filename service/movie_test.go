@@ -10,8 +10,6 @@ import (
 	"github.com/hal-iosk/hal-cinema/model"
 )
 
-var loc, _ = time.LoadLocation("Asia/Tokyo")
-
 func TestMovieImpl_Create(t *testing.T) {
 	Movie.Create(model.Movie{
 		MovieName: "君の名は",
