@@ -1,6 +1,9 @@
 package main
 
-import "github.com/hal-iosk/hal-cinema/model"
+import (
+	"github.com/hal-iosk/hal-cinema/model"
+	"github.com/hal-iosk/hal-cinema/service"
+)
 
 var db = model.GetDBConn()
 
@@ -18,4 +21,12 @@ func main() {
 	db.Exec("INSERT INTO `prices` (`customer_type`, `price`, `last_updated_administrator_id`) VALUES ('小中学生', 800, '0');")
 	db.Exec("INSERT INTO `prices` (`customer_type`, `price`, `last_updated_administrator_id`) VALUES ('幼児', 500, '0');")
 	db.Exec("INSERT INTO `prices` (`customer_type`, `price`, `last_updated_administrator_id`) VALUES ('3D専用メガネ代', 300, '0');")
+
+	service.Admin.Create(model.Administrator{
+		Email:     "hoge@gmail.com",
+		Password:  "hoge",
+		FirstName: "葛巻",
+		LastName:  "大樹",
+		Phone:     "09096220908",
+	})
 }

@@ -10,13 +10,12 @@ import (
 	"github.com/satori/go.uuid"
 )
 
-var db = model.GetDBConn()
-var CustomerTokenKey = "halCinemaUser"
+var AdminTokenKey = "halCinemaAdmin"
 
-func UserLoginHandle(c *gin.Context) {
+func AdminLoginHandle(c *gin.Context) {
 	email := c.Query("email")
 	password := c.Query("password")
-	user, ok := service.Admin.Logincheck(email, password)
+	user, ok := service.Customer.Logincheck(email, password)
 	if !ok {
 		controller.Batequest("ログイン失敗", c)
 		return
@@ -24,7 +23,7 @@ func UserLoginHandle(c *gin.Context) {
 	SetCookie(user.ID, c)
 }
 
-func SetCookie(userID uint, c *gin.Context) {
+func AdminSetCookie(userID uint, c *gin.Context) {
 	uid := uuid.NewV4().String()
 	token := model.Token{
 		AdminFlag: false,
@@ -35,11 +34,11 @@ func SetCookie(userID uint, c *gin.Context) {
 	if err != nil {
 		panic(err)
 	}
-	http.SetCookie(c.Writer, &http.Cookie{Name: CustomerTokenKey, Value: uid})
+	http.SetCookie(c.Writer, &http.Cookie{Name: AdminTokenKey, Value: uid})
 }
 
-func AuthViewMiddleware(c *gin.Context) {
-	token, err := c.Cookie(CustomerTokenKey)
+func AdminAuthViewMiddleware(c *gin.Context) {
+	token, err := c.Cookie(AdminTokenKey)
 	if err != nil {
 		c.Redirect(300, "/login")
 		c.Abort()
@@ -53,7 +52,7 @@ func AuthViewMiddleware(c *gin.Context) {
 	}
 	c.Set("userID", user.UserID)
 }
-func AuthApiMiddleware(c *gin.Context) {
+func Admin(c *gin.Context) {
 	token, err := c.Cookie(CustomerTokenKey)
 	if err != nil {
 		c.JSON(http.StatusForbidden, gin.H{
@@ -73,9 +72,8 @@ func AuthApiMiddleware(c *gin.Context) {
 	c.Set("userID", user.UserID)
 }
 
-func tokenCheck(token string) (*model.Token, bool) {
+func AdmintokenCheck(token string) (*model.Token, bool) {
 	dbtoken := model.Token{}
-	db.Where("token = ? AND admin_flag = 0", token).First(&dbtoken)
+	db.Where("token = ? AND admin_flag = 1", token).First(&dbtoken)
 	return &dbtoken, dbtoken.Token != ""
-
 }
