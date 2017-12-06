@@ -15,3 +15,8 @@ func (c customerImpl) Create(customer model.Customer) {
 		panic(err)
 	}
 }
+
+func (c customerImpl) Logincheck(email, password string) {
+	var customer model.Customer
+	db.Where("email = ?", email).First(&customer)
+}
