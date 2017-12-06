@@ -15,6 +15,7 @@ func apiRouter(api *gin.RouterGroup) {
 
 	api.POST("/signup", controller.CreateUser)
 	api.GET("/signin", session.UserLoginHandle)
+	api.GET("/movie", controller.GetMovieAll)
 
 	authApi.POST("/foo", func(c *gin.Context) {
 		userID, _ := c.Get("userID")
