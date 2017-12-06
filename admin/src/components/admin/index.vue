@@ -1,16 +1,16 @@
 <template>
-  <h1>Hello from HAL CINEMA Admin Control.</h1>
+  <section>
+    <h1>hello</h1>
+  </section>
 </template>
 
 <script>
 export default {
-  name: "admin"
+  name: "admin",
+  data() {
+    return {
+      activeTab: 0
+    }
+  }
 }
 </script>
-
-<style lang="scss" scoped>
-h1 {
-  color: red;
-}
-</style>
-
