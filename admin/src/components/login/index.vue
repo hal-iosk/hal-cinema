@@ -5,27 +5,29 @@
 
       <h1>HAL CINEMA Admin</h1>
 
-        <b-field
-          label="Email"
-        >
-          <b-input
-            type="email"
-            maxlength="30"
-            v-model="email"
-          />
-        </b-field>
+        <form action="/api/admin/signin" method="post">
+          <b-field
+            label="Email"
+          >
+            <b-input
+              type="email"
+              maxlength="30"
+              v-model="email"
+            />
+          </b-field>
 
-        <b-field
-          label="Password"
-        >
-          <b-input
-            type="password"
-            maxlength="30"
-            v-model="password"
-          />
-        </b-field>
+          <b-field
+            label="Password"
+          >
+            <b-input
+              type="password"
+              maxlength="30"
+              v-model="password"
+            />
+          </b-field>
 
-        <button class="button is-primary login-button" @click="openLoading">ログイン</button>
+          <button class="button is-primary login-button" type="submit" @click="openLoading">ログイン</button>
+        </form>
 
     </section>
 
@@ -35,6 +37,7 @@
 
 <script>
 import httpUtils from '../../lib/httpUtils'
+import cookie from 'cookie'
 
 export default {
   name: "login",
@@ -67,7 +70,9 @@ export default {
 
       httpUtils.Login(email, password)
       .then((res) => {
-        console.log(res)
+        const token = res.data.token
+        document.cookie = cookie.serialize("halCinemaAdmin", token)
+        location.href = "/admin";
       })
       .catch((err) => {
         console.error(err);
