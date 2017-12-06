@@ -2,11 +2,10 @@
   <section>
 
     <div class="flex">
-      <h1>映画編集</h1>
+      <h1>映画追加</h1>
       <div style="margin-left: auto;">
-        <button class="button" @click="back">戻る</button>
-        <button class="button is-danger" @click="deleteMovie">削除</button>
-        <button class="button is-primary" @click="complate">完了</button>
+        <button class="button"@click="back">戻る</button>
+        <button class="button is-primary" @click="add">追加する</button>
       </div>
     </div>
 
@@ -57,7 +56,7 @@
 import httpUtils from '../../lib/httpUtils'
 
 export default {
-  name: "movieTableEdit",
+  name: "addMovie",
   data() {
     return {
       movie: {},
@@ -79,7 +78,7 @@ export default {
     })
   },
   methods: {
-    complate() {
+    add() {
       httpUtils.PutMovieDetail(
         this.$route.params.id,
         this.movie.movie_name,
@@ -93,23 +92,6 @@ export default {
         if(res.status === 200) {
           this.$toast.open({
             message: '編集完了しました。',
-            type: 'is-success'
-          })
-          setTimeout(() => {
-            this.$router.push({ path: `/admin` });
-          }, 500)
-        }
-      })
-      .catch((err) => {
-        console.error(err)
-      })
-    },
-    deleteMovie() {
-      httpUtils.DeleteMovieDetail(this.$route.params.id)
-      .then((res) => {
-        if(res.status === 204) {
-          this.$toast.open({
-            message: '削除完了しました。',
             type: 'is-success'
           })
           setTimeout(() => {

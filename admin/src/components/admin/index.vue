@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="flex">
-      <button class="button is-primary movie-add">映画追加</button>
+      <button class="button is-primary movie-add" @click="addMovie">映画追加</button>
       <button class="button is-danger logout" @click="logout">ログアウト</button>
     </div>
     <b-tabs v-model="activeTab">
@@ -44,6 +44,9 @@ export default {
     logout() {
       CookieDoc.removeItem("halCinemaAdmin")
       location.pathname = "/admin/login"
+    },
+    addMovie() {
+      this.$router.push({ path: `/admin/movie` })
     }
   }
 }
