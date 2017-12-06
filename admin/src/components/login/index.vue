@@ -29,8 +29,6 @@
 
     </section>
 
-    <b-loading :active.sync="isLoading" />
-
   </div>
 
 </template>
@@ -42,43 +40,38 @@ export default {
   name: "login",
   data() {
     return {
-      isLoading: false,
       email: "",
       password: ""
     }
   },
   methods: {
     openLoading() {
+      const email = this.email.trim()
+      const password = this.password.trim()
 
-      ( async () => {
-        const email = this.email.trim()
-        const password = this.password.trim()
+      if(email === "") {
+        this.$toast.open({
+          message: 'メールアドレスを入力してください。',
+          type: 'is-danger'
+        })
+        return
+      }
 
-        if(email === "") {
-          this.$toast.open({
-            message: 'メールアドレスを入力してください。',
-            type: 'is-danger'
-          })
-          return
-        }
+      if(password === "") {
+        this.$toast.open({
+          message: 'パスワードを入力してください。',
+          type: 'is-danger'
+        })
+        return
+      }
 
-        if(password === "") {
-          this.$toast.open({
-            message: 'パスワードを入力してください。',
-            type: 'is-danger'
-          })
-          return
-        }
-
-        const vm = this;
-        vm.isLoading = true
-        const res = await httpUtils.Login(email, password);
+      httpUtils.Login(email, password)
+      .then((res) => {
         console.log(res)
-        setTimeout(() => {
-          vm.isLoading = false;
-        }, 500)
-      })()
-
+      })
+      .catch((err) => {
+        console.error(err);
+      });
     }
   }
 }
