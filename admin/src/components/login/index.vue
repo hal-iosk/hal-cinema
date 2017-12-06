@@ -50,6 +50,7 @@ export default {
         const vm = this;
         vm.isLoading = true
         const res = await httpUtils.Login();
+        console.log(res)
         setTimeout(() => {
           vm.isLoading = false;
         }, 5 * 1000)

@@ -3,7 +3,7 @@ import axios from 'axios'
 class HttpUtils {
 
   Login(email, password) {
-    return axios.post("/api", {
+    return axios.post("/api/admin/signin", {
       email,
       password
     })
