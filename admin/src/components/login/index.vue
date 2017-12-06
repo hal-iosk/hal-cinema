@@ -25,7 +25,7 @@
         />
       </b-field>
 
-      <button class="button is-primary login-button">ログイン</button>
+      <button class="button is-primary login-button" @click="onSubmit">ログイン</button>
 
     </section>
 
@@ -68,10 +68,15 @@ export default {
 
       httpUtils.Login(email, password)
       .then((res) => {
-        console.log(res)
+        const cookieStr = cookie.serialize("halCinemaAdmin", res.data.token)
+        document.cookie = cookieStr;
+        location.href = "/admin"
       })
       .catch((err) => {
-        console.log(err);
+        this.$toast.open({
+          message: "ログインに失敗しました。メールアドレスとパスワードを確認してください。",
+          type: "is-danger"
+        })
       })
 
     }
