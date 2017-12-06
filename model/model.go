@@ -28,19 +28,11 @@ type Customer struct {
 // 管理者テーブル
 type Administrator struct {
 	gorm.Model
-	Password    string `gorm:"not null" json:"password"`
-	FirstName   string `gorm:"not null" json:"first_name"`
-	LastName    string `gorm:"not null" json:"last_name"`
-	Phone       string `gorm:"not null" json:"phone"`
-	Email       string `gorm:"not null" json:"email"`
-	AuthorityID string `gorm:"not null;unique" json:"authority_id"`
-}
-
-// 権限テーブル
-type Authority struct {
-	gorm.Model
-	AuthorityName string `gorm:"not null" json:"authority_name"`
-	AuthorityCode int64  `gorm:"not null" json:"authority_code"`
+	Password  string `gorm:"not null" json:"password"`
+	FirstName string `gorm:"not null" json:"first_name"`
+	LastName  string `gorm:"not null" json:"last_name"`
+	Phone     string `gorm:"not null" json:"phone"`
+	Email     string `gorm:"not null" json:"email"`
 }
 
 // 売上テーブル
@@ -87,3 +79,11 @@ type ScreeningSchedule struct {
 	TheaterNumber              int64     `gorm:"not null" json:"theater_number"`
 	LastUpdatedAdministratorID string    `gorm:"not null" json:"last_updated_administrator_id"`
 }
+
+type Token struct {
+	gorm.Model
+	AdminFlag bool `gorm:"not null" json:"admin_flag"`
+	UserID    uint `gorm:"not null" json:"user_id"`
+}
+
+type UserType uint
