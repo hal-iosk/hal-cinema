@@ -1,7 +1,8 @@
 <template>
   <section>
-    <div class="logout">
-      <button class="button is-danger" @click="logout">ログアウト</button>
+    <div class="flex">
+      <button class="button is-primary movie-add">映画追加</button>
+      <button class="button is-danger logout" @click="logout">ログアウト</button>
     </div>
     <b-tabs v-model="activeTab">
 
@@ -49,10 +50,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.logout {
+.flex {
   display: flex;
   margin: 20px 0;
-  .button {
+  .movie-add {
+    margin-left: 20px;
+  }
+  .logout {
     margin-left: auto;
     margin-right: 20px;
   }

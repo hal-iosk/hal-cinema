@@ -21,14 +21,6 @@
           {{ props.row.details }}
         </b-table-column>
 
-        <!-- <b-table-column label="公開開始日" centered width="100">
-          {{ new Date(props.row.start_date).toLocaleDateString() }}
-        </b-table-column>
-
-        <b-table-column label="公開終了日" centered width="100">
-          {{ new Date(props.row.end_date).toLocaleDateString() }}
-        </b-table-column> -->
-
         <b-table-column label="上映時間" centered width="100">
           {{ props.row.watch_time }}分
         </b-table-column>
@@ -71,7 +63,6 @@ export default {
   mounted() {
     httpUtils.GetMovies()
     .then((res) => {
-      console.log(res.data.movies[0])
       this.movies = res.data.movies;
     })
     .catch((err) => {
@@ -83,7 +74,7 @@ export default {
       this.$router.push({ path: `/admin/movieedit/${id}` })
     },
     moveSchedule(id) {
-      this.$router.push({ path: `/admin/movieedit/${id}` })
+      this.$router.push({ path: `/admin/schedule/${id}` })
     }
   }
 }

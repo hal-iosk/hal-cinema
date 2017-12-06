@@ -39,6 +39,18 @@ class HttpUtils {
     return axios.delete(`/api/admin/movie/${id}?token=${token}`)
   }
 
+  GetSchedule(id) {
+    return axios.get(`/api/schedule?movie_id=${id}`)
+  }
+
+  PutSchedule() {
+  }
+
+  DeleteSchedule(id) {
+    const token = CookieDoc.getItem("halCinemaAdmin")
+    return axios.delete(`/api/admin/schedule/${id}?token=${token}`)
+  }
+
 }
 
 export default new HttpUtils;
