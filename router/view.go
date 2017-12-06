@@ -73,7 +73,8 @@ func viewRouter(r *gin.Engine) {
 		path := c.Param("path")
 		if path == "login" {
 			c.HTML(http.StatusOK, "adminLogin.html", nil)
-		}
-		c.HTML(http.StatusOK, "adminCtrl.html", nil)
-	})
+		} else {
+		  c.HTML(http.StatusOK, "adminCtrl.html", nil)
+    }
+  })
 }

@@ -34,6 +34,8 @@
 </template>
 
 <script>
+import httpUtils from '../../lib/httpUtils'
+
 export default {
   name: "login",
   data() {
@@ -43,11 +45,15 @@ export default {
   },
   methods: {
     openLoading() {
-      const vm = this;
-      vm.isLoading = true
-      setTimeout(() => {
-        vm.isLoading = false;
-      }, 5 * 1000)
+
+      ( async () => {
+        const vm = this;
+        vm.isLoading = true
+        const res = await httpUtils.Login();
+        setTimeout(() => {
+          vm.isLoading = false;
+        }, 5 * 1000)
+      })()
     }
   }
 }
