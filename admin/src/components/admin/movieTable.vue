@@ -34,7 +34,8 @@
         </b-table-column>
 
         <b-table-column>
-          <button class="button" @click="movieEdit">編集</button>
+          <button class="button" @click="moveSchedule(props.row.id)" style="margin-bottom: 10px;">スケジュール</button>
+          <button class="button" @click="movieEdit(props.row.id)">編集</button>
         </b-table-column>
 
       </template>
@@ -62,8 +63,11 @@ import vueStore from '../../vuex'
 export default {
   name: "movieTable",
   methods: {
-    movieEdit() {
-      this.$router.push({ path: "/admin/salesedit", params: {id: 1} })
+    movieEdit(id) {
+      this.$router.push({ path: `/admin/movieedit/${id}` })
+    },
+    moveSchedule(id) {
+      this.$router.push({ path: `/admin/movieedit/${id}` })
     }
   },
   data() {

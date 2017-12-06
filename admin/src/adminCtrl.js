@@ -8,7 +8,6 @@ Vue.use(Buefy)
 
 // components
 import Admin from './components/admin/index.vue'
-import SalesManageEdit from './components/admin/salesManageEdit.vue'
 import MovieTableEdit from './components/admin/movieTableEdit.vue'
 
 import NotFound from './components/notFound/index.vue'
@@ -16,7 +15,6 @@ import NotFound from './components/notFound/index.vue'
 // routing
 const routes = [
   { path: "/admin", component: Admin },
-  { path: "/admin/salesedit/:id", component: SalesManageEdit },
   { path: "/admin/movieedit/:id", component: MovieTableEdit },
   { path: "*", component: NotFound },
 ]
