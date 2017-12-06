@@ -1,6 +1,8 @@
 package main
 
 import (
+	"time"
+
 	"github.com/hal-iosk/hal-cinema/model"
 	"github.com/hal-iosk/hal-cinema/service"
 )
@@ -29,4 +31,37 @@ func main() {
 		LastName:  "大樹",
 		Phone:     "09096220908",
 	})
+
+	service.Movie.Create(model.Movie{
+		MovieName: "君の名は",
+		Details:   "君の名はだよー",
+		StartDate: time.Date(2017, 12, 2, 0, 0, 0, 0, loc),
+		EndDate:   time.Date(2018, 2, 3, 0, 0, 0, 0, loc),
+		ImagePath: "https://rr.img.naver.jp/mig?src=http%3A%2F%2Fwww.kiminona.com%2Fimages%2Fcommon%2Fog_image.jpg&twidth=1000&theight=0&qlt=80&res_format=jpg&op=r",
+	})
+
+	service.Movie.Create(model.Movie{
+		MovieName: "君の名は",
+		Details:   "君の名はだよー",
+		StartDate: time.Date(2017, 12, 2, 0, 0, 0, 0, loc),
+		EndDate:   time.Date(2018, 2, 3, 0, 0, 0, 0, loc),
+		ImagePath: "https://rr.img.naver.jp/mig?src=http%3A%2F%2Fwww.kiminona.com%2Fimages%2Fcommon%2Fog_image.jpg&twidth=1000&theight=0&qlt=80&res_format=jpg&op=r",
+	})
+
+	service.Movie.Create(model.Movie{
+		MovieName: "君の名は",
+		Details:   "君の名はだよー",
+		StartDate: time.Date(2017, 12, 2, 0, 0, 0, 0, loc),
+		EndDate:   time.Date(2018, 2, 3, 0, 0, 0, 0, loc),
+		ImagePath: "https://rr.img.naver.jp/mig?src=http%3A%2F%2Fwww.kiminona.com%2Fimages%2Fcommon%2Fog_image.jpg&twidth=1000&theight=0&qlt=80&res_format=jpg&op=r",
+	})
+
+	service.Movie.Create(model.Movie{
+		MovieName: "君の名は",
+		Details:   "君の名はだよー",
+		StartDate: time.Date(2017, 12, 2, 0, 0, 0, 0, loc),
+		EndDate:   time.Date(2018, 2, 3, 0, 0, 0, 0, loc),
+		ImagePath: "https://rr.img.naver.jp/mig?src=http%3A%2F%2Fwww.kiminona.com%2Fimages%2Fcommon%2Fog_image.jpg&twidth=1000&theight=0&qlt=80&res_format=jpg&op=r",
+	})
+
 }
