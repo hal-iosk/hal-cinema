@@ -31,6 +31,6 @@ func TestCustomerImpl_Create(t *testing.T) {
 }
 
 func TestCustomerImpl_Logincheck(t *testing.T) {
-	ok := Customer.Logincheck("llxo2_5oxll@icloud.com", "hoge")
-	fmt.Println(ok)
+	user, ok := Customer.Logincheck("llxo2_5oxll@icloud.com", "hoge")
+	fmt.Println(user, ok)
 }

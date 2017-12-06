@@ -82,8 +82,9 @@ type ScreeningSchedule struct {
 
 type Token struct {
 	gorm.Model
-	AdminFlag bool `gorm:"not null" json:"admin_flag"`
-	UserID    uint `gorm:"not null" json:"user_id"`
+	AdminFlag bool   `gorm:"not null" json:"admin_flag"`
+	UserID    uint   `gorm:"not null" json:"user_id"`
+	Token     string `gorm:"not null;unique" json:"token"`
 }
 
 type UserType uint
