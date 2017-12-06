@@ -1,6 +1,21 @@
 <template>
-  <!-- <sales-manage /> -->
-  <mail-magazine />
+  <section>
+    <b-tabs v-model="activeTab">
+
+      <b-tab-item label="映画情報管理">
+        <movie-table />
+      </b-tab-item>
+
+      <b-tab-item label="売上管理">
+        <sales-manage />
+      </b-tab-item>
+
+      <b-tab-item label="メルマガ">
+        <mail-magazine />
+      </b-tab-item>
+
+    </b-tabs>
+  </section>
 </template>
 
 <script>
@@ -14,6 +29,11 @@ export default {
     MovieTable,
     SalesManage,
     MailMagazine
+  },
+  data() {
+    return {
+      activeTab: 2
+    }
   }
 }
 </script>

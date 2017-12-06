@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="sales-manage-table">
     <b-table
       :data="tableDataSimple.length == 0 ? [] : tableDataSimple"
       :bordered="false"
@@ -119,3 +119,8 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.sales-manage-table {
+}
+</style>
