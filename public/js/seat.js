@@ -2,20 +2,31 @@
 var obj = QueryString.parse(null,null,null,true);
 
 //URLパラメータを変更された時にリダイレクト
-if (obj.theater === undefined) {
+if ("" in obj === true ) {
+	alert("パラメータが不正です。");
+	location.href = "/";
+}
+
+var movie = obj.movie.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
+var date = obj.date.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
+var time = obj.time.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
+var theater = obj.theater.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
+
+if (movie == "" || date == "" || time == "" || theater == ""){
+	alert("パラメータが不正です。");
 	location.href = "/";
 }
 
 //作品名
-document.getElementById("movie").textContent = obj.movie;
+document.getElementById("movie").textContent = movie;
 //日
-document.getElementById("date").textContent = obj.date;
+document.getElementById("date").textContent = date;
 //時間
-document.getElementById("time").textContent = obj.time;
+document.getElementById("time").textContent = time;
 //シアター
-document.getElementById("theater").textContent = obj.theater;
+document.getElementById("theater").textContent = theater;
 
 //parameter
-var param = QueryString.stringify({"movie":obj.movie,"date":obj.date,"time":obj.time,"theater":obj.theater},null,null,true);
+var param = QueryString.stringify({"movie":movie,"date":date,"time":time,"theater":theater},null, null,true);
 
 document.getElementById("next").innerHTML = "<a href='seatSelection?"+param+"' class='next'>座席選択へ</a>";
