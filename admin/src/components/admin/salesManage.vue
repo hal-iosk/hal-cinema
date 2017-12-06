@@ -33,10 +33,6 @@
           {{ props.row.watch_time }}分
         </b-table-column>
 
-        <b-table-column>
-          <button class="button">編集</button>
-        </b-table-column>
-
       </template>
 
       <template slot="empty">
@@ -57,8 +53,6 @@
 </template>
 
 <script>
-import SalesManageEdit from './salesManageEdit.vue'
-
 export default {
   name: "salesManage",
   data() {
@@ -118,8 +112,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.sales-manage-table {
-}
-</style>

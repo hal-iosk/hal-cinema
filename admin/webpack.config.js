@@ -4,7 +4,8 @@ var webpack = require('webpack')
 module.exports = {
   entry: {
     login: './src/adminLogin.js',
-    ctrl: './src/adminCtrl.js'
+    ctrl: './src/adminCtrl.js',
+    cookieManager: "./src/CookieManager.js"
   },
   output: {
     path: path.resolve(__dirname, './../public/js/'),

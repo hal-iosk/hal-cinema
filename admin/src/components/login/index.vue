@@ -5,29 +5,29 @@
 
       <h1>HAL CINEMA Admin</h1>
 
-        <b-field
-          label="Email"
-        >
-          <b-input
-            type="email"
-            maxlength="30"
-          />
-        </b-field>
+      <b-field
+        label="Email"
+      >
+        <b-input
+          type="email"
+          maxlength="30"
+          v-model="email"
+        />
+      </b-field>
 
-        <b-field
-          label="Password"
-        >
-          <b-input
-            type="password"
-            maxlength="30"
-          />
-        </b-field>
+      <b-field
+        label="Password"
+      >
+        <b-input
+          type="password"
+          maxlength="30"
+          v-model="password"
+        />
+      </b-field>
 
-        <button class="button is-primary login-button" @click="openLoading">ログイン</button>
+      <button class="button is-primary login-button" @click="onSubmit">ログイン</button>
 
     </section>
-
-    <b-loading :active.sync="isLoading" />
 
   </div>
 
@@ -35,25 +35,49 @@
 
 <script>
 import httpUtils from '../../lib/httpUtils'
+import cookie from 'cookie'
 
 export default {
   name: "login",
   data() {
     return {
-      isLoading: false
+      email: "",
+      password: ""
     }
   },
   methods: {
-    openLoading() {
+    onSubmit(e) {
+      const email = this.email.trim()
+      const password = this.password.trim()
 
-      ( async () => {
-        const vm = this;
-        vm.isLoading = true
-        const res = await httpUtils.Login();
-        setTimeout(() => {
-          vm.isLoading = false;
-        }, 5 * 1000)
-      })()
+      if(email === "") {
+        this.$toast.open({
+          message: 'メールアドレスを入力してください。',
+          type: 'is-danger'
+        })
+        return
+      }
+
+      if(password === "") {
+        this.$toast.open({
+          message: 'パスワードを入力してください。',
+          type: 'is-danger'
+        })
+        return
+      }
+
+      httpUtils.Login(email, password)
+      .then((res) => {
+        const cookieStr = cookie.serialize("halCinemaAdmin", res.data.token)
+        document.cookie = cookieStr;
+        location.href = "/admin"
+      })
+      .catch((err) => {
+        this.$toast.open({
+          message: "ログインに失敗しました。メールアドレスとパスワードを確認してください。",
+          type: "is-danger"
+        })
+      })
 
     }
   }
