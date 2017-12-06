@@ -86,6 +86,7 @@ func createMovieReq(c *gin.Context) (model.Movie, bool) {
 		return movie, false
 	}
 	movie.WatchTime = uint(watchTime)
+
 	movie.StartDate, err = GetDate("start_date", c)
 	if err != nil {
 		panic(err)
