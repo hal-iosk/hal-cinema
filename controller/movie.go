@@ -60,8 +60,19 @@ func UpdateMovie(c *gin.Context) {
 	c.JSON(http.StatusOK, movieRes)
 }
 
-func DeleteMovie() {
-
+func DeleteMovie(c *gin.Context) {
+	movieID, err := strconv.Atoi(c.Param("movie_id"))
+	if err != nil {
+		Batequest("数値で頼むわ", c)
+		return
+	}
+	if !service.Movie.Exists(uint(movieID)) {
+		c.JSON(http.StatusNotFound, gin.H{
+			"err": "んなもんねーよ！笑",
+		})
+	}
+	service.Movie.Delete(uint(movieID))
+	c.Writer.WriteHeader(http.StatusNoContent)
 }
 func createMovieReq(c *gin.Context) (model.Movie, bool) {
 	movie := model.Movie{

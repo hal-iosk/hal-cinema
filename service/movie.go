@@ -24,7 +24,8 @@ func (self movieImpl) Find(id uint) *model.Movie {
 	return &movie[0]
 }
 func (self movieImpl) Update(id uint, movie model.Movie) *model.Movie {
-	db.Update(&movie, id)
+	movie.ID = id
+	db.Model(&movie).Update(&movie)
 	return &movie
 }
 

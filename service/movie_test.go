@@ -10,6 +10,8 @@ import (
 	"github.com/hal-iosk/hal-cinema/model"
 )
 
+var loc, _ = time.LoadLocation("Asia/Tokyo")
+
 func TestMovieImpl_Create(t *testing.T) {
 	Movie.Create(model.Movie{
 		MovieName: "君の名は",
@@ -26,8 +28,8 @@ func TestMovieImpl_Find(t *testing.T) {
 }
 
 func TestMovieImpl_Update(t *testing.T) {
-	movie := Movie.Update(1, model.Movie{
-		MovieName: "君の名は?",
+	movie := Movie.Update(2, model.Movie{
+		MovieName: "俺の名は？",
 		Details:   "君の名はだよー",
 		StartDate: time.Date(2017, 12, 2, 0, 0, 0, 0, loc),
 		EndDate:   time.Date(2018, 2, 5, 0, 0, 0, 0, loc),
