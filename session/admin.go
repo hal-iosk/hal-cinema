@@ -23,7 +23,7 @@ func AdminLoginHandle(c *gin.Context) {
 		controller.Batequest("ログイン失敗", c)
 		return
 	}
-	SetCookie(user.ID, c)
+	AdminSetCookie(user.ID, c)
 }
 
 func AdminSetCookie(userID uint, c *gin.Context) {
