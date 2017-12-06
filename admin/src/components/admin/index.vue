@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import vueStore from '../../vuex'
+
 export default {
   name: "admin",
   data() {
