@@ -1,0 +1,217 @@
+@charset "utf-8";
+
+html ,body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+p {
+    margin: 0;
+}
+
+header {
+    padding-left: 60px;
+    background-color: #404040;
+}
+
+.drawer-nav li {
+    
+}
+
+.drawer-nav a {
+    
+}
+
+#logoimg {
+    padding-top: 8px;
+}
+
+.drawer-nav {
+    background-color: #404040;
+}
+
+.drawer-nav li {
+    position: relative;
+}
+
+.drawer-nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+  
+}
+
+.drawer-nav #navTop img {
+    width: 20px;
+    height: 15px;
+    float: left;
+}
+
+.drawer-nav #navTop {
+    height: 60px;
+    border-bottom: solid 2px #ffffff;
+}
+
+.drawer-nav #navTop a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.drawer-nav #navTop span{
+    padding-left: 15px;
+}
+
+
+.drawer-nav #navTop a:hover{
+    opacity:0.5;
+}
+
+.drawer-nav #navLogin img {
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.drawer-nav #navLogin {
+    height: 60px;
+    border-bottom: solid 2px #ffffff;
+}
+
+.drawer-nav #navLogin a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.drawer-nav #navLogin span{
+    padding-left: 15px;
+}
+
+.drawer-nav #navLogin a:hover{
+    opacity:0.5;
+}
+
+.drawer-nav #navMovie img {
+    width: 40px;
+    height: 40px;
+}
+
+.drawer-nav #navMovie {
+    height: 106px;
+    border-bottom: solid 2px #ffffff;
+    text-align: center;
+}
+
+.drawer-nav #navMovie a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    padding-top: 20px;
+}
+
+.drawer-nav #navMovie a:hover{
+    opacity:0.5;
+}
+
+.drawer-nav #navCampaign img {
+    width: 26px;
+    height: 26px;
+}
+
+.drawer-nav #navPoppukon img {
+    width: 26px;
+    height: 26px;
+}
+
+.drawer-nav #navCampaign {
+    width: 60px;
+    height: 129px;
+    text-align: center;
+    width: 129px;
+    float: left;
+    border-right: solid 2px #ffffff;
+    border-bottom: solid 2px #ffffff;
+}
+
+.drawer-nav #navLogin a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+.drawer-nav #navCampaign a:hover{
+    opacity:0.5;
+}
+
+.drawer-nav #navPoppukon {
+    padding-top: 20px;
+    padding-bottom: 16px;
+    text-align: center;
+    width: 129px;
+    float: left;
+    border-bottom: solid 2px #ffffff;
+}
+
+.drawer-nav #navPoppukon:hover{
+    opacity:0.5;
+}
+
+.drawer-nav #navPaper {
+    clear: both;
+}
+
+.drawer-nav #navPaper img {
+    width: 20px;
+    height: 15px;
+    float: left;
+}
+
+.drawer-nav #navPaper {
+    padding-top: 20px;
+    padding-left: 25px;
+    padding-bottom: 16px;
+    border-bottom: solid 2px #ffffff;
+}
+
+.drawer-nav #navPaper span{
+    padding-left: 15px;
+
+}
+
+.drawer-nav #navPaper:hover{
+    opacity:0.5;
+}
+
+.drawer-nav #navP img {
+    width: 40px;
+    height: 40px;
+}
+
+.drawer-nav #navP {
+    padding-top: 20px;
+    padding-bottom: 16px;
+    border-bottom: solid 2px #ffffff;
+    text-align: center;
+}
+
+.drawer-nav #navP:hover{
+    opacity:0.5;
+}

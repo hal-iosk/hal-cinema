@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>header</title>
+    <script src="../public/js/jquery.min.js"></script>
+    <script src="../public/js/iscroll.js"></script>
+    <link rel="stylesheet" href="../public/css/drawer.css">
+    <script src="../public/js/drawer.min.js"></script>
+    <link rel="stylesheet" href="../public/css/header.css">
+    <script>
+    $(document).ready(function() {
+    $(".drawer").drawer();
+        $('.drawer').on('drawer.opened', function(){
+            //開いた時の処理
+        });
+    });
+    </script>
+</head>
+<body class="drawer drawer--left">
+    
+   <!-- ハンバーガーボタン -->
+   <button type="button" class="drawer-toggle drawer-hamburger">
+     <span class="sr-only">toggle navigation</span>
+     <span class="drawer-hamburger-icon"></span>
+   </button>
+    
+   <nav class="drawer-nav">
+     <ul class="drawer-menu">
+       <!-- ドロワーメニューの中身 -->
+       <li id="navTop"><a href=""><img src="../public/image/top.png" width="auto" height="auto"><span>トップページ</span></a></li>
+       <li id="navLogin"><a href=""><img src="../public/image/login.png" width="auto" height="auto"><span>ログイン</span></a></li>
+       <li id="navMovie"><a href=""><img src="../public/image/movie.png" width="auto" height="auto"><br><span>上映スケジュール</span></a></li>
+       <li id="navCampaign"><a href=""><img src="../public/image/campaign.png" width="auto" height="auto"><br><span>キャンペーン</span></a></li>
+       <li id="navPoppukon"><a href=""><img src="../public/image/poppukon.png" width="auto" height="auto"><br><span>売店情報</span></a></li>
+       <li id="navPaper"><a href=""><img src="../public/image/paper.png" width="auto" height="auto"><span>予約履歴</span></a></li>
+       <li id="navP"><a href=""><img src="../public/image/p.png" width="auto" height="auto"><br><span>チェックイン</span></a></li>
+     </ul>
+   </nav>
+    
+   <header>
+   <p id="logoimg"><a href="#!"><img src="../public/image/logo_halcinema.png" width="177" height="46"></a></p>
+   </header>
+    
+   </body>
+</html>
