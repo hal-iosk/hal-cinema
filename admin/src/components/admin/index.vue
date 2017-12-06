@@ -1,18 +1,19 @@
 <template>
-  <section>
-    <h1>hello</h1>
-  </section>
+  <!-- <sales-manage /> -->
+  <mail-magazine />
 </template>
 
 <script>
-import vueStore from '../../vuex'
+import MovieTable from './movieTable.vue'
+import SalesManage from './salesManage.vue'
+import MailMagazine from './mailMagazine.vue'
 
 export default {
   name: "admin",
-  data() {
-    return {
-      activeTab: 0
-    }
+  components: {
+    MovieTable,
+    SalesManage,
+    MailMagazine
   }
 }
 </script>

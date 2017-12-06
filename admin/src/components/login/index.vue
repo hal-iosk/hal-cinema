@@ -54,6 +54,7 @@ export default {
           vm.isLoading = false;
         }, 5 * 1000)
       })()
+
     }
   }
 }
