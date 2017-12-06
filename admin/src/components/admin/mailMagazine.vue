@@ -1,7 +1,7 @@
 <template>
   <section>
     <b-field label="本文">
-      <b-input maxlength="200" type="textarea"></b-input>
+      <b-input maxlength="200" type="textarea" v-model.trim="text"></b-input>
     </b-field>
     <button class="button is-primary" @click="toast">送信</button>
   </section>
@@ -12,6 +12,7 @@ export default {
   name: "mailMagazine",
   methods: {
     toast() {
+      const text = this.text
       this.$toast.open('メールマガジンを送信しました。')
     }
   }
