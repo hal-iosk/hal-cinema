@@ -1,6 +1,6 @@
 <template>
   <section>
-    <b-tabs v-model="activeTab" class="">
+    <b-tabs v-model="activeTab">
 
       <b-tab-item label="映画情報管理">
         <movie-table />
