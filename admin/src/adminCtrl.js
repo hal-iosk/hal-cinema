@@ -16,8 +16,8 @@ import NotFound from './components/notFound/index.vue'
 // routing
 const routes = [
   { path: "/admin", component: Admin },
-  { path: "/admin/salesedit", component: SalesManageEdit },
-  { path: "/admin/movieedit", component: MovieTableEdit },
+  { path: "/admin/salesedit/:id", component: SalesManageEdit },
+  { path: "/admin/movieedit/:id", component: MovieTableEdit },
   { path: "*", component: NotFound },
 ]
 const router = new VueRouter({  mode: 'history', routes })
