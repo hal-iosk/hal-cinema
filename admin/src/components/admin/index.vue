@@ -1,5 +1,8 @@
 <template>
   <section>
+    <div class="logout">
+      <button class="button is-danger">ログアウト</button>
+    </div>
     <b-tabs v-model="activeTab">
 
       <b-tab-item label="映画情報管理">
@@ -37,3 +40,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.logout {
+  display: flex;
+  margin: 20px 0;
+  .button {
+    margin-left: auto;
+    margin-right: 20px;
+  }
+}
+</style>

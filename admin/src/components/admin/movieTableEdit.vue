@@ -4,7 +4,7 @@
     <div class="flex">
       <h1>映画編集</h1>
       <div style="margin-left: auto;">
-        <button class="button is-danger">削除</button>
+        <button class="button is-danger" @click="deleteMovie">削除</button>
         <button class="button is-primary" @click="complate">完了</button>
       </div>
     </div>
@@ -89,7 +89,32 @@ export default {
         this.movie.watch_time
       )
       .then((res) => {
-        console.log(res)
+        if(res.status === 200) {
+          this.$toast.open({
+            message: '編集完了しました。',
+            type: 'is-success'
+          })
+          setTimeout(() => {
+            this.$router.push({ path: `/admin` });
+          }, 500)
+        }
+      })
+      .catch((err) => {
+        console.error(err)
+      })
+    },
+    deleteMovie() {
+      httpUtils.DeleteMovieDetail(this.$route.params.id)
+      .then((res) => {
+        if(res.status === 204) {
+          this.$toast.open({
+            message: '削除完了しました。',
+            type: 'is-success'
+          })
+          setTimeout(() => {
+            this.$router.push({ path: `/admin` });
+          }, 500)
+        }
       })
       .catch((err) => {
         console.error(err)

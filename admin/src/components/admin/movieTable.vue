@@ -34,8 +34,8 @@
         </b-table-column>
 
         <b-table-column>
-          <button class="button" @click="moveSchedule(props.row.id)" style="margin-bottom: 10px;">スケジュール</button>
-          <button class="button" @click="movieEdit(props.row.id)">編集</button>
+          <button class="button" @click="moveSchedule(props.row.ID)" style="margin-bottom: 10px;">スケジュール</button>
+          <button class="button" @click="movieEdit(props.row.ID)">編集</button>
         </b-table-column>
 
       </template>
