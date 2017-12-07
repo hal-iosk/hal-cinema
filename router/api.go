@@ -19,6 +19,7 @@ func apiRouter(api *gin.RouterGroup) {
 	api.GET("/movie/:movie_id", controller.GetMovie)
 	api.GET("/schedule", controller.GetScheduleAll)
 	api.GET("/schedule/:schedule_id", controller.GetSchedule)
+	api.GET("/price", controller.GetPrice)
 
 	authApi.POST("/reserve", controller.CreateReserve)
 
