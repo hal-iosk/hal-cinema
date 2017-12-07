@@ -49,3 +49,4 @@ dbconfig.yml
 tmp
 main
 admin/node_modules/
+.editorconfig
