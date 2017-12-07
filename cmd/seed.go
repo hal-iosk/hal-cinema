@@ -27,7 +27,7 @@ func main() {
 	//db.Exec("INSERT INTO `prices` (`customer_type`, `price`, `last_updated_administrator_id`) VALUES ('3D専用メガネ代', 300, '0');")
 
 	service.Customer.Create(model.Customer{
-		Email:            "llxo2_5oxll@icloud.com2",
+		Email:            "hoge@gmail.com",
 		Password:         "hoge",
 		FirstName:        "葛巻",
 		LastName:         "大樹",
