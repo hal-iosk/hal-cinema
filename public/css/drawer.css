@@ -141,6 +141,8 @@
 \*!------------------------------------*/
 
 .drawer-hamburger {
+  position: absolute;
+  top:20px;
   z-index: 104;
   display: block;
   box-sizing: content-box;
