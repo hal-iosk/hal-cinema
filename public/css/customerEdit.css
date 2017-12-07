@@ -121,3 +121,8 @@ select{
 .submit:hover{
     background-color: #CD1111;
 }
+.validation{
+    color:#CD1111;
+    text-align:right;
+    margin:5px;
+}
