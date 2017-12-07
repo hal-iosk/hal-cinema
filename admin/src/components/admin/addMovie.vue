@@ -65,22 +65,9 @@ export default {
       isImageModalActive: false,
     }
   },
-  mounted() {
-    const id = this.$route.params.id;
-    httpUtils.GetMovieDetail(id)
-    .then((res) => {
-      this.movie = res.data;
-      this.start_time = new Date(res.data.start_date)
-      this.end_time = new Date(res.data.end_date)
-    })
-    .catch((err) => {
-      console.error(err)
-    })
-  },
   methods: {
     add() {
-      httpUtils.PutMovieDetail(
-        this.$route.params.id,
+      httpUtils.CreateMovie(
         this.movie.movie_name,
         this.movie.details,
         this.movie.image_path,
@@ -89,9 +76,9 @@ export default {
         this.movie.watch_time
       )
       .then((res) => {
-        if(res.status === 200) {
+        if(res.status === 201) {
           this.$toast.open({
-            message: '編集完了しました。',
+            message: '映画を追加しました。',
             type: 'is-success'
           })
           setTimeout(() => {
