@@ -68,6 +68,18 @@ class HttpUtils {
     return axios.post(`/api/admin/schedule?token=${token}`, params)
   }
 
+  PutSchedule(schedule) {
+    const token = CookieDoc.getItem("halCinemaAdmin")
+
+    var params = new URLSearchParams();
+    params.append('movie_id', schedule.movie_id)
+    params.append('release', schedule.release)
+    params.append('start_time', moment(schedule.start_time).format("YYYY/MM/MM hh:mm:ss"))
+    params.append('theater_number', schedule.theater_number)
+
+    return axios.put(`/api/admin/schedule/${schedule.ID}?token=${token}`, params)
+  }
+
 }
 
 export default new HttpUtils;

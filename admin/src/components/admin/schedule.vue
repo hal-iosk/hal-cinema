@@ -22,29 +22,47 @@
       :hoverable="true"
       :mobile-cards="true"
     >
-      <template slot-scope="props">
-        <b-table-column label="ID">
-          <b-input v-model="props.row.ID"></b-input>
-        </b-table-column>
 
-        <b-table-column label="映画番号">
-          <b-input v-model="props.row.movie_id"></b-input>
-        </b-table-column>
+    <template slot-scope="props">
 
-        <b-table-column label="シアター番号">
-          <b-input v-model="props.row.theater_number"></b-input>
-        </b-table-column>
+      <b-table-column label="ID" v-if="props.row.release">
+        {{props.row.ID}}
+      </b-table-column>
+      <b-table-column label="ID" v-else>
+        <b-input v-model="props.row.ID"></b-input>
+      </b-table-column>
 
-        <b-table-column label="開始時間" centered width="100">
-          <b-datepicker
-            v-model="props.row.start_time"
-            :first-day-of-week="1"
-          ></b-datepicker>
-        </b-table-column>
+      <b-table-column label="映画番号" v-if="props.row.release">
+        {{props.row.movie_id}}
+      </b-table-column>
+      <b-table-column label="映画番号" v-else>
+        <b-input v-model="props.row.movie_id"></b-input>
+      </b-table-column>
 
-        <b-table-column numeric>
-          <button class="button is-success" @click="complate(props.row.ID)">完了</button>
-        </b-table-column>
+      <b-table-column label="シアター番号" v-if="props.row.release">
+        {{props.row.theater_number}}
+      </b-table-column>
+      <b-table-column label="シアター番号" v-else>
+        <b-input v-model="props.row.theater_number"></b-input>
+      </b-table-column>
+
+      <b-table-column label="開始時間" v-if="props.row.release">
+        {{new Date(props.row.start_time).getFullYear()}}/{{new Date(props.row.start_time).getMonth()}}/{{new Date(props.row.start_time).getDay()}} {{new Date(props.row.start_time).getHours()}}:{{new Date(props.row.start_time).getMinutes()}}:{{new Date(props.row.start_time).getSeconds()}}
+      </b-table-column>
+      <b-table-column label="開始時間" v-else>
+        <b-datepicker
+          v-model="props.row.start_time"
+          :first-day-of-week="1"
+        ></b-datepicker>
+      </b-table-column>
+
+      <b-table-column numeric v-if="props.row.release">
+        <button class="button is-danger" disabled>公開済</button>
+      </b-table-column>
+      <b-table-column numeric v-else>
+        <button class="button">保存</button>
+        <button class="button is-danger" @click="open(props.row.ID)">公開する</button>
+      </b-table-column>
 
       </template>
 
@@ -79,6 +97,22 @@ export default {
     }
   },
   methods: {
+    open(id) {
+      let _schedule = null;
+
+      this.schedules.map((schedule) => {
+        if(schedule.ID === id) {
+          schedule.release = true
+          _schedule = schedule;
+        }
+      });
+
+      httpUtils.PutSchedule(_schedule)
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((err) => console.error(err))
+    },
     back() {
       this.$router.push({ path: `/admin` });
     },
