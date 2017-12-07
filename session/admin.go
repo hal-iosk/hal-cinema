@@ -56,7 +56,6 @@ func AdminAuthViewMiddleware(c *gin.Context) {
 }
 func AdminAuthApiMiddleware(c *gin.Context) {
 	token := c.Query("token")
-	fmt.Println(token)
 	user, ok := tokenCheck(token)
 	if !ok {
 		c.JSON(http.StatusUnauthorized, gin.H{

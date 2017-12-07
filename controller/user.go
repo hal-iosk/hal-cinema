@@ -43,7 +43,7 @@ func CreateUser(c *gin.Context) {
 		LastNameRead:     req.LastNameRead,
 		Phone:            req.Phone,
 		Address:          req.Address,
-		Birthdate:        &req.Birthdate,
+		Birthdate:        req.Birthdate,
 		Magazine:         req.Magazine,
 		PointCount:       0,
 		CreditCardLimit:  req.CreditCardLimit,

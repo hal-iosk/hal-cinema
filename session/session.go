@@ -41,16 +41,6 @@ func SetCookie(userID uint, c *gin.Context) string {
 	return uid
 }
 
-func AuthViewMiddleware(c *gin.Context) {
-	token := c.Query("token")
-	user, ok := tokenCheck(token)
-	if !ok {
-		c.Redirect(300, "/login")
-		c.Abort()
-		return
-	}
-	c.Set("userID", user.UserID)
-}
 func AuthApiMiddleware(c *gin.Context) {
 	token := c.Query("token")
 

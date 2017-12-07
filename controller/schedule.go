@@ -66,6 +66,7 @@ func UpdateSchedule(c *gin.Context) {
 		c.JSON(http.StatusForbidden, gin.H{
 			"err": "リリースだからupdateむっりー笑笑",
 		})
+		return
 	}
 	schedule, ok := createScheduleReq(c)
 	if !ok {
@@ -91,7 +92,7 @@ func DeleteSchedule(c *gin.Context) {
 }
 func createScheduleReq(c *gin.Context) (model.ScreeningSchedule, bool) {
 	schedule := model.ScreeningSchedule{Release: false}
-	if c.Param("release") == "true" {
+	if c.PostForm("release") == "true" {
 		schedule.Release = true
 	}
 	movieID, err := strconv.Atoi(c.PostForm("movie_id"))
