@@ -22,6 +22,11 @@ h1{
 #mainForm{
     width:100%;
 }
+.validation{
+    color:#CD1111;
+    text-align:right;
+    margin:5px;
+}
 .text{
     width: 90%;
     padding: 10px;
@@ -47,9 +52,4 @@ button, input,select, textarea {
 }
 .submit:hover{
     background-color: #CD1111;
-}
-.validation{
-    color:#CD1111;
-    text-align:right;
-    margin:5px;
 }
