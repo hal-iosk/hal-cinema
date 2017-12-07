@@ -105,20 +105,28 @@ export default {
       })
     },
     deleteMovie() {
-      httpUtils.DeleteMovieDetail(this.$route.params.id)
-      .then((res) => {
-        if(res.status === 204) {
-          this.$toast.open({
-            message: '削除完了しました。',
-            type: 'is-success'
+      this.$dialog.confirm({
+        title: '映画削除',
+        message: '映画を削除します。よろしいですか？',
+        confirmText: '削除',
+        type: 'is-danger',
+        onConfirm: () => {
+          httpUtils.DeleteMovieDetail(this.$route.params.id)
+          .then((res) => {
+            if(res.status === 204) {
+              this.$toast.open({
+                message: '削除完了しました。',
+                type: 'is-success'
+              })
+              setTimeout(() => {
+                this.$router.push({ path: `/admin` });
+              }, 500)
+            }
           })
-          setTimeout(() => {
-            this.$router.push({ path: `/admin` });
-          }, 500)
+          .catch((err) => {
+            console.error(err)
+          })
         }
-      })
-      .catch((err) => {
-        console.error(err)
       })
     },
     back() {
