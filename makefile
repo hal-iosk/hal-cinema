@@ -1,3 +1,5 @@
+create:
+	cp dbconfig.yml.template dbconfig.yml
 start:
 	go run main.go
 
