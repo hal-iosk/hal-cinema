@@ -1,5 +1,6 @@
 # HAL Cinema
 
+
 ## サーバーの起動
 
 ```
@@ -7,7 +8,11 @@ $ go build main.go
 $ ./main
 ```
 
-## DB設定
+## DB設定初心者向け
+``` bash
+make create
+```
+## DB設定上級者向け
 
 ```
 DBName: halCinema
