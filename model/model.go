@@ -35,13 +35,6 @@ type Administrator struct {
 	Email     string `gorm:"not null" json:"email"`
 }
 
-// 売上テーブル
-type Earning struct {
-	gorm.Model
-	ReserveID   string `gorm:"not null;unique" json:"reserve_id"`
-	EarningDate string `gorm:"not null" json:"earning_date"`
-}
-
 // 映画テーブル
 type Movie struct {
 	gorm.Model

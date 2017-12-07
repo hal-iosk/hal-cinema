@@ -7,7 +7,6 @@ func main() {
 
 	db.DropTableIfExists(&model.Customer{})
 	db.DropTableIfExists(&model.Administrator{})
-	db.DropTableIfExists(&model.Earning{})
 	db.DropTableIfExists(&model.Movie{})
 	db.DropTableIfExists(&model.Price{})
 	db.DropTableIfExists(&model.Reserve{})
@@ -16,7 +15,6 @@ func main() {
 
 	db.AutoMigrate(&model.Customer{})
 	db.AutoMigrate(&model.Administrator{})
-	db.AutoMigrate(&model.Earning{})
 	db.AutoMigrate(&model.Movie{})
 	db.AutoMigrate(&model.Price{})
 	db.AutoMigrate(&model.Reserve{})
