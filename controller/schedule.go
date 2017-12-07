@@ -45,7 +45,7 @@ func CreateSchedule(c *gin.Context) {
 		return
 	}
 	schedule = service.Schedule.Create(schedule)
-	c.JSON(http.StatusOK, schedule)
+	c.JSON(http.StatusCreated, schedule)
 }
 
 func UpdateSchedule(c *gin.Context) {

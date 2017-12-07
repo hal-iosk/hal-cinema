@@ -76,6 +76,7 @@ type ScreeningSchedule struct {
 	MovieID       uint      `gorm:"not null" json:"movie_id"`
 	StartTime     time.Time `json:"start_time"`
 	TheaterNumber uint      `gorm:"not null" json:"theater_number"`
+	release       bool      `json:"release"`
 }
 
 type Token struct {
