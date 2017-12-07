@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -49,7 +50,7 @@ func CreateUser(c *gin.Context) {
 		CreditCardNumber: req.CreditCardNumber,
 		SecurityCode:     req.SecurityCode,
 	})
-	c.JSON(200, "ok!!")
+	c.JSON(http.StatusCreated, "ok!!")
 }
 
 func (self CustomerReq) create(c *gin.Context) (CustomerReq, error) {

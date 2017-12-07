@@ -38,7 +38,7 @@ func CreateMovie(c *gin.Context) {
 		return
 	}
 	movie = service.Movie.Create(movie)
-	c.JSON(http.StatusOK, movie)
+	c.JSON(http.StatusCreated, movie)
 }
 
 func UpdateMovie(c *gin.Context) {
