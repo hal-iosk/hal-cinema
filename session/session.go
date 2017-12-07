@@ -14,8 +14,8 @@ var db = model.GetDBConn()
 var CustomerTokenKey = "halCinemaUser"
 
 func UserLoginHandle(c *gin.Context) {
-	email := c.Query("email")
-	password := c.Query("password")
+	email := c.PostForm("email")
+	password := c.PostForm("password")
 	user, ok := service.Admin.Logincheck(email, password)
 	if !ok {
 		controller.Batequest("ログイン失敗", c)

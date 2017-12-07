@@ -14,16 +14,13 @@ func apiRouter(api *gin.RouterGroup) {
 	authAdmin.Use(session.AdminAuthApiMiddleware)
 
 	api.POST("/signup", controller.CreateUser)
-	api.GET("/signin", session.UserLoginHandle)
+	api.POST("/signin", session.UserLoginHandle)
 	api.GET("/movie", controller.GetMovieAll)
 	api.GET("/movie/:movie_id", controller.GetMovie)
 	api.GET("/schedule", controller.GetScheduleAll)
 	api.GET("/schedule/:schedule_id", controller.GetSchedule)
 
-	authApi.POST("/foo", func(c *gin.Context) {
-		userID, _ := c.Get("userID")
-		c.JSON(200, userID)
-	})
+	authApi.POST("/reserve", controller.CreateReserve)
 
 	admin.POST("/signin", session.AdminLoginHandle)
 	authAdmin.POST("/movie", controller.CreateMovie)

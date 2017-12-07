@@ -57,10 +57,10 @@ type Price struct {
 // 予約テーブル
 type Reserve struct {
 	gorm.Model
-	PriceID     string `gorm:"not null;unique" json:"price_id"`
-	SeatNumber  string `gorm:"not null" json:"seat_number"`
-	CustomerID  string `gorm:"not null;unique" json:"customer_id"`
-	CancelCheck bool   `gorm:"not null" json:"cancel_check"`
+	ScheduleID uint   `gorm:"not null" json:"schedule_id"`
+	CustomerID uint   `gorm:"not null" json:"customer_id"`
+	SeatID     string `gorm:"not null" json:"seat_id"`
+	PriceID    uint   `gorm:"not null" json:"price_id"`
 }
 
 // 上映スケジュールテーブル
