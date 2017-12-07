@@ -59,7 +59,7 @@ func AdminAuthApiMiddleware(c *gin.Context) {
 	fmt.Println(token)
 	user, ok := tokenCheck(token)
 	if !ok {
-		c.JSON(http.StatusForbidden, gin.H{
+		c.JSON(http.StatusUnauthorized, gin.H{
 			"err": "権限がありまてん＾＾;",
 		})
 		c.Abort()

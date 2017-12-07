@@ -52,17 +52,11 @@ func AuthViewMiddleware(c *gin.Context) {
 	c.Set("userID", user.UserID)
 }
 func AuthApiMiddleware(c *gin.Context) {
-	token, err := c.Cookie(CustomerTokenKey)
-	if err != nil {
-		c.JSON(http.StatusForbidden, gin.H{
-			"err": "権限がありまてん＾＾;",
-		})
-		c.Abort()
-		return
-	}
+	token := c.Query("token")
+
 	user, ok := tokenCheck(token)
 	if !ok {
-		c.JSON(http.StatusForbidden, gin.H{
+		c.JSON(http.StatusUnauthorized, gin.H{
 			"err": "権限がありまてん＾＾;",
 		})
 		c.Abort()

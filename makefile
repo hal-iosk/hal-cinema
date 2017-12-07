@@ -27,3 +27,7 @@ migrate/clean:
 	make migrate/drop
 	make migrate/init
 	make migrate/up
+
+dev/migrate:
+	go run cmd/migrate.go
+	make seed
