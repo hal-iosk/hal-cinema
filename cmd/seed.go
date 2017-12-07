@@ -26,6 +26,22 @@ func main() {
 	//db.Exec("INSERT INTO `prices` (`customer_type`, `price`, `last_updated_administrator_id`) VALUES ('幼児', 500, '0');")
 	//db.Exec("INSERT INTO `prices` (`customer_type`, `price`, `last_updated_administrator_id`) VALUES ('3D専用メガネ代', 300, '0');")
 
+	service.Customer.Create(model.Customer{
+		Email:            "llxo2_5oxll@icloud.com2",
+		Password:         "hoge",
+		FirstName:        "葛巻",
+		LastName:         "大樹",
+		FirstNameRead:    "かつらまき",
+		LastNameRead:     "たいき",
+		Phone:            "09096220908",
+		Address:          "高槻",
+		Birthdate:        time.Now(),
+		Magazine:         true,
+		PointCount:       0,
+		CreditCardLimit:  "20/15",
+		CreditCardNumber: "4242 4242 4242 4242",
+		SecurityCode:     "564",
+	})
 	service.Admin.Create(model.Administrator{
 		Email:     "hoge@gmail.com",
 		Password:  "hoge",

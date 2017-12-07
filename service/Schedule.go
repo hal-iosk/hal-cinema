@@ -49,3 +49,11 @@ func (self scheduleImpl) FindByMovie(id uint) []model.ScreeningSchedule {
 	db.Where("movie_id = ?", id).Find(&Schedules)
 	return Schedules
 }
+
+func (self scheduleImpl) IsRelease(id uint) bool {
+	schedule := self.Find(id)
+	if schedule != nil {
+		return schedule.Release
+	}
+	return false
+}
