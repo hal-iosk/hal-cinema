@@ -1,5 +1,7 @@
 package seed
 
+//強敵と格闘中！(#･∀･)
+
 import (
 	"fmt"
 	"strconv"
