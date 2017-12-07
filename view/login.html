@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/css/login.css">
   <script src="/js/admin-cookieManager.bundle.js"></script>
 
+
 </head>
 
 <body>
@@ -19,8 +20,11 @@
     <div id="main">
       <h1>会員ログイン</h1>
       <div id="mainForm">
-        <form action="/"  >
+        <form id="myForm" action="api/signin" method="post">
           <div class="inputBox">
+              <span id="e_logFail" class="validation">
+                  <!--エラーメッセージ入る-->
+                </span>
             <p>メールアドレス</p>
             <input type="text" id="email" class="text" name="email" maxlength="60" placeholder="abc@halCinema.com">
             <br>
@@ -36,10 +40,13 @@
               <!--エラーメッセージ入る-->
             </span>
           </div>
-          
-          <input type="submit" class="submit" value="ログイン">
+          <div>
+          <li class="btn signUp">
+              <a href="registerCustomer">会員登録</a>
+            </li>
+          <input type="submit" class="submit btn" value="ログイン">
+        </div>
         </form>
-        <li><a href="registerCustomer">会員登録</a></li>
       </div>
     </div>
   </div>
@@ -62,10 +69,36 @@
       </li>
     </ul>
   </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="/js/script.js"></script>
   <script src="/js/jquery-validation.js"></script>
   <script src="/js/el_validation.js"></script>
   <script src="/js/signIn.js"></script>
+  <script type="text/javascript">
+    $('#myForm').on('submit', function (event) {
+      event.preventDefault(); // 本来のPOSTを打ち消すおまじない
+
+       if(validation()){
+      $.post(
+        $(this).attr('action'),
+        $(this).serializeArray())
+        .done(function (data, textStatus, jqXHR) {
+          console.log(data.token)
+        })
+        .fail(function(data, textStatus, jqXHR){
+          document.getElementById("e_logFail").innerHTML = "メールアドレスまたはパスワードが違います。";
+        })
+      }
+    });
+    
+  </script>
 </body>
 
 </html>

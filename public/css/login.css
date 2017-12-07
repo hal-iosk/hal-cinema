@@ -11,7 +11,9 @@ body{
 
 a{
     text-decoration: none;
+    color: 
 }
+
 #main{
     width:810px;
     margin:50px auto;
@@ -39,17 +41,28 @@ button, input,select, textarea {
     font-size: inherit;
     line-height: inherit;
 }
-.submit{
+.btn{
     font-size: 20px;
     padding: 20px 80px;
     margin: 20px 250px;
     text-align: center;
     border: 1px solid;
     border-radius: 4px;
-    background-color: #1253A2;
-    color:#ffffff;
     transition: all 350ms 0s ease;
 }
+li{
+    list-style: none;
+}
+.submit{color:#ffffff;
+    background-color: #1253A2;
+}
 .submit:hover{
+    background-color: #CD1111;
+}
+.signUp{
+    color:#ffffff;
+    background-color: #1253A2;
+}
+.signUp:hover{
     background-color: #CD1111;
 }

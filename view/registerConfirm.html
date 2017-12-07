@@ -36,107 +36,98 @@
             <p>入力事項のご確認をお願い致します。</p>
             <h2>メールアドレス</h2>
             <div class="space">
-              <p>
-                abc@gamil.com
+              <p class ="v_email">
                 <!--session[mail]-->
-                <input type="hidden" value="session[mail]">
+                <input class ="email" type="hidden" name="email">
               </p>
             </div>
             <h2>パスワード</h2>
             <div class="space">
-              <p>
-                p*******
+              <p class="v_password">
                 <!--session[password]-->
               </p>
-              <input type="hidden" value="session[password]">
+              <input class="password" type="hidden" name="email">
             </div>
             <h2>お名前</h2>
             <div class="name">
               <p>姓</p>
               <br>
-              <p></p>
+              <p class="v_first_name"></p>
+              <input class="first_name" type="hidden" name="first_name">
             </div>
             <div class="name">
               <p>名</p>
               <br>
-              <p></p>
+              <p class="v_last_name"></p>
+              <input class="last_name" type="hidden" name="last_name">
             </div>
             <div class="name">
               <p>フリガナ（セイ）</p>
               <br>
-              <p></p>
+              <p class="v_first_name_read"></p>
+              <input class="first_name_read" type="hidden" name="first_name_read">
             </div>
             <div class="name">
               <p>フリガナ（メイ）</p>
               <br>
-              <p></p>
+              <p class="v_last_name_read"></p>
+              <input class="last_name_read" type="hidden" name="last_name_read">
             </div>
 
             <h2>生年月日</h2>
             <div class="space">
               <div class="space_birth">
-                <p>1998
-                  <!--session[year]-->年</p>
-                <input type="hidden" value="session[year]">
-                <p>3
-                  <!--session[month]-->月</p>
-                <input type="hidden" value="session[month]">
-                <p>13
-                  <!--session[date]-->日</p>
-                <input type="hidden" value="session[date]">
+                <p class="year">
+                  <!--session[year]--></p><p>年</p>
+                
+                <p class="month">
+                  <!--session[month]--></p><p>月</p>
+                
+                <p class="date">
+                  <!--session[date]--></p><p>日</p>
+                  <input class="birth" type="hidden">
               </div>
             </div>
             <h2>電話番号</h2>
             <div class="space">
-              <p>
-                10240040
-                <!--session[tel]-->
-                <input type="hidden" value="session[tel]">
-              </p>
+              <p class="v_phone">
+                <!--session[tel]--></p>
+                <input class="phone" type="hidden">
             </div>
-            <h2>メールアドレス</h2>
-            <div class="space">
-              <p>
-                abc@gamil.com
-                <!--session[mail]-->
-                <input type="hidden" value="session[mail]">
-              </p>
             </div>
             <h2>郵便番号</h2>
             <div class="space">
-              <p>
-                0430400
+              <p class="v_address">
+                
                 <!--session[address]-->
-                <input type="hidden" value="session[address]">
+                <input class="address" type="hidden">
               </p>
             </div>
             <h2>クレジットカード</h2>
-            <div class="space_name">
+            <div class="v_space_name">
               <div class="col">
                 <p>カード番号</p>
-                <p>
-                  ************1234
-                  <!--session[crNo]-->
-                  <input type="hidden" value="session[address]">
-                </p>
+                <p class="v_credit_card_number">
+                  
+                  <!--session[crNo]--></p>
+                  <input type="hidden" class="credit_card_number">
               </div>
               <div class="col">
                 <p>セキュリティコード</p>
-                <p>
-                  ***
+                <p class="v_security_code">
+                  
                   <!--session[crName]-->
-                  <input type="hidden" value="session[address]">
+                  <input class="security_code" type="hidden">
                 </p>
               </div>
               <div class="col">
                 <p>有効期限</p>
-                <p>
-                  10月
-                  <!--session[crMonth]-->
-                  <input type="hidden" value="session[address]">/ 23年
-                  <!--session[crYear]-->
-                  <input type="hidden" value="session[address]">
-                </p>
+                <p class="v_limitMonth">
+                  <!--session[crMonth]--></p>
+                  <input class="limitMonth" type="hidden"><p>月/</p> 
+                  <p class="v_limitYear">
+                  <!--session[crYear]--></p>
+                  <input class="limitYear" type="hidden"><p>年</p>
               </div>
             </div>
             <div id="confirmNav">
@@ -146,7 +137,7 @@
               </div>
               <div id="button">
                 <a href="" class="back">戻る</a>
-                <button class="move">登録</button>
+                <input type="submit" class="move" value="登録">
               </div>
             </div>
           </form>
@@ -173,8 +164,9 @@
       </li>
     </ul>
   </footer>
+  <script src="/js/moment.js"></script>
   <script src="/js/QueryString.js"></script>
-  <script src="/js/confirm.js"></script>
+  <script src="/js/registerConfirm.js"></script>
   <script src="/js/script.js"></script>
   </div>
 </body>

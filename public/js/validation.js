@@ -80,7 +80,7 @@ $(document).ready(function () {
 // }
 
 //バリデーション
-$('form').submit(function () {
+function validation() {
   var validationMsg = {
     email: '',
     password: '',
@@ -223,9 +223,7 @@ $('form').submit(function () {
   } else {
     validationMsg["limit"] = "";
   }
-  console.log(Object(validationMsg["email"]));
-  console.log(Object(validationMsg["email"].length));
-  console.log(Object(e_email));
+
   if (!validationMsg["email"].length == 0 || !validationMsg["password"].length == 0 || !validationMsg["confirmPass"].length == 0 || !validationMsg["first_name"].length == 0 || !validationMsg["last_name"].length == 0 || !validationMsg["first_name_read"].length == 0 || !validationMsg["last_name_read"].length == 0 || !validationMsg["birth"].length == 0 || !validationMsg["phone"].length == 0 || !validationMsg["address"].length == 0 || !validationMsg["credit_card_number"].length == 0 || !validationMsg["security_code"].length == 0 || !validationMsg["limit"].length == 0) {
     document.getElementById("e_email").innerHTML = validationMsg["email"];
     document.getElementById("e_password").innerHTML = validationMsg["password"];
@@ -242,6 +240,6 @@ $('form').submit(function () {
     document.getElementById("e_limit").innerHTML = validationMsg["limit"];
     return false;
   } else {
-    return submit();
+    return true;
   }
-});
+};
