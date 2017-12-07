@@ -15,7 +15,7 @@
 }
 
 .drawer-nav {
-  position: fixed;
+  position: fixe;
   z-index: 101;
   top: 0;
   overflow: hidden;
