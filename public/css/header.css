@@ -15,12 +15,8 @@ header {
     background-color: #404040;
 }
 
-.drawer-nav li {
-    
-}
-
-.drawer-nav a {
-    
+.drawer-toggle{
+    position: static;
 }
 
 #logoimg {
