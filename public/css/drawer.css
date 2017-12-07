@@ -15,7 +15,7 @@
 }
 
 .drawer-nav {
-  position: relative;
+  position: fixe;
   z-index: 101;
   top: 0;
   overflow: hidden;
@@ -141,7 +141,7 @@
 \*!------------------------------------*/
 
 .drawer-hamburger {
-  position: fixed;
+  position: absolute;
   z-index: 104;
   top: 0;
   display: block;
