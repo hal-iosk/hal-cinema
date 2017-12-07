@@ -2,7 +2,7 @@ $(document).ready(function() {
     $(".drawer").drawer();
 });
 
-//ログイン制御
+//ログイン制御なう
 var isLogin = AuthManager.isLogin();
 
 if(isLogin){
