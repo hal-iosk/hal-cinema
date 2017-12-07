@@ -44,8 +44,8 @@ func viewRouter(r *gin.Engine) {
 	r.GET("/seniorDay", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "seniorDay.html", nil)
 	})
-	r.GET("/watchFirm", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "watchFirm.html", nil)
+	r.GET("/watchFilm", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "watchFilm.html", nil)
 	})
 
 	// おーえっち
@@ -69,12 +69,15 @@ func viewRouter(r *gin.Engine) {
 	r.GET("/admin", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "adminCtrl.html", nil)
 	})
+	r.GET("/admin/:path/:hoge", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "adminCtrl.html", nil)
+	})
 	r.GET("/admin/:path", func(c *gin.Context) {
 		path := c.Param("path")
 		if path == "login" {
 			c.HTML(http.StatusOK, "adminLogin.html", nil)
 		} else {
-		  c.HTML(http.StatusOK, "adminCtrl.html", nil)
-    }
-  })
+			c.HTML(http.StatusOK, "adminCtrl.html", nil)
+		}
+	})
 }

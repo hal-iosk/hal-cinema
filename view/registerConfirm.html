@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="/js/admin-cookieManager.bundle.js"></script>
   <title>hal-cinema | 会員登録</title>
 
   <link rel="stylesheet" href="/css/footer.css">
@@ -30,16 +31,16 @@
           </ol>
         </div>
         <div id="registerConfirm">
-          <form action="">
+          <form action="registerComp.html" method="POST">
             <h1>hal-cinema@会員登録</h1>
             <p>入力事項のご確認をお願い致します。</p>
-            <h2>ユーザーID</h2>
+            <h2>メールアドレス</h2>
             <div class="space">
               <p>
-                ユーザーID
-                <!--session[userid]-->
+                abc@gamil.com
+                <!--session[mail]-->
+                <input type="hidden" value="session[mail]">
               </p>
-              <input type="hidden" value="session[userid]">
             </div>
             <h2>パスワード</h2>
             <div class="space">
@@ -50,24 +51,25 @@
               <input type="hidden" value="session[password]">
             </div>
             <h2>お名前</h2>
-            <div class="space_name">
-              <div class="col">
-                <p>漢字</p>
-                <p>
-                  漢字
-                  <!--session[kanji]-->
-                  <input type="hidden" value="session[kanji]">
-                </p>
-              </div>
-              <div class="col">
-                <p>ふりがな
-                  <p>
-                    <p>
-                      ふりがな
-                      <!--session[huri]-->
-                      <input type="hidden" value="session[huri]">
-                    </p>
-              </div>
+            <div class="name">
+              <p>姓</p>
+              <br>
+              <p></p>
+            </div>
+            <div class="name">
+              <p>名</p>
+              <br>
+              <p></p>
+            </div>
+            <div class="name">
+              <p>フリガナ（セイ）</p>
+              <br>
+              <p></p>
+            </div>
+            <div class="name">
+              <p>フリガナ（メイ）</p>
+              <br>
+              <p></p>
             </div>
 
             <h2>生年月日</h2>
@@ -100,14 +102,6 @@
                 <input type="hidden" value="session[mail]">
               </p>
             </div>
-            <h2>メールマガジン希望</h2>
-            <div class="space">
-              <p>
-                希望する
-                <!--session[magajin]-->
-                <input type="hidden" value="session[magajin]">
-              </p>
-            </div>
             <h2>郵便番号</h2>
             <div class="space">
               <p>
@@ -127,24 +121,23 @@
                 </p>
               </div>
               <div class="col">
-                <p>名義人</p>
+                <p>セキュリティコード</p>
                 <p>
-                  SINEMA HARU
+                  ***
                   <!--session[crName]-->
                   <input type="hidden" value="session[address]">
                 </p>
               </div>
               <div class="col">
-                    <p>有効期限</p>
-                    <p>
-                      10月
-                      <!--session[crMonth]-->
-                      <input type="hidden" value="session[address]">/
-                      23年
-                      <!--session[crYear]-->
-                      <input type="hidden" value="session[address]">
-                    </p>
-                  </div>
+                <p>有効期限</p>
+                <p>
+                  10月
+                  <!--session[crMonth]-->
+                  <input type="hidden" value="session[address]">/ 23年
+                  <!--session[crYear]-->
+                  <input type="hidden" value="session[address]">
+                </p>
+              </div>
             </div>
             <div id="confirmNav">
               <div id="text">

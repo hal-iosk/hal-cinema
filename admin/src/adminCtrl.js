@@ -8,16 +8,18 @@ Vue.use(Buefy)
 
 // components
 import Admin from './components/admin/index.vue'
-import SalesManageEdit from './components/admin/salesManageEdit.vue'
+import Schedule from './components/admin/schedule.vue'
 import MovieTableEdit from './components/admin/movieTableEdit.vue'
+import AddMovie from './components/admin/addMovie.vue'
 
 import NotFound from './components/notFound/index.vue'
 
 // routing
 const routes = [
   { path: "/admin", component: Admin },
-  { path: "/admin/salesedit", component: SalesManageEdit },
-  { path: "/admin/movieedit", component: MovieTableEdit },
+  { path: "/admin/movieedit/:id", component: MovieTableEdit },
+  { path: "/admin/movie", component: AddMovie },
+  { path: "/admin/schedule/:id", component: Schedule },
   { path: "*", component: NotFound },
 ]
 const router = new VueRouter({  mode: 'history', routes })

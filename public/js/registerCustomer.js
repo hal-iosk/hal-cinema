@@ -3,8 +3,8 @@ window.onload= function () {
         var selectYear = document.getElementById("year");
         var selectMonth = document.getElementById("month");
         var selectDate = document.getElementById("date");
-        var crMonth = document.getElementById("crMonth");
-        var crYear = document.getElementById("crYear");
+        var crMonth = document.getElementById("limitMonth");
+        var crYear = document.getElementById("limitYear");
         var date = new Date();
         var year = date.getFullYear();
         // 生年月日（年）
@@ -43,3 +43,4 @@ window.onload= function () {
             crYear.appendChild(optionAddMonth);
         }
     }
+    

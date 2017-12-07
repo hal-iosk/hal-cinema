@@ -23,11 +23,9 @@ func AdminLoginHandle(c *gin.Context) {
 		controller.Batequest("ログイン失敗", c)
 		return
 	}
-	//c.JSON(http.StatusOK, gin.H{
-	//	"token": AdminSetCookie(user.ID, c),
-	//})
-	AdminSetCookie(user.ID, c)
-	c.Redirect(300, "/admin")
+	c.JSON(http.StatusOK, gin.H{
+		"token": AdminSetCookie(user.ID, c),
+	})
 }
 
 func AdminSetCookie(userID uint, c *gin.Context) string {
@@ -46,12 +44,8 @@ func AdminSetCookie(userID uint, c *gin.Context) string {
 }
 
 func AdminAuthViewMiddleware(c *gin.Context) {
-	token, err := c.Cookie(AdminTokenKey)
-	if err != nil {
-		c.Redirect(300, "/login")
-		c.Abort()
-		return
-	}
+	token := c.Query("token")
+
 	user, ok := tokenCheck(token)
 	if !ok {
 		c.Redirect(300, "/login")
@@ -60,18 +54,11 @@ func AdminAuthViewMiddleware(c *gin.Context) {
 	}
 	c.Set("userID", user.UserID)
 }
-func Admin(c *gin.Context) {
-	token, err := c.Cookie(CustomerTokenKey)
-	if err != nil {
-		c.JSON(http.StatusForbidden, gin.H{
-			"err": "権限がありまてん＾＾;",
-		})
-		c.Abort()
-		return
-	}
+func AdminAuthApiMiddleware(c *gin.Context) {
+	token := c.Query("token")
 	user, ok := tokenCheck(token)
 	if !ok {
-		c.JSON(http.StatusForbidden, gin.H{
+		c.JSON(http.StatusUnauthorized, gin.H{
 			"err": "権限がありまてん＾＾;",
 		})
 		c.Abort()

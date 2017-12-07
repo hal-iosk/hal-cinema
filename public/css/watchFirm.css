@@ -55,7 +55,8 @@ li{
     margin: 0 auto;
     overflow: hidden;
 }
-#scheduleTable li{
+
+.scheduleDate{
     font-size: 20px;
     width:130px;
     float:left;
@@ -66,11 +67,11 @@ li{
     font-weight: bold;
     border:solid 1px #cccccc;
 }
+.other{
+    background-color: #5f5f5f;
+}
 .three{
     background-color: #ffffff; 
-}
-.scheduleDate{
-    background-color: #7a7a7a;
 }
 
 .firm{

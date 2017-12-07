@@ -146,3 +146,11 @@ h2 {
     color:#ffffff;
     background: #CD1111;
 }
+.name{
+  background-color: #FFFFFF;
+  width:50%;
+  float:left;
+}
+.name p{
+  padding:20px;
+}

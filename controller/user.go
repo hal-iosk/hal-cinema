@@ -1,15 +1,13 @@
 package controller
 
 import (
+	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/hal-iosk/hal-cinema/model"
 	"github.com/hal-iosk/hal-cinema/service"
 )
-
-var DayFormat = "2006/01/02"
-var TimeFormat = "2006-01-02 15:04:05"
 
 type CustomerReq struct {
 	Email            string    `gorm:"not null;unique" json:"email"`
@@ -45,14 +43,14 @@ func CreateUser(c *gin.Context) {
 		LastNameRead:     req.LastNameRead,
 		Phone:            req.Phone,
 		Address:          req.Address,
-		Birthdate:        &req.Birthdate,
+		Birthdate:        req.Birthdate,
 		Magazine:         req.Magazine,
 		PointCount:       0,
 		CreditCardLimit:  req.CreditCardLimit,
 		CreditCardNumber: req.CreditCardNumber,
 		SecurityCode:     req.SecurityCode,
 	})
-	c.JSON(200, "ok!!")
+	c.JSON(http.StatusCreated, "ok!!")
 }
 
 func (self CustomerReq) create(c *gin.Context) (CustomerReq, error) {
@@ -65,7 +63,7 @@ func (self CustomerReq) create(c *gin.Context) (CustomerReq, error) {
 	self.LastNameRead = c.PostForm("last_name_read")
 	self.Phone = c.PostForm("phone")
 	self.Address = c.PostForm("address")
-	self.Birthdate, err = time.Parse(DayFormat, c.PostForm("birthday"))
+	self.Birthdate, err = GetDate("birthday", c)
 	if err != nil {
 		Batequest("日付けのフォーマットがおかしいよん", c)
 		return self, err

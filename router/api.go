@@ -11,10 +11,14 @@ func apiRouter(api *gin.RouterGroup) {
 	authApi.Use(session.AuthApiMiddleware)
 	admin := api.Group("/admin")
 	authAdmin := admin.Group("")
-	authAdmin.Use(session.AuthApiMiddleware)
+	authAdmin.Use(session.AdminAuthApiMiddleware)
 
 	api.POST("/signup", controller.CreateUser)
 	api.GET("/signin", session.UserLoginHandle)
+	api.GET("/movie", controller.GetMovieAll)
+	api.GET("/movie/:movie_id", controller.GetMovie)
+	api.GET("/schedule", controller.GetScheduleAll)
+	api.GET("/schedule/:schedule_id", controller.GetSchedule)
 
 	authApi.POST("/foo", func(c *gin.Context) {
 		userID, _ := c.Get("userID")
@@ -22,11 +26,10 @@ func apiRouter(api *gin.RouterGroup) {
 	})
 
 	admin.POST("/signin", session.AdminLoginHandle)
-
-	authAdmin.POST("/test", func(c *gin.Context) {
-		id, _ := c.Get("userID")
-		c.JSON(200, gin.H{
-			"err": id,
-		})
-	})
+	authAdmin.POST("/movie", controller.CreateMovie)
+	authAdmin.PUT("/movie/:movie_id", controller.UpdateMovie)
+	authAdmin.DELETE("/movie/:movie_id", controller.DeleteMovie)
+	authAdmin.POST("/schedule", controller.CreateSchedule)
+	authAdmin.PUT("/schedule/:schedule_id", controller.UpdateSchedule)
+	authAdmin.DELETE("/schedule/:schedule_id", controller.DeleteSchedule)
 }

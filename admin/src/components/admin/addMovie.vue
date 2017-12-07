@@ -2,11 +2,10 @@
   <section>
 
     <div class="flex">
-      <h1>映画編集</h1>
+      <h1>映画追加</h1>
       <div style="margin-left: auto;">
-        <button class="button" @click="back">戻る</button>
-        <button class="button is-danger" @click="deleteMovie">削除</button>
-        <button class="button is-primary" @click="complate">完了</button>
+        <button class="button"@click="back">戻る</button>
+        <button class="button is-primary" @click="add">追加する</button>
       </div>
     </div>
 
@@ -57,7 +56,7 @@
 import httpUtils from '../../lib/httpUtils'
 
 export default {
-  name: "movieTableEdit",
+  name: "addMovie",
   data() {
     return {
       movie: {},
@@ -66,22 +65,9 @@ export default {
       isImageModalActive: false,
     }
   },
-  mounted() {
-    const id = this.$route.params.id;
-    httpUtils.GetMovieDetail(id)
-    .then((res) => {
-      this.movie = res.data;
-      this.start_time = new Date(res.data.start_date)
-      this.end_time = new Date(res.data.end_date)
-    })
-    .catch((err) => {
-      console.error(err)
-    })
-  },
   methods: {
-    complate() {
-      httpUtils.PutMovieDetail(
-        this.$route.params.id,
+    add() {
+      httpUtils.CreateMovie(
         this.movie.movie_name,
         this.movie.details,
         this.movie.image_path,
@@ -90,9 +76,9 @@ export default {
         this.movie.watch_time
       )
       .then((res) => {
-        if(res.status === 200) {
+        if(res.status === 201) {
           this.$toast.open({
-            message: '編集完了しました。',
+            message: '映画を追加しました。',
             type: 'is-success'
           })
           setTimeout(() => {
@@ -102,31 +88,6 @@ export default {
       })
       .catch((err) => {
         console.error(err)
-      })
-    },
-    deleteMovie() {
-      this.$dialog.confirm({
-        title: '映画削除',
-        message: '映画を削除します。よろしいですか？',
-        confirmText: '削除',
-        type: 'is-danger',
-        onConfirm: () => {
-          httpUtils.DeleteMovieDetail(this.$route.params.id)
-          .then((res) => {
-            if(res.status === 204) {
-              this.$toast.open({
-                message: '削除完了しました。',
-                type: 'is-success'
-              })
-              setTimeout(() => {
-                this.$router.push({ path: `/admin` });
-              }, 500)
-            }
-          })
-          .catch((err) => {
-            console.error(err)
-          })
-        }
       })
     },
     back() {
