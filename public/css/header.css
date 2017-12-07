@@ -139,22 +139,22 @@ header {
 }
 
 .drawer-nav #navCampaign {
-    width: 60px;
-    height: 129px;
-    text-align: center;
     width: 129px;
+    height: 92px;
+    text-align: center;
     float: left;
     border-right: solid 2px #ffffff;
     border-bottom: solid 2px #ffffff;
 }
 
-.drawer-nav #navLogin a{
+.drawer-nav #navCampaign a{
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     display: block;
+    padding-top: 20px;
 }
 
 .drawer-nav #navCampaign a:hover{
@@ -162,15 +162,24 @@ header {
 }
 
 .drawer-nav #navPoppukon {
-    padding-top: 20px;
-    padding-bottom: 16px;
-    text-align: center;
     width: 129px;
+    height: 92px;
+    text-align: center;
     float: left;
     border-bottom: solid 2px #ffffff;
 }
 
-.drawer-nav #navPoppukon:hover{
+.drawer-nav #navPoppukon a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    padding-top: 20px;
+}
+
+.drawer-nav #navPoppukon a:hover{
     opacity:0.5;
 }
 
@@ -185,10 +194,19 @@ header {
 }
 
 .drawer-nav #navPaper {
-    padding-top: 20px;
-    padding-left: 25px;
-    padding-bottom: 16px;
+    height: 60px;
     border-bottom: solid 2px #ffffff;
+}
+
+.drawer-nav #navPaper a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    padding-left: 20px;
+    padding-top: 20px;
 }
 
 .drawer-nav #navPaper span{
@@ -196,7 +214,7 @@ header {
 
 }
 
-.drawer-nav #navPaper:hover{
+.drawer-nav #navPaper a:hover{
     opacity:0.5;
 }
 
@@ -206,12 +224,21 @@ header {
 }
 
 .drawer-nav #navP {
-    padding-top: 20px;
-    padding-bottom: 16px;
+    height: 106px;
     border-bottom: solid 2px #ffffff;
     text-align: center;
 }
 
-.drawer-nav #navP:hover{
+.drawer-nav #navP a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    padding-top: 20px;
+}
+
+.drawer-nav #navP a:hover{
     opacity:0.5;
 }

@@ -4,19 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>header</title>
-    <script src="../public/js/jquery.min.js"></script>
-    <script src="../public/js/iscroll.js"></script>
-    <link rel="stylesheet" href="../public/css/drawer.css">
-    <script src="../public/js/drawer.min.js"></script>
-    <link rel="stylesheet" href="../public/css/header.css">
-    <script>
-    $(document).ready(function() {
-    $(".drawer").drawer();
-        $('.drawer').on('drawer.opened', function(){
-            //開いた時の処理
-        });
-    });
-    </script>
+    <script src="/js/common.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/iscroll.js"></script>
+    <link rel="stylesheet" href="/css/drawer.css">
+    <script src="/js/drawer.min.js"></script>
+    <link rel="stylesheet" href="/css/header.css">
 </head>
 <body class="drawer drawer--left">
     
@@ -29,19 +22,24 @@
    <nav class="drawer-nav">
      <ul class="drawer-menu">
        <!-- ドロワーメニューの中身 -->
-       <li id="navTop"><a href=""><img src="../public/image/top.png" width="auto" height="auto"><span>トップページ</span></a></li>
-       <li id="navLogin"><a href=""><img src="../public/image/login.png" width="auto" height="auto"><span>ログイン</span></a></li>
-       <li id="navMovie"><a href=""><img src="../public/image/movie.png" width="auto" height="auto"><br><span>上映スケジュール</span></a></li>
-       <li id="navCampaign"><a href=""><img src="../public/image/campaign.png" width="auto" height="auto"><br><span>キャンペーン</span></a></li>
-       <li id="navPoppukon"><a href=""><img src="../public/image/poppukon.png" width="auto" height="auto"><br><span>売店情報</span></a></li>
-       <li id="navPaper"><a href=""><img src="../public/image/paper.png" width="auto" height="auto"><span>予約履歴</span></a></li>
-       <li id="navP"><a href=""><img src="../public/image/p.png" width="auto" height="auto"><br><span>チェックイン</span></a></li>
+       <li id="navTop"><a href="/view/index.html"><img src="/image/top.png" width="auto" height="auto"><span>トップページ</span></a></li>
+       <li id="navLogin"><a href="/view/login.html"><img src="/image/login.png" width="auto" height="auto"><span>ログイン</span></a></li>
+       <li id="navMovie"><a href="/view/watchFirm.html"><img src="/image/movie.png" width="auto" height="auto"><br><span>上映スケジュール</span></a></li>
+       <li id="navCampaign"><a href="/view/campaign.html"><img src="/image/campaign.png" width="auto" height="auto"><br><span>キャンペーン</span></a></li>
+       <li id="navPoppukon"><a href="/view/shop.html"><img src="/image/poppukon.png" width="auto" height="auto"><br><span>売店情報</span></a></li>
+       <li id="navPaper"><a href="/view/login.html"><img src="/image/paper.png" width="auto" height="auto"><span>予約履歴</span></a></li>
+       <li id="navP"><a href="/view/login.html"><img src="/image/p.png" width="auto" height="auto"><br><span>チェックイン</span></a></li>
      </ul>
    </nav>
     
    <header>
-   <p id="logoimg"><a href="#!"><img src="../public/image/logo_halcinema.png" width="177" height="46"></a></p>
+   <p id="logoimg"><a href="#!"><img src="/image/logo_halcinema.png" width="177" height="46"></a></p>
    </header>
     
+   <p>①common.js ~ header.cssまで順番に全部読み込んでください。一番下のheader.jsも読み込んで。</p>
+   <p>②bodyタグにclassをコピペ</p>
+   <p>④のこりコピペ</p>
+
+     <script src="/js/header.js"></script>
    </body>
 </html>
