@@ -12,8 +12,6 @@ var loc, _ = time.LoadLocation("Asia/Tokyo")
 
 func Seed() {
 
-	CreateMovie()
-	CreateSchedule()
 	//db.Exec("INSERT INTO `authorities` (`authority_name`, `authority_code`) VALUES ('なし', 404);")
 	//db.Exec("INSERT INTO `authorities` (`authority_name`, `authority_code`) VALUES ('ルート', 777);")
 	//db.Exec("INSERT INTO `authorities` (`authority_name`, `authority_code`) VALUES ('管理者登録', 400);")
@@ -51,4 +49,6 @@ func Seed() {
 		LastName:  "大樹",
 		Phone:     "09096220908",
 	})
+	CreateMovie()
+	CreateSchedule()
 }
