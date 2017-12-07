@@ -5,14 +5,15 @@ body{
 a{
     text-decoration: none;
 }
-#welcome h2{
-    text-decoration: underline #CD1111;
-}
+
 #welcome{
     width:1300px;
     margin:20px auto;
     position: relative;
     border-bottom:solid 1px #cccccc;
+}
+#welcome h2{
+    text-decoration: underline #CD1111;
 }
 .logout{
     position: absolute;
@@ -42,6 +43,7 @@ a{
     border-right:solid 1px #D8D8D8;
     list-style:none;
     line-height: 100px;
+    position: relative;
 }
 #menu_bar .selected{
     width: 400px;
@@ -54,6 +56,7 @@ a{
     border-right:solid 1px #D8D8D8;
     list-style:none;
     line-height: 100px;
+    
 }
 #history_list{
     clear:left;
@@ -82,4 +85,14 @@ a{
     width:90%;
     text-align: left;
 }
-
+#menu_bar a{
+    position: absolute;
+    text-decoration: none;
+    color:#000000;
+display: block;
+width:100%;
+height: 100%;
+}
+#menu_bar a:hover{
+    color: #CD1111;
+}

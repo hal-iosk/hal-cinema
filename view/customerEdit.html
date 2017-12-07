@@ -17,11 +17,33 @@
     <header>
     </header>
     <div id="main">
+        <div id="welcome">
+            <h2>マイページ</h2>
+    
+            <p>ようこそ ○
+                <!--ここにユーザー名-->様</p>
+            <div class="logout">
+                <p>
+                    <a href="">ログアウト</a>
+                </p>
+            </div>
+        </div>
+        <div id="menu_bar">
+            <ul>
+                <li><a href="mypage">予約履歴</a></li>
+                
+                    <li class="selected">登録情報の確認・編集</li>
+                
+                
+                    <li><a href="">チェックインポイントの確認</a></li>
+                
+            </ul>
+        </div>
       <div id="register">
-
+          
         <div id="mainForm">
           <h1>hal-cinema@登録情報編集</h1>
-          <form action="/" method="GET">
+          <form action="/" method="GET" id="myForm">
               <div class="input">
                 <h2>メールアドレス
                   <small>(※必須項目)</small>
@@ -201,7 +223,25 @@
     <script src="/js/registerCustomer.js"></script>
     <script src="/js/jquery-validation.js"></script>
     <script src="/js/el_validation.js"></script>
-    <script src="/js/validation.js"></script>
+    <script src="/js/customerEdit.js"></script>
+    <script type="text/javascript">
+      $('#myForm').on('submit', function (event) {
+        event.preventDefault(); // 本来のPOSTを打ち消すおまじない
+  
+         if(validation()){
+        $.post(
+          $(this).attr('action'),
+          $(this).serializeArray())
+          .done(function (data, textStatus, jqXHR) {
+            console.log(data.token)
+          })
+          .fail(function(data, textStatus, jqXHR){
+            alert("編集に失敗しました。")
+          })
+        }
+      });
+      
+    </script>
   </div>
 </body>
 
