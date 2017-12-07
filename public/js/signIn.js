@@ -21,7 +21,7 @@ $(document).ready(function () {
 
 
 //バリデーション
-$('form').submit(function () {
+function validation(){
     var validationMsg = {
         email: '',
         password: ''
@@ -53,6 +53,6 @@ $('form').submit(function () {
         document.getElementById("e_password").innerHTML = validationMsg["password"];
         return false;
     } else {
-        return submit();
+        return true();
     }
-});
+};

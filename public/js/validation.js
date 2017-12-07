@@ -80,7 +80,7 @@ $(document).ready(function () {
 // }
 
 //バリデーション
-function validation() {
+$('form').submit(function ()  {
   var validationMsg = {
     email: '',
     password: '',
@@ -240,6 +240,6 @@ function validation() {
     document.getElementById("e_limit").innerHTML = validationMsg["limit"];
     return false;
   } else {
-    return true;
+    return submit();
   }
-};
+});
