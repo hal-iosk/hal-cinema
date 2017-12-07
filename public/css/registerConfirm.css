@@ -150,7 +150,11 @@ h2 {
   background-color: #FFFFFF;
   width:50%;
   float:left;
+  padding: 20px 0;
 }
 .name p{
-  padding:20px;
+  padding:0px 20px;
+}
+.limit{
+  float:left;
 }
