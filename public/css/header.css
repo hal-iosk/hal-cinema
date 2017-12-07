@@ -11,19 +11,12 @@ p {
 }
 
 header {
-    padding-left: 60px;
+    
     background-color: #404040;
 }
 
-.drawer-nav li {
-    
-}
-
-.drawer-nav a {
-    
-}
-
 #logoimg {
+    padding-left: 60px;
     padding-top: 8px;
 }
 
