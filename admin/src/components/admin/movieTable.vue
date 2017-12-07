@@ -50,7 +50,6 @@
 </template>
 
 <script>
-import vueStore from '../../vuex'
 import httpUtils from '../../lib/httpUtils'
 
 export default {

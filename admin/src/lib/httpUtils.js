@@ -57,12 +57,15 @@ class HttpUtils {
     return axios.get(`/api/schedule?movie_id=${id}`)
   }
 
-  PutSchedule() {
-  }
-
-  DeleteSchedule(id) {
+  CreateSchedule(movie_id, theater_number, start_time) {
     const token = CookieDoc.getItem("halCinemaAdmin")
-    return axios.delete(`/api/admin/schedule/${id}?token=${token}`)
+
+    var params = new URLSearchParams();
+    params.append('movie_id', movie_id);
+    params.append('theater_number', theater_number);
+    params.append('start_time', moment(start_time).format("YYYY/MM/MM hh:mm:ss"));
+
+    return axios.post(`/api/admin/schedule?token=${token}`, params)
   }
 
 }

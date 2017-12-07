@@ -2,8 +2,16 @@
   <section>
 
     <div class="flex">
-      <h1>映画スケジュール編集</h1>
+      <div v-if="title.length > 8">
+        <b-tooltip type="is-dark" :label="title" position="is-bottom" multilined>
+          <h1 style="font-size: 1.3rem;">「{{title.slice(0, 7) + "..."}}」スケジュール編集</h1>
+        </b-tooltip>
+      </div>
+      <div v-else>
+        <h1 style="font-size: 1.3rem;">「{{title}}」スケジュール編集</h1>
+      </div>
       <button class="button" style="margin-left: auto;" @click="back">戻る</button>
+      <button class="button is-primary" style="margin-left: 10px;" @click="add">スケジュール追加</button>
     </div>
 
     <b-table
@@ -36,7 +44,6 @@
 
         <b-table-column numeric>
           <button class="button is-success" @click="complate(props.row.ID)">完了</button>
-          <button class="button is-danger" @click="scheduleDelete(props.row.ID)">削除</button>
         </b-table-column>
 
       </template>
@@ -61,47 +68,33 @@
 
 <script>
 import httpUtils from '../../lib/httpUtils'
+import vueStore from '../../vuex'
 
 export default {
   name: "schedule",
   data() {
     return {
-      schedules: []
+      schedules: [],
+      title: ""
     }
   },
   methods: {
-    scheduleDelete(id) {
-      this.$dialog.confirm({
-        title: '映画削除',
-        message: '映画を削除します。よろしいですか？',
-        confirmText: '削除',
-        type: 'is-danger',
-        onConfirm: () => {
-          httpUtils.DeleteSchedule(id)
-          .then((res) => {
-            if(res.status === 204) {
-              this.$toast.open({
-                message: '削除完了しました。',
-                type: 'is-success'
-              })
-              setTimeout(() => {
-                this.$router.push({ path: `/admin` });
-              }, 500)
-            }
-          })
-          .catch((err) => console.error(err))
-        }
-      })
-    },
     back() {
       this.$router.push({ path: `/admin` });
+    },
+    add() {
+      this.$router.push({ path: `/admin/scheduleadd/${this.$route.params.id}` });
     }
   },
   mounted() {
     const id = this.$route.params.id;
     httpUtils.GetMovieDetail(id)
     .then((res) => {
-      console.log(res.data)
+      const title = res.data.movie_name;
+      const watch_time = res.data.watch_time;
+      vueStore.commit('set_movie_title', title)
+      vueStore.commit('set_watch_time', watch_time)
+      this.title = title;
     })
     .catch((err) => console.error(err))
 

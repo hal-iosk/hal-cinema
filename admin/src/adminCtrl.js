@@ -11,6 +11,7 @@ import Admin from './components/admin/index.vue'
 import Schedule from './components/admin/schedule.vue'
 import MovieTableEdit from './components/admin/movieTableEdit.vue'
 import AddMovie from './components/admin/addMovie.vue'
+import AddSchedule from './components/admin/addSchedule.vue'
 
 import NotFound from './components/notFound/index.vue'
 
@@ -19,6 +20,7 @@ const routes = [
   { path: "/admin", component: Admin },
   { path: "/admin/movieedit/:id", component: MovieTableEdit },
   { path: "/admin/movie", component: AddMovie },
+  { path: "/admin/scheduleadd/:id", component: AddSchedule },
   { path: "/admin/schedule/:id", component: Schedule },
   { path: "*", component: NotFound },
 ]

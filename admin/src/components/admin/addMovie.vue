@@ -10,17 +10,17 @@
     </div>
 
     <b-field label="タイトル">
-      <b-input v-model="movie.movie_name"></b-input>
+      <b-input v-model="movie_name"></b-input>
     </b-field>
 
     <b-field label="詳細">
-      <b-input maxlength="200" type="textarea" v-model="movie.details"></b-input>
+      <b-input maxlength="200" type="textarea" v-model="details"></b-input>
     </b-field>
 
     <div class="thumbnail">
       <p class="thumbnail-title">サムネイル</p>
       <div>
-        <b-input v-model="movie.image_path" class="thumbnail-input"></b-input>
+        <b-input v-model="image_path" class="thumbnail-input"></b-input>
         <p class="control">
           <button class="button"　@click="isImageModalActive = true">確認する</button>
         </p>
@@ -40,12 +40,12 @@
     </div>
 
     <b-field label="上映時間" class="time">
-      <b-input type="number" v-model="movie.watch_time"></b-input>
+      <b-input type="number" v-model="watch_time"></b-input>
     </b-field>
 
      <b-modal :active.sync="isImageModalActive">
         <p class="image is-4by3">
-          <img :src="movie.image_path">
+          <img :src="image_path">
         </p>
       </b-modal>
 
@@ -59,21 +59,24 @@ export default {
   name: "addMovie",
   data() {
     return {
-      movie: {},
-      start_time: "",
-      end_time: "",
+      movie_name: "",
+      details: "",
+      image_path: "",
+      start_time: new Date(),
+      end_time: new Date(),
+      watch_time: "",
       isImageModalActive: false,
     }
   },
   methods: {
     add() {
       httpUtils.CreateMovie(
-        this.movie.movie_name,
-        this.movie.details,
-        this.movie.image_path,
+        this.movie_name,
+        this.details,
+        this.image_path,
         this.start_time,
         this.end_time,
-        this.movie.watch_time
+        this.watch_time
       )
       .then((res) => {
         if(res.status === 201) {

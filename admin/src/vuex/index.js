@@ -1,16 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import mockMovies from '../mock/movies'
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    movies: mockMovies
+    movie_title: "",
+    watch_time: 0
   },
   mutations: {
-    hoge (state) {
-      state.count++
+    set_movie_title (state, title) {
+      state.movie_title = title;
+    },
+    set_watch_time (state, time) {
+      state.watch_time = time;
     }
   }
 })

@@ -61,8 +61,8 @@ export default {
   data() {
     return {
       movie: {},
-      start_time: "",
-      end_time: "",
+      start_time: new Date(),
+      end_time: new Date(),
       isImageModalActive: false,
     }
   },
