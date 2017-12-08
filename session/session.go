@@ -16,7 +16,7 @@ var CustomerTokenKey = "halCinemaUser"
 func UserLoginHandle(c *gin.Context) {
 	email := c.PostForm("email")
 	password := c.PostForm("password")
-	user, ok := service.Admin.Logincheck(email, password)
+	user, ok := service.Customer.Logincheck(email, password)
 	if !ok {
 		controller.Batequest("ログイン失敗", c)
 		return

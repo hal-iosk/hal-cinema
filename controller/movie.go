@@ -10,12 +10,28 @@ import (
 	"github.com/hal-iosk/hal-cinema/service"
 )
 
-func GetMovieAll(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"movies": service.Movie.All(),
-	})
+type MovieRes struct {
+	model.Movie
+	Schedules []model.ScreeningSchedule `json:"schedules"`
 }
 
+func GetMovieAll(c *gin.Context) {
+	Movies := service.Movie.All()
+	c.GetQuery("status")
+	c.JSON(http.StatusOK, gin.H{
+		"movies": createMovieRes(Movies),
+	})
+}
+func createMovieRes(m []model.Movie) []MovieRes {
+	var res []MovieRes
+	for _, value := range m {
+		res = append(res, MovieRes{
+			Movie:     value,
+			Schedules: value.GetSchedule(),
+		})
+	}
+	return res
+}
 func GetMovie(c *gin.Context) {
 	movieID, err := strconv.Atoi(c.Param("movie_id"))
 	if err != nil {

@@ -15,7 +15,7 @@ func CreateSchedule() {
 
 	var year1 int
 	var year1s string
-	var month1 int
+	var month1
 	var month1s string
 	var day1 int
 	var day1s string

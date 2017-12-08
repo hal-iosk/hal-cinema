@@ -25,6 +25,25 @@ type CustomerReq struct {
 	SecurityCode     string    `gorm:"not null" json:"security_code"`
 }
 
+func Checkin(c *gin.Context) {
+	userID, _ := c.Get("userID")
+	p := service.Customer.UpdatePoint(userID.(uint), 1)
+	c.JSON(http.StatusOK, gin.H{
+		"point": p,
+	})
+}
+func Popcorn(c *gin.Context) {
+	userID, _ := c.Get("userID")
+	User := service.Customer.Find(userID.(uint))
+	if User.PointCount < 3 {
+		Batequest("ぽっぷこーんかえまてん＾ー＾", c)
+		return
+	}
+	p := service.Customer.UpdatePoint(userID.(uint), -3)
+	c.JSON(http.StatusOK, gin.H{
+		"point": p,
+	})
+}
 func UpdateUser(c *gin.Context) {
 	userID, _ := c.Get("userID")
 	req, err := CustomerReq{}.create(c)
