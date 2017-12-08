@@ -85,7 +85,7 @@ func CreateSchedule() {
 	baseM = 0
 
 	//1日目
-	for i := 1; i <= 10; i++ {
+	for i := 1; i <= 5; i++ {
 
 		hour = baseH
 		minute = baseM
@@ -206,7 +206,7 @@ func CreateSchedule() {
 		}
 	}
 	//2日目
-	for i := 1; i <= 10; i++ {
+	for i := 1; i <= 5; i++ {
 
 		hour = baseH
 		minute = baseM
@@ -327,7 +327,7 @@ func CreateSchedule() {
 		}
 	}
 	//3日目
-	for i := 1; i <= 10; i++ {
+	for i := 1; i <= 5; i++ {
 
 		hour = baseH
 		minute = baseM
@@ -448,7 +448,7 @@ func CreateSchedule() {
 		}
 	}
 	//4日目
-	for i := 1; i <= 10; i++ {
+	for i := 1; i <= 5; i++ {
 
 		hour = baseH
 		minute = baseM
@@ -569,7 +569,7 @@ func CreateSchedule() {
 		}
 	}
 	//5日目
-	for i := 1; i <= 10; i++ {
+	for i := 1; i <= 5; i++ {
 
 		hour = baseH
 		minute = baseM
@@ -690,7 +690,7 @@ func CreateSchedule() {
 		}
 	}
 	//6日目
-	for i := 1; i <= 10; i++ {
+	for i := 1; i <= 5; i++ {
 
 		hour = baseH
 		minute = baseM
@@ -810,6 +810,127 @@ func CreateSchedule() {
 
 		}
 	}
+	//7日目
+	for i := 1; i <= 5; i++ {
 
-	fmt.Print("6日分を生成しました")
+		hour = baseH
+		minute = baseM
+
+		switch i {
+		case 1:
+			for k := 1; k <= 5; k++ {
+
+				service.Schedule.Create(model.ScreeningSchedule{
+					MovieID:       uint(i),
+					StartTime:     time.Date(year7, time.Month(month7), day7, hour, minute, 0, 0, loc),
+					TheaterNumber: uint(i),
+					Release:       true,
+				})
+
+				switch k {
+				case 1:
+					hour = 12
+					minute = 15
+				case 2:
+					hour = 14
+					minute = 50
+				case 3:
+					hour = 17
+					minute = 10
+				case 4:
+					hour = 20
+					minute = 00
+				}
+
+			}
+
+		case 2:
+			for k := 1; k <= 3; k++ {
+
+				service.Schedule.Create(model.ScreeningSchedule{
+					MovieID:       uint(i),
+					StartTime:     time.Date(year7, time.Month(month7), day7, hour, minute, 0, 0, loc),
+					TheaterNumber: uint(i),
+					Release:       true,
+				})
+
+				switch k {
+				case 1:
+					hour = 12
+					minute = 15
+				case 2:
+					hour = 14
+					minute = 50
+				}
+
+			}
+		case 3:
+			for k := 1; k <= 4; k++ {
+
+				service.Schedule.Create(model.ScreeningSchedule{
+					MovieID:       uint(i),
+					StartTime:     time.Date(year7, time.Month(month7), day7, hour, minute, 0, 0, loc),
+					TheaterNumber: uint(i),
+					Release:       true,
+				})
+
+				switch k {
+				case 1:
+					hour = 12
+					minute = 15
+				case 2:
+					hour = 14
+					minute = 50
+				case 3:
+					hour = 17
+					minute = 10
+				}
+			}
+		case 4:
+			for k := 1; k <= 4; k++ {
+
+				service.Schedule.Create(model.ScreeningSchedule{
+					MovieID:       uint(i),
+					StartTime:     time.Date(year7, time.Month(month7), day7, hour, minute, 0, 0, loc),
+					TheaterNumber: uint(i),
+					Release:       true,
+				})
+
+				switch k {
+				case 1:
+					hour = 12
+					minute = 15
+				case 2:
+					hour = 14
+					minute = 50
+				case 3:
+					hour = 17
+					minute = 10
+				}
+
+			}
+		case 5:
+			for k := 1; k <= 3; k++ {
+
+				service.Schedule.Create(model.ScreeningSchedule{
+					MovieID:       uint(i),
+					StartTime:     time.Date(year7, time.Month(month7), day7, hour, minute, 0, 0, loc),
+					TheaterNumber: uint(i),
+					Release:       true,
+				})
+
+				switch k {
+				case 1:
+					hour = 12
+					minute = 15
+				case 2:
+					hour = 14
+					minute = 50
+				}
+			}
+
+		}
+	}
+
+	fmt.Print("5×7日分を生成しました")
 }
