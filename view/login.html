@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>hal-cinema | ログイン</title>
-
   <link rel="stylesheet" href="/css/footer.css">
   <link rel="stylesheet" href="/css/login.css">
-  <script src="/js/admin-cookieManager.bundle.js"></script>
-
-
 </head>
 
 <body>
@@ -83,12 +78,10 @@
   <script src="/js/signIn.js"></script>
   <script type="text/javascript">
     $('#myForm').on('submit', function (event) {
-      event.preventDefault(); // 本来のPOSTを打ち消すおまじない
+      event.preventDefault();
 
-       if(validation()){
-      $.post(
-        $(this).attr('action'),
-        $(this).serializeArray())
+      if(validation()) {
+        $.post('/api/signin',$(this).serializeArray())
         .done(function (data, textStatus, jqXHR) {
           console.log(data.token)
         })
@@ -97,8 +90,7 @@
         })
       }
     });
-    
+
   </script>
 </body>
-
 </html>

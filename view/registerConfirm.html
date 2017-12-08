@@ -184,18 +184,16 @@
   <script src="/js/script.js"></script>
   <script type="text/javascript">
   $('#myForm').on('submit', function (event) {
-    event.preventDefault(); // 本来のPOSTを打ち消すおまじない
-    $.post(
-      $(this).attr('action'),
-      $(this).serializeArray())
-      .done(function (data, textStatus, jqXHR) {
-        console.log(data.token)
-      })
-      .fail(function(data, textStatus, jqXHR){
-        alert("ユーザー登録失敗");
-      })
+    event.preventDefault();
+    $.post('/api/signup', $(this).serializeArray())
+    .done(function (data, textStatus, jqXHR) {
+      console.log(data.token)
+    })
+    .fail(function(data, textStatus, jqXHR){
+      alert("ユーザー登録失敗");
+    })
   });
-  
+
 </script>
   </div>
 </body>
