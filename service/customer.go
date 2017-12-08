@@ -44,6 +44,12 @@ func (c customerImpl) Logincheck(email, password string) (*model.Customer, bool)
 	}
 	return &customer, customer.Password == hash(password)
 }
+func (c customerImpl) UpdatePoint(id uint, add int) int {
+	user := c.Find(id)
+	user.PointCount = int64(add) + user.PointCount
+	user = c.Update(id, *user)
+	return int(user.PointCount)
+}
 func hash(s string) string {
 	return s
 }

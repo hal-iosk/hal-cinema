@@ -23,12 +23,16 @@ func apiRouter(api *gin.RouterGroup) {
 
 	authApi.POST("/reserve", controller.CreateReserve)
 	authApi.PUT("/user", controller.UpdateUser)
+	authApi.POST("/checkin", controller.Checkin)
+	authApi.POST("/popcorn", controller.Popcorn)
 
 	admin.POST("/signin", session.AdminLoginHandle)
+
 	authAdmin.POST("/movie", controller.CreateMovie)
 	authAdmin.PUT("/movie/:movie_id", controller.UpdateMovie)
 	authAdmin.DELETE("/movie/:movie_id", controller.DeleteMovie)
 	authAdmin.POST("/schedule", controller.CreateSchedule)
 	authAdmin.PUT("/schedule/:schedule_id", controller.UpdateSchedule)
 	authAdmin.DELETE("/schedule/:schedule_id", controller.DeleteSchedule)
+
 }
