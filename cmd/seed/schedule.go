@@ -155,6 +155,19 @@ func CreateSchedule() {
 				fmt.Println("Releas:", Releas)
 			}
 		}
+		if i == 4 {
+			for k := 1; k <= 4; k++ {
+				MovieID = i
+				StartTime = year1s + "," + month1s + "," + day1s
+				TheaterNumber = i
+				Releas = "true"
+
+				fmt.Println("\nMovieID:", MovieID)
+				fmt.Println("StartTime:", StartTime)
+				fmt.Println("TheaterNumber:", TheaterNumber)
+				fmt.Println("Releas:", Releas)
+			}
+		}
 
 	}
 
