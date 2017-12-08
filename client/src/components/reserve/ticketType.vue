@@ -1,6 +1,7 @@
 <template>
   <section>
-    <!-- <reserve-nav></reserve-nav> -->
+
+    <reserve-nav></reserve-nav>
 
     <h1>チケット券種選択</h1>
 
@@ -46,6 +47,7 @@
 
 <script>
 import reservePayload from '../../lib/reserve.class'
+import ReserveNav from './nav.vue'
 
 export default {
   name: "ticketType",
@@ -61,6 +63,9 @@ export default {
       reservePayload.setPriceId(1)
       this.$router.push({ path: "/reserve/complete" })
     }
-  }
+  },
+  components: {
+    ReserveNav
+  },
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <section>
 
-    <!-- <reserve-nav></reserve-nav> -->
+    <reserve-nav></reserve-nav>
 
     <h1>座席選択</h1>
 

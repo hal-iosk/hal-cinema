@@ -95,7 +95,9 @@ $(document).ready(function () {
 // });
 
 //バリデーション
-function validation() {
+$('#myForm').on('submit', function (event) {
+  event.preventDefault(); // 本来のPOSTを打ち消すおまじない
+      var token = "19dda4a6-475a-4a16-b5ff-a045713df4c3";
   var validationMsg = {
     email: '',
     password: '',
@@ -260,7 +262,9 @@ function validation() {
 var birth =year+'/'+month+'/'+date;
 
 //生年月日のフォーマット
-var credit_card_limit = limitYear+"/"+limitMonth;
+var credit_card_limit = limitYear+'/'+limitMonth;
+
+var token= "19dda4a6-475a-4a16-b5ff-a045713df4c3";
 
   if (!validationMsg["email"].length == 0 || !validationMsg["password"].length == 0 || !validationMsg["confirmPass"].length == 0 || !validationMsg["first_name"].length == 0 || !validationMsg["last_name"].length == 0 || !validationMsg["first_name_read"].length == 0 || !validationMsg["last_name_read"].length == 0 || !validationMsg["birth"].length == 0 || !validationMsg["phone"].length == 0 || !validationMsg["address"].length == 0 || !validationMsg["credit_card_number"].length == 0 || !validationMsg["security_code"].length == 0 || !validationMsg["limit"].length == 0) {
     document.getElementById("e_email").innerHTML = validationMsg["email"];
@@ -278,6 +282,50 @@ var credit_card_limit = limitYear+"/"+limitMonth;
     document.getElementById("e_limit").innerHTML = validationMsg["limit"];
     return false;
   } else {
-    return true;
+    $.ajax({
+      type: "PUT",
+      url: "/api/user?token="+token,
+      data: {
+        "email": email,
+        "password":password,
+        "first_name":first_name,
+        "last_name":last_name,
+        "first_name_read":first_name_read,
+        "last_name_read":last_name_read,
+        "birth":birth,
+        "phone":phone,
+        "address":address,
+        "credit_card_number":credit_card_number,
+        "security_code":security_code,
+        "credit_card_limit":credit_card_limit
+      }
+    },submit());
+    
   }
-};
+});
+
+// $('#myForm').on('submit', function (event) {
+//   event.preventDefault(); // 本来のPOSTを打ち消すおまじない
+//       var token = "19dda4a6-475a-4a16-b5ff-a045713df4c3";
+//   if (validation()) {
+//     $.ajax({
+//       type: "PUT",
+//       url: "/api/user?token="+token,
+//       data: {
+//         "email": email,
+//         "password":password,
+//         "first_name":first_name,
+//         "last_name":last_name,
+//         "first_name_read":first_name_read,
+//         "last_name_read":last_name_read,
+//         "birth":birth,
+//         "phone":phone,
+//         "address":address,
+//         "credit_card_number":credit_card_number,
+//         "security_code":security_code,
+//         "credit_card_limit":credit_card_limit,
+//       }
+//     }) ,submit();
+//     ;
+//   }
+// });
