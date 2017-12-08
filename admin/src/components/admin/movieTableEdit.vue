@@ -11,17 +11,17 @@
     </div>
 
     <b-field label="タイトル">
-      <b-input v-model="movie.movie_name"></b-input>
+      <b-input v-model="movie_name"></b-input>
     </b-field>
 
     <b-field label="詳細">
-      <b-input maxlength="200" type="textarea" v-model="movie.details"></b-input>
+      <b-input maxlength="200" type="textarea" v-model="details"></b-input>
     </b-field>
 
     <div class="thumbnail">
       <p class="thumbnail-title">サムネイル</p>
       <div>
-        <b-input v-model="movie.image_path" class="thumbnail-input"></b-input>
+        <b-input v-model="image_path" class="thumbnail-input"></b-input>
         <p class="control">
           <button class="button"　@click="isImageModalActive = true">確認する</button>
         </p>
@@ -41,12 +41,12 @@
     </div>
 
     <b-field label="上映時間" class="time">
-      <b-input type="number" v-model="movie.watch_time"></b-input>
+      <b-input type="number" v-model="watch_time"></b-input>
     </b-field>
 
      <b-modal :active.sync="isImageModalActive">
         <p class="image is-4by3">
-          <img :src="movie.image_path">
+          <img :src="image_path">
         </p>
       </b-modal>
 
@@ -55,14 +55,18 @@
 
 <script>
 import httpUtils from '../../lib/httpUtils'
+import validationUtils from '../../lib/validationUtils'
 
 export default {
   name: "movieTableEdit",
   data() {
     return {
-      movie: {},
+      movie_name: "",
+      details: "",
+      image_path: "",
       start_time: new Date(),
       end_time: new Date(),
+      watch_time: 0,
       isImageModalActive: false,
     }
   },
@@ -71,21 +75,33 @@ export default {
     httpUtils.GetMovieDetail(id)
     .then((res) => {
       this.movie = res.data;
+      this.movie_name = res.data.movie_name
+      this.details = res.data.details
+      this.image_path = res.data.image_path
       this.start_time = new Date(res.data.start_date)
       this.end_time = new Date(res.data.end_date)
+      this.watch_time = res.data.watch_time
     })
     .catch((err) => console.error(err))
   },
   methods: {
     complate() {
+
+      // validation
+      if(validationUtils.isBlank(this.movie_name)) { validationUtils.pushMessage("映画名を入力してください。", this); return }
+      if(validationUtils.isBlank(this.details)) { validationUtils.pushMessage("映画詳細を入力してください。", this); return }
+      if(validationUtils.isBlank(this.image_path)) { validationUtils.pushMessage("サムネイルを入力してください。", this); return }
+      if(!validationUtils.isURL(this.image_path)) { validationUtils.pushMessage("サムネイルがURLの形式ではありません。", this); return }
+      if(!validationUtils.isNumber(String(this.watch_time))) { validationUtils.pushMessage("上映時間を数字で入力してください。", this); return }
+
       httpUtils.PutMovieDetail(
         this.$route.params.id,
-        this.movie.movie_name,
-        this.movie.details,
-        this.movie.image_path,
+        this.movie_name,
+        this.details,
+        this.image_path,
         this.start_time,
         this.end_time,
-        this.movie.watch_time
+        this.watch_time
       )
       .then((res) => {
         if(res.status === 200) {
