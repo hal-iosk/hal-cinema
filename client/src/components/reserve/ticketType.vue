@@ -45,13 +45,17 @@
 </template>
 
 <script>
+import reservePayload from '../../lib/reserve.class'
+
 export default {
   name: "ticketType",
   methods: {
     back() {
       this.$router.push({ path: "/reserve" })
+      reservePayload.clear()
     },
     next() {
+      reservePayload.setPriceId(1)
       this.$router.push({ path: "/reserve/complete" })
     }
   }

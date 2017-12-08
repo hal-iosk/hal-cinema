@@ -42,6 +42,7 @@
 <script>
 import ReserveNav from './nav.vue'
 import seatsFormat from './seat.format'
+import reservePayload from '../../lib/reserve.class'
 
 let reservedSeats = []
 
@@ -66,8 +67,8 @@ export default {
       alert("映画一覧に戻る")
     },
     next() {
-      console.log("予約席: ", reservedSeats)
-      console.log("スケジュールID:", 1)
+      reservePayload.setSeats(reservedSeats)
+      reservePayload.setScheduleId(1)
       this.$router.push({ path: "/reserve/ticket" })
     }
   }

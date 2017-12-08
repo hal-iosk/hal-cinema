@@ -5,8 +5,13 @@
 </template>
 
 <script>
+import reservePayload from '../../lib/reserve.class'
+
 export default {
-  name: "reserve-confirm"
+  name: "reserve-confirm",
+  mounted() {
+    console.log(reservePayload.getRequestData())
+  }
 }
 </script>
 
