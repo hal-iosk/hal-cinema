@@ -39,6 +39,7 @@
 
 <script>
 import httpUtils from '../../lib/httpUtils'
+import validationUtils from '../../lib/validationUtils'
 import vueStore from '../../vuex'
 import moment from 'moment'
 
@@ -78,6 +79,10 @@ export default {
   },
   methods: {
     add() {
+
+      // validation
+      if(!validationUtils.isNumber(this.theater_number)) { validationUtils.pushMessage("シアター番号を数字で入力してください。", this); return }
+
       httpUtils.CreateSchedule(this.$route.params.id, this.theater_number, this.start_time)
       .then((res) => {
         if(res.status === 201) {
