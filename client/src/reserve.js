@@ -6,7 +6,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 Vue.use(Buefy)
 
-import Reserve from './components/reserve'
+import Reserve from './components/reserve/index.vue'
 
 // routing
 const routes = [
