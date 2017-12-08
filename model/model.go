@@ -39,7 +39,7 @@ type Administrator struct {
 type Movie struct {
 	gorm.Model
 	MovieName string    `gorm:"not null" json:"movie_name"`
-	Details   string    `gorm:"not null" json:"details"`
+	Details   string    `gorm:"not null" json:"details" sql:"type:text"`
 	StartDate time.Time `json:"start_date"`
 	EndDate   time.Time `json:"end_date"`
 	ImagePath string    `gorm:"not null" json:"image_path"`

@@ -11,7 +11,7 @@ $(document).ready(function () {
         "password": {
             "rule": [
                 "required",
-                "min_length[8]",
+                "min_length[]",
                 "max_length[12]",
                 "alpha_numeric"
             ]
@@ -21,7 +21,7 @@ $(document).ready(function () {
 
 
 //バリデーション
-$('form').submit(function () {
+function validation(){
     var validationMsg = {
         email: '',
         password: ''
@@ -48,16 +48,11 @@ $('form').submit(function () {
     } else {
         validationMsg["password"] = "";
     }
-
-
-    console.log(Object(validationMsg["email"]));
-    console.log(Object(validationMsg["email"].length));
-    console.log(Object(e_email));
     if (!validationMsg["email"].length == 0 || !validationMsg["password"].length == 0) {
         document.getElementById("e_email").innerHTML = validationMsg["email"];
         document.getElementById("e_password").innerHTML = validationMsg["password"];
         return false;
     } else {
-        return submit();
+        return true;
     }
-});
+};
