@@ -22,6 +22,11 @@ import vueStore from '../../vuex'
 
 export default {
   name: "chekcin",
+  date() {
+    return {
+      canGeoGet: false
+    }
+  },
   computed: {
     coin() {
       return vueStore.state.coin
@@ -38,6 +43,19 @@ export default {
     reset() {
       localStorage.removeItem("hal-cinema-checkin-day")
     },
+    chekin() {
+      let coin = vueStore.state.coin
+
+      this.$dialog.alert({
+          title: "チェックイン",
+          message: `<p style="font-size: 1rem; font-weight: bold;">おめでとうございます！</p><br/><p style="font-size: 0.9rem;">${coin}コイン → ${coin+=1}コインになりました！</p>`,
+          confirmText: 'OK',
+          type: 'is-warning'
+      })
+      vueStore.commit("coinUpdate", vueStore.state.coin += 1)
+      this.$forceUpdate()
+      localStorage.setItem("hal-cinema-checkin-day", moment(new Date()))
+    },
     check() {
       const lastDay = localStorage.getItem("hal-cinema-checkin-day")
       const diffDay = moment(new Date()).diff(lastDay, "days")
@@ -52,17 +70,14 @@ export default {
         return
       }
 
-      navigator.geolocation.getCurrentPosition(() => {
-        this.$dialog.alert({
-            title: "チェックイン",
-            message: '<p style="font-size: 1rem; font-weight: bold;">おめでとうございます！</p><br/><p style="font-size: 0.9rem;">0コイン → 0コインになりました！</p>',
-            confirmText: 'OK',
-            type: 'is-warning'
+      if(!this.canGeoGet) {
+        navigator.geolocation.getCurrentPosition(() => {
+          this.canGeoGet = true
+          this.chekin()
         })
-        vueStore.commit("coinUpdate", 1)
-        this.$forceUpdate()
-        localStorage.setItem("hal-cinema-checkin-day", moment(new Date()))
-      })
+        return
+      }
+      this.chekin()
     }
   }
 }

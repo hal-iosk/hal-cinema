@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import vueStore from '../../vuex'
+
 export default {
   name: "buy-modal",
   data() {
@@ -20,7 +22,17 @@ export default {
   },
   methods: {
     change() {
+      if(vueStore.state.coin < 3) {
+        this.$dialog.alert({
+          title: 'ポップコーン交換',
+          message: 'コインが足りません！<br/>3コイン以上で交換できます。',
+          type: 'is-danger',
+          confirmText: 'OK'
+        })
+        return
+      }
       this.changed = true;
+      vueStore.commit("coinChangeToPopcorn", 3)
     }
   }
 }
