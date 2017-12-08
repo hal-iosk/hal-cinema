@@ -78,6 +78,21 @@ $(document).ready(function () {
 //     return false;
 //   }
 // }
+// $('#myForm').on('submit', function (event) {
+//   event.preventDefault(); // 本来のPOSTを打ち消すおまじない
+
+//   if (validation()) {
+//     $.post(
+//         $(this).attr('action'),
+//         $(this).serializeArray())
+//       .done(function (data, textStatus, jqXHR) {
+//         console.log(data.token)
+//       })
+//       .fail(function (data, textStatus, jqXHR) {
+//         alert("編集に失敗しました。")
+//       })
+//   }
+// });
 
 //バリデーション
 function validation() {
@@ -263,10 +278,6 @@ var credit_card_limit = limitYear+"/"+limitMonth;
     document.getElementById("e_limit").innerHTML = validationMsg["limit"];
     return false;
   } else {
-    var toke = "19dda4a6-475a-4a16-b5ff-a045713df4c3";
-    document.myForm.appendChild(toke);
-    document.myForm.appendChild(birth);
-    document.myForm.appendChild(credit_card_limit);
     return true;
   }
 };
