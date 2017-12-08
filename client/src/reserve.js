@@ -6,11 +6,11 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 Vue.use(Buefy)
 
-import Reserve from './components/reserve/index.vue'
+import TicketType from './components/reserve/ticketType.vue'
 
 // routing
 const routes = [
-  { path: "/", component: Reserve },
+  { path: "/reserve", component: TicketType },
 ]
 const router = new VueRouter({  mode: 'history', routes })
 
