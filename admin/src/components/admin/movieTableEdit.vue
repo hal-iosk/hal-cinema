@@ -74,9 +74,7 @@ export default {
       this.start_time = new Date(res.data.start_date)
       this.end_time = new Date(res.data.end_date)
     })
-    .catch((err) => {
-      console.error(err)
-    })
+    .catch((err) => console.error(err))
   },
   methods: {
     complate() {
@@ -95,9 +93,7 @@ export default {
             message: '編集完了しました。',
             type: 'is-success'
           })
-          setTimeout(() => {
-            this.$router.push({ path: `/admin` });
-          }, 500)
+          setTimeout(() => this.$router.push({ path: `/admin` }), 500)
         }
       })
       .catch((err) => {
@@ -118,14 +114,10 @@ export default {
                 message: '削除完了しました。',
                 type: 'is-success'
               })
-              setTimeout(() => {
-                this.$router.push({ path: `/admin` });
-              }, 500)
+              setTimeout(() => this.$router.push({ path: `/admin` }), 500)
             }
           })
-          .catch((err) => {
-            console.error(err)
-          })
+          .catch((err) => console.error(err))
         }
       })
     },

@@ -80,6 +80,11 @@ class HttpUtils {
     return axios.put(`/api/admin/schedule/${schedule.ID}?token=${token}`, params)
   }
 
+  DeleteSchedule(id) {
+    const token = CookieDoc.getItem("halCinemaAdmin")
+    return axios.delete(`/api/admin/schedule/${id}?token=${token}`)
+  }
+
 }
 
 export default new HttpUtils;

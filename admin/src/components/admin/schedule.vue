@@ -25,18 +25,8 @@
 
     <template slot-scope="props">
 
-      <b-table-column label="ID" v-if="props.row.release">
+      <b-table-column label="ID">
         {{props.row.ID}}
-      </b-table-column>
-      <b-table-column label="ID" v-else>
-        <b-input v-model="props.row.ID"></b-input>
-      </b-table-column>
-
-      <b-table-column label="映画番号" v-if="props.row.release">
-        {{props.row.movie_id}}
-      </b-table-column>
-      <b-table-column label="映画番号" v-else>
-        <b-input v-model="props.row.movie_id"></b-input>
       </b-table-column>
 
       <b-table-column label="シアター番号" v-if="props.row.release">
@@ -60,7 +50,10 @@
         <button class="button is-danger" disabled>公開済</button>
       </b-table-column>
       <b-table-column numeric v-else>
-        <button class="button">保存</button>
+        <div class="tool-box">
+          <button class="button" @click="save(props.row.ID)">保存</button>
+          <button class="button" @click="scheduleDelete(props.row.ID)" style="color: red;">削除</button>
+        </div>
         <button class="button is-danger" @click="open(props.row.ID)">公開する</button>
       </b-table-column>
 
@@ -97,21 +90,60 @@ export default {
     }
   },
   methods: {
-    open(id) {
+    save(id) {
       let _schedule = null;
 
       this.schedules.map((schedule) => {
         if(schedule.ID === id) {
-          schedule.release = true
           _schedule = schedule;
         }
       });
 
       httpUtils.PutSchedule(_schedule)
       .then((res) => {
-        console.log(res)
+        if(res.status === 200) {
+          this.$toast.open({
+            message: 'スケジュールを編集しました。',
+            type: 'is-success'
+          })
+        }
       })
       .catch((err) => console.error(err))
+    },
+    scheduleDelete(id) {
+      httpUtils.DeleteSchedule(id)
+      .then((res) => {
+        if(res.status === 204) {
+          this.schedules.some((schedule, index) => {
+            if(schedule.ID === id) this.schedules.splice(index, 1)
+          })
+
+          this.$toast.open({
+            message: "スケジュールを削除しました。",
+            type: "is-success"
+          })
+
+          this.$forceUpdate()
+        }
+      })
+      .catch((err) => console.error(err))
+    },
+    open(id) {
+      this.$dialog.confirm({
+          message: '映画を公開しますか？この動作は取り消せません。',
+          onConfirm: () => {
+            let _schedule = null;
+
+            this.schedules.map((schedule) => {
+              if(schedule.ID === id) {
+                schedule.release = true
+                _schedule = schedule;
+              }
+            });
+
+            httpUtils.PutSchedule(_schedule)
+          }
+      })
     },
     back() {
       this.$router.push({ path: `/admin` });
@@ -155,5 +187,8 @@ h1 {
   margin-bottom: 50px;
   display: flex;
   align-items: center;
+}
+.tool-box {
+  margin-bottom: 10px;
 }
 </style>

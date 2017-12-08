@@ -80,7 +80,13 @@ export default {
     add() {
       httpUtils.CreateSchedule(this.$route.params.id, this.theater_number, this.start_time)
       .then((res) => {
-        if(res.status === 201) this.$router.push({ path: `/admin/schedule/${this.$route.params.id}` });
+        if(res.status === 201) {
+          this.$toast.open({
+            message: 'スケジュールを追加しました。',
+            type: 'is-success'
+          })
+          setTimeout(() => this.$router.push({ path: `/admin/schedule/${this.$route.params.id}` }), 500)
+        }
       })
       .catch((err) => console.error(err))
     },

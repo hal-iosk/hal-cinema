@@ -84,14 +84,10 @@ export default {
             message: '映画を追加しました。',
             type: 'is-success'
           })
-          setTimeout(() => {
-            this.$router.push({ path: `/admin` });
-          }, 500)
+          setTimeout(() => this.$router.push({ path: `/admin` }), 500)
         }
       })
-      .catch((err) => {
-        console.error(err)
-      })
+      .catch((err) => console.error(err))
     },
     back() {
       this.$router.push({ path: `/admin` });

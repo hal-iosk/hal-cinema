@@ -64,9 +64,7 @@ export default {
     .then((res) => {
       this.movies = res.data.movies;
     })
-    .catch((err) => {
-      console.error(err)
-    })
+    .catch((err) => console.error(err))
   },
   methods: {
     movieEdit(id) {
