@@ -135,19 +135,9 @@ func CreateSchedule() {
 				hours = strconv.Itoa(hour)
 				minutes = strconv.Itoa(minute)
 
-				MovieID = i
-				StartTime = year1s + "," + month1s + "," + day1s + "," + hours + "," + minutes + "," + "0" + "," + "0" + "," + "loc"
-				TheaterNumber = i
-				Releas = "true"
-
-				fmt.Println("\nMovieID:", MovieID)
-				fmt.Println("StartTime:", StartTime)
-				fmt.Println("TheaterNumber:", TheaterNumber)
-				fmt.Println("Releas:", Releas)
-
 				service.Schedule.Create(model.ScreeningSchedule{
 					MovieID:       uint(i),
-					StartTime:     time.Date(year1, month1, day1, hour, minute, 0, 0, loc),
+					StartTime:     time.Date(year1, time.Month(month1), day1, hour, minute, 0, 0, loc),
 					TheaterNumber: uint(i),
 					Release:       true,
 				})
@@ -183,15 +173,38 @@ func CreateSchedule() {
 				hours = strconv.Itoa(hour)
 				minutes = strconv.Itoa(minute)
 
-				MovieID = i
-				StartTime = year1s + "," + month1s + "," + day1s + "," + hours + "," + minutes + "," + "0" + "," + "0" + "," + "loc"
-				TheaterNumber = i
-				Releas = "true"
+				service.Schedule.Create(model.ScreeningSchedule{
+					MovieID:       uint(i),
+					StartTime:     time.Date(year1, time.Month(month1), day1, hour, minute, 0, 0, loc),
+					TheaterNumber: uint(i),
+					Release:       true,
+				})
 
-				fmt.Println("\nMovieID:", MovieID)
-				fmt.Println("StartTime:", StartTime)
-				fmt.Println("TheaterNumber:", TheaterNumber)
-				fmt.Println("Releas:", Releas)
+				if k == 1 {
+
+					hour = 12
+					minute = 15
+				}
+
+				if k == 2 {
+
+					hour = 14
+					minute = 50
+				}
+
+			}
+		}
+		if i == 3 {
+			for k := 1; k <= 4; k++ {
+				hours = strconv.Itoa(hour)
+				minutes = strconv.Itoa(minute)
+
+				service.Schedule.Create(model.ScreeningSchedule{
+					MovieID:       uint(i),
+					StartTime:     time.Date(year1, time.Month(month1), day1, hour, minute, 0, 0, loc),
+					TheaterNumber: uint(i),
+					Release:       true,
+				})
 
 				if k == 1 {
 
@@ -212,7 +225,167 @@ func CreateSchedule() {
 				}
 			}
 		}
-		if i == 3 {
+		if i == 4 {
+			for k := 1; k <= 4; k++ {
+				hours = strconv.Itoa(hour)
+				minutes = strconv.Itoa(minute)
+
+				service.Schedule.Create(model.ScreeningSchedule{
+					MovieID:       uint(i),
+					StartTime:     time.Date(year1, time.Month(month1), day1, hour, minute, 0, 0, loc),
+					TheaterNumber: uint(i),
+					Release:       true,
+				})
+
+				if k == 1 {
+
+					hour = 12
+					minute = 15
+				}
+
+				if k == 2 {
+
+					hour = 14
+					minute = 50
+				}
+
+				if k == 3 {
+
+					hour = 17
+					minute = 10
+				}
+
+			}
+		}
+		if i == 5 {
+			for k := 1; k <= 3; k++ {
+				hours = strconv.Itoa(hour)
+				minutes = strconv.Itoa(minute)
+
+				service.Schedule.Create(model.ScreeningSchedule{
+					MovieID:       uint(i),
+					StartTime:     time.Date(year1, time.Month(month1), day1, hour, minute, 0, 0, loc),
+					TheaterNumber: uint(i),
+					Release:       true,
+				})
+
+				if k == 1 {
+
+					hour = 12
+					minute = 15
+				}
+
+				if k == 2 {
+
+					hour = 14
+					minute = 50
+				}
+			}
+		}
+		if i == 6 {
+			for k := 1; k <= 4; k++ {
+				hours = strconv.Itoa(hour)
+				minutes = strconv.Itoa(minute)
+
+				service.Schedule.Create(model.ScreeningSchedule{
+					MovieID:       uint(i),
+					StartTime:     time.Date(year1, time.Month(month1), day1, hour, minute, 0, 0, loc),
+					TheaterNumber: uint(i),
+					Release:       true,
+				})
+
+				if k == 1 {
+
+					hour = 12
+					minute = 15
+				}
+
+				if k == 2 {
+
+					hour = 14
+					minute = 50
+				}
+
+				if k == 3 {
+
+					hour = 17
+					minute = 10
+				}
+			}
+		}
+		if i == 7 {
+			for k := 1; k <= 2; k++ {
+				hours = strconv.Itoa(hour)
+				minutes = strconv.Itoa(minute)
+
+				service.Schedule.Create(model.ScreeningSchedule{
+					MovieID:       uint(i),
+					StartTime:     time.Date(year1, time.Month(month1), day1, hour, minute, 0, 0, loc),
+					TheaterNumber: uint(i),
+					Release:       true,
+				})
+
+				if k == 1 {
+
+					hour = 12
+					minute = 15
+				}
+
+			}
+		}
+		if i == 8 {
+			for k := 1; k <= 3; k++ {
+				hours = strconv.Itoa(hour)
+				minutes = strconv.Itoa(minute)
+
+				service.Schedule.Create(model.ScreeningSchedule{
+					MovieID:       uint(i),
+					StartTime:     time.Date(year1, time.Month(month1), day1, hour, minute, 0, 0, loc),
+					TheaterNumber: uint(i),
+					Release:       true,
+				})
+
+				if k == 1 {
+
+					hour = 12
+					minute = 15
+				}
+
+				if k == 2 {
+
+					hour = 14
+					minute = 50
+				}
+
+			}
+		}
+		if i == 9 {
+			for k := 1; k <= 3; k++ {
+				hours = strconv.Itoa(hour)
+				minutes = strconv.Itoa(minute)
+
+				service.Schedule.Create(model.ScreeningSchedule{
+					MovieID:       uint(i),
+					StartTime:     time.Date(year1, time.Month(month1), day1, hour, minute, 0, 0, loc),
+					TheaterNumber: uint(i),
+					Release:       true,
+				})
+
+				if k == 1 {
+
+					hour = 12
+					minute = 15
+				}
+
+				if k == 2 {
+
+					hour = 14
+					minute = 50
+				}
+
+			}
+		}
+		if i == 10 {
 			for k := 1; k <= 4; k++ {
 				hours = strconv.Itoa(hour)
 				minutes = strconv.Itoa(minute)
@@ -227,6 +400,13 @@ func CreateSchedule() {
 				fmt.Println("TheaterNumber:", TheaterNumber)
 				fmt.Println("Releas:", Releas)
 
+				service.Schedule.Create(model.ScreeningSchedule{
+					MovieID:       uint(i),
+					StartTime:     time.Date(year1, time.Month(month1), day1, hour, minute, 0, 0, loc),
+					TheaterNumber: uint(i),
+					Release:       true,
+				})
+
 				if k == 1 {
 
 					hour = 12
@@ -244,42 +424,9 @@ func CreateSchedule() {
 					hour = 17
 					minute = 10
 				}
+
 			}
 		}
-		/*if i == 4 {
-			for k := 1; k <= 4; k++ {
-				MovieID = i
-				StartTime = year1s + "," + month1s + "," + day1s
-				TheaterNumber = i
-				Releas = "true"
-
-				fmt.Println("\nMovieID:", MovieID)
-				fmt.Println("StartTime:", StartTime)
-				fmt.Println("TheaterNumber:", TheaterNumber)
-				fmt.Println("Releas:", Releas)
-			}
-		}
-		if i == 5 {
-			for k := 1; k <= 3; k++ {
-				MovieID = i
-				StartTime = year1s + "," + month1s + "," + day1s
-				TheaterNumber = i
-				Releas = "true"
-
-				fmt.Println("\nMovieID:", MovieID)
-				fmt.Println("StartTime:", StartTime)
-				fmt.Println("TheaterNumber:", TheaterNumber)
-				fmt.Println("Releas:", Releas)
-			}
-		}*/
-
 	}
-
-	service.Schedule.Create(model.ScreeningSchedule{
-		MovieID:       1,
-		StartTime:     time.Date(2017, 1, 18, 0, 0, 0, 0, loc),
-		TheaterNumber: 2,
-		Release:       true,
-	})
 
 }
