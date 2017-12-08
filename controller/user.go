@@ -4,6 +4,8 @@ import (
 	"net/http"
 	"time"
 
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 	"github.com/hal-iosk/hal-cinema/model"
 	"github.com/hal-iosk/hal-cinema/service"
@@ -64,6 +66,7 @@ func (self CustomerReq) create(c *gin.Context) (CustomerReq, error) {
 	self.Phone = c.PostForm("phone")
 	self.Address = c.PostForm("address")
 	self.Birthdate, err = GetDate("birthday", c)
+	fmt.Println(c.PostForm("birthday"))
 	if err != nil {
 		Batequest("日付けのフォーマットがおかしいよん", c)
 		return self, err
