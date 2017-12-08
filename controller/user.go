@@ -4,8 +4,6 @@ import (
 	"net/http"
 	"time"
 
-	"fmt"
-
 	"github.com/gin-gonic/gin"
 	"github.com/hal-iosk/hal-cinema/model"
 	"github.com/hal-iosk/hal-cinema/service"
@@ -27,6 +25,19 @@ type CustomerReq struct {
 	SecurityCode     string    `gorm:"not null" json:"security_code"`
 }
 
+func UpdateUser(c *gin.Context) {
+	userID, _ := c.Get("userID")
+	req, err := CustomerReq{}.create(c)
+	if err != nil {
+		return
+	}
+	user := service.Customer.Find(userID.(uint))
+
+	//変更させたくないもの
+	req.PointCount = user.PointCount
+	res := service.Customer.Update(userID.(uint), *req)
+	c.JSON(http.StatusOK, res)
+}
 func CreateUser(c *gin.Context) {
 	req, err := CustomerReq{}.create(c)
 	if err != nil {
@@ -55,7 +66,7 @@ func CreateUser(c *gin.Context) {
 	c.JSON(http.StatusCreated, "ok!!")
 }
 
-func (self CustomerReq) create(c *gin.Context) (CustomerReq, error) {
+func (self CustomerReq) create(c *gin.Context) (*model.Customer, error) {
 	var err error
 	self.Email = c.PostForm("email")
 	self.Password = c.PostForm("password")
@@ -66,16 +77,32 @@ func (self CustomerReq) create(c *gin.Context) (CustomerReq, error) {
 	self.Phone = c.PostForm("phone")
 	self.Address = c.PostForm("address")
 	self.Birthdate, err = GetDate("birthday", c)
-	fmt.Println(c.PostForm("birthday"))
 	if err != nil {
 		Batequest("日付けのフォーマットがおかしいよん", c)
-		return self, err
+		return nil, err
 	}
 	self.Magazine = toBool(c.PostForm("magazine"))
 	self.CreditCardLimit = c.PostForm("credit_card_limit")
 	self.CreditCardNumber = c.PostForm("credit_card_number")
 	self.SecurityCode = c.PostForm("security_code")
-	return self, nil
+
+	Customer := model.Customer{
+		Email:            self.Email,
+		Password:         self.Password,
+		FirstName:        self.FirstName,
+		LastName:         self.LastName,
+		FirstNameRead:    self.FirstNameRead,
+		LastNameRead:     self.LastNameRead,
+		Phone:            self.Phone,
+		Address:          self.Address,
+		Birthdate:        self.Birthdate,
+		Magazine:         self.Magazine,
+		PointCount:       0,
+		CreditCardLimit:  self.CreditCardLimit,
+		CreditCardNumber: self.CreditCardNumber,
+		SecurityCode:     self.SecurityCode,
+	}
+	return &Customer, nil
 }
 
 func toBool(string string) bool {

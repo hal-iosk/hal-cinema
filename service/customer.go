@@ -16,6 +16,20 @@ func (c customerImpl) Create(customer model.Customer) {
 		panic(err)
 	}
 }
+func (self customerImpl) Update(id uint, Customer model.Customer) *model.Customer {
+	Customer.ID = id
+	db.Model(&Customer).Update(&Customer)
+	return &Customer
+}
+
+func (self customerImpl) Find(id uint) *model.Customer {
+	Customer := []model.Customer{}
+	db.Find(&Customer, id)
+	if len(Customer) == 0 {
+		return nil
+	}
+	return &Customer[0]
+}
 func (c customerImpl) Exists(email string) bool {
 	var cus []model.Customer
 	db.Where("email = ?", email).Find(&cus)

@@ -22,6 +22,7 @@ func apiRouter(api *gin.RouterGroup) {
 	api.GET("/price", controller.GetPrice)
 
 	authApi.POST("/reserve", controller.CreateReserve)
+	authApi.PUT("/user", controller.UpdateUser)
 
 	admin.POST("/signin", session.AdminLoginHandle)
 	authAdmin.POST("/movie", controller.CreateMovie)
