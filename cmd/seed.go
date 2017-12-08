@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	seed.CreateSchedule()
+	seed.Seed()
 }
