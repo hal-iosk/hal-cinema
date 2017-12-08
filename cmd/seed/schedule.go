@@ -32,11 +32,21 @@ func CreateSchedule() {
 	var month5 int
 	var day5 int
 
+	var year6 int
+	var month6 int
+	var day6 int
+
+	var year7 int
+	var month7 int
+	var day7 int
+
 	d1 := time.Now()
 	d2 := d1.Add(24 * time.Hour)
 	d3 := d2.Add(24 * time.Hour)
 	d4 := d3.Add(24 * time.Hour)
 	d5 := d4.Add(24 * time.Hour)
+	d6 := d5.Add(24 * time.Hour)
+	d7 := d6.Add(24 * time.Hour)
 
 	year1 = (d1.Year())
 	month1 = int(d1.Month())
@@ -57,6 +67,14 @@ func CreateSchedule() {
 	year5 = (d5.Year())
 	month5 = int(d5.Month())
 	day5 = (d5.Day())
+
+	year6 = (d6.Year())
+	month6 = int(d6.Month())
+	day6 = (d6.Day())
+
+	year7 = (d7.Year())
+	month7 = int(d7.Month())
+	day7 = (d7.Day())
 
 	var baseH int
 	var baseM int
