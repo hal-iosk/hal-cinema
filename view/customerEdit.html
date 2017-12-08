@@ -43,7 +43,7 @@
 
         <div id="mainForm">
           <h1>hal-cinema@登録情報編集</h1>
-          <form action="/" method="GET" id="myForm">
+          <form action="/api/user" method="put" id="myForm">
             <div class="input">
               <h2>メールアドレス
                 <small>(※必須項目)</small>
@@ -156,6 +156,7 @@
                   <span id="e_address" class="validation">
                     <!--エラーメッセージ入る-->
                   </span>
+                  <input type="hidden" id="magazine" name="magazine" value="true">
                 </div>
               </div>
               <div class="input">
@@ -179,9 +180,9 @@
                   <div class="crGroup">
                     <div class="form-content col-sm-10">
                       <p>有効期限</p>
-                      <select class="form-control setDay num2" id="limitMonth" name="limitMonth">
+                      <select class="form-control setDay num2" id="limitMonth">
                       </select> 月/
-                      <select class="form-control setDay num2" id="limitYear" name="limitYear">
+                      <select class="form-control setDay num2" id="limitYear">
                       </select> 年
                       <br>
                       <span id="e_limit" class="validation">

@@ -46,7 +46,7 @@ if(limitMonth.length == 1){
 var birth =year+'/'+month+'/'+date;
 
 //生年月日のフォーマット
-var credit_card_limit = limitYear+"/"+limitMonth
+var credit_card_limit = limitYear+"/"+limitMonth;
 //APIに投げるデータ
 //メールアドレス
 document.getElementById("email").value= email;
@@ -77,11 +77,13 @@ document.getElementById("limitYear").value = limitYear;
 //有効期限(年)
 document.getElementById("credit_card_limit").value = credit_card_limit;
 
+
+
 //表示データ
 //メールアドレス
 document.getElementById("v_email").textContent = email;
 //パスワード
-document.getElementById("v_password").textContent= password;
+// document.getElementById("v_password").textContent= password;
 //性
 document.getElementById("v_first_name").textContent = first_name;
 //名
@@ -103,7 +105,7 @@ document.getElementById("v_phone").textContent = phone;
 //郵便番号
 document.getElementById("v_address").textContent = address;
 //クレジットカード番号
-document.getElementById("v_credit_card_number").textContent = credit_card_number;
+// document.getElementById("v_credit_card_number").textContent = credit_card_number;
 //セキュリティコード
 document.getElementById("v_security_code").textContent = security_code;
 //有効期限(月)

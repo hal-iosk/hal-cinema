@@ -48,6 +48,9 @@ function validation(){
     } else {
         validationMsg["password"] = "";
     }
+    
+        document.getElementById("e_logFail").innerHTML = "";
+    
     if (!validationMsg["email"].length == 0 || !validationMsg["password"].length == 0) {
         document.getElementById("e_email").innerHTML = validationMsg["email"];
         document.getElementById("e_password").innerHTML = validationMsg["password"];
