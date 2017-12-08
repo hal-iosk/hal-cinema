@@ -17,6 +17,69 @@ a{
     width:810px;
     margin:50px auto;
 }
+#welcome{
+    width:1300px;
+    margin:20px auto;
+    position: relative;
+    border-bottom:solid 1px #cccccc;
+}
+#welcome h2{
+    text-decoration: underline #CD1111;
+}
+.logout{
+    position: absolute;
+    right: 20px;
+    top:20px;
+}
+.logout a{
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius:5px; 
+    border:solid 1px #cccccc;
+}
+#menu_bar{
+    width:1300px;
+    margin:0 auto;
+    
+    overflow: hidden;
+}
+#menu_bar li{
+    width: 400px;
+    height: 100px;
+    color:#000000;
+    background-color: #ffffff;
+    border-bottom: solid 10px #D8D8D8;
+    float:left;
+    text-align: center;
+    border-right:solid 1px #D8D8D8;
+    list-style:none;
+    line-height: 100px;
+    position: relative;
+}
+#menu_bar .selected{
+    width: 400px;
+    height: 100px;
+    color:#CD1111;
+    background-color: #ffffff;
+    border-bottom: solid 10px #CD1111;
+    float:left;
+    text-align: center;
+    border-right:solid 1px #D8D8D8;
+    list-style:none;
+    line-height: 100px;
+    
+}
+#menu_bar a{
+    position: absolute;
+    text-decoration: none;
+    color:#000000;
+display: block;
+width:100%;
+height: 100%;
+}
+#menu_bar a:hover{
+    color: #CD1111;
+}
 .step{
 font-weight: 700;
 padding: 20px 0;
@@ -120,4 +183,21 @@ select{
 }
 .submit:hover{
     background-color: #CD1111;
+}
+.validation{
+    color:#CD1111;
+    text-align:right;
+    margin:5px;
+}
+#textBox{
+    width:100%;
+    overflow: hidden;
+}
+.nameBox{
+    width:40%;
+    float:left;
+    margin:20px;
+}
+.namearea{
+    width:100%;
 }

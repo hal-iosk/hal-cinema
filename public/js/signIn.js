@@ -53,6 +53,6 @@ function validation(){
         document.getElementById("e_password").innerHTML = validationMsg["password"];
         return false;
     } else {
-        return true();
+        return true;
     }
 };

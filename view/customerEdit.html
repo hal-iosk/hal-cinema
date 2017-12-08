@@ -10,8 +10,6 @@
   <script src="/js/admin-cookieManager.bundle.js"></script>
   <link rel="stylesheet" href="/css/footer.css">
   <link rel="stylesheet" href="/css/customerEdit.css">
-  <script src="/js/script.js"></script>
-  <script src="/js/registerCustomer.js"></script>
 </head>
 
 <body>
@@ -19,102 +17,183 @@
     <header>
     </header>
     <div id="main">
+        <div id="welcome">
+            <h2>マイページ</h2>
+    
+            <p>ようこそ ○
+                <!--ここにユーザー名-->様</p>
+            <div class="logout">
+                <p>
+                    <a href="">ログアウト</a>
+                </p>
+            </div>
+        </div>
+        <div id="menu_bar">
+            <ul>
+                <li><a href="mypage">予約履歴</a></li>
+                
+                    <li class="selected">登録情報の確認・編集</li>
+                
+                
+                    <li><a href="">チェックインポイントの確認</a></li>
+                
+            </ul>
+        </div>
       <div id="register">
-
+          
         <div id="mainForm">
           <h1>hal-cinema@登録情報編集</h1>
-          <form action="">
-            <div class="input">
-              <h2>ユーザーID
-                <small>(※必須項目)</small>
-              </h2>
-              <div class="inputBox">
-                <input type="text" class="text" maxlength="50" placeholder="ユーザーID(半角英数字、6文字以上)">
-              </div>
-            </div>
-            <div class="input">
-              <h2>パスワード
-                <small>(※必須項目)</small>
-              </h2>
-              <div class="inputBox">
-                <input type="password" class="text" maxlength="12" placeholder="パスワード(半角英数字8文字以上12文字以下、特殊文字不可)">
-              </div>
-              <div class="inputBox">
-                <input type="password" class="text" maxlength="12" placeholder="確認のためもう一度入力してください">
-              </div>
-            </div>
-            <div class="input">
-              <h2>お名前 </h2>
-              <div class="inputBox">
-                <p>漢字
-                  <small>(※必須項目)</small>
-                </p>
-                <input type="text" class="text" maxlength="60" placeholder="全角漢字(2文字以上)">
-              </div>
-              <div class="inputBox">
-                <p>ふりがな</p>
-                <input type="text" class="text" maxlength="60" placeholder="全角ふりがな">
-              </div>
-            </div>
-
-            <div class="input">
-              <h2>生年月日</h2>
-              <div class="form-group">
-                <div class="form-content col-sm-10">
-                  <select class="form-control setDay num4" id="year"></select> 年
-                  <select class="form-control setDay num2" id="month"></select> 月
-                  <select class="form-control setDay num2" id="date"></select> 日
-                  <input type="hidden" id="birthday" value="1990-01-01" />
-                </div>
-              </div>
+          <form action="/" method="GET" id="myForm">
               <div class="input">
-                <h2>電話番号
+                <h2>メールアドレス
                   <small>(※必須項目)</small>
                 </h2>
                 <div class="inputBox">
-                  <input type="text" class="text" maxlength="11" placeholder="半角数字、ハイフンなし">
+                  <input type="text" id="email" class="text" name="email" maxlength="60" placeholder="abc@halCinema.com">
+                  <br>
+                  <span id="e_email" class="validation">
+                    <!--エラーメッセージ入る-->
+                  </span>
                 </div>
               </div>
               <div class="input">
-                <h2>メールアドレス</h2>
+                <h2>パスワード
+                  <small>(※必須項目)</small>
+                </h2>
                 <div class="inputBox">
-                  <input type="text" class="text" maxlength="60" placeholder="abc@halCinema.com">
+                  <input type="password" id="password" class="text" name="password" maxlength="12" placeholder="パスワード(半角英数字8文字以上12文字以下、特殊文字不可)">
+                  <br>
+                  <span id="e_password" class="validation">
+                    <!--エラーメッセージ入る-->
+                  </span>
                 </div>
                 <div class="inputBox">
-                  <p>
-                    <input type="checkbox"> メールマガジンを希望する
-                  </p>
+                  <input type="password" id="confirmPass" class="text" maxlength="12" placeholder="確認のためもう一度入力してください">
+                  <br>
+                  <span id="e_confirmPass" class="validation">
+                    <!--エラーメッセージ入る-->
+                  </span>
                 </div>
               </div>
               <div class="input">
-                <h2>郵便番号</h2>
-                <div class="inputBox">
-                  <input type="text" class="text" maxlength="7" placeholder="7文字以下・半角数字、ハイフンなし">
+                <h2>お名前
+                  <small>(※必須項目)</small>
+                </h2>
+                <div id="textBox">
+                  <div class="nameBox">
+                    <p>姓</p>
+                    <input type="text" id="first_name" class="text namearea" name="first_name" placeholder="山田">
+                    <br>
+                    <span id="e_first_name" class="validation">
+                      <!--エラーメッセージ入る-->
+                    </span>
+                  </div>
+                  <div class="nameBox">
+                    <p>名</p>
+                    <input type="text" id="last_name" class="text namearea" name="last_name" placeholder="忠明">
+                    <br>
+                    <span id="e_last_name" class="validation">
+                      <!--エラーメッセージ入る-->
+                    </span>
+                  </div>
+                </div>
+                <div id="textBox">
+                  <div class="nameBox">
+                    <p>フリガナ(セイ)</p>
+                    <input type="text" id="first_name_read" class="text namearea" name="first_name_read" placeholder="ヤマダ">
+                    <br>
+                    <span id="e_first_name_read" class="validation">
+                      <!--エラーメッセージ入る-->
+                    </span>
+                  </div>
+                  <div class="nameBox">
+                    <p>フリガナ(メイ)</p>
+                    <input type="text" id="last_name_read" class="text namearea" name="last_name_read" placeholder="タダアキ">
+                    <br>
+                    <span id="e_last_name_read" class="validation">
+                      <!--エラーメッセージ入る-->
+                    </span>
+                  </div>
                 </div>
               </div>
+  
               <div class="input">
-                <h2>クレジットカード</h2>
-                <div class="inputBox">
-                  <p>カード番号</p>
-                  <input type="text" class="text" maxlength="16" placeholder="半角数字、16文字">
-                  <p>名義人</p>
-                  <input type="text" class="text" maxlength="50" placeholder="SINEMA HARU(半角ローマ字)">
-                  <div class="crGroup">
-                    <div class="form-content col-sm-10">
-                      <p>有効期限</p>
-                      <select class="form-control setDay num2" id="crMonth">
-                        <option value=""></option>
-                      </select> 月/
-                      <select class="form-control setDay num2" id="crYear">
-                        <option value=""></option>
-                      </select> 年
+                <h2>生年月日
+                  <small>(※必須項目)</small>
+                </h2>
+                <div class="form-group">
+                  <div class="form-content col-sm-10">
+                    <select class="form-control setDay num4 js-changeYear" id="year" name="year"></select> 年
+                    <select class="form-control setDay num2 js-changeMonth" id="month" name="month"></select> 月
+                    <select class="form-control setDay num2 js-changeDay" id="date" name="date"></select> 日
+                    <input type="hidden" id="birthday" value="1990-01-01" />
+                    <br>
+                    <span id="e_birth" class="validation">
+                        <!--エラーメッセージ入る-->
+                      </span>
+                  </div>
+                </div>
+                <div class="input">
+                  <h2>電話番号
+                    <small>(※必須項目)</small>
+                  </h2>
+                  <div class="inputBox">
+                    <input type="text" id="phone" class="text" name="phone" maxlength="11" placeholder="半角数字、ハイフンなし">
+                    <br>
+                    <span id="e_phone" class="validation">
+                      <!--エラーメッセージ入る-->
+                    </span>
+                  </div>
+                </div>
+  
+                <div class="input">
+                  <h2>郵便番号
+                    <small>(※必須項目)</small>
+                  </h2>
+                  <div class="inputBox">
+                    <input type="text" id="address" class="text" name="address" maxlength="7" placeholder="7文字以下・半角数字、ハイフンなし">
+                    <br>
+                    <span id="e_address" class="validation">
+                      <!--エラーメッセージ入る-->
+                    </span>
+                  </div>
+                </div>
+                <div class="input">
+                  <h2>クレジットカード
+                    <small>(※必須項目)</small>
+                  </h2>
+                  <div class="inputBox">
+                    <p>カード番号</p>
+                    <input type="text" id="credit_card_number" class="text" name="credit_card_number" maxlength="16" placeholder="半角数字、16文字">
+                    <br>
+                    <span id="e_credit_card_number" class="validation">
+                      <!--エラーメッセージ入る-->
+                    </span>
+                    <p>セキュリティコード</p>
+                    <input type="password" id="security_code" class="text" name="security_code" maxlength="3" placeholder="123">
+                    <br>
+                    <span id="e_security_code" class="validation">
+                      <!--エラーメッセージ入る-->
+                    </span>
+  
+                    <div class="crGroup">
+                      <div class="form-content col-sm-10">
+                        <p>有効期限</p>
+                        <select class="form-control setDay num2" id="limitMonth" name="limitMonth">
+                        </select> 月/
+                        <select class="form-control setDay num2" id="limitYear" name="limitYear">
+                        </select> 年
+                        <br>
+                        <span id="e_limit" class="validation">
+                          <!--エラーメッセージ入る-->
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <input type="submit" class="submit" value="確認へ">
-          </form>
+              <input type="submit" class="submit" value="変更">
+            </form>
         </div>
       </div>
     </div>
@@ -138,6 +217,31 @@
         </li>
       </ul>
     </footer>
+    <script src="/js/script.js"></script>
+    <script src="/js/QueryString.js"></script>
+    <script src="/js/moment.js"></script>
+    <script src="/js/registerCustomer.js"></script>
+    <script src="/js/jquery-validation.js"></script>
+    <script src="/js/el_validation.js"></script>
+    <script src="/js/customerEdit.js"></script>
+    <script type="text/javascript">
+      $('#myForm').on('submit', function (event) {
+        event.preventDefault(); // 本来のPOSTを打ち消すおまじない
+  
+         if(validation()){
+        $.post(
+          $(this).attr('action'),
+          $(this).serializeArray())
+          .done(function (data, textStatus, jqXHR) {
+            console.log(data.token)
+          })
+          .fail(function(data, textStatus, jqXHR){
+            alert("編集に失敗しました。")
+          })
+        }
+      });
+      
+    </script>
   </div>
 </body>
 

@@ -9,10 +9,7 @@ body{
     box-sizing: border-box;
 }
 
-a{
-    text-decoration: none;
-    color: 
-}
+
 
 #main{
     width:810px;
@@ -53,7 +50,8 @@ button, input,select, textarea {
 li{
     list-style: none;
 }
-.submit{color:#ffffff;
+.submit{
+    color:#ffffff;
     background-color: #1253A2;
 }
 .submit:hover{
@@ -65,4 +63,8 @@ li{
 }
 .signUp:hover{
     background-color: #CD1111;
+} 
+a{
+    text-decoration: none;
+    color: #fff;
 }

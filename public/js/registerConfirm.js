@@ -23,82 +23,79 @@ var security_code = obj.security_code.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'')
 var limitMonth = obj.limitMonth.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
 var limitYear = obj.limitYear.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
 
+// var param = QueryString.stringify({"movie":movie,"date":date,"time":time,"theater":theater},null, null,true);
+
 if (email == "" || password == "" || first_name == "" || last_name == "" || first_name_read == "" || last_name_read == "" || year == "" || month == "" || date == "" || phone == "" || address == "" || credit_card_number == "" || security_code == "" || limitMonth == "" || limitYear == ""){
     alert("パラメータが不正です。");
     location.href = "/";
 }
 //生年月日のフォーマット
-var birth = moment(year+'-'+month+'-'+date);
-birth.format("YYYY-MM-DD");
+// var birth = moment(year+'-'+month+'-'+date);
+// birth.format("YYYY-MM-DD");
 
 //APIに投げるデータ
 //メールアドレス
-document.getElementsByClassName("email").value = email;
+document.getElementById("email").value= email;
 //パスワード
-document.getElementsByClassName("password").value = password;
+document.getElementById("password").value = password;
 //性
-document.getElementsByClassName("first_name").value = first_name;
+document.getElementById("first_name").value = first_name;
 //名
-document.getElementsByClassName("last_name").value = last_name;
+document.getElementById("last_name").value = last_name;
 //フリガナ（セイ）
-document.getElementsByClassName("first_name_read").value = first_name_read;
+document.getElementById("first_name_read").value = first_name_read;
 //フリガナ（メイ）
-document.getElementsByClassName("last_name_read").value = last_name_read;
-//生年月日(年)
-document.getElementsByClassName("year").value = year;
-//生年月日(月)
-document.getElementsByClassName("month").value = month;
-//生年月日(日)
-document.getElementsByClassName("date").value = date;
+document.getElementById("last_name_read").value = last_name_read;
+
 //生年月日送るやつ
-document.getElementsByClassName("birth").value = birth;
+// document.getElementsByClassName("birth").innerHTML = birth;
 //電話番号
-document.getElementsByClassName("phone").value = phone;
+document.getElementById("phone").value = phone;
 //郵便番号
-document.getElementsByClassName("address").value = address;
+document.getElementById("address").value = address;
 //クレジットカード番号
-document.getElementsByClassName("credit_card_number").value = credit_card_number;
+document.getElementById("credit_card_number").value = credit_card_number;
 //セキュリティコード
-document.getElementsByClassName("security_code").value = security_code;
+document.getElementById("security_code").value = security_code;
 //有効期限(月)
-document.getElementsByClassName("limitmonth").value = limitMonth;
+document.getElementById("limitMonth").value = limitMonth;
 //有効期限(年)
-document.getElementsByClassName("limitYear").value = limitYear;
+document.getElementById("limitYear").value = limitYear;
 
 
 //表示データ
 //メールアドレス
-document.getElementsByClassName("v_email").innerHTML = email;
+document.getElementById("v_email").textContent = email;
 //パスワード
-document.getElementsByClassName("v_password").innerHTML = password;
+document.getElementById("v_password").textContent= password;
 //性
-document.getElementsByClassName("v_first_name").innerHTML = first_name;
+document.getElementById("v_first_name").textContent = first_name;
 //名
-document.getElementsByClassName("v_last_name").innerHTML = last_name;
+document.getElementById("v_last_name").textContent = last_name;
 //フリガナ（セイ）
-document.getElementsByClassName("v_first_name_read").innerHTML = first_name_read;
+document.getElementById("v_first_name_read").textContent = first_name_read;
 //フリガナ（メイ）
-document.getElementsByClassName("v_last_name_read").innerHTML = last_name_read;
+document.getElementById("v_last_name_read").textContent = last_name_read;
 //生年月日(年)
-document.getElementsByClassName("v_year").innerHTML = year;
+document.getElementById("year").textContent = year;
 //生年月日(月)
-document.getElementsByClassName("v_month").innerHTML = month;
+document.getElementById("month").textContent = month;
 //生年月日(日)
-document.getElementsByClassName("v_date").innerHTML = date;
+document.getElementById("date").textContent = date;
 //生年月日送るやつ
-document.getElementsByClassName("v_birth").innerHTML = birth;
+// document.getElementsByClassName("v_birth").innerHTML = birth;
 //電話番号
-document.getElementsByClassName("v_phone").innerHTML = phone;
+document.getElementById("v_phone").textContent = phone;
 //郵便番号
-document.getElementsByClassName("v_address").innerHTML = address;
+document.getElementById("v_address").textContent = address;
 //クレジットカード番号
-document.getElementsByClassName("v_credit_card_number").innerHTML = credit_card_number;
+document.getElementById("v_credit_card_number").textContent = credit_card_number;
 //セキュリティコード
-document.getElementsByClassName("v_security_code").innerHTML = security_code;
+document.getElementById("v_security_code").textContent = security_code;
 //有効期限(月)
-document.getElementsByClassName("v_limitmonth").innerHTML = limitMonth;
+document.getElementById("v_limitMonth").textContent = limitMonth;
 //有効期限(年)
-document.getElementsByClassName("v_limitYear").innerHTML = limitYear;
+document.getElementById("v_limitYear").textContent = limitYear;
 
 
 
