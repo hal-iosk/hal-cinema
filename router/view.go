@@ -83,4 +83,9 @@ func viewRouter(r *gin.Engine) {
 			c.HTML(http.StatusOK, "adminCtrl.html", nil)
 		}
 	})
+
+	// checkin
+	r.GET("/checkin", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "checkin.html", nil)
+	})
 }

@@ -5,7 +5,7 @@ module.exports = {
   entry: {
     login: './src/adminLogin.js',
     ctrl: './src/adminCtrl.js',
-    cookieManager: "./src/CookieManager.js"
+    checkin: './src/checkin.js'
   },
   output: {
     path: path.resolve(__dirname, './../public/js/'),
