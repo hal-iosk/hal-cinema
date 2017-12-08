@@ -188,7 +188,7 @@
     event.preventDefault();
     $.post('/api/signup', $(this).serializeArray())
     .done(function (data, textStatus, jqXHR) {
-      console.log(data.token)
+      location.href = "/login"
     })
     .fail(function(data, textStatus, jqXHR){
       alert("ユーザー登録失敗");
