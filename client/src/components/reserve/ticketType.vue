@@ -49,6 +49,9 @@ import reservePayload from '../../lib/reserve.class'
 
 export default {
   name: "ticketType",
+  mounted() {
+    if(reservePayload.getRequestData().length <= 0) this.$router.push({ path: "/reserve" });
+  },
   methods: {
     back() {
       this.$router.push({ path: "/reserve" })

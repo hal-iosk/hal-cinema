@@ -67,6 +67,13 @@ export default {
       alert("映画一覧に戻る")
     },
     next() {
+      if(reservedSeats.length <= 0) {
+        this.$dialog.alert({
+          message: "座席を選択してください。",
+          type: "is-danger"
+        })
+        return
+      }
       reservePayload.setSeats(reservedSeats)
       reservePayload.setScheduleId(1)
       this.$router.push({ path: "/reserve/ticket" })

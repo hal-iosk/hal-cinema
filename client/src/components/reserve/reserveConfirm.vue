@@ -10,7 +10,7 @@ import reservePayload from '../../lib/reserve.class'
 export default {
   name: "reserve-confirm",
   mounted() {
-    console.log(reservePayload.getRequestData())
+    if(reservePayload.getRequestData().length <= 0) this.$router.push({ path: "/reserve" });
   }
 }
 </script>
