@@ -29,10 +29,24 @@ if (email == "" || password == "" || first_name == "" || last_name == "" || firs
     alert("パラメータが不正です。");
     location.href = "/";
 }
-//生年月日のフォーマット
-// var birth = moment(year+'-'+month+'-'+date);
-// birth.format("YYYY-MM-DD");
+if(month.length == 1){
+    month = "0"+month;
+}
+if(date.length == 1){
+    date = "0"+date;
+}
+if(limitYear.length == 1){
+    limitYear = "0"+limitYear;
+}
+if(limitMonth.length == 1){
+    limitMonth = "0"+limitMonth;
+}
 
+//生年月日のフォーマット
+var birth =year+'/'+month+'/'+date;
+
+//生年月日のフォーマット
+var credit_card_limit = limitYear+"/"+limitMonth;
 //APIに投げるデータ
 //メールアドレス
 document.getElementById("email").value= email;
@@ -46,9 +60,8 @@ document.getElementById("last_name").value = last_name;
 document.getElementById("first_name_read").value = first_name_read;
 //フリガナ（メイ）
 document.getElementById("last_name_read").value = last_name_read;
-
 //生年月日送るやつ
-// document.getElementsByClassName("birth").innerHTML = birth;
+document.getElementById("birth").value = birth;
 //電話番号
 document.getElementById("phone").value = phone;
 //郵便番号
@@ -61,13 +74,16 @@ document.getElementById("security_code").value = security_code;
 document.getElementById("limitMonth").value = limitMonth;
 //有効期限(年)
 document.getElementById("limitYear").value = limitYear;
+//有効期限(年)
+document.getElementById("credit_card_limit").value = credit_card_limit;
+
 
 
 //表示データ
 //メールアドレス
 document.getElementById("v_email").textContent = email;
 //パスワード
-document.getElementById("v_password").textContent= password;
+// document.getElementById("v_password").textContent= password;
 //性
 document.getElementById("v_first_name").textContent = first_name;
 //名
@@ -89,7 +105,7 @@ document.getElementById("v_phone").textContent = phone;
 //郵便番号
 document.getElementById("v_address").textContent = address;
 //クレジットカード番号
-document.getElementById("v_credit_card_number").textContent = credit_card_number;
+// document.getElementById("v_credit_card_number").textContent = credit_card_number;
 //セキュリティコード
 document.getElementById("v_security_code").textContent = security_code;
 //有効期限(月)

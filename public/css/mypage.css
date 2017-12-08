@@ -1,98 +1,122 @@
-body{
+body {
     background-color: #FAFAFA;
     box-sizing: border-box;
 }
-a{
+
+a {
     text-decoration: none;
 }
 
-#welcome{
-    width:1300px;
-    margin:20px auto;
+#welcome {
+    width: 1300px;
+    margin: 20px auto;
     position: relative;
-    border-bottom:solid 1px #cccccc;
+    border-bottom: solid 1px #cccccc;
 }
-#welcome h2{
+
+#welcome h2 {
     text-decoration: underline #CD1111;
 }
-.logout{
+
+.logout {
     position: absolute;
     right: 20px;
-    top:20px;
+    top: 20px;
 }
-.logout a{
+
+.logout a {
     padding: 10px;
     background-color: #ffffff;
-    border-radius:5px; 
-    border:solid 1px #cccccc;
+    border-radius: 5px;
+    border: solid 1px #cccccc;
 }
-#menu_bar{
-    width:1200px;
-    margin:0 auto;
-    box-shadow:0px 2px 6px 1px;
+
+#menu_bar {
+    width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0px 2px 6px 1px;
     overflow: hidden;
 }
-#menu_bar li{
+
+#menu_bar li {
     width: 400px;
     height: 100px;
-    color:#000000;
+    color: #000000;
     background-color: #ffffff;
     border-bottom: solid 10px #D8D8D8;
-    float:left;
+    float: left;
     text-align: center;
-    border-right:solid 1px #D8D8D8;
-    list-style:none;
+    border-right: solid 1px #D8D8D8;
+    list-style: none;
     line-height: 100px;
     position: relative;
 }
-#menu_bar .selected{
+
+#menu_bar .selected {
     width: 400px;
     height: 100px;
-    color:#CD1111;
+    color: #CD1111;
     background-color: #ffffff;
     border-bottom: solid 10px #CD1111;
-    float:left;
+    float: left;
     text-align: center;
-    border-right:solid 1px #D8D8D8;
-    list-style:none;
+    border-right: solid 1px #D8D8D8;
+    list-style: none;
     line-height: 100px;
-    
 }
-#history_list{
-    clear:left;
-    width:1200px;
-    margin:50px auto;
+
+#history_list {
+    clear: left;
+    width: 1200px;
+    margin: 50px auto;
     background-color: #ffffff;
-    box-shadow:0px 2px 6px 1px;
+    box-shadow: 0px 2px 6px 1px;
 }
-#history_list h3{
+
+#history_list h3 {
     padding: 20px;
     text-decoration: underline #CD1111;
 }
-#history_list table{
-    padding:20px;
-    margin:0 auto;
+
+#history_list table {
+    padding: 20px;
+    margin: 0 auto;
 }
-#history_list th{
-    font-size:20px;
-    border-bottom:solid 1px #D8D8D8;
+
+#history_list th {
+    font-size: 20px;
+    border-bottom: solid 1px #D8D8D8;
 }
-.history_day{
-    width: 10%;
+
+#history_list td {
     text-align: center;
+    width:180px;
+    height: 40px;
 }
-.firm_title{
-    width:90%;
-    text-align: left;
-}
-#menu_bar a{
+
+#menu_bar a {
     position: absolute;
     text-decoration: none;
-    color:#000000;
-display: block;
-width:100%;
-height: 100%;
+    color: #000000;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
-#menu_bar a:hover{
+
+#menu_bar a:hover {
     color: #CD1111;
+}
+.cancel{
+    padding:10px 10px;
+    background-color: #1253A2;
+    color:#ffffff;
+    border:solid 1px;
+    border-radius: 10px;
+    transition: all 350ms 0s ease;
+}
+.cancel:hover{
+    padding:10px 10px;
+    background-color: #CD1111;
+    color:#ffffff;
+
 }
