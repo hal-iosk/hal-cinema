@@ -81,7 +81,7 @@ export default {
     add() {
 
       // validation
-      if(!validationUtils.isNumber(this.theater_number)) { validationUtils.pushMessage("シアター番号を数字で入力してください。", this); return }
+      if(!validationUtils.isNumber(String(this.theater_number))) { validationUtils.pushMessage("シアター番号を数字で入力してください。", this); return }
 
       httpUtils.CreateSchedule(this.$route.params.id, this.theater_number, this.start_time)
       .then((res) => {

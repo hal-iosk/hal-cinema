@@ -79,6 +79,7 @@
 
 <script>
 import httpUtils from '../../lib/httpUtils'
+import validationUtils from '../../lib/validationUtils'
 import vueStore from '../../vuex'
 
 export default {
@@ -98,6 +99,9 @@ export default {
           _schedule = schedule;
         }
       });
+
+      // validation
+      if(!validationUtils.isNumber(String(_schedule.theater_number))) { validationUtils.pushMessage("シアター番号を数字で入力してください。", this); return }
 
       httpUtils.PutSchedule(_schedule)
       .then((res) => {

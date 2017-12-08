@@ -77,7 +77,7 @@ export default {
       if(validationUtils.isBlank(this.details)) { validationUtils.pushMessage("映画詳細を入力してください。", this); return }
       if(validationUtils.isBlank(this.image_path)) { validationUtils.pushMessage("サムネイルを入力してください。", this); return }
       if(!validationUtils.isURL(this.image_path)) { validationUtils.pushMessage("サムネイルがURLの形式ではありません。", this); return }
-      if(!validationUtils.isNumber(this.watch_time)) { validationUtils.pushMessage("上映時間を数字で入力してください。", this); return }
+      if(!validationUtils.isNumber(String(this.watch_time))) { validationUtils.pushMessage("上映時間を数字で入力してください。", this); return }
 
       httpUtils.CreateMovie(
         this.movie_name,
