@@ -4,9 +4,18 @@ $(document).ready(function () {
     "password": {
       "rule": [
         "required",
+        "alpha_numeric",
         "min_length[8]",
-        "max_length[12]",
-        "alpha_numeric"
+        "max_length[12]"
+      ]
+    },
+    "confirmPass": {
+      "rule": [
+        "required",
+        "alpha_numeric",
+        "hankaku",
+        "min_length[8]",
+        "max_length[12]"
       ]
     },
     "first_name": {
@@ -54,10 +63,11 @@ $(document).ready(function () {
     },
     "credit_card_number": {
       "rule": [
-        'numeric',
+        
         "required",
         "min_length[15]",
-        "max_length[16]"
+        "max_length[16]",
+        'numeric',
       ]
     },
     "security_code": {
@@ -127,6 +137,7 @@ $('form').submit(function ()  {
   var limitYear = $('#limitYear').val();
   //   var e_limitYear = document.getElementById('e_limitYear').innerHTML;
   validationMsg["birth"] = "";
+
   if (email.length == 0) {
     validationMsg["email"] = "メールアドレスを入力してください。";
   } else if (!e_email.length == 0) {
@@ -207,7 +218,7 @@ $('form').submit(function ()  {
   if (credit_card_number.length == 0) {
     validationMsg["credit_card_number"] = "クレジットカードの番号を入力してください";
   } else if (!e_credit_card_number.length == 0) {
-    validationMsg["credit_card_number'"] = e_credit_card_number;
+    validationMsg["credit_card_number"] = e_credit_card_number;
   } else {
     validationMsg["credit_card_numbr"] = "";
   }
@@ -225,19 +236,19 @@ $('form').submit(function ()  {
   }
 
   if (!validationMsg["email"].length == 0 || !validationMsg["password"].length == 0 || !validationMsg["confirmPass"].length == 0 || !validationMsg["first_name"].length == 0 || !validationMsg["last_name"].length == 0 || !validationMsg["first_name_read"].length == 0 || !validationMsg["last_name_read"].length == 0 || !validationMsg["birth"].length == 0 || !validationMsg["phone"].length == 0 || !validationMsg["address"].length == 0 || !validationMsg["credit_card_number"].length == 0 || !validationMsg["security_code"].length == 0 || !validationMsg["limit"].length == 0) {
-    document.getElementById("e_email").innerHTML = validationMsg["email"];
-    document.getElementById("e_password").innerHTML = validationMsg["password"];
-    document.getElementById("e_confirmPass").innerHTML = validationMsg["confirmPass"];
-    document.getElementById("e_first_name").innerHTML = validationMsg["first_name"];
-    document.getElementById("e_last_name").innerHTML = validationMsg["last_name"];
-    document.getElementById("e_first_name_read").innerHTML = validationMsg["first_name_read"];
-    document.getElementById("e_last_name_read").innerHTML = validationMsg["last_name_read"];
-    document.getElementById("e_birth").innerHTML = validationMsg["birth"];
-    document.getElementById("e_phone").innerHTML = validationMsg["phone"];
-    document.getElementById("e_address").innerHTML = validationMsg["address"];
-    document.getElementById("e_credit_card_number").innerHTML = validationMsg["credit_card_number"];
-    document.getElementById("e_security_code").innerHTML = validationMsg["security_code"];
-    document.getElementById("e_limit").innerHTML = validationMsg["limit"];
+    document.getElementById("e_email").textContent = validationMsg["email"];
+    document.getElementById("e_password").textContent = validationMsg["password"];
+    document.getElementById("e_confirmPass").textContent = validationMsg["confirmPass"];
+    document.getElementById("e_first_name").textContent = validationMsg["first_name"];
+    document.getElementById("e_last_name").textContent = validationMsg["last_name"];
+    document.getElementById("e_first_name_read").textContent = validationMsg["first_name_read"];
+    document.getElementById("e_last_name_read").textContent = validationMsg["last_name_read"];
+    document.getElementById("e_birth").textContent = validationMsg["birth"];
+    document.getElementById("e_phone").textContent = validationMsg["phone"];
+    document.getElementById("e_address").textContent = validationMsg["address"];
+    document.getElementById("e_credit_card_number").textContent = validationMsg["credit_card_number"];
+    document.getElementById("e_security_code").textContent = validationMsg["security_code"];
+    document.getElementById("e_limit").textContent = validationMsg["limit"];
     return false;
   } else {
     return submit();

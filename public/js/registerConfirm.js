@@ -29,10 +29,24 @@ if (email == "" || password == "" || first_name == "" || last_name == "" || firs
     alert("パラメータが不正です。");
     location.href = "/";
 }
+if(month.length == 1){
+    month = "0"+month;
+}
+if(date.length == 1){
+    date = "0"+date;
+}
+if(limitYear.length == 1){
+    limitYear = "0"+limitYear;
+}
+if(limitMonth.length == 1){
+    limitMonth = "0"+limitMonth;
+}
+
 //生年月日のフォーマット
-var birth = moment([year,month,date], 'YYYY/MM/DD');
+var birth =year+'/'+month+'/'+date;
+
 //生年月日のフォーマット
-var credit_card_limit = moment([limitMonth,limitYear], 'MM/YY');
+var credit_card_limit = limitYear+"/"+limitMonth
 //APIに投げるデータ
 //メールアドレス
 document.getElementById("email").value= email;
