@@ -30,9 +30,9 @@ if (email == "" || password == "" || first_name == "" || last_name == "" || firs
     location.href = "/";
 }
 //生年月日のフォーマット
-// var birth = moment(year+'-'+month+'-'+date);
-// birth.format("YYYY-MM-DD");
-
+var birth = moment([year,month,date], 'YYYY/MM/DD');
+//生年月日のフォーマット
+var credit_card_limit = moment([limitMonth,limitYear], 'MM/YY');
 //APIに投げるデータ
 //メールアドレス
 document.getElementById("email").value= email;
@@ -46,9 +46,8 @@ document.getElementById("last_name").value = last_name;
 document.getElementById("first_name_read").value = first_name_read;
 //フリガナ（メイ）
 document.getElementById("last_name_read").value = last_name_read;
-
 //生年月日送るやつ
-// document.getElementsByClassName("birth").innerHTML = birth;
+document.getElementById("birth").value = birth;
 //電話番号
 document.getElementById("phone").value = phone;
 //郵便番号
@@ -61,7 +60,8 @@ document.getElementById("security_code").value = security_code;
 document.getElementById("limitMonth").value = limitMonth;
 //有効期限(年)
 document.getElementById("limitYear").value = limitYear;
-
+//有効期限(年)
+document.getElementById("credit_card_limit").value = credit_card_limit;
 
 //表示データ
 //メールアドレス

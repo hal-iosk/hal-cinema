@@ -32,7 +32,7 @@
         </div>
 
         <div id="registerConfirm">
-          <form action="" method="POST" id="myForm">
+          <form action="api/signup" method="post" id="myForm">
             <h1>hal-cinema@会員登録</h1>
             <p>入力事項のご確認をお願い致します。</p>
             <h2>メールアドレス</h2>
@@ -46,7 +46,7 @@
               <p id="v_password">
                 <!--session[password]-->
               </p>
-              <input id="password" type="hidden" name="email">
+              <input id="password" type="hidden" name="password">
             </div>
             <h2>お名前</h2>
             <div class="name">
@@ -87,7 +87,7 @@
                   <!--session[date]-->
                 </p>
                 <p>日</p>
-                <input id="birth" type="hidden">
+                <input id="birth" type="text" name="birthday">
               </div>
             </div>
             <h2>電話番号</h2>
@@ -95,15 +95,16 @@
               <p id="v_phone">
                 <!--session[tel]-->
               </p>
-              <input id="phone" type="hidden">
+              <input id="phone" type="hidden" name="phone">
             </div>
 
             <h2>郵便番号</h2>
             <div class="space">
               <p id="v_address">
                 <!--session[address]-->
-                <input id="address" type="hidden">
+                <input id="address" type="hidden"name="address">
               </p>
+              <input type="hidden" id="magazine" name="magazine" value="true">
             </div>
             <h2>クレジットカード</h2>
             <div class="space_name">
@@ -113,14 +114,14 @@
 
                   <!--session[crNo]-->
                 </p>
-                <input type="hidden" id="credit_card_number">
+                <input type="hidden" id="credit_card_number" name="credit_card_number">
               </div>
               <div class="col">
                 <p>セキュリティコード</p>
                 <p id="v_security_code">
 
                   <!--session[crName]-->
-                  <input id="security_code" type="hidden">
+                  <input id="security_code" type="hidden" name="security_code">
                 </p>
               </div>
               <div class="col">
@@ -134,6 +135,7 @@
                 </p>
                 <p class="limit">年</p>
                 <input id="limitYear" type="hidden">
+                <input id="credit_card_limit" type="text" name="credit_card_limit">
               </div>
             </div>
             <div id="confirmNav">
