@@ -71,6 +71,9 @@ func viewRouter(r *gin.Engine) {
 	r.GET("/reserve", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "reserve.html", nil)
 	})
+	r.GET("/reserve/:path", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "reserve.html", nil)
+	})
 
 	// admin
 	r.GET("/admin", func(c *gin.Context) {

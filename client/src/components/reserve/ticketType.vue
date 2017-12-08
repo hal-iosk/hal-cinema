@@ -49,11 +49,10 @@ export default {
   name: "ticketType",
   methods: {
     back() {
-      history.back()
+      this.$router.push({ path: "/reserve" })
     },
     next() {
-      console.log("予約席: ", reservedSeats)
-      console.log("スケジュールID:", 1)
+      this.$router.push({ path: "/reserve/complete" })
     }
   }
 }

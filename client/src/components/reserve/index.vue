@@ -63,11 +63,12 @@ export default {
       })
     },
     back() {
-      history.back()
+      alert("映画一覧に戻る")
     },
     next() {
       console.log("予約席: ", reservedSeats)
       console.log("スケジュールID:", 1)
+      this.$router.push({ path: "/reserve/ticket" })
     }
   }
 }
