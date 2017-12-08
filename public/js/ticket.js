@@ -17,6 +17,9 @@ if (movie == "" || date == "" || time == "" || theater == ""){
   location.href = "/";
 }
 
+//dataの初期化
+var data = [];
+
 //作品名
 document.getElementById("movie").textContent = movie;
 //日
@@ -31,7 +34,7 @@ var param = QueryString.stringify({"movie":movie,"date":date,"time":time,"theate
 
 document.getElementById("back").innerHTML = "<a href='seat?"+param+"' class='back'>戻る</a>";
 
-document.getElementById("next").innerHTML = "<a href='confirm?"+param+"' class='next'>次へ</a>";
+document.getElementById("next").innerHTML = "<a href='#' class='next' onClick=typeSelectCheck()>次へ</a>";
 
 
 //sessionStorageから席番号を取得
@@ -116,6 +119,15 @@ function getType(type,seat) {
                                       +"</p>"
                                   +"</div>"
                                 );
+
+          var newData = data.filter(function(item, index){
+          if (item.seat != seats[seat]) return true;
+          });
+
+          data = newData;
+
+          var addData = { seat : seats[seat], price : 1800 }
+          data.push(addData);
 				break;
 
       case 2:
@@ -130,6 +142,15 @@ function getType(type,seat) {
                                       +"</p>"
                                   +"</div>"
                                 );
+
+          var newData = data.filter(function(item, index){
+          if (item.seat != seats[seat]) return true;
+          });
+
+          data = newData;
+
+          var addData = { seat : seats[seat], price : 1500 }
+          data.push(addData);
         break;
 
         case 3:
@@ -144,6 +165,14 @@ function getType(type,seat) {
                                       +"</p>"
                                   +"</div>"
                                 );
+          var newData = data.filter(function(item, index){
+          if (item.seat != seats[seat]) return true;
+          });
+
+          data = newData;
+
+          var addData = { seat : seats[seat], price : 800 }
+          data.push(addData);
         break;
 
         case 4:
@@ -158,6 +187,14 @@ function getType(type,seat) {
                                       +"</p>"
                                   +"</div>"
                                 );
+          var newData = data.filter(function(item, index){
+          if (item.seat != seats[seat]) return true;
+          });
+
+          data = newData;
+
+          var addData = { seat : seats[seat], price : 500 }
+          data.push(addData);
         break;
 
         case 5:
@@ -172,6 +209,14 @@ function getType(type,seat) {
                                       +"</p>"
                                   +"</div>"
                                 );
+          var newData = data.filter(function(item, index){
+          if (item.seat != seats[seat]) return true;
+          });
+
+          data = newData;
+
+          var addData = { seat : seats[seat], price : 1100 }
+          data.push(addData);
         break;
 
         case 6:
@@ -186,6 +231,14 @@ function getType(type,seat) {
                                       +"</p>"
                                   +"</div>"
                                 );
+          var newData = data.filter(function(item, index){
+          if (item.seat != seats[seat]) return true;
+          });
+
+          data = newData;
+
+          var addData = { seat : seats[seat], price : 1100 }
+          data.push(addData);
         break;
 
         case 7:
@@ -200,6 +253,14 @@ function getType(type,seat) {
                                       +"</p>"
                                   +"</div>"
                                 );
+          var newData = data.filter(function(item, index){
+          if (item.seat != seats[seat]) return true;
+          });
+
+          data = newData;
+
+          var addData = { seat : seats[seat], price : 1000 }
+          data.push(addData);
         break;
 
         case 8:
@@ -214,14 +275,31 @@ function getType(type,seat) {
                                       +"</p>"
                                   +"</div>"
                                 );
+          var newData = data.filter(function(item, index){
+          if (item.seat != seats[seat]) return true;
+          });
+
+          data = newData;
+
+          var addData = { seat : seats[seat], price : 2000 }
+          data.push(addData);
         break;
-
-
 
 			default:
 				alert('error');
 				break;
-
-        
 		}
 }
+
+function typeSelectCheck() {
+    if(data.length != seats.length){
+      alert("券種を選択してください。");
+    } else {
+        for (i = 0; i < data.length; i++) {
+          sessionStorage.setItem('a',data[i].seat);
+          sessionStorage.setItem('b',data[i].price);
+        }
+      location.href = "confirm?"+param+"";
+    }
+}
+
