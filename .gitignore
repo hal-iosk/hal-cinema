@@ -50,3 +50,5 @@ tmp
 main
 admin/node_modules/
 .editorconfig
+
+public/js/*.bundle.js
