@@ -15,6 +15,31 @@ body{
 .center-item {
     width: 1099px;
     height: 500px;
+    
+}
+
+.center-item:before {
+    display: block;
+    content: '';
+    width: 130px;
+    height: 500px;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 0px;
+    z-index: 10;
+}
+
+.center-item:after {
+    display: block;
+    content: '';
+    width: 130px;
+    height: 500px;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    right: 0px;
+    z-index: 1;
 }
 
 .slick-prev:before,
