@@ -29,10 +29,39 @@ a{
     height:300px;
     box-shadow:0px 2px 6px 1px;
     margin:50px auto;
-    background-image: url("/image/campaign_ticket.png");
+    background-image: url("/image/movie_ticket.png");
 }
 .detail{
     width:700px;
+    float:left;
+}
+.ticket_left{
+    width:300px;
+    float:left;
+    position: relative;
+}
+.icon{
+    position: absolute;
+    top:20px;
+    left:71px;
+}
+.left_p{
+  margin:200px 20px 10px 20px;
+  color:#FFF;
+  letter-spacing:3px;
+  font-family: "ヒラギノ明朝 ProN W2", "HiraMinProN-W2", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif;
+  font-weight: 200;
+  text-align: center;
+}
+.presents_L{
+    font-size: 14px;
+    
+}
+.Title_L{
+    font-size:28px;
+}
+.copy{
+    font-size: 18px;
 }
 .presents{
     text-align: center;

@@ -4,10 +4,18 @@ import moment from 'moment'
 
 const  MovieHttp = {
 
+  // 全権取得
   GetMovies() {
     return axios.get(`/api/movie`)
+  },
+    //公開中映画
+  GetOnAirMovies(){
+      return axios.get(`/api/movie?status=0`)
+  },
+    // 公開予定映画
+  GetComingsoonMovies(){
+      return axios.get(`/api/movie?status=1`)
   }
-
 }
 
 export default MovieHttp;
