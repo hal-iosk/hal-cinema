@@ -15,6 +15,7 @@ export default {
   name: "reserve-confirm",
   mounted() {
     if(reservePayload.getRequestData().length <= 0) this.$router.push({ path: "/reserve" });
+    console.log(reservePayload.getRequestData())
   },
   components: {
     ReserveNav

@@ -14,6 +14,9 @@ func viewRouter(r *gin.Engine) {
 	r.GET("/campaign", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "campaign.html", nil)
 	})
+	r.GET("/cinemaDay", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "cinemaDay.html", nil)
+	})
 	r.GET("/comingSoon", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "comingSoon.html", nil)
 	})

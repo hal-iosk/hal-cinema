@@ -9,17 +9,20 @@ body{
     box-sizing: border-box;
 }
 
-
-
 #main{
     width:810px;
-    margin:50px auto;
+    margin:100px auto;
+    background-color: #ffffffff;
+    overflow: hidden;
+    box-shadow:0px 2px 6px 1px;
 }
 h1{
     font-weight:normal;
+    padding: 20px;
 }
 #mainForm{
-    width:100%;
+    width:90%;
+    margin:0 auto;
 }
 .validation{
     color:#CD1111;
@@ -39,13 +42,26 @@ button, input,select, textarea {
     line-height: inherit;
 }
 .btn{
+    width: 150px;
+    height:50px;
+    float:left;
     font-size: 20px;
-    padding: 20px 80px;
-    margin: 20px 250px;
+    line-height: 50px;
     text-align: center;
     border: 1px solid;
     border-radius: 4px;
     transition: all 350ms 0s ease;
+    margin:50px 100px;
+}
+.submit{
+    width: 150px;
+    height:52px;
+    font-size: 20px;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 4px;
+    transition: all 350ms 0s ease;
+    margin:50px 100px;
 }
 li{
     list-style: none;
