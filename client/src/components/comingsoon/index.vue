@@ -47,7 +47,7 @@ export default {
         Tab
     },
     mounted(){
-        MovieHttp.GetMovies()
+        MovieHttp.GetComingsoonMovies()
         .then((res)=>{
              this.movies = res.data.movies
         })
