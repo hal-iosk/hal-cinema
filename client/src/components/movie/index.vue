@@ -2,7 +2,7 @@
   <div>
     <section>
       <div id="theater_nav">
-        <a href="watchFilm.">
+        <a href="watchFilm">
           <div class="nav_selected">
             <div class="nav_mean">
               <p>上映中</p>
@@ -29,50 +29,24 @@
               <div class="movie">
                 <div class="top-container">
                   <p class="movie-title">{{movie.movie_name}}</p>
-                  <p class="screening-time">(本編: 140分)</p>
+                  <p class="screening-time">(本編: {{movie.watch_time}}分)</p>
                 </div>
                 <div class="bottom-container">
                   <div class="movie-image">
                     <img src="movie1.jpg" alt="">
                   </div>
                   <ul class="schedule-container">
-                    <li>
+                    <li v-for="schedule in movie.schedules">
                       <div class="schedule">
-                        <div class="screen-name">スクリーン10</div>
+                        <div class="screen-name">スクリーン{{schedule.theater_number}}</div>
                         <div class="time-container">
-                          <span class="time">8:50</span>~<span class="time">10:50</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="schedule">
-                        <div class="screen-name">スクリーン10</div>
-                        <div class="time-container">
-                          <span class="time">8:50</span>~<span class="time">10:50</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="schedule">
-                        <div class="screen-name">スクリーン10</div>
-                        <div class="time-container">
-                          <span class="time">8:50</span>~<span class="time">10:50</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="schedule">
-                        <div class="screen-name">スクリーン10</div>
-                        <div class="time-container">
-                          <span class="time">8:50</span>~<span class="time">10:50</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="schedule">
-                        <div class="screen-name">スクリーン10</div>
-                        <div class="time-container">
-                          <span class="time">8:50</span>~<span class="time">10:50</span>
+                          <span class="time">
+                            {{moment(schedule.start_time).format("HH:mm")}}
+                          </span>
+                          ~
+                          <span class="time">
+                            {{moment(schedule.start_time).add(movie.watch_time, "m").format("HH:mm")}}
+                          </span>
                         </div>
                       </div>
                     </li>
@@ -89,17 +63,20 @@
 
 <script>
 import MovieHttp from '../../services/movie'
+import moment from 'moment'
+
 export default {
   name: "movie",
   data() {
     return {
-      movies: []
+      movies: [],
+      moment
     }
   },
   mounted() {
     MovieHttp.GetMovies()
     .then((res) => {
-      console.log(res.data.movies[0].start_date)
+      console.log(res.data.movies[0].schedules[0].start_time)
       this.movies = res.data.movies
     })
   }

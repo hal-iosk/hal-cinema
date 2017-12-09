@@ -1,8 +1,8 @@
 <template>
     <section>
         <div id="theater_nav">
-            <a href="watchFilm.">
-                <div class="nav_selected">
+            <a href="watchFilm">
+                <div class="nav_noselected">
                     <div class="nav_mean">
                         <p>上映中</p>
                         <p>now playing</p>
@@ -10,7 +10,7 @@
                 </div>
             </a>
             <a href="comingSoon">
-                <div class="nav_noselected">
+                <div class="nav_selected">
                     <div class="nav_mean">
                         <p>公開予定</p>
                         <p>coming soon</p>
