@@ -1,23 +1,25 @@
 <template>
     <section>
         <tab></tab>
+        <ul>
 
+        </ul>
         <div class="flex-container">
             <div class="container">
                 <p class="container-title">上映予定作品</p>
                 <ul class="scheduled-film-container">
-                    <li>
+                    <li v-for="movie in movies">
                         <div class="movie">
                             <div class="movie-title-container">
-                                <p class="movie-title"><span class="title">DESTINY 鎌倉ものがたり</span></p>
-                                <p class="release-date">12月9日公開</p>
+                                <p class="movie-title"><span class="title">{{movie.movie_name}}</span></p>
+                                <p class="release-date">{{moment(movie.start_date).format("MM月DD日")}}公開</p>
                             </div>
                             <div class="contents">
                                 <div class="movie-image">
-                                    <img src="movie1.jpg" alt="">
+                                    <img  v-bind:src=movie.image_path alt="">
                                 </div>
                                 <p class="description">
-                                    西岸良平による人気漫画「鎌倉ものがたり」を、西岸が原作者である『ALWAYS』シリーズなどの山崎貴監督が実写映画化。
+                                    {{movie.details}}
                                 </p>
                             </div>
                         </div>
@@ -31,16 +33,23 @@
 <script>
 import Tab from "./tab.vue"
 import MovieHttp from"../../services/movie"
+import moment from "moment"
 
 export default {
     name: "comingsoon",
+    data(){
+        return {
+            movies: [],
+            moment
+        }
+    },
     components:{
         Tab
     },
     mounted(){
-        MovieHttp.GetMovies
+        MovieHttp.GetMovies()
         .then((res)=>{
-            console.log(res)
+             this.movies = res.data.movies
         })
     }
 }
