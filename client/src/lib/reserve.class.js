@@ -14,6 +14,10 @@ class Reserve {
     this.seats = ids
   }
 
+  getSeats() {
+    return this.seats
+  }
+
   setPriceId(id) {
     this.price_id = id
   }

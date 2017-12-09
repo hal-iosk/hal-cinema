@@ -3,22 +3,11 @@
 
     <reserve-nav></reserve-nav>
 
-    <h1>座席選択</h1>
-
-    <ul>
-      <li>
-        <p>作品名</p>
-        <p>あさひなぐ</p>
-      </li>
-      <li>
-        <p>日時</p>
-        <p>2017/09/26 16:20 ~ 18:50</p>
-      </li>
-      <li>
-        <p>シアター番号</p>
-        <p>1</p>
-      </li>
-    </ul>
+    <movie-content
+      :title="title"
+      :date="date"
+      :theater="theater"
+    ></movie-content>
 
     <div class="seat-container">
       <div class="screen"></div>
@@ -31,7 +20,7 @@
       </ul>
     </div>
 
-    <div>
+    <div class="controller">
       <button class="button" @click="back">戻る</button>
       <button class="button is-primary" @click="next">次へ</button>
     </div>
@@ -41,6 +30,7 @@
 
 <script>
 import ReserveNav from './nav.vue'
+import MovieContent from './movieContent.vue'
 import seatsFormat from './seat.format'
 import reservePayload from '../../lib/reserve.class'
 
@@ -49,11 +39,18 @@ let reservedSeats = []
 export default {
   name: "reserve",
   components: {
-    ReserveNav
+    ReserveNav,
+    MovieContent
+  },
+  mounted() {
+    reservePayload.clear()
   },
   data() {
     return {
-      seats: seatsFormat
+      seats: seatsFormat,
+      title: "あさひなぐ",
+      date: "2017/09/26 10:00 〜 11:00",
+      theater: "1"
     }
   },
   methods: {
@@ -124,5 +121,11 @@ export default {
 }
 .seat-container ul .seat-icon.purchased {
   background-color: #4A4A4A;
+}
+.controller {
+  width: 50%;
+  margin: 0 auto 50px;
+  display: flex;
+  justify-content: space-around;
 }
 </style>
