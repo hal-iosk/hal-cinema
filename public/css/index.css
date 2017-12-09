@@ -1,20 +1,53 @@
 @charset "utf-8";
 
+/* 
+お知らせ
+ランキング
+売店情報(推し商品ぴっくあっぷ)
+
+*/
+
 body{
-    background-color: #FAFAFA;
-    
+    background-color: #FAFAFA;   
+}
+
+#fill {
+    padding-top: 60px;
+    padding-left: 170px;
+    padding-bottom: 60px;
+    background-color: #f0f0f0;
 }
 
 .center-item {
     width: 1099px;
     height: 500px;
+    
 }
 
-#fill {
-    padding-left: 170px;
+.center-item:before {
+    display: block;
+    content: '';
+    width: 130px;
+    height: 500px;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 0px;
+    z-index: 10;
 }
 
-左右の矢印の色を変える
+.center-item:after {
+    display: block;
+    content: '';
+    width: 130px;
+    height: 500px;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    right: 0px;
+    z-index: 1;
+}
+
 .slick-prev:before,
 .slick-next:before {
     color: #000;
@@ -25,14 +58,14 @@ body{
     z-index: 99;
 }
 .slick-prev {
-     left: -44px;
+    left: -44px;
     z-index: 100;
 }
 
 /*スライド数のドットの色を変える*/
 .slick-dots li.slick-active button:before,
 .slick-dots li button:before {
-    color: #000000;
+    color: #1253A2;
 }
 /*スライド画像の横幅可変*/
 .center-item img {
@@ -41,19 +74,19 @@ body{
 }
 
 .btnArea {
+    padding-top: 20px;
     width: 100%;
     margin: 0 auto;
     text-align: center;
 }
 
 .btnArea a.theater {
-    margin-top: 60px;
     margin-right: 20px;
 }
 
 .btnArea a {
     display: inline-block;
-    width: 40%;
+    width: 28%;
     background: #1253A2;
     box-shadow: 0 5px 0 rgb(20, 66, 116);
     transition: all 350ms 0s ease;
@@ -72,6 +105,6 @@ body{
 
 .btnArea a:hover {
     background:#CD1111;
-    box-shadow: 0 5px 0 rgb(92, 14, 14);
+    box-shadow: 0 5px 0 rgb(146, 41, 41);
 }
 
