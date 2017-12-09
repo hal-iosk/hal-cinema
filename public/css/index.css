@@ -5,16 +5,18 @@ body{
     
 }
 
+#fill {
+    padding-top: 60px;
+    padding-left: 170px;
+    padding-bottom: 60px;
+    background-color: #f0f0f0;
+}
+
 .center-item {
     width: 1099px;
     height: 500px;
 }
 
-#fill {
-    padding-left: 170px;
-}
-
-左右の矢印の色を変える
 .slick-prev:before,
 .slick-next:before {
     color: #000;
@@ -25,7 +27,7 @@ body{
     z-index: 99;
 }
 .slick-prev {
-     left: -44px;
+    left: -44px;
     z-index: 100;
 }
 
@@ -47,7 +49,6 @@ body{
 }
 
 .btnArea a.theater {
-    margin-top: 60px;
     margin-right: 20px;
 }
 
@@ -72,6 +73,6 @@ body{
 
 .btnArea a:hover {
     background:#CD1111;
-    box-shadow: 0 5px 0 rgb(92, 14, 14);
+    box-shadow: 0 5px 0 rgb(146, 41, 41);
 }
 
