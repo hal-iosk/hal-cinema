@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>hal-cimema</title>
+  <title>HAL CINEMA</title>
 
   <script src="/js/common.js"></script>
   <script src="/js/jquery.min.js"></script>
@@ -11,91 +11,54 @@
   <link rel="stylesheet" href="/css/drawer.css">
   <script src="/js/drawer.min.js"></script>
   <link rel="stylesheet" href="/css/header.css">
-  <link rel="stylesheet" href="/css/index.css">
   <link rel="stylesheet" href="/css/footer.css">
   <script src="/js/admin-cookieManager.bundle.js"></script>
+  <link rel="stylesheet" href="/css/slick.css">
+  <link rel="stylesheet" href="/css/slick-theme.css">
+  <script src="/js/slick.min.js"></script>
+  <link rel="stylesheet" href="/css/index.css">
+  
 </head>
 <body class="drawer drawer--left">
   <div id="container">
-  <header>
-    <!-- ハンバーガーボタン -->
-   <button type="button" class="drawer-toggle drawer-hamburger">
-      <span class="sr-only">toggle navigation</span>
-      <span class="drawer-hamburger-icon"></span>
-    </button>
+    <header>
+      <!-- ハンバーガーボタン -->
+      <button type="button" class="drawer-toggle drawer-hamburger">
+        <span class="sr-only">toggle navigation</span>
+        <span class="drawer-hamburger-icon"></span>
+      </button>
  
-    <nav class="drawer-nav">
-      <ul class="drawer-menu">
-        <!-- ドロワーメニューの中身 -->
-        <li id="navTop"><a href="/"><img src="/image/top.png" width="auto" height="auto"><span>トップページ</span></a></li>
-        <li id="navLogin"><a href="/login"><img src="/image/login.png" width="auto" height="auto"><span>ログイン</span></a></li>
-        <li id="navMovie"><a href="/watchFilm"><img src="/image/movie.png" width="auto" height="auto"><br><span>上映スケジュール</span></a></li>
-        <li id="navCampaign"><a href="/campaign"><img src="/image/campaign.png" width="auto" height="auto"><br><span>キャンペーン</span></a></li>
-        <li id="navPoppukon"><a href="/shop"><img src="/image/poppukon.png" width="auto" height="auto"><br><span>売店情報</span></a></li>
-        <li id="navPaper"><a href="/login"><img src="/image/paper.png" width="auto" height="auto"><span>予約履歴</span></a></li>
-        <li id="navP"><a href="/login"><img src="/image/p.png" width="auto" height="auto"><br><span>チェックイン</span></a></li>
-      </ul>
-    </nav>
- 
-    
-    <p id="logoimg"><a href="/"><img src="/image/logo_halcinema.png" width="177" height="46"></a></p>
+      <nav class="drawer-nav">
+        <ul class="drawer-menu">
+          <!-- ドロワーメニューの中身 -->
+          <li id="navTop"><a href="/"><img src="/image/top.png" width="auto" height="auto"><span>トップページ</span></a></li>
+          <li id="navLogin"><a href="/login"><img src="/image/login.png" width="auto" height="auto"><span>ログイン</span></a></li>
+          <li id="navMovie"><a href="/watchFilm"><img src="/image/movie.png" width="auto" height="auto"><br><span>上映スケジュール</span></a></li>
+          <li id="navCampaign"><a href="/campaign"><img src="/image/campaign.png" width="auto" height="auto"><br><span>キャンペーン</span></a></li>
+          <li id="navPoppukon"><a href="/shop"><img src="/image/poppukon.png" width="auto" height="auto"><br><span>売店情報</span></a></li>
+          <li id="navPaper"><a href="/login"><img src="/image/paper.png" width="auto" height="auto"><span>予約履歴</span></a></li>
+          <li id="navP"><a href="/login"><img src="/image/p.png" width="auto" height="auto"><br><span>チェックイン</span></a></li>
+        </ul>
+      </nav>
+
+      <p id="logoimg"><a href="/"><img src="/image/logo_halcinema.png" width="177" height="46"></a></p>
     </header>
   <div id="main">
-  <section>
-    <div id="news">
-      <div>
-        <h2>重要なお知らせ</h2>
-      </div>
-      <dl id="newsList">
-        <dt>2017年7月14日</dt>
-        <dd>銀魂「ブックカバー」商品サイズ不備に関するお知らせ</dd>
-        <dt>2017年7月14日</dt>
-        <dd>銀魂「ブックカバー」商品サイズ不備に関するお知らせ</dd>
-        <dt>2017年7月14日</dt>
-        <dd>銀魂「ブックカバー」商品サイズ不備に関するお知らせ</dd>
-        <dt>2017年7月14日</dt>
-        <dd>銀魂「ブックカバー」商品サイズ不備に関するお知らせ</dd>
-      </dl>
-    </div>
-  </section>
-  <section>
-    <div id="watch_firm">
-      <h2>映画公開一覧</h2>
-      <div class="firm_card">
-        <a href="">
-          <div>
-            <img src="/image/20170711-asahinagu_top.png" alt="あさひなぐの画像">
-            <p>あさひなぐ</p>
-          </div>
-        </a>
-      </div>
-      <div class="firm_card">
-        <a href="">
-          <div>
-            <img src="/image/20170711-asahinagu_top.png" alt="あさひなぐの画像">
-            <p>あさひなぐ</p>
-          </div>
-        </a>
-      </div>
-      <div class="firm_card">
-        <a href="">
-          <div>
-            <img src="/image/20170711-asahinagu_top.png" alt="あさひなぐの画像">
-            <p>あさひなぐ</p>
-          </div>
-        </a>
+    <div id="fill">
+      <div class="center-item">
+          <div><img src="/image/kiminonaha.jpg" width="" height="" alt=""></div>
+          <div><img src="/image/sadako.jpg" width="" height="" alt=""></div>
+          <div><img src="/image/kaizoku.jpg" width="" height="" alt=""></div>
+          <div><img src="/image/bizyotoyazyu.jpg" width="" height="" alt=""></div>
       </div>
     </div>
-  </section>
-  <section>
-    <div id="shop">
-      <h2>売店情報</h2>
-      <div id="foodList">
-        <img src="/image/mito.png" alt="ポップコーン">
-        <img src="/image/mito.png" alt="ポップコーン">
+
+      <div class="btnArea">
+          <a href="/watchFilm" class="theater"><span>上映スケジュール</span></a>
+          <a href="/login" class="login"><span>ログイン</span></a>
       </div>
-    </div>
-  </section>
+
+
   </div>
   <footer>
       <ul id="footerNav">
@@ -107,8 +70,23 @@
       </ul>
   </footer>
 </div>
-  <script src="/js/script.js"></script>
   <script src="/js/header.js"></script>
+  <script>$(function() {
+    $('.center-item').slick({
+          infinite: true,
+          dots:true,
+          slidesToShow: 1,
+          centerMode: true, //要素を中央寄せ
+          centerPadding:'130px', //両サイドの見えている部分のサイズ
+          autoplay:true, //自動再生
+          responsive: [{
+               breakpoint: 480,
+                    settings: {
+                         centerMode: false,
+               }
+          }]
+     });
+});</script>
 </body>
 
 </html>

@@ -2,77 +2,77 @@
 
 body{
     background-color: #FAFAFA;
-    box-sizing: border-box;
+    
 }
-#news{
-    width:1400px;
-    height: 300px;
-    margin:50px auto;
+
+#fill {
+    padding-top: 60px;
+    padding-left: 170px;
+    padding-bottom: 60px;
+    background-color: #f0f0f0;
 }
-#news h2{
-    width:140px;
-    text-align: left;
-    font-size: 20px;
-    margin:10px 0;
-    border-bottom:solid 1px #CD1111;
+
+.center-item {
+    width: 1099px;
+    height: 500px;
 }
-#newsList{
-    width:1400px;
-    background-color: #ffffff;
-    overflow: hidden;
-    box-shadow:0px 2px 6px 1px;
+
+.slick-prev:before,
+.slick-next:before {
+    color: #000;
 }
-#newsList dt{
-    clear: left;
-    float:left;
-    width:150px;
-    margin: 10px 0 10px 20px;
+左右の矢印の位置を変える
+.slick-next {
+    right: 20px;
+    z-index: 99;
 }
-#newsList dd{
-    float:left;
-    margin: 10px 0;
+.slick-prev {
+    left: -44px;
+    z-index: 100;
 }
-#watch_firm{
-    clear: left;
-    width:1400px;
-    margin:50px auto;
-    overflow: hidden;
+
+/*スライド数のドットの色を変える*/
+.slick-dots li.slick-active button:before,
+.slick-dots li button:before {
+    color: #1253A2;
 }
-#watch_firm h2{
-    width:120px;
-    text-align: left;
-    font-size: 20px;
-    margin:10px 0;
-    border-bottom:solid 1px #CD1111;
+/*スライド画像の横幅可変*/
+.center-item img {
+    max-width: 900px;
+    height: 500px;
 }
-.firm_card{
-    width:420px;
-    box-shadow:0px 2px 6px 1px;
-    float:left;
-    margin:20px;
+
+.btnArea {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
 }
-.firm_card img{
-    border-bottom: solid 1px #cccccc;
+
+.btnArea a.theater {
+    margin-right: 20px;
 }
-.firm_card p{
-    padding:20px;
-    font-size: 18px;
+
+.btnArea a {
+    display: inline-block;
+    width: 28%;
+    background: #1253A2;
+    box-shadow: 0 5px 0 rgb(20, 66, 116);
+    transition: all 350ms 0s ease;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #fff;
+    line-height: 60px;
+    font-size: 140%;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 auto;
+    position: relative;
 }
-#shop{
-    clear: left;
-    width:1400px;
-    margin:50px auto;
-    overflow: hidden;
-}
-#shop h2{
-    width:80px;
-    text-align: left;
-    font-size: 20px;
-    margin:10px 0;
-    border-bottom:solid 1px #CD1111;
-}
-#foodList img{
-   float:left;
-   margin:0 61px; 
+
+.btnArea a:hover {
+    background:#CD1111;
+    box-shadow: 0 5px 0 rgb(146, 41, 41);
 }
 
