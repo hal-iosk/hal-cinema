@@ -98,4 +98,7 @@ func viewRouter(r *gin.Engine) {
 	r.GET("/checkin", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "checkin.html", nil)
 	})
+	r.GET("/checkin/:path", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "checkin.html", nil)
+	})
 }
