@@ -1,3 +1,7 @@
+h2 {
+    text-align: center;
+}
+
 .list {
     padding: 0.5em 1em;
     margin: 1em 0;
@@ -43,10 +47,20 @@
 a {
     text-decoration: none;
     color: #000;
+    font-size: 18px;
+}
+
+a:hover {
+    opacity: 0.7;
 }
 
 .checkin{
-    width: 500px;
+    position: relative;
+    left: 520px;
+    padding: 4px;
+    letter-spacing: 0.05em;
+    text-align: center;
+    width: 300px;
     margin:2em 0;
     position: relative;
     padding: 0.5em 1.5em;
@@ -69,4 +83,10 @@ a {
 .checkin p {
     margin: 0; 
     padding: 0;
+}
+
+.checkin span {
+    position: relative;
+    top: -15px;
+    text-decoration: underline;
 }
