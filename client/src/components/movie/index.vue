@@ -25,10 +25,10 @@
         <div class="container">
           <p class="container-title"><span class="date">12/8</span>(金)の上映スケジュール</p>
           <ul class="movie-container">
-            <li>
+            <li v-for="movie in movies">
               <div class="movie">
                 <div class="top-container">
-                  <p class="movie-title">[字幕] 否定と肯定</p>
+                  <p class="movie-title">{{movie.movie_name}}</p>
                   <p class="screening-time">(本編: 140分)</p>
                 </div>
                 <div class="bottom-container">
@@ -91,10 +91,16 @@
 import MovieHttp from '../../services/movie'
 export default {
   name: "movie",
+  data() {
+    return {
+      movies: []
+    }
+  },
   mounted() {
     MovieHttp.GetMovies()
     .then((res) => {
-      console.log(res)
+      console.log(res.data.movies[0].start_date)
+      this.movies = res.data.movies
     })
   }
 }
