@@ -54,7 +54,7 @@ a:hover {
     opacity: 0.7;
 }
 
-.checkin{
+.checkin_link{
     position: relative;
     left: 520px;
     padding: 4px;
@@ -68,7 +68,7 @@ a:hover {
     border-bottom: solid 2px #fc8404;
 }
 
-.checkin:before, .checkin:after{
+.checkin_link:before, .checkin_link:after{
     content: '';
     position: absolute;
     top: -10px;
@@ -78,15 +78,41 @@ a:hover {
     background-color: #fc8404;
 }
 
-.checkin:before {left: 10px;}
-.checkin:after {right: 10px;}
-.checkin p {
+.checkin_link:before {left: 10px;}
+.checkin_link:after {right: 10px;}
+.checkin_link p {
     margin: 0; 
     padding: 0;
 }
 
-.checkin span {
+.checkin_link img {
     position: relative;
-    top: -15px;
+    top: 5px;
+}
+
+.checkin_link span {
+    position: relative;
+    top: -17px;
     text-decoration: underline;
+}
+
+.checkin {
+    font-size: 18px;
+    padding-top: 80px;
+    padding-left: 400px;
+    padding-bottom: 80px;
+}
+
+.checkin span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.checkin p {
+    padding-top: 30px;
+}
+
+.checkin img {
+    position: relative;
+    top: 5px;
 }
