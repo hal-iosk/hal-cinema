@@ -6,9 +6,38 @@
   <link rel="stylesheet" href="css/confirm.css">
   <link rel="stylesheet" href="css/footer.css">
   <script src="/js/admin-cookieManager.bundle.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/iscroll.js"></script>
+  <link rel="stylesheet" href="/css/drawer.css">
+  <script src="/js/drawer.min.js"></script>
+  <link rel="stylesheet" href="/css/header.css">
 </head>
-<body>
+<body class="drawer drawer--left">
+
+   <header>
+    <!-- ハンバーガーボタン -->
+   <button type="button" class="drawer-toggle drawer-hamburger">
+      <span class="sr-only">toggle navigation</span>
+      <span class="drawer-hamburger-icon"></span>
+    </button>
+ 
+    <nav class="drawer-nav">
+      <ul class="drawer-menu">
+        <!-- ドロワーメニューの中身 -->
+        <li id="navTop"><a href="/"><img src="/image/top.png" width="auto" height="auto"><span>トップページ</span></a></li>
+        <li id="navLogin"><a href="/login"><img src="/image/login.png" width="auto" height="auto"><span>ログイン</span></a></li>
+        <li id="navMovie"><a href="/watchFilm"><img src="/image/movie.png" width="auto" height="auto"><br><span>上映スケジュール</span></a></li>
+        <li id="navCampaign"><a href="/campaign"><img src="/image/campaign.png" width="auto" height="auto"><br><span>キャンペーン</span></a></li>
+        <li id="navPoppukon"><a href="/shop"><img src="/image/poppukon.png" width="auto" height="auto"><br><span>売店情報</span></a></li>
+        <li id="navPaper"><a href="/login"><img src="/image/paper.png" width="auto" height="auto"><span>予約履歴</span></a></li>
+        <li id="navP"><a href="/login"><img src="/image/p.png" width="auto" height="auto"><br><span>チェックイン</span></a></li>
+      </ul>
+    </nav>
+ 
+    
+    <p id="logoimg"><a href="/"><img src="/image/logo_halcinema.png" width="177" height="46"></a></p>
+    </header>
 <div id="container">
   <div id="main">
     <ul class="navigation">
@@ -59,5 +88,6 @@
 </div>
 <script src="js/QueryString.js"></script>
 <script src="js/confirm.js"></script>
+<script src="/js/header.js"></script>
 </body>
 </html>
