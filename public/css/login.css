@@ -8,8 +8,17 @@ body{
     background-color: #FAFAFA;
     box-sizing: border-box;
 }
+.title {
+    font-size: 1.6em;
+    background: rgb(17, 119, 236);
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
 
-#main{
+.box{
     width:810px;
     margin:100px auto;
     background-color: #ffffffff;
@@ -30,7 +39,7 @@ h1{
     margin:5px;
 }
 .text{
-    width: 90%;
+    width: 95%;
     padding: 10px;
     border: 1px solid #bdbdbd;
     border-radius: 4px;
@@ -61,21 +70,21 @@ button, input,select, textarea {
     border: 1px solid;
     border-radius: 4px;
     transition: all 350ms 0s ease;
-    margin:50px 100px;
+    margin:50px 110px;
 }
 li{
     list-style: none;
 }
 .submit{
     color:#ffffff;
-    background-color: #1253A2;
+    background-color: rgb(17, 119, 236);
 }
 .submit:hover{
     background-color: #CD1111;
 }
 .signUp{
     color:#ffffff;
-    background-color: #1253A2;
+    background-color: rgb(17, 119, 236);
 }
 .signUp:hover{
     background-color: #CD1111;
