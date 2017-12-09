@@ -58,7 +58,7 @@ export default {
       })
     },
     back() {
-      alert("映画一覧に戻る")
+      location.href = "/watchFilm"
     },
     next() {
       const selectSeats = this.seats.filter((seat) => { if(seat.isSelected) { return seat.seatSymbol } })
