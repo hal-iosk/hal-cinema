@@ -9,31 +9,30 @@ import (
 )
 
 func CreateReserve(c *gin.Context) {
-	Reserve, ok := createReserveReq(c)
+	Reserves, ok := createReserveReq(c)
 	if !ok {
 		return
 	}
-	if !service.Reserve.CanCreate(Reserve) {
-		Batequest("そのよやくうまっちゃってますね＾＾；", c)
+	ok = service.Reserve.CanCreates(Reserves)
+	if !ok {
+		Batequest("その席はだめなの＞＜", c)
 		return
 	}
-	Reserve = service.Reserve.Create(Reserve)
-	c.JSON(http.StatusCreated, Reserve)
+	service.Reserve.Creates(Reserves)
+	c.JSON(http.StatusCreated, Reserves)
 }
 
-func createReserveReq(c *gin.Context) (model.Reserve, bool) {
-	Reserve := model.Reserve{SeatID: c.PostForm("seat_id")}
-	ScheduleID, ok := GetInt("schedule_id", c)
-	if !ok {
-		return Reserve, false
+func createReserveReq(c *gin.Context) ([]model.Reserve, bool) {
+	UserID := GetUserID(c)
+	var Reserves []model.Reserve
+	err := c.BindJSON(&Reserves)
+	if err != nil {
+		Batequest(err.Error(), c)
+		return nil, false
 	}
-	CustomerID, _ := c.Get("userID")
-	PriceID, ok := GetInt("price_id", c)
-	if !ok {
-		return Reserve, false
+
+	for key, _ := range Reserves {
+		Reserves[key].CustomerID = UserID
 	}
-	Reserve.ScheduleID = ScheduleID
-	Reserve.CustomerID = CustomerID.(uint)
-	Reserve.PriceID = PriceID
-	return Reserve, true
+	return Reserves, true
 }

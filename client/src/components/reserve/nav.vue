@@ -12,3 +12,10 @@ export default {
 }
 </script>
 
+<style lang="scss" scoped>
+ul {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+}
+</style>
