@@ -49,3 +49,28 @@ func (self ReserveImpl) CanCreate(Reserve model.Reserve) bool {
 	db.Where("schedule_id = ? AND seat_id = ?", Reserve.ScheduleID, Reserve.SeatID).Find(&dbReserve)
 	return len(dbReserve) == 0
 }
+
+func (self ReserveImpl) Creates(Reserves []model.Reserve) []model.Reserve {
+	for key, value := range Reserves {
+		Reserves[key] = self.Create(value)
+	}
+	return Reserves
+}
+
+// 配列ないが重複しないかつデータベースにも存在しない
+func (self ReserveImpl) CanCreates(Reserves []model.Reserve) bool {
+	var seets []string
+	for _, value := range Reserves {
+		for _, s := range seets {
+			if value.SeatID == s {
+				return false
+			}
+		}
+		seets = append(seets, value.SeatID)
+		ok := self.CanCreate(value)
+		if !ok {
+			return false
+		}
+	}
+	return true
+}
