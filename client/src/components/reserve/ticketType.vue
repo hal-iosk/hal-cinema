@@ -28,7 +28,7 @@
             required
             @input="selected"
         >
-          <option :value="`${seat.id}-${price.ID}-${price.price}`" v-for="price in prices">{{price.customer_type}}</option>
+          <option :value="`${seat.id}-${price.ID}-${price.price}-${price.customer_type}`" v-for="price in prices">{{price.customer_type}} - {{price.price}}円</option>
         </b-select>
       </li>
     </ul>
@@ -54,7 +54,7 @@ export default {
     MovieContent
   },
   mounted() {
-    if(reservePayload.getRequestData().length <= 0) this.$router.push({ path: "/reserve" });
+    if(reservePayload.getSeats().length <= 0) this.$router.push({ path: "/reserve" })
 
     if(this.prices.length <= 0) {
       ReserveHttp.GetPrices()
@@ -77,17 +77,23 @@ export default {
   },
   methods: {
     selected(e) {
-      const [seat, priceId, price] = e.split("-")
-      selectObj[seat] = {priceId, price}
+      const [seat, priceId, price, customer_type] = e.split("-")
+      selectObj[seat] = {seatId: seat, priceId, price, customer_type}
     },
     back() {
       reservePayload.clear()
       location.href = "/reserve"
     },
     next() {
-      console.log()
-      console.log(selectObj)
-      // this.$router.push({ path: "/reserve/complete" })
+      if(Object.keys(selectObj).length === this.seats.length) {
+        sessionStorage.setItem("halCinemaReserveSeats", JSON.stringify(selectObj))
+        this.$router.push({ path: "/reserve/complete" })
+      } else {
+        this.$dialog.alert({
+          message: "券種を選んでください。",
+          type: "is-danger"
+        })
+      }
     }
   }
 }

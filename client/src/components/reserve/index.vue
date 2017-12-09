@@ -34,8 +34,6 @@ import seatsFormat from './seat.format'
 import reservePayload from '../../lib/reserve.class'
 import MovieContent from './movieContent.vue'
 
-let reservedSeats = []
-
 export default {
   name: "reserve",
   components: {
@@ -43,17 +41,18 @@ export default {
     MovieContent
   },
   mounted() {
+    const movie = JSON.parse(sessionStorage.getItem("halCinemaReserve"))
+    movie ? this.movie = movie : location.href = "/"
     reservePayload.clear()
   },
   data() {
     return {
       seats: seatsFormat,
-      movie: JSON.parse(sessionStorage.getItem("halCinemaReserve"))
+      movie: {}
     }
   },
   methods: {
     seatSelect(seatId) {
-      reservedSeats.push(seatId)
       seatsFormat.map((seat) => {
         if(seatId === seat.seatSymbol) seat.isSelected = !seat.isSelected;
       })
@@ -62,15 +61,18 @@ export default {
       alert("映画一覧に戻る")
     },
     next() {
-      if(reservedSeats.length <= 0) {
+      const selectSeats = this.seats.filter((seat) => { if(seat.isSelected) { return seat.seatSymbol } })
+      const reservedSeats = selectSeats.map((seat) => { return seat.seatSymbol })
+
+      if(Object.keys(reservedSeats).length <= 0) {
         this.$dialog.alert({
           message: "座席を選択してください。",
           type: "is-danger"
         })
         return
       }
+
       reservePayload.setSeats(reservedSeats)
-      reservePayload.setScheduleId(1)
       this.$router.push({ path: "/reserve/ticket" })
     }
   }

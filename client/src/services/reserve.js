@@ -5,6 +5,10 @@ const ReserveHttp = {
 
   GetPrices() {
     return axios.get(`/api/price`)
+  },
+
+  PostReserve() {
+
   }
 
 }

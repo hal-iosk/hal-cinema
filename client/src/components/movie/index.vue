@@ -23,7 +23,7 @@
     <article>
       <div class="flex-container">
         <div class="container">
-          <p class="container-title"><span class="date">12/8</span>(金)の上映スケジュール</p>
+          <p class="container-title"><span class="date">12/8</span>の上映スケジュール</p>
           <ul class="movie-container">
             <li v-for="movie in movies">
               <div class="movie">
@@ -32,9 +32,6 @@
                   <p class="screening-time">(本編: {{movie.watch_time}}分)</p>
                 </div>
                 <div class="bottom-container">
-                  <div class="movie-image">
-                    <img src="movie1.jpg" alt="">
-                  </div>
                   <ul class="schedule-container">
                     <li v-for="schedule in movie.schedules" @click="select(schedule.ID, movie.movie_name, schedule.start_time, movie.watch_time, schedule.theater_number)">
                       <div class="schedule">
@@ -105,6 +102,8 @@ export default {
   justify-content: center;
 }
 .container {
+  width: 80%;
+  margin: 0 auto;
   padding-top: 2rem;
 }
 .container-title {
@@ -115,10 +114,14 @@ export default {
   font-size: 1.5rem;
   font-weight: bold;
 }
+.movie-container {
+  width: 100%;
+}
 .movie-container li {
   list-style: none;
 }
 .movie {
+  width: 100%;
   padding: 1rem 0;
 }
 .movie .movie-title {
@@ -132,6 +135,7 @@ export default {
   padding: 0.5rem 0;
 }
 .movie .bottom-container {
+  overflow: scroll;
   display: flex;
   align-items: center;
   background-color: rgba(0, 0, 0, .79);

@@ -22,18 +22,6 @@ class Reserve {
     this.price_id = id
   }
 
-  getRequestData() {
-    const { seats, schedule_id, price_id } = this;
-
-    return seats.map((seat_id) => {
-      return {
-        seat_id,
-        schedule_id,
-        price_id
-      }
-    })
-  }
-
   clear() {
     this.schedule_id = null;
     this.seats = [];
