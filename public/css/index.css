@@ -32,7 +32,7 @@ body{
 /*スライド数のドットの色を変える*/
 .slick-dots li.slick-active button:before,
 .slick-dots li button:before {
-    color: #000000;
+    color: #1253A2;
 }
 /*スライド画像の横幅可変*/
 .center-item img {
@@ -53,7 +53,7 @@ body{
 
 .btnArea a {
     display: inline-block;
-    width: 40%;
+    width: 28%;
     background: #1253A2;
     box-shadow: 0 5px 0 rgb(20, 66, 116);
     transition: all 350ms 0s ease;
