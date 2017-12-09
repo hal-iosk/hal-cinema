@@ -19,6 +19,7 @@
 import moment from 'moment'
 import BuyModal from './buyModal.vue'
 import vueStore from '../../vuex'
+import HttpUtils from '../../lib/httpUtils'
 
 export default {
   name: "chekcin",
@@ -44,17 +45,21 @@ export default {
       localStorage.removeItem("hal-cinema-checkin-day")
     },
     chekin() {
-      let coin = vueStore.state.coin
 
-      this.$dialog.alert({
-          title: "チェックイン",
-          message: `<p style="font-size: 1rem; font-weight: bold;">おめでとうございます！</p><br/><p style="font-size: 0.9rem;">${coin}コイン → ${coin+=1}コインになりました！</p>`,
-          confirmText: 'OK',
-          type: 'is-warning'
+      HttpUtils.PostCheckin()
+      .then((res) => {
+        let coin = res.data.point
+
+        this.$dialog.alert({
+            title: "チェックイン",
+            message: `<p style="font-size: 1rem; font-weight: bold;">おめでとうございます！</p><br/><p style="font-size: 0.9rem;">${coin - 1}コイン → ${coin}コインになりました！</p>`,
+            confirmText: 'OK',
+            type: 'is-warning'
+        })
+        vueStore.commit("coinUpdate", coin)
+        localStorage.setItem("hal-cinema-checkin-day", moment(new Date()))
       })
-      vueStore.commit("coinUpdate", vueStore.state.coin += 1)
-      this.$forceUpdate()
-      localStorage.setItem("hal-cinema-checkin-day", moment(new Date()))
+      .catch((err) => console.error(err))
     },
     check() {
       const lastDay = localStorage.getItem("hal-cinema-checkin-day")

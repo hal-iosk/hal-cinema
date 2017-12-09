@@ -6,22 +6,67 @@
         <b-input
           type="email"
           placeholder="メールアドレス"
+          v-model="email"
         />
       </b-field>
       <b-field>
         <b-input
           type="password"
           placeholder="パスワード"
+          v-model="password"
         />
       </b-field>
-      <button class="button login-button">ログイン</button>
+      <button class="button login-button" @click="login">ログイン</button>
     </section>
   </div>
 </template>
 
 <script>
+import HttpUtils from '../../lib/httpUtils'
+import CookieDoc from '../../lib/CookieDoc'
+
 export default {
-  name: "chekcin-login"
+  name: "chekcin-login",
+  data() {
+    return {
+      email: "",
+      password: ""
+    }
+  },
+  methods: {
+    login() {
+      const email = this.email.trim()
+      const password = this.password.trim()
+
+      if(email === "") {
+        this.$toast.open({
+          message: 'メールアドレスを入力してください。',
+          type: 'is-danger'
+        })
+        return
+      }
+
+      if(password === "") {
+        this.$toast.open({
+          message: 'パスワードを入力してください。',
+          type: 'is-danger'
+        })
+        return
+      }
+
+      HttpUtils.UserLogin(email, password)
+      .then((res) => {
+        CookieDoc.setItem("halCinemaUser", res.data.token)
+        this.$router.push({ path: "/checkin" })
+      })
+      .catch((err) => {
+        this.$toast.open({
+          message: "ログインに失敗しました。<br/>メールアドレスとパスワードを確認してください。",
+          type: "is-danger"
+        })
+      })
+    }
+  }
 }
 </script>
 

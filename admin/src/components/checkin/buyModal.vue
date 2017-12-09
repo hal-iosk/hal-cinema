@@ -12,6 +12,7 @@
 
 <script>
 import vueStore from '../../vuex'
+import HttpUtils from '../../lib/httpUtils'
 
 export default {
   name: "buy-modal",
@@ -31,8 +32,12 @@ export default {
         })
         return
       }
-      this.changed = true;
-      vueStore.commit("coinChangeToPopcorn", 3)
+      HttpUtils.PostPopcorn()
+      .then((res) => {
+        this.changed = true;
+        vueStore.commit("coinUpdate", res.data.point)
+      })
+      .catch((err) => console.error(err))
     }
   }
 }

@@ -20,9 +20,6 @@ const store = new Vuex.Store({
     },
     coinUpdate(state, coin) {
       state.coin = coin;
-    },
-    coinChangeToPopcorn(state, coin) {
-      state.coin -= coin
     }
   }
 })
