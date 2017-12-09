@@ -88,8 +88,15 @@
 </template>
 
 <script>
+import MovieHttp from '../../services/movie'
 export default {
-  name: "movie"
+  name: "movie",
+  mounted() {
+    MovieHttp.GetMovies()
+    .then((res) => {
+      console.log(res)
+    })
+  }
 }
 </script>
 
