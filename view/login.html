@@ -17,63 +17,109 @@
 </head>
 
 <body class="drawer drawer--left">
-    
-    
-       <header>
-        <!-- ハンバーガーボタン -->
-       <button type="button" class="drawer-toggle drawer-hamburger">
-          <span class="sr-only">toggle navigation</span>
-          <span class="drawer-hamburger-icon"></span>
-        </button>
-     
-        <nav class="drawer-nav">
-          <ul class="drawer-menu">
-            <!-- ドロワーメニューの中身 -->
-            <li id="navTop"><a href="/"><img src="/image/top.png" width="auto" height="auto"><span>トップページ</span></a></li>
-            <li id="navLogin"><a href="/login"><img src="/image/login.png" width="auto" height="auto"><span>ログイン</span></a></li>
-            <li id="navMovie"><a href="/watchFilm"><img src="/image/movie.png" width="auto" height="auto"><br><span>上映スケジュール</span></a></li>
-            <li id="navCampaign"><a href="/campaign"><img src="/image/campaign.png" width="auto" height="auto"><br><span>キャンペーン</span></a></li>
-            <li id="navPoppukon"><a href="/shop"><img src="/image/poppukon.png" width="auto" height="auto"><br><span>売店情報</span></a></li>
-            <li id="navPaper"><a href="/login"><img src="/image/paper.png" width="auto" height="auto"><span>予約履歴</span></a></li>
-            <li id="navP"><a href="/login"><img src="/image/p.png" width="auto" height="auto"><br><span>チェックイン</span></a></li>
-          </ul>
-        </nav>
-     
-        
-        <p id="logoimg"><a href="/"><img src="/image/logo_halcinema.png" width="177" height="46"></a></p>
-        </header>
+
+
+  <header>
+    <!-- ハンバーガーボタン -->
+    <button type="button" class="drawer-toggle drawer-hamburger">
+      <span class="sr-only">toggle navigation</span>
+      <span class="drawer-hamburger-icon"></span>
+    </button>
+
+    <nav class="drawer-nav">
+      <ul class="drawer-menu">
+        <!-- ドロワーメニューの中身 -->
+        <li id="navTop">
+          <a href="/">
+            <img src="/image/top.png" width="auto" height="auto">
+            <span>トップページ</span>
+          </a>
+        </li>
+        <li id="navLogin">
+          <a href="/login">
+            <img src="/image/login.png" width="auto" height="auto">
+            <span>ログイン</span>
+          </a>
+        </li>
+        <li id="navMovie">
+          <a href="/watchFilm">
+            <img src="/image/movie.png" width="auto" height="auto">
+            <br>
+            <span>上映スケジュール</span>
+          </a>
+        </li>
+        <li id="navCampaign">
+          <a href="/campaign">
+            <img src="/image/campaign.png" width="auto" height="auto">
+            <br>
+            <span>キャンペーン</span>
+          </a>
+        </li>
+        <li id="navPoppukon">
+          <a href="/shop">
+            <img src="/image/poppukon.png" width="auto" height="auto">
+            <br>
+            <span>売店情報</span>
+          </a>
+        </li>
+        <li id="navPaper">
+          <a href="/login">
+            <img src="/image/paper.png" width="auto" height="auto">
+            <span>予約履歴</span>
+          </a>
+        </li>
+        <li id="navP">
+          <a href="/login">
+            <img src="/image/p.png" width="auto" height="auto">
+            <br>
+            <span>チェックイン</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+
+    <p id="logoimg">
+      <a href="/">
+        <img src="/image/logo_halcinema.png" width="177" height="46">
+      </a>
+    </p>
+  </header>
   <div id="container">
 
     <div id="main">
-      <h1>会員ログイン</h1>
-      <div id="mainForm">
-        <form id="myForm" action="api/signin" method="post">
-          <div class="inputBox">
-            <span id="e_logFail" class="validation">
-              <!--エラーメッセージ入る-->
-            </span>
-            <p>メールアドレス</p>
-            <input type="text" id="email" class="text" name="email" maxlength="60" placeholder="abc@halCinema.com">
-            <br>
-            <span id="e_email" class="validation">
-              <!--エラーメッセージ入る-->
-            </span>
-          </div>
-          <div class="inputBox">
-            <p>パスワード</p>
-            <input type="password" id="password" class="text" name="password" maxlength="12" placeholder="パスワード(半角英数字8文字以上12文字以下、特殊文字不可)">
-            <br>
-            <span id="e_password" class="validation">
-              <!--エラーメッセージ入る-->
-            </span>
-          </div>
-          <div>
-            <li class="btn signUp">
-              <a href="registerCustomer">会員登録</a>
-            </li>
-            <input type="submit" class="submit" value="ログイン">
-          </div>
-        </form>
+      <div class="title">ログイン</div>
+      <div class="box">
+        
+        <div id="mainForm">
+          <form id="myForm" action="api/signin" method="post">
+            <div class="inputBox">
+              <span id="e_logFail" class="validation">
+                <!--エラーメッセージ入る-->
+              </span>
+              <p>メールアドレス</p>
+              <input type="text" id="email" class="text" name="email" maxlength="60" placeholder="abc@halCinema.com">
+              <br>
+              <span id="e_email" class="validation">
+                <!--エラーメッセージ入る-->
+              </span>
+            </div>
+            <div class="inputBox">
+              <p>パスワード</p>
+              <input type="password" id="password" class="text" name="password" maxlength="12" placeholder="パスワード(半角英数字8文字以上12文字以下、特殊文字不可)">
+              <br>
+              <span id="e_password" class="validation">
+                <!--エラーメッセージ入る-->
+              </span>
+            </div>
+            <div>
+              <li class="btn signUp">
+                <a href="registerCustomer">会員登録</a>
+              </li>
+              <input type="submit" class="submit" value="ログイン">
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -96,9 +142,9 @@
       </li>
     </ul>
   </footer>
-  
 
-  
+
+
   <script src="/js/header.js"></script>
   <script src="/js/el_validation.js"></script>
   <script src="/js/signIn.js"></script>
@@ -119,4 +165,5 @@
   </script>
 
 </body>
+
 </html>
