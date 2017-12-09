@@ -36,7 +36,7 @@
                     <img src="movie1.jpg" alt="">
                   </div>
                   <ul class="schedule-container">
-                    <li v-for="schedule in movie.schedules">
+                    <li v-for="schedule in movie.schedules" @click="select(schedule.ID, movie.movie_name, schedule.start_time, movie.watch_time, schedule.theater_number)">
                       <div class="schedule">
                         <div class="screen-name">スクリーン{{schedule.theater_number}}</div>
                         <div class="time-container">
@@ -64,6 +64,7 @@
 <script>
 import MovieHttp from '../../services/movie'
 import moment from 'moment'
+import vueStore from '../../vuex'
 
 export default {
   name: "movie",
@@ -76,9 +77,23 @@ export default {
   mounted() {
     MovieHttp.GetMovies()
     .then((res) => {
-      console.log(res.data.movies[0].schedules[0].start_time)
       this.movies = res.data.movies
     })
+  },
+  methods: {
+    select(scheduleId, title, start_time, watch_time, theater_number) {
+      const m = moment(start_time)
+      const reserve = {
+        scheduleId,
+        title,
+        theater_number,
+        days: `${m.format("YYYY/MM/DD")} ${m.format("HH:mm")} ~ ${m.add(watch_time, "m").format("HH:mm")}`
+      }
+
+      sessionStorage.setItem("halCinemaReserve", JSON.stringify(reserve))
+
+      location.href = "/reserve"
+    }
   }
 }
 </script>

@@ -3,15 +3,15 @@
     <ul>
       <li>
         <p class="content-title">作品名:</p>
-        <p class="content">あさひなぐ</p>
+        <p class="content">{{title}}</p>
       </li>
       <li>
         <p class="content-title">日時:</p>
-        <p class="content">2017/09/26 10:00 〜 11:00</p>
+        <p class="content">{{date}}</p>
       </li>
       <li>
         <p class="content-title">シアター番号:</p>
-        <p class="content">1</p>
+        <p class="content">{{theater}}</p>
       </li>
     </ul>
   </section>
@@ -19,14 +19,7 @@
 
 <script>
 export default {
-  porps: ["title"],
-  data() {
-    return {
-      title: "",
-      date: "",
-      theater: ""
-    }
-  },
+  props: ["title", "date", "theater"],
   name: "movie-content"
 }
 </script>

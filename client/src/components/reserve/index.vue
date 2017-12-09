@@ -4,9 +4,9 @@
     <reserve-nav></reserve-nav>
 
     <movie-content
-      :title="title"
-      :date="date"
-      :theater="theater"
+      :title="movie.title"
+      :date="movie.days"
+      :theater="movie.theater_number"
     ></movie-content>
 
     <div class="seat-container">
@@ -30,9 +30,9 @@
 
 <script>
 import ReserveNav from './nav.vue'
-import MovieContent from './movieContent.vue'
 import seatsFormat from './seat.format'
 import reservePayload from '../../lib/reserve.class'
+import MovieContent from './movieContent.vue'
 
 let reservedSeats = []
 
@@ -48,9 +48,7 @@ export default {
   data() {
     return {
       seats: seatsFormat,
-      title: "あさひなぐ",
-      date: "2017/09/26 10:00 〜 11:00",
-      theater: "1"
+      movie: JSON.parse(sessionStorage.getItem("halCinemaReserve"))
     }
   },
   methods: {
@@ -80,6 +78,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.movie-reserve-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+  li {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+  }
+  .content-title {
+    margin-right: 10px;
+  }
+  .content {
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+}
 .seat-container {
   background-color: #6B6A6A;
   border: 5px solid #000;
