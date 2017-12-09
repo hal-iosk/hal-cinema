@@ -38,5 +38,9 @@ footer {
     text-decoration: none;
     color: #ffffff;
     font-size: 1vw;
-    padding-right: 1.5vw;
+    padding-right: 2.6vw;
+}
+
+#footerNav li a:hover {
+    opacity: 0.8;
 }
