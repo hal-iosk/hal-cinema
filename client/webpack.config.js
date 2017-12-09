@@ -4,7 +4,8 @@ var webpack = require('webpack')
 module.exports = {
   entry: {
     reserve: './src/reserve.js',
-    movie: "./src/movie.js"
+    movie: "./src/movie.js",
+      comingsoon:"./src/comingsoon.js"
   },
   output: {
     path: path.resolve(__dirname, './../public/js/'),
