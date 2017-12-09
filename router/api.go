@@ -20,6 +20,7 @@ func apiRouter(api *gin.RouterGroup) {
 	api.GET("/schedule", controller.GetScheduleAll)
 	api.GET("/schedule/:schedule_id", controller.GetSchedule)
 	api.GET("/price", controller.GetPrice)
+	api.GET("/reserved/:schedule_id", controller.GetRserved)
 
 	authApi.POST("/reserve", controller.CreateReserve)
 	authApi.PUT("/user", controller.UpdateUser)
