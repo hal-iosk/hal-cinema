@@ -75,4 +75,10 @@ h2{
     box-shadow:0px 2px 6px 1px;
     color: #5B5B5B;
     font-size:24px;
+    transition: all 350ms 0s ease;
+}
+#back_btn a:hover{
+    background-color: #5B5B5B;
+    color:#ffffff ;
+    box-shadow:0px 2px 6px 1px;
 }
