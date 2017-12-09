@@ -1,8 +1,14 @@
 @charset "utf-8";
 
+/* 
+お知らせ
+ランキング
+売店情報(推し商品ぴっくあっぷ)
+
+*/
+
 body{
-    background-color: #FAFAFA;
-    
+    background-color: #FAFAFA;   
 }
 
 #fill {
@@ -68,6 +74,7 @@ body{
 }
 
 .btnArea {
+    padding-top: 20px;
     width: 100%;
     margin: 0 auto;
     text-align: center;
