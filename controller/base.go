@@ -36,3 +36,11 @@ func GetInt(key string, c *gin.Context) (uint, bool) {
 	}
 	return uint(num), true
 }
+
+func GetUserID(c *gin.Context) uint {
+	UserID, ok := c.Get("userID")
+	if !ok {
+		return 0
+	}
+	return UserID.(uint)
+}
