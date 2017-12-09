@@ -24,4 +24,18 @@ const CookieDoc = {
   hasItem: function (sKey) {
     return (new RegExp("(?:^|;\\s*)" + escape(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie);
   },
+  removeItem: function (sKey, sPath) {
+    if (!sKey || !this.hasItem(sKey)) { return; }
+    document.cookie = escape(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sPath ? "; path=" + sPath : "");
+  }
 };
+
+if(CookieDoc.hasItem("halCinemaAdmin")){
+  if(location.pathname === "/admin/login") {
+    location.href = "/admin"
+  }
+} else {
+  if(location.pathname === "/admin") {
+    location.href = "/admin/login"
+  }
+}
