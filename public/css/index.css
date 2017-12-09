@@ -79,11 +79,11 @@ body{
 }
 
 .btnArea {
-    padding-top: 20px;
+    padding-top: 25px;
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    padding-bottom: 60px;
+    padding-bottom: 25px;
 }
 
 .btnArea a.theater {
@@ -120,6 +120,7 @@ body{
     margin: 0 auto;
     box-sizing: border-box;
     padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 #ranking h2{
@@ -138,17 +139,21 @@ body{
     left: 0;
 }
 
-#osusume {
+.osusume {
     margin-left: 180px;
     width: 75%;
 }
 
-#osusume p{
+.osusume p{
     margin-top: 6px;
     margin-bottom: 20px;
 }
 
-#os1 {
+.os1 {
+    list-style:none;
+}
+
+.cont {
     display: table;
     table-layout: fixed;
     width: 100%;
@@ -157,10 +162,9 @@ body{
     box-sizing: border-box;
     display: table-cell;
     position: relative;
-    list-style:none;
 }
 
-#os1:before {
+.cont:before {
     content: "";
     border-bottom: 80px solid transparent;
     border-right: 80px solid #373737;
@@ -186,18 +190,18 @@ figure img {
     margin: 0;
 }
 
-#os1 dl {
+.os1 dl {
     width: 78%;
     padding: 0 15px;
     padding-left: 20px;
     float: left;
 }
 
-#os1 dd{
+.os1 dd{
     padding-top: 10px;
 }
 
-#os1 dt {
+.os1 dt {
     font-size: 129%;
     font-weight: bold;
     line-height: 1.22;
@@ -205,4 +209,8 @@ figure img {
     padding: 0 26px 10px;
     color: #000;
     
+}
+
+.botspace {
+    margin-bottom: 10px;
 }
