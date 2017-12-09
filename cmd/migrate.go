@@ -4,7 +4,7 @@ import "github.com/hal-iosk/hal-cinema/model"
 
 func main() {
 	db := model.GetDBConn()
-
+	//db.LogMode(true)
 	db.DropTableIfExists(&model.Customer{})
 	db.DropTableIfExists(&model.Administrator{})
 	db.DropTableIfExists(&model.Movie{})
