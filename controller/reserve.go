@@ -3,6 +3,8 @@ package controller
 import (
 	"net/http"
 
+	"strconv"
+
 	"github.com/gin-gonic/gin"
 	"github.com/hal-iosk/hal-cinema/model"
 	"github.com/hal-iosk/hal-cinema/service"
@@ -21,7 +23,21 @@ func CreateReserve(c *gin.Context) {
 	service.Reserve.Creates(Reserves)
 	c.JSON(http.StatusCreated, Reserves)
 }
-
+func GetRserved(c *gin.Context) {
+	var seats []string
+	ScheduleID, err := strconv.Atoi(c.Param("schedule_id"))
+	if err != nil {
+		Batequest("数値でおなしゃす", c)
+		return
+	}
+	Reserves := service.Reserve.FindByScheduleID(uint(ScheduleID))
+	for _, value := range Reserves {
+		seats = append(seats, value.SeatID)
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"seats": seats,
+	})
+}
 func createReserveReq(c *gin.Context) ([]model.Reserve, bool) {
 	UserID := GetUserID(c)
 	var Reserves []model.Reserve
