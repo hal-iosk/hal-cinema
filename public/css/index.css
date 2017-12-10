@@ -268,10 +268,45 @@ figure img {
 #shop2{
     width: 460px;
     height: 480px;
-    background-color: chocolate;
+    position: relative;
     float: left;
     margin-left: 70px;
 }
+
+#shop2 img {
+    position: absolute;
+    top: 50%; 
+    left: 90%; 
+    transform: translate(-50%, -50%);
+}
+
+#shopbtn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#shopbtn .btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    border-radius: 50%;
+    border: solid 2px #ffffff;
+    background-color: rgb(230, 119, 28);
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    transition: .4s;
+}
+  
+#shopbtn .btn:hover{
+    background: #fd3815;
+}
+  
+
 
 
 #newsfill {
