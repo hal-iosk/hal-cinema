@@ -2,7 +2,6 @@
 
 /* 
 お知らせ
-ランキング
 売店情報(推し商品ぴっくあっぷ)
 
 */
@@ -132,13 +131,13 @@ body{
     padding-bottom: 60px;
 }
 
-#ranking h2{
+h2{
     font-size: 165%;
     border-bottom: 3px solid #dedddd;
     position: relative;
 }
 
-#ranking h2:before {
+h2:before {
     content: "";
     position: absolute;
     width: 30%;
@@ -223,6 +222,81 @@ figure img {
 .botspace {
     margin-bottom: 10px;
 }
+
+#newsfill {
+    background-color: #ffffff;
+    padding-top: 100px;
+}
+
+#newscont{
+    background: url(/image/bg_dot.png);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#news {
+    width: 1080px;
+    background-color: #ffffff;
+    margin: 0 auto;
+}
+
+.text {
+    margin-left: 180px;
+}
+
+.linered:before {
+    width: 60%;
+}
+
+.text p {
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+.md_newsList li {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid #f0f0f0;
+    padding: 15px 35px;
+    box-sizing: border-box;
+}
+
+.md_newsList li time {
+    display: inline-block;
+    color: #9e9d9f;
+    margin: 0 5px 0 0;
+    font-size: 92.9%;
+    margin-top: 1px;
+}
+
+.md_newsList li .new {
+    background: #a6332e;
+}
+
+.md_newsList li .icon {
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    margin: 0 5px 0 0;
+    line-height: 1;
+    padding: 2px 22px;
+    letter-spacing: normal;
+}
+
+.md_newsList li a, .md_newsList li span {
+    display: block;
+    color: #000;
+    padding: 5px 0 0;
+}
+
+.md_newsList li a:hover {
+    opacity: 0.6;
+}
+
+
+
+
 
 #about {
     width: 74%;
