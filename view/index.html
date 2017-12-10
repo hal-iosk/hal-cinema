@@ -16,11 +16,12 @@
   <link rel="stylesheet" href="/css/slick-theme.css">
   <script src="/js/slick.min.js"></script>
   <link rel="stylesheet" href="/css/index.css">
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
   
 </head>
 <body class="drawer drawer--left">
   <div id="container">
-    <header>
+    <header id="pagetop">
       <!-- ハンバーガーボタン -->
       <button type="button" class="drawer-toggle drawer-hamburger">
         <span class="sr-only">toggle navigation</span>
@@ -56,7 +57,8 @@
       <a href="/watchFilm" class="theater"><span>上映スケジュール</span></a>
       <a href="/login" class="login"><span>ログイン</span></a>
     </div>
-    <div id="ranking">
+
+    <section id="ranking">
       <div class="osusume">
         <h2><sapn class="red">H</sapn>ALCINEMAのおすすめ</h2>
         <p>HALCINEMAがあなたにおすすめの映画をピックアップ！</p>
@@ -110,13 +112,28 @@
                 </dl>
               </div>
           </li>
-
         </ul>
       </div>
-    </div>
+    </section>
 
+    <section class="bg">
+      <div id="about">
+        <p>■<span class="sizeup">HALCINEMA</span></p>
+        <div id="aboutcont">
+            <b>所在地:</b>
+            <p>〒567-0033</p>
+            <p>大阪府茨木市松ヶ本町 8-00-2</p>
+          <b>電話:</b>
+          <p>072-678-9999<br><br><br><br><br></p>
+          <p class="googlemaplink"><a href="https://www.google.co.jp/maps/place/%E3%80%92567-0033+%E5%A4%A7%E9%98%AA%E5%BA%9C%E8%8C%A8%E6%9C%A8%E5%B8%82%E6%9D%BE%E3%82%B1%E6%9C%AC%E7%94%BA%EF%BC%98/@34.8112803,135.5580026,16.38z/data=!4m15!1m9!4m8!1m0!1m6!1m2!1s0x6000e3292404ff03:0xb054d093ba5a11dc!2z44CSNTY3LTAwMzMg5aSn6Ziq5bqc6Iyo5pyo5biC5p2-44Kx5pys55S677yY!2m2!1d135.5586946!2d34.8104109!3m4!1s0x6000e3292404ff03:0xb054d093ba5a11dc!8m2!3d34.8104109!4d135.5586946" target="_blank" class="button">GoogleMaps</a></p>
+        </div>
+        <div id="mapField"></div>
 
+      </div>
+    </section>
+  
   </div>
+  <p class="topBtn"><a href="#pagetop"><img src="/image/btn_pagetop.png" width="84" height="32" alt="ページトップ"></a></p>
   <footer>
       <ul id="footerNav">
           <li><a href="">企業情報</a></li>
@@ -143,7 +160,44 @@
                }
           }]
      });
-});</script>
+});
+
+
+function mapInit() {
+    var centerPosition = new google.maps.LatLng(34.810666, 135.558743);
+    var option = {
+        zoom : 15,
+        center : centerPosition,
+        mapTypeId : google.maps.MapTypeId.ROADMAP
+    };
+
+
+    //地図本体描画
+    var googlemap = new google.maps.Map(document.getElementById("mapField"), option);
+
+    //マーカーオプションの指定
+    var markerOption = {
+        position : centerPosition, //マーカーを表示させる座標
+        map : googlemap,  //マーカーを表示させる地図
+    };
+
+    //情報ウインドウオプションの指定
+    var infoWindowOption = {
+    position : centerPosition,  //中心座標
+    content : "HALCINEMA"  //ウインドウ内に表示する文字列
+    };
+ 
+    //情報ウインドウ追加
+    var infoWindow = new google.maps.InfoWindow(infoWindowOption);
+    infoWindow.open(googlemap);
+
+    //マーカー追加
+    var marker = new google.maps.Marker(markerOption);
+
+}
+ 
+    mapInit();
+    </script>
 </body>
 
 </html>
