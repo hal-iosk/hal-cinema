@@ -6,10 +6,8 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   plugins: [createLogger()],
-  state: {
-  },
-  mutations: {
-  }
+  state: {},
+  mutations: {}
 })
 
 export default store;

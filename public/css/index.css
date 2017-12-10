@@ -7,6 +7,11 @@
 
 */
 
+/* 便利 */
+.red{
+    color: #CD1111;
+}
+
 body{
     background-color: #FAFAFA;   
 }
@@ -74,10 +79,11 @@ body{
 }
 
 .btnArea {
-    padding-top: 20px;
+    padding-top: 25px;
     width: 100%;
     margin: 0 auto;
     text-align: center;
+    padding-bottom: 25px;
 }
 
 .btnArea a.theater {
@@ -108,3 +114,103 @@ body{
     box-shadow: 0 5px 0 rgb(146, 41, 41);
 }
 
+#ranking {
+    width: 100%;
+    background: url(/image/bg_dot.png);
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+#ranking h2{
+    font-size: 165%;
+    border-bottom: 3px solid #dedddd;
+    position: relative;
+}
+
+#ranking h2:before {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 3px;
+    background: #CD1111;
+    bottom: -3px;
+    left: 0;
+}
+
+.osusume {
+    margin-left: 180px;
+    width: 75%;
+}
+
+.osusume p{
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+.os1 {
+    list-style:none;
+}
+
+.cont {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    background: #fff;
+    padding: 15px;
+    box-sizing: border-box;
+    display: table-cell;
+    position: relative;
+}
+
+.cont:before {
+    content: "";
+    border-bottom: 80px solid transparent;
+    border-right: 80px solid #373737;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+}
+
+
+figure {
+    width: 10%;
+    vertical-align: middle;
+    text-align: center;
+    float: left;
+}
+
+figure img {
+    max-height: 200px;
+    width: 148px;
+    height: 190px;
+    padding: 0;
+    margin: 0;
+}
+
+.os1 dl {
+    width: 78%;
+    padding: 0 15px;
+    padding-left: 20px;
+    float: left;
+}
+
+.os1 dd{
+    padding-top: 10px;
+}
+
+.os1 dt {
+    font-size: 129%;
+    font-weight: bold;
+    line-height: 1.22;
+    border-bottom: 1px solid #b1aeae;
+    padding: 0 26px 10px;
+    color: #000;
+    
+}
+
+.botspace {
+    margin-bottom: 10px;
+}

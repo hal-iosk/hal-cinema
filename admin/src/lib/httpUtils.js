@@ -12,6 +12,14 @@ class HttpUtils {
     return axios.post("/api/admin/signin", params)
   }
 
+  UserLogin(email, password) {
+    var params = new URLSearchParams();
+    params.append('email', email);
+    params.append('password', password);
+
+    return axios.post("/api/signin", params)
+  }
+
   GetMovies() {
     return axios.get("/api/movie")
   }
@@ -83,6 +91,16 @@ class HttpUtils {
   DeleteSchedule(id) {
     const token = CookieDoc.getItem("halCinemaAdmin")
     return axios.delete(`/api/admin/schedule/${id}?token=${token}`)
+  }
+
+  PostCheckin() {
+    const token = CookieDoc.getItem("halCinemaUser")
+    return axios.post(`/api/checkin?token=${token}`)
+  }
+
+  PostPopcorn() {
+    const token = CookieDoc.getItem("halCinemaUser")
+    return axios.post(`/api/popcorn?token=${token}`)
   }
 
 }

@@ -23,7 +23,7 @@
     <article>
       <div class="flex-container">
         <div class="container">
-          <p class="container-title"><span class="date">12/8</span>(金)の上映スケジュール</p>
+          <p class="container-title"><span class="date">12/8</span>の上映スケジュール</p>
           <ul class="movie-container">
             <li v-for="movie in movies">
               <div class="movie">
@@ -32,11 +32,8 @@
                   <p class="screening-time">(本編: {{movie.watch_time}}分)</p>
                 </div>
                 <div class="bottom-container">
-                  <div class="movie-image">
-                    <img src="movie1.jpg" alt="">
-                  </div>
                   <ul class="schedule-container">
-                    <li v-for="schedule in movie.schedules">
+                    <li v-for="schedule in movie.schedules" @click="select(schedule.ID, movie.movie_name, schedule.start_time, movie.watch_time, schedule.theater_number)">
                       <div class="schedule">
                         <div class="screen-name">スクリーン{{schedule.theater_number}}</div>
                         <div class="time-container">
@@ -64,6 +61,7 @@
 <script>
 import MovieHttp from '../../services/movie'
 import moment from 'moment'
+import vueStore from '../../vuex'
 
 export default {
   name: "movie",
@@ -76,9 +74,23 @@ export default {
   mounted() {
     MovieHttp.GetMovies()
     .then((res) => {
-      console.log(res.data.movies[0].schedules[0].start_time)
       this.movies = res.data.movies
     })
+  },
+  methods: {
+    select(scheduleId, title, start_time, watch_time, theater_number) {
+      const m = moment(start_time)
+      const reserve = {
+        scheduleId,
+        title,
+        theater_number,
+        days: `${m.format("YYYY/MM/DD")} ${m.format("HH:mm")} ~ ${m.add(watch_time, "m").format("HH:mm")}`
+      }
+
+      sessionStorage.setItem("halCinemaReserve", JSON.stringify(reserve))
+
+      location.href = "/reserve"
+    }
   }
 }
 </script>
@@ -90,6 +102,8 @@ export default {
   justify-content: center;
 }
 .container {
+  width: 80%;
+  margin: 0 auto;
   padding-top: 2rem;
 }
 .container-title {
@@ -100,10 +114,14 @@ export default {
   font-size: 1.5rem;
   font-weight: bold;
 }
+.movie-container {
+  width: 100%;
+}
 .movie-container li {
   list-style: none;
 }
 .movie {
+  width: 100%;
   padding: 1rem 0;
 }
 .movie .movie-title {
@@ -117,6 +135,7 @@ export default {
   padding: 0.5rem 0;
 }
 .movie .bottom-container {
+  overflow: scroll;
   display: flex;
   align-items: center;
   background-color: rgba(0, 0, 0, .79);

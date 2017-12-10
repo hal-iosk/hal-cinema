@@ -4,9 +4,9 @@
     <reserve-nav></reserve-nav>
 
     <movie-content
-      :title="title"
-      :date="date"
-      :theater="theater"
+      :title="movie.title"
+      :date="movie.days"
+      :theater="movie.theater_number"
     ></movie-content>
 
     <div class="seat-container">
@@ -30,11 +30,9 @@
 
 <script>
 import ReserveNav from './nav.vue'
-import MovieContent from './movieContent.vue'
 import seatsFormat from './seat.format'
 import reservePayload from '../../lib/reserve.class'
-
-let reservedSeats = []
+import MovieContent from './movieContent.vue'
 
 export default {
   name: "reserve",
@@ -43,36 +41,38 @@ export default {
     MovieContent
   },
   mounted() {
+    const movie = JSON.parse(sessionStorage.getItem("halCinemaReserve"))
+    movie ? this.movie = movie : location.href = "/"
     reservePayload.clear()
   },
   data() {
     return {
       seats: seatsFormat,
-      title: "あさひなぐ",
-      date: "2017/09/26 10:00 〜 11:00",
-      theater: "1"
+      movie: {}
     }
   },
   methods: {
     seatSelect(seatId) {
-      reservedSeats.push(seatId)
       seatsFormat.map((seat) => {
         if(seatId === seat.seatSymbol) seat.isSelected = !seat.isSelected;
       })
     },
     back() {
-      alert("映画一覧に戻る")
+      location.href = "/watchFilm"
     },
     next() {
-      if(reservedSeats.length <= 0) {
+      const selectSeats = this.seats.filter((seat) => { if(seat.isSelected) { return seat.seatSymbol } })
+      const reservedSeats = selectSeats.map((seat) => { return seat.seatSymbol })
+
+      if(Object.keys(reservedSeats).length <= 0) {
         this.$dialog.alert({
           message: "座席を選択してください。",
           type: "is-danger"
         })
         return
       }
+
       reservePayload.setSeats(reservedSeats)
-      reservePayload.setScheduleId(1)
       this.$router.push({ path: "/reserve/ticket" })
     }
   }
@@ -80,6 +80,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.movie-reserve-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+  li {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+  }
+  .content-title {
+    margin-right: 10px;
+  }
+  .content {
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+}
 .seat-container {
   background-color: #6B6A6A;
   border: 5px solid #000;

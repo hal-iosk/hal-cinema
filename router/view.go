@@ -54,23 +54,6 @@ func viewRouter(r *gin.Engine) {
 		c.HTML(http.StatusOK, "watchFilm.html", nil)
 	})
 
-	// おーえっち
-	r.GET("/seat", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "seat.html", nil)
-	})
-	r.GET("/seatSelection", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "seatSelection.html", nil)
-	})
-	r.GET("/ticket", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "ticket.html", nil)
-	})
-	r.GET("/confirm", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "confirm.html", nil)
-	})
-	r.GET("/complete", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "complete.html", nil)
-	})
-
 	r.GET("/reserve", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "reserve.html", nil)
 	})
@@ -96,6 +79,9 @@ func viewRouter(r *gin.Engine) {
 
 	// checkin
 	r.GET("/checkin", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "checkin.html", nil)
+	})
+	r.GET("/checkin/:path", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "checkin.html", nil)
 	})
 }

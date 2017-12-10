@@ -1,12 +1,18 @@
 <template>
   <section>
 
-    <reserve-nav></reserve-nav>
+    <ul class="navigation">
+      <li class="navigation-item">座席選択</li>
+      <li>></li>
+      <li class="navigation-item isActive">チケット選択</li>
+      <li>></li>
+      <li class="navigation-item">購入内容の確認</li>
+    </ul>
 
     <movie-content
-      :title="movieContent.title"
-      :date="movieContent.date"
-      :theater="movieContent.theater"
+      :title="movie.title"
+      :date="movie.days"
+      :theater="movie.theater_number"
     ></movie-content>
 
     <ul class="container">
@@ -20,9 +26,9 @@
             size="is-medium"
             expanded
             required
-            @select="selected"
+            @input="selected"
         >
-          <option value="1">Flint</option>
+          <option :value="`${seat.id}-${price.ID}-${price.price}-${price.customer_type}`" v-for="price in prices">{{price.customer_type}} - {{price.price}}円</option>
         </b-select>
       </li>
     </ul>
@@ -37,51 +43,77 @@
 
 <script>
 import reservePayload from '../../lib/reserve.class'
-import ReserveNav from './nav.vue'
+import ReserveHttp from '../../services/reserve'
 import MovieContent from './movieContent.vue'
+
+const selectObj = {}
 
 export default {
   name: "ticketType",
+  components: {
+    MovieContent
+  },
   mounted() {
-    if(reservePayload.getRequestData().length <= 0) this.$router.push({ path: "/reserve" });
+    if(reservePayload.getSeats().length <= 0) this.$router.push({ path: "/reserve" })
+
+    if(this.prices.length <= 0) {
+      ReserveHttp.GetPrices()
+      .then((res) => {
+        this.prices = res.data.prices
+      })
+    }
   },
   data() {
     return {
-      movieContent: {
-        title: "あさひなぐ",
-        date: "2017/09/26 10:00 〜 11:00",
-        theater: "1"
-      },
       seats: reservePayload.getSeats().map((seat) => {
         return {
           id: seat,
           ticketType: null
         }
-      })
+      }),
+      movie: JSON.parse(sessionStorage.getItem("halCinemaReserve")),
+      prices: []
     }
   },
   methods: {
-    selected() {
-      console.log("hoge")
+    selected(e) {
+      const [seat, priceId, price, customer_type] = e.split("-")
+      selectObj[seat] = {seatId: seat, priceId, price, customer_type}
     },
     back() {
       reservePayload.clear()
       location.href = "/reserve"
     },
     next() {
-      console.log(this.selectTicket)
-      // reservePayload.setPriceId(1)
-      // this.$router.push({ path: "/reserve/complete" })
+      if(Object.keys(selectObj).length === this.seats.length) {
+        sessionStorage.setItem("halCinemaReserveSeats", JSON.stringify(selectObj))
+        this.$router.push({ path: "/reserve/complete" })
+      } else {
+        this.$dialog.alert({
+          message: "券種を選んでください。",
+          type: "is-danger"
+        })
+      }
     }
-  },
-  components: {
-    ReserveNav,
-    MovieContent
-  },
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px 20%;
+  box-shadow: 0px 0px 1px black;
+  li.navigation-item {
+    letter-spacing: 1.5px;
+  }
+  li.isActive { font-weight: bold; color: #B71C1C; box-shadow: 0px 0px 1px #B71C1C; }
+  li {
+    padding: 10px;
+  }
+}
 .controller {
   width: 50%;
   margin: 0 auto 50px;
