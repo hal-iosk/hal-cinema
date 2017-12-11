@@ -38,6 +38,13 @@ func GetRserved(c *gin.Context) {
 		"seats": seats,
 	})
 }
+func GetUserRserved(c *gin.Context) {
+	UserID := GetUserID(c)
+	reserved := service.Reserve.FindByUserID(UserID)
+	c.JSON(http.StatusOK, gin.H{
+		"reserved": reserved,
+	})
+}
 func createReserveReq(c *gin.Context) ([]model.Reserve, bool) {
 	UserID := GetUserID(c)
 	var Reserves []model.Reserve

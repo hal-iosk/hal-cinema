@@ -49,7 +49,11 @@ func (self ReserveImpl) FindByScheduleID(id uint) []model.Reserve {
 	db.Where("schedule_id = ?", id).Find(&Reserves)
 	return Reserves
 }
-
+func (self ReserveImpl) FindByUserID(id uint) []model.Reserve {
+	var Reserves []model.Reserve
+	db.Where("customer_id = ?", id).Find(&Reserves)
+	return Reserves
+}
 func (self ReserveImpl) CanCreate(Reserve model.Reserve) bool {
 	var dbReserve []model.Reserve
 	db.Where("schedule_id = ? AND seat_id = ?", Reserve.ScheduleID, Reserve.SeatID).Find(&dbReserve)
