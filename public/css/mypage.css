@@ -32,14 +32,13 @@ a {
 }
 
 #menu_bar {
-    width: 1200px;
+    width: 1100px;
     margin: 0 auto;
-    box-shadow: 0px 2px 6px 1px;
     overflow: hidden;
 }
 
 #menu_bar li {
-    width: 400px;
+    width: 500px;
     height: 100px;
     color: #000000;
     background-color: #ffffff;
@@ -53,7 +52,7 @@ a {
 }
 
 #menu_bar .selected {
-    width: 400px;
+    width: 500px;
     height: 100px;
     color: #CD1111;
     background-color: #ffffff;

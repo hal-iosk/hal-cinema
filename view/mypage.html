@@ -4,86 +4,168 @@
 <head>
     <meta charset="UTF-8">
     <title>hal-cimema | マイページ</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/common.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/iscroll.js"></script>
+    <link rel="stylesheet" href="/css/drawer.css">
+    <script src="/js/drawer.min.js"></script>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <link rel="stylesheet" href="/css/mypage.css">
 </head>
 
-<body>
-    <header>
-        <h1>halcinema</h1>
-    </header>
-    <div id="welcome">
-        <h2>マイページ</h2>
+<body class="drawer drawer--left">
+    <div id="container">
 
-        <p>ようこそ ○
-            <!--ここにユーザー名-->様</p>
-        <div class="logout">
-            <p>
-                <a href="">ログアウト</a>
+        <header>
+            <!-- ハンバーガーボタン -->
+            <button type="button" class="drawer-toggle drawer-hamburger">
+                <span class="sr-only">toggle navigation</span>
+                <span class="drawer-hamburger-icon"></span>
+            </button>
+
+            <nav class="drawer-nav">
+                <ul class="drawer-menu">
+                    <!-- ドロワーメニューの中身 -->
+                    <li id="navTop">
+                        <a href="/">
+                            <img src="/image/top.png" width="auto" height="auto">
+                            <span>トップページ</span>
+                        </a>
+                    </li>
+                    <li id="navLogin">
+                        <a href="/login">
+                            <img src="/image/login.png" width="auto" height="auto">
+                            <span>ログイン</span>
+                        </a>
+                    </li>
+                    <li id="navMovie">
+                        <a href="/watchFilm">
+                            <img src="/image/movie.png" width="auto" height="auto">
+                            <br>
+                            <span>上映スケジュール</span>
+                        </a>
+                    </li>
+                    <li id="navCampaign">
+                        <a href="/campaign">
+                            <img src="/image/campaign.png" width="auto" height="auto">
+                            <br>
+                            <span>キャンペーン</span>
+                        </a>
+                    </li>
+                    <li id="navPoppukon">
+                        <a href="/shop">
+                            <img src="/image/poppukon.png" width="auto" height="auto">
+                            <br>
+                            <span>売店情報</span>
+                        </a>
+                    </li>
+                    <li id="navPaper">
+                        <a href="/login">
+                            <img src="/image/paper.png" width="auto" height="auto">
+                            <span>予約履歴</span>
+                        </a>
+                    </li>
+                    <li id="navP">
+                        <a href="/login">
+                            <img src="/image/p.png" width="auto" height="auto">
+                            <br>
+                            <span>チェックイン</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+
+            <p id="logoimg">
+                <a href="/">
+                    <img src="/image/logo_halcinema.png" width="177" height="46">
+                </a>
             </p>
-        </div>
-    </div>
-    <div id="menu_bar">
-        <ul>
-            <li class="selected">予約履歴</li>
-            <li>
-                <a href="customerEdit">登録情報の確認・編集</a>
-            </li>
-            <li>
-                <a href="">チェックインポイントの確認</a>
-            </li>
-        </ul>
-    </div>
-    <article>
-        <div id="history_list">
-            <h3>予約履歴</h3>
-            <div id="history">
-                <table>
-                    <tr>
-                        <th class="">予約日</th>
-                        <th class="">作品名</th>
-                        <th class="">開始日時</th>
-                        <th class="">終了日時</th>
-                        <th class="">上映時間</th>
-                        
-                    </tr>
-                    <tr>
-                        <td class="">2017-02-17</td>
-                        <td>あさひなぐ</td>
-                        <td>12/6 12:20</td>
-                        <td>12/6 14:20</td>
-                        <td>120分</td>
-                        <td><a href="" class="cancel">キャンセル</a></td>
-                    </tr>
-                    <tr>
-                        <td class="">2017-02-17</td>
-                        <td>あさひなぐ</td>
-                        <td>12:20</td>
-                        <td>14:20</td>
-                        <td>120分</td>
-                        <td>キャンセル</td>
-                    </tr>
-                </table>
+        </header>
+        <div id="main">
+            <div id="welcome">
+                <h2>マイページ</h2>
+
+                <p>ようこそ ○
+                    <!--ここにユーザー名-->様</p>
+                    <div id="point">
+                        コイン
+                    </div>
+                <div class="logout">
+                    <p>
+                        <a href="">ログアウト</a>
+                    </p>
+                </div>
             </div>
+            <div id="menu_bar">
+                <ul>
+                    <li class="selected">予約履歴</li>
+                    <li>
+                        <a href="customerEdit">登録情報の確認・編集</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <article>
+                <div id="history_list">
+                    <h3>予約履歴</h3>
+                    <div id="history">
+                        <table>
+                            <tr>
+                                <th class="">予約日</th>
+                                <th class="">作品名</th>
+                                <th class="">開始日時</th>
+                                <th class="">終了日時</th>
+                                <th class="">上映時間</th>
+
+                            </tr>
+                            <tr>
+                                <td class="">2017-02-17</td>
+                                <td>あさひなぐ</td>
+                                <td>12/6 12:20</td>
+                                <td>12/6 14:20</td>
+                                <td>120分</td>
+                                <td>
+                                    <a href="" class="cancel">キャンセル</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                    <td class="">2017-02-17</td>
+                                    <td>あさひなぐ</td>
+                                    <td>12/6 12:20</td>
+                                    <td>12/6 14:20</td>
+                                    <td>120分</td>
+                                    <td>
+                                        <a href="" class="cancel">キャンセル</a>
+                                    </td>
+                                </tr>
+                        </table>
+                    </div>
+                </div>
+            </article>
         </div>
-    </article>
-    <footer>
-        <p>
-            <a href="">企業情報</a>
-        </p>
-        <p>
-            <a href="">サイトマップ</a>
-        </p>
-        <p>
-            <a href="">個人情報の取り扱いについて</a>
-        </p>
-        <p>
-            <a href="">特定商取引法に基づく表記</a>
-        </p>
-        <p>
-            <a href="">ご利用に際して</a>
-        </p>
-    </footer>
+        <footer>
+            <ul id="footerNav">
+                <li>
+                    <a href="#!">企業情報</a>
+                </li>
+                <li>
+                    <a href="#!">サイトマップ</a>
+                </li>
+                <li>
+                    <a href="#!">個人情報の取扱いについて</a>
+                </li>
+                <li>
+                    <a href="#!">特定商取引法に基づく表記</a>
+                </li>
+                <li>
+                    <a href="#!">ご利用に際して</a>
+                </li>
+            </ul>
+        </footer>
+        <script src="/js/header.js"></script>
+    </div>
 </body>
 
 </html>
