@@ -29,6 +29,11 @@ export default {
     MovieTable,
     MailMagazine
   },
+  mounted() {
+    if(!CookieDoc.hasItem("halCinemaAdmin")) {
+      location.href = "/admin/login"
+    }
+  },
   data() {
     return {
       activeTab: 0

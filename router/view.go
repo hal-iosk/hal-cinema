@@ -40,7 +40,7 @@ func viewRouter(r *gin.Engine) {
 	r.GET("/watchFilm", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "watchFilm.html", nil)
 	})
-	
+
 	r.GET("/reserve", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "reserve.html", nil)
 	})
@@ -70,5 +70,10 @@ func viewRouter(r *gin.Engine) {
 	})
 	r.GET("/checkin/:path", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "checkin.html", nil)
+	})
+
+	// logput
+	r.GET("/refresh", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "logout.html", nil)
 	})
 }
