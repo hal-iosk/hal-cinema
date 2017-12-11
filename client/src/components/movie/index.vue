@@ -25,15 +25,15 @@
         <div class="container">
 
           <ul class="dates">
-            <li v-for="tab in tabs" @click="selectDate(tab.key)">
-              <p class="active" v-if="tab.isActive">{{tab.day}}</p>
-              <p v-else>{{tab.day}}</p>
+            <li v-for="tab in tabs" @click="selectDate(tab.key, tab.day)">
+              <p class="active" v-if="tab.isActive">{{tab.day.format("MM/DD")}}</p>
+              <p v-else>{{tab.day.format("MM/DD")}}</p>
             </li>
           </ul>
 
-          <p class="container-title"><span class="date">12/8</span>の上映スケジュール</p>
+          <p class="container-title"><span class="date">{{currentDate.format("MM/DD")}}</span>の上映スケジュール</p>
           <ul class="movie-container">
-            <li v-for="movie in movies" v-if="movie.schedules.length != 0">
+            <li v-for="movie in movies" v-if="movie.schedules && movie.schedules.length != 0">
               <div class="movie">
                 <div class="top-container">
                   <p class="movie-title">{{movie.movie_name}}</p>
@@ -78,41 +78,40 @@ export default {
     return {
       movies: [],
       moment,
+      currentDate: moment(),
       isLoading: false,
       tabs: [
-        { key: 0, day: moment().format("MM/DD"), isActive: true },
-        { key: 1, day: moment().add(1, "days").format("MM/DD"), isActive: false },
-        { key: 2, day: moment().add(2, "days").format("MM/DD"), isActive: false },
-        { key: 3, day: moment().add(3, "days").format("MM/DD"), isActive: false },
-        { key: 4, day: moment().add(4, "days").format("MM/DD"), isActive: false },
-        { key: 5, day: moment().add(5, "days").format("MM/DD"), isActive: false },
-        { key: 6, day: moment().add(6, "days").format("MM/DD"), isActive: false }
+        { key: 0, day: moment(), isActive: true },
+        { key: 1, day: moment().add(1, "days"), isActive: false },
+        { key: 2, day: moment().add(2, "days"), isActive: false },
+        { key: 3, day: moment().add(3, "days"), isActive: false },
+        { key: 4, day: moment().add(4, "days"), isActive: false },
+        { key: 5, day: moment().add(5, "days"), isActive: false },
+        { key: 6, day: moment().add(6, "days"), isActive: false }
       ]
     }
   },
   mounted() {
-    const vm = this
-    vm.isLoading = true
+    this.isLoading = true
 
-    MovieHttp.GetOnAirMovies()
+    MovieHttp.GetOnAirMovies(moment().format("YYYY/MM/DD"))
     .then((res) => {
-      vm.isLoading = false
-      console.log(res.data.movies[0].schedules[0].start_time)
-      res.data.movies.map((movie) => {
-        movie.schedules.map((schedule) => {
-          // console.log(moment(schedule.start_time))
-        })
-      })
+      this.isLoading = false
       this.movies = res.data.movies
     })
   },
   methods: {
-    selectDate(key) {
+    selectDate(key, day) {
+      this.isLoading = true;
       this.tabs.map((tab) => {
         tab.isActive = false
-        if(key === tab.key) {
-          tab.isActive = true
-        }
+        if(key === tab.key) { tab.isActive = true }
+      })
+      this.currentDate = day
+      MovieHttp.GetOnAirMovies(day.format("YYYY/MM/DD"))
+      .then((res) => {
+        this.isLoading = false
+        this.movies = res.data.movies
       })
     },
     select(scheduleId, title, start_time, watch_time, theater_number) {
@@ -227,13 +226,13 @@ export default {
   margin-bottom: 20px;
   border-bottom: 1px solid gray;
   li {
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     cursor: pointer;
     p {
       padding: 10px;
     }
     p.active {
-      background-color: red;
+      background-color: #e2e2e2;
     }
   }
 }

@@ -9,12 +9,12 @@ const  MovieHttp = {
     return axios.get(`/api/movie`)
   },
     //公開中映画
-  GetOnAirMovies(){
-      return axios.get(`/api/movie?status=0`)
+  GetOnAirMovies(date){
+    return axios.get(`/api/movie?status=0&day=${date}`)
   },
     // 公開予定映画
   GetComingsoonMovies(){
-      return axios.get(`/api/movie?status=1`)
+    return axios.get(`/api/movie?status=1`)
   }
 }
 
