@@ -14,12 +14,12 @@ const ReserveHttp = {
       return {
         schedule_id: movie.scheduleId,
         seat_id: seat.seatId,
-        price_id: seat.priceId
+        price_id: parseInt(seat.priceId, 10)
       }
     });
 
     return axios.post(`/api/reserve?token=${token}`, {
-      reserves: params
+      reserves: JSON.parse(JSON.stringify(params))
     })
   }
 
