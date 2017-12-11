@@ -11,8 +11,8 @@ import (
 var db = NewDBConn()
 
 func NewDBConn() *gorm.DB {
-	//db, err := gorm.Open(GetDBConfig("dbconfig.yml", "development"))
-	db, err := gorm.Open("mysql", "root:password@tcp(dev.cfgvufynfn23.us-west-2.rds.amazonaws.com:3306)/halCinema?parseTime=true&collation=utf8_general_ci&interpolateParams=true&loc=Local")
+	db, err := gorm.Open(GetDBConfig("dbconfig.yml", "development"))
+	//db, err := gorm.Open("mysql", "root:password@tcp(dev.cfgvufynfn23.us-west-2.rds.amazonaws.com:3306)/halCinema?parseTime=true&collation=utf8_general_ci&interpolateParams=true&loc=Local")
 	if err != nil {
 		panic(err)
 	}
