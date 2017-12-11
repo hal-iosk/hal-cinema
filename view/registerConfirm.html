@@ -124,15 +124,7 @@
               </div>
               <div class="col">
                 <p>有効期限</p>
-                <p id="v_limitMonth" class="limit">
-                  <!--session[crMonth]-->
-                </p><p class="limit">月/</p>
-                <input id="limitMonth" type="hidden">
-                <p id="v_limitYear" class="limit">
-                  <!--session[crYear]-->
-                </p>
-                <p class="limit">年</p>
-                <input id="limitYear" type="hidden">
+                <p id="v_credit_card_limit"></p>
                 <input id="credit_card_limit" type="hidden" name="credit_card_limit">
               </div>
             </div>
@@ -181,7 +173,6 @@
   <script src="/js/moment.js"></script>
   <script src="/js/QueryString.js"></script>
   <script src="/js/registerConfirm.js"></script>
-  <script src="/js/script.js"></script>
   <script type="text/javascript">
   $('#myForm').on('submit', function (event) {
     event.preventDefault();

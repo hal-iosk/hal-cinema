@@ -20,12 +20,11 @@ var phone = obj.phone.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
 var address = obj.address.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
 var credit_card_number = obj.credit_card_number.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
 var security_code = obj.security_code.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
-var limitMonth = obj.limitMonth.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
-var limitYear = obj.limitYear.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
+var credit_card_limit = obj.credit_card_limit.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
 
 // var param = QueryString.stringify({"movie":movie,"date":date,"time":time,"theater":theater},null, null,true);
 
-if (email == "" || password == "" || first_name == "" || last_name == "" || first_name_read == "" || last_name_read == "" || year == "" || month == "" || date == "" || phone == "" || address == "" || credit_card_number == "" || security_code == "" || limitMonth == "" || limitYear == ""){
+if (email == "" || password == "" || first_name == "" || last_name == "" || first_name_read == "" || last_name_read == "" || year == "" || month == "" || date == "" || phone == "" || address == "" || credit_card_number == "" || security_code == "" || credit_card_limit == ""){
     alert("パラメータが不正です。");
     location.href = "/";
 }
@@ -35,18 +34,11 @@ if(month.length == 1){
 if(date.length == 1){
     date = "0"+date;
 }
-if(limitYear.length == 1){
-    limitYear = "0"+limitYear;
-}
-if(limitMonth.length == 1){
-    limitMonth = "0"+limitMonth;
-}
+
 
 //生年月日のフォーマット
 var birth =year+'/'+month+'/'+date;
 
-//生年月日のフォーマット
-var credit_card_limit = limitYear+"/"+limitMonth;
 //APIに投げるデータ
 //メールアドレス
 document.getElementById("email").value= email;
@@ -70,11 +62,8 @@ document.getElementById("address").value = address;
 document.getElementById("credit_card_number").value = credit_card_number;
 //セキュリティコード
 document.getElementById("security_code").value = security_code;
-//有効期限(月)
-document.getElementById("limitMonth").value = limitMonth;
-//有効期限(年)
-document.getElementById("limitYear").value = limitYear;
-//有効期限(年)
+
+//有効期限
 document.getElementById("credit_card_limit").value = credit_card_limit;
 
 
@@ -108,11 +97,8 @@ document.getElementById("v_address").textContent = address;
 // document.getElementById("v_credit_card_number").textContent = credit_card_number;
 //セキュリティコード
 document.getElementById("v_security_code").textContent = security_code;
-//有効期限(月)
-document.getElementById("v_limitMonth").textContent = limitMonth;
-//有効期限(年)
-document.getElementById("v_limitYear").textContent = limitYear;
 
+document.getElementById("v_credit_card_limit").textContent = credit_card_limit;
 
 
 

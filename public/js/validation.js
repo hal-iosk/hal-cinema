@@ -234,8 +234,8 @@ $('form').submit(function ()  {
   }
   if (credit_card_limit.length == 0) {
     validationMsg["limit"] = "有効期限を入力してください";
-  } else if (!e_credit_card_limit.length == 0) {
-    validationMsg["limit"] = credit_card_limit;
+  } else if (e_credit_card_limit.length == 0) {
+    validationMsg["limit"] = e_credit_card_limit;
   } else {
     validationMsg["limit"] = "";
   }

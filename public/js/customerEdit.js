@@ -135,7 +135,6 @@ $(document).ready(function () {
 
 //バリデーション
 $('#myForm').on('submit', function (event) {
-  event.preventDefault(); // 本来のPOSTを打ち消すおまじない
        
   var validationMsg = {
     email: '',
@@ -297,21 +296,21 @@ $('#myForm').on('submit', function (event) {
 var birth =year+'/'+month+'/'+date;
 
   if (!validationMsg["email"].length == 0 || !validationMsg["password"].length == 0 || !validationMsg["confirmPass"].length == 0 || !validationMsg["first_name"].length == 0 || !validationMsg["last_name"].length == 0 || !validationMsg["first_name_read"].length == 0 || !validationMsg["last_name_read"].length == 0 || !validationMsg["birth"].length == 0 || !validationMsg["phone"].length == 0 || !validationMsg["address"].length == 0 || !validationMsg["credit_card_number"].length == 0 || !validationMsg["security_code"].length == 0 || !validationMsg["limit"].length == 0) {
-    document.getElementById("e_email").innerHTML = validationMsg["email"];
-    document.getElementById("e_password").innerHTML = validationMsg["password"];
-    document.getElementById("e_confirmPass").innerHTML = validationMsg["confirmPass"];
-    document.getElementById("e_first_name").innerHTML = validationMsg["first_name"];
-    document.getElementById("e_last_name").innerHTML = validationMsg["last_name"];
-    document.getElementById("e_first_name_read").innerHTML = validationMsg["first_name_read"];
-    document.getElementById("e_last_name_read").innerHTML = validationMsg["last_name_read"];
-    document.getElementById("e_birth").innerHTML = validationMsg["birth"];
-    document.getElementById("e_phone").innerHTML = validationMsg["phone"];
-    document.getElementById("e_address").innerHTML = validationMsg["address"];
-    document.getElementById("e_credit_card_number").innerHTML = validationMsg["credit_card_number"];
-    document.getElementById("e_security_code").innerHTML = validationMsg["security_code"];
-    document.getElementById("e_credit_card_limit").innerHTML = validationMsg["limit"];
+    document.getElementById("e_email").textContent = validationMsg["email"];
+    document.getElementById("e_password").textContent = validationMsg["password"];
+    document.getElementById("e_confirmPass").textContent = validationMsg["confirmPass"];
+    document.getElementById("e_first_name").textContent = validationMsg["first_name"];
+    document.getElementById("e_last_name").textContent = validationMsg["last_name"];
+    document.getElementById("e_first_name_read").textContent = validationMsg["first_name_read"];
+    document.getElementById("e_last_name_read").textContent = validationMsg["last_name_read"];
+    document.getElementById("e_birth").textContent = validationMsg["birth"];
+    document.getElementById("e_phone").textContent = validationMsg["phone"];
+    document.getElementById("e_address").textContent = validationMsg["address"];
+    document.getElementById("e_credit_card_number").textContent = validationMsg["credit_card_number"];
+    document.getElementById("e_security_code").textContent = validationMsg["security_code"];
+    document.getElementById("e_credit_card_limit").textContent = validationMsg["limit"];
     console.log(birth)
-    console.log(validationMsg["security_code"])
+    console.log()
     return false;
   } else {
     $.ajax({
