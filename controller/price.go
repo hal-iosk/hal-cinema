@@ -10,29 +10,29 @@ import (
 func GetPrice(c *gin.Context) {
 	var Prices []model.Price
 	Price := model.Price{
-		CustomerType: "一般ピーポ〜",
+		CustomerType: "一般",
 		Price:        1800,
 	}
 	Price.ID = 1
 	Prices = append(Prices, Price)
 
 	Price = model.Price{
-		CustomerType: "パリピ",
+		CustomerType: "学生（大高生）",
 		Price:        1500,
 	}
 	Price.ID = 2
 	Prices = append(Prices, Price)
 
 	Price = model.Price{
-		CustomerType: "厨二",
-		Price:        1000,
+		CustomerType: "小中学生",
+		Price:        800,
 	}
 	Price.ID = 3
 	Prices = append(Prices, Price)
 
 	Price = model.Price{
-		CustomerType: "幼稚園児ニア",
-		Price:        800,
+		CustomerType: "幼稚（3歳〜6歳）",
+		Price:        500,
 	}
 	Price.ID = 4
 	Prices = append(Prices, Price)

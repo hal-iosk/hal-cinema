@@ -16,7 +16,7 @@
                             </div>
                             <div class="contents">
                                 <div class="movie-image">
-                                    <img  v-bind:src=movie.image_path alt="">
+                                    <img  v-bind:src="movie.image_path" alt="">
                                 </div>
                                 <p class="description">
                                     {{movie.details}}
@@ -27,6 +27,7 @@
                 </ul>
             </div>
         </div>
+        <b-loading :active.sync="isLoading" :canCancel="true"></b-loading>
     </section>
 </template>
 
@@ -37,20 +38,23 @@ import moment from "moment"
 
 export default {
     name: "comingsoon",
+    mounted(){
+        this.isLoading = true
+        MovieHttp.GetComingsoonMovies()
+        .then((res)=>{
+            this.isLoading = false
+            this.movies = res.data.movies
+        })
+    },
     data(){
         return {
             movies: [],
-            moment
+            moment,
+            isLoading: false
         }
     },
     components:{
         Tab
-    },
-    mounted(){
-        MovieHttp.GetComingsoonMovies()
-        .then((res)=>{
-             this.movies = res.data.movies
-        })
     }
 }
 </script>

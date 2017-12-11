@@ -55,6 +55,7 @@
         </div>
       </div>
     </article>
+    <b-loading :active.sync="isLoading" :canCancel="true"></b-loading>
   </div>
 </template>
 
@@ -68,12 +69,16 @@ export default {
   data() {
     return {
       movies: [],
-      moment
+      moment,
+      isLoading: false
     }
   },
   mounted() {
-    MovieHttp.GetMovies()
+    const vm = this
+    vm.isLoading = true
+    MovieHttp.GetOnAirMovies()
     .then((res) => {
+      vm.isLoading = false
       this.movies = res.data.movies
     })
   },

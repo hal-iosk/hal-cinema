@@ -53,6 +53,17 @@ export default {
   },
   methods: {
     seatSelect(seatId) {
+      const selectSeats = this.seats.filter((seat) => { if(seat.isSelected) { return seat.seatSymbol } })
+      const reservedSeats = selectSeats.map((seat) => { return seat.seatSymbol })
+
+      if(Object.keys(reservedSeats).length >= 6) {
+        this.$dialog.alert({
+          message: "座席は7つ以上、1回で予約できません。",
+          type: "is-danger"
+        })
+        return
+      }
+
       seatsFormat.map((seat) => {
         if(seatId === seat.seatSymbol) seat.isSelected = !seat.isSelected;
       })
