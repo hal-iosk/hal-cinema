@@ -29,7 +29,7 @@ func GetMovieAll(c *gin.Context) {
 	status, err := strconv.Atoi(c.Query("status"))
 	strDay, ok := c.GetQuery("day")
 	if ok {
-		d, err := time.Parse(DayFormat, strDay)
+		d, err := time.Parse(DayFormat+" MST", strDay+" JST")
 		if err != nil {
 			Batequest("dayがおかしいよ", c)
 			return
