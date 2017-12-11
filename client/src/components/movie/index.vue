@@ -23,6 +23,14 @@
     <article>
       <div class="flex-container">
         <div class="container">
+
+          <ul class="dates">
+            <li v-for="tab in tabs" @click="selectDate(tab.key)">
+              <p class="active" v-if="tab.isActive">{{tab.day}}</p>
+              <p v-else>{{tab.day}}</p>
+            </li>
+          </ul>
+
           <p class="container-title"><span class="date">12/8</span>の上映スケジュール</p>
           <ul class="movie-container">
             <li v-for="movie in movies" v-if="movie.schedules.length != 0">
@@ -70,7 +78,16 @@ export default {
     return {
       movies: [],
       moment,
-      isLoading: false
+      isLoading: false,
+      tabs: [
+        { key: 0, day: moment().format("MM/DD"), isActive: true },
+        { key: 1, day: moment().add(1, "days").format("MM/DD"), isActive: false },
+        { key: 2, day: moment().add(2, "days").format("MM/DD"), isActive: false },
+        { key: 3, day: moment().add(3, "days").format("MM/DD"), isActive: false },
+        { key: 4, day: moment().add(4, "days").format("MM/DD"), isActive: false },
+        { key: 5, day: moment().add(5, "days").format("MM/DD"), isActive: false },
+        { key: 6, day: moment().add(6, "days").format("MM/DD"), isActive: false }
+      ]
     }
   },
   mounted() {
@@ -90,6 +107,14 @@ export default {
     })
   },
   methods: {
+    selectDate(key) {
+      this.tabs.map((tab) => {
+        tab.isActive = false
+        if(key === tab.key) {
+          tab.isActive = true
+        }
+      })
+    },
     select(scheduleId, title, start_time, watch_time, theater_number) {
       const m = moment(start_time)
       const reserve = {
@@ -195,5 +220,21 @@ export default {
 }
 .schedule.disabled {
   background-color: #777;
+}
+.dates {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border-bottom: 1px solid gray;
+  li {
+    letter-spacing: 2px;
+    cursor: pointer;
+    p {
+      padding: 10px;
+    }
+    p.active {
+      background-color: red;
+    }
+  }
 }
 </style>
