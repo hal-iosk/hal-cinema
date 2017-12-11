@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ログイン | HAL CINEMA</title>
-  <script src="/js/common.js"></script>
   <script src="/js/jquery.min.js"></script>
   <script src="/js/iscroll.js"></script>
   <link rel="stylesheet" href="/css/drawer.css">
   <script src="/js/drawer.min.js"></script>
+  <script src="/js/CookieDoc.js"></script>
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/footer.css">
   <link rel="stylesheet" href="/css/login.css">
@@ -155,7 +155,8 @@
       if (validation()) {
         $.post('/api/signin', $(this).serializeArray())
           .done(function (data, textStatus, jqXHR) {
-            console.log(data.token)
+            CookieDoc.setItem("halCinemaUser", data.token)
+            location.href = "/"
           })
           .fail(function (data, textStatus, jqXHR) {
             document.getElementById("e_logFail").innerHTML = "メールアドレスまたはパスワードが違います。";

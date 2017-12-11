@@ -7,7 +7,18 @@ const ReserveHttp = {
     return axios.get(`/api/price`)
   },
 
-  PostReserve() {
+  PostReserve(movie, seats) {
+    const token = CookieDoc.getItem("halCinemaUser")
+
+    const params = seats.map((seat) => {
+      return {
+        schedule_id: movie.scheduleId,
+        seat_id: seat.seatId,
+        price_id: seat.priceId
+      }
+    });
+
+    return axios.post(`/api/reserve?token=${token}`, params)
   }
 
 }

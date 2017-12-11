@@ -5,6 +5,8 @@ import (
 
 	"strconv"
 
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 	"github.com/hal-iosk/hal-cinema/model"
 	"github.com/hal-iosk/hal-cinema/service"
@@ -47,15 +49,17 @@ func GetUserRserved(c *gin.Context) {
 }
 func createReserveReq(c *gin.Context) ([]model.Reserve, bool) {
 	UserID := GetUserID(c)
-	var Reserves []model.Reserve
-	err := c.BindJSON(&Reserves)
+	var Reservereq struct {
+		Reserves []model.Reserve `json:"reserves"`
+	}
+	err := c.BindJSON(&Reservereq)
 	if err != nil {
 		Batequest(err.Error(), c)
 		return nil, false
 	}
-
-	for key, _ := range Reserves {
-		Reserves[key].CustomerID = UserID
+	fmt.Println(Reservereq.Reserves)
+	for key, _ := range Reservereq.Reserves {
+		Reservereq.Reserves[key].CustomerID = UserID
 	}
-	return Reserves, true
+	return Reservereq.Reserves, true
 }
