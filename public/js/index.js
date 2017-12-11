@@ -62,3 +62,11 @@ function mapInit() {
 }
  
 mapInit();
+
+var isLogin = AuthManager.isLogin();
+
+if(isLogin){
+  var login = document.getElementById("islogin");
+  login.innerHTML = "<a href='/mypage' class='login'><span>マイページ</span></a>";
+
+}
