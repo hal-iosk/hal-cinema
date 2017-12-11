@@ -6,9 +6,12 @@ body {
 a {
     text-decoration: none;
 }
+#container{
+    width:100%;
+}
 
 #welcome {
-    width: 1300px;
+    width: 90%;
     margin: 20px auto;
     position: relative;
     border-bottom: solid 1px #cccccc;
@@ -37,13 +40,13 @@ a {
 }
 
 #menu_bar {
-    width: 1100px;
+    width: 80%;
     margin: 0 auto;
     overflow: hidden;
 }
 
 #menu_bar li {
-    width: 500px;
+    width: 48%;
     height: 100px;
     color: #000000;
     background-color: #ffffff;
@@ -57,7 +60,7 @@ a {
 }
 
 #menu_bar .selected {
-    width: 500px;
+    width: 48%;
     height: 100px;
     color: #CD1111;
     background-color: #ffffff;
@@ -71,7 +74,7 @@ a {
 
 #history_list {
     clear: left;
-    width: 1200px;
+    width: 80%;
     margin: 50px auto;
     background-color: #ffffff;
     box-shadow: 0px 2px 6px 1px;

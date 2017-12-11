@@ -18,7 +18,7 @@ a{
     margin:50px auto;
 }
 #welcome{
-    width:1300px;
+    width:90%;
     margin:20px auto;
     position: relative;
     border-bottom:solid 1px #cccccc;
@@ -43,12 +43,12 @@ a{
     border:solid 1px #cccccc;
 }
 #menu_bar{
-    width:1100px;
+    width:80%;
     margin:0 auto; 
     overflow: hidden;
 }
 #menu_bar li{
-    width: 500px;
+    width: 48%;
     height: 100px;
     color:#000000;
     background-color: #ffffff;
@@ -61,7 +61,7 @@ a{
     position: relative;
 }
 #menu_bar .selected{
-    width: 500px;
+    width: 48%;
     height: 100px;
     color:#CD1111;
     background-color: #ffffff;

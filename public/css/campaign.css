@@ -20,7 +20,7 @@ a{
     letter-spacing: 0.05em;
 }
 #campaign_list{
-    width:1400px;
+    width:100%;
     margin: 50px auto;
     overflow: hidden;
 }
@@ -32,11 +32,11 @@ a{
     background-image: url("/image/movie_ticket.png");
 }
 .detail{
-    width:700px;
+    width:70%;
     float:left;
 }
 .ticket_left{
-    width:300px;
+    width:30%;
     float:left;
     position: relative;
 }
