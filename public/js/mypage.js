@@ -14,6 +14,7 @@ $.get(`/api/user?token=${token}`)
   var name = `${data.custome.first_name} ${data.custome.last_name}`
   $("#username").text(name)
   $(".point_count").text(data.custome.point_count)
+
 })
 .fail(function (data, textStatus, jqXHR) {
     alert("error");

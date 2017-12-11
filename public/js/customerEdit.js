@@ -13,8 +13,25 @@ var token = CookieDoc.getItem("halCinemaUser")
 $.get(`/api/user?token=${token}`)
 .done(function (data) {
   var name = `${data.custome.first_name} ${data.custome.last_name}`
+  var birth = data.custome.birth.split('/')
+  var b_year = birth[0]
+  var b_month = birth[1]
+  var b_date = birth[2]
   $("#username").text(name)
   $(".point_count").text(data.custome.point_count)
+  $("#email").val(data.custome.email)
+  $("#first_name").val(data.custome.first_name)
+  $("#last_name").val(data.custome.last_name)
+  $("#first_name_read").val(data.custome.first_name_read)
+  $("#last_name_read").val(data.custome.last_name_read)
+  $("#year").val(data.custome.b_year)
+  $("#month").val(data.custome.b_month)
+  $("#date").val(data.custome.b_date)
+  $("#phone").val(data.custome.phone)
+  $("#first_name").val(data.custome.first_name)
+  $("#address").val(data.custome.address)
+  $("#credit_card_number").val(data.custome.credit_card_number)
+  
 })
 .fail(function (data, textStatus, jqXHR) {
     alert("error");
@@ -70,8 +87,7 @@ $(document).ready(function () {
     "address": {
       "rule": [
         "required",
-        "min_length[7]",
-        'numeric'
+        "zenkaku"
       ]
     },
     "credit_card_number": {
