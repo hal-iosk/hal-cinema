@@ -25,7 +25,7 @@
         <div class="container">
           <p class="container-title"><span class="date">12/8</span>の上映スケジュール</p>
           <ul class="movie-container">
-            <li v-for="movie in movies">
+            <li v-for="movie in movies" v-if="movie.schedules.length != 0">
               <div class="movie">
                 <div class="top-container">
                   <p class="movie-title">{{movie.movie_name}}</p>
@@ -80,7 +80,12 @@ export default {
     MovieHttp.GetOnAirMovies()
     .then((res) => {
       vm.isLoading = false
-      console.log(res.data.movies)
+      console.log(res.data.movies[0].schedules[0].start_time)
+      res.data.movies.map((movie) => {
+        movie.schedules.map((schedule) => {
+          // console.log(moment(schedule.start_time))
+        })
+      })
       this.movies = res.data.movies
     })
   },
