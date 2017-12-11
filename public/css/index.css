@@ -261,7 +261,7 @@ figure img {
     display: block;
   }
   
-  .btn::before, .btn::after {
+  .btn a::before, .btn a::after {
     content: '';
     position: absolute;
     transition: all 0.3s;
@@ -272,7 +272,7 @@ figure img {
     z-index: 1;
   }
   
-  .btn-one::before {
+  .btn-one a::before {
     left: 4px;
     z-index: 1;
     opacity: 0;
@@ -280,26 +280,20 @@ figure img {
     transform: scale(0.1, 1);
   }
   
-  .btn-one:hover::before {
+  .btn-one a:hover::before {
     opacity: 1;
     transform: scale(1, 1);
   }
   
-  .btn-one::after {
+  .btn-one a::after {
     transition: all 0.3s;
     border: 1px solid rgba(255, 255, 255, 0.5);
   }
   
-  .btn-one:hover::after {
+  .btn-one a:hover::after {
     transform: scale(1, .1);
     opacity: 0;
   }
-
-
-
-
-
-
 
 #shopfill {
     background-color: #ffffff;
