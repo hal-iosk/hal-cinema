@@ -26,6 +26,11 @@ a{
 #welcome h2{
     text-decoration: underline #CD1111;
 }
+#point{
+    position: absolute;
+    top:5px;
+    right:150px;
+}
 .logout{
     position: absolute;
     right: 20px;

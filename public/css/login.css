@@ -10,7 +10,7 @@ body{
 }
 .title {
     font-size: 1.6em;
-    background: rgb(17, 119, 236);
+    background: #CD1111;
     padding: 4px;
     text-align: center;
     color: #FFF;
@@ -77,14 +77,14 @@ li{
 }
 .submit{
     color:#ffffff;
-    background-color: rgb(17, 119, 236);
+    background-color: #1253A2;
 }
 .submit:hover{
     background-color: #CD1111;
 }
 .signUp{
     color:#ffffff;
-    background-color: rgb(17, 119, 236);
+    background-color: #1253A2;
 }
 .signUp:hover{
     background-color: #CD1111;
