@@ -13,5 +13,5 @@ if(isLogin){//ログインしてるとき
 	navPaper.innerHTML = "<a href='/mypage'><img src='/image/paper.png' width='auto' height='auto'><span>予約履歴</span></a>";
 
 	var navP = document.getElementById("navP");
-	navP.innerHTML = "<a href='/mypage'><img src='/image/p.png' width='auto' height='auto'><br><span>チェックイン</span></a>";
+	navP.innerHTML = "<a href='/mypage'><img src='/image/p.png' width='auto' height='auto'><br><span>コイン確認</span></a>";
 }
