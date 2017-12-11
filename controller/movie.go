@@ -25,10 +25,20 @@ type MovieRes struct {
 func GetMovieAll(c *gin.Context) {
 	MoviesAll := service.Movie.All()
 	var Movies []model.Movie
+	var Day *time.Time
 	status, err := strconv.Atoi(c.Query("status"))
+	strDay, ok := c.GetQuery("day")
+	if ok {
+		d, err := time.Parse(DayFormat, strDay)
+		if err != nil {
+			Batequest("dayがおかしいよ", c)
+			return
+		}
+		Day = &d
+	}
 	if err != nil {
 		c.JSON(http.StatusOK, gin.H{
-			"movies": createMovieRes(MoviesAll),
+			"movies": createMovieRes(MoviesAll, Day),
 		})
 		return
 	}
@@ -52,13 +62,13 @@ func GetMovieAll(c *gin.Context) {
 		}
 	}
 	c.JSON(http.StatusOK, gin.H{
-		"movies": createMovieRes(Movies),
+		"movies": createMovieRes(Movies, Day),
 	})
 }
 func isOnAir(startTime time.Time) bool {
 	return startTime.Before(time.Now())
 }
-func createMovieRes(m []model.Movie) []MovieRes {
+func createMovieRes(m []model.Movie, day *time.Time) []MovieRes {
 	var res []MovieRes
 	for _, value := range m {
 		res = append(res, MovieRes{
@@ -66,7 +76,22 @@ func createMovieRes(m []model.Movie) []MovieRes {
 			Schedules: value.GetSchedule(),
 		})
 	}
+	if day == nil {
+		return res
+	}
+	for key, r := range res {
+		var Schedules []model.ScreeningSchedule
+		for _, s := range r.Schedules {
+			if isSomeDay(*day, s.StartTime) {
+				Schedules = append(Schedules, s)
+			}
+		}
+		res[key].Schedules = Schedules
+	}
 	return res
+}
+func isSomeDay(time1 time.Time, time2 time.Time) bool {
+	return time1.Year() == time2.Year() && time1.Day() == time2.Day() && time1.Month() == time2.Month()
 }
 func GetMovie(c *gin.Context) {
 	movieID, err := strconv.Atoi(c.Param("movie_id"))
