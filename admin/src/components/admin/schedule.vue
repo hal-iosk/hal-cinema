@@ -36,14 +36,8 @@
         <b-input v-model="props.row.theater_number"></b-input>
       </b-table-column>
 
-      <b-table-column label="開始時間" v-if="props.row.release">
+      <b-table-column label="開始時間">
         {{moment(props.row.start_time).format("YYYY/MM/DD HH:mm")}}
-      </b-table-column>
-      <b-table-column label="開始時間" v-else>
-        <b-datepicker
-          v-model="props.row.start_time"
-          :first-day-of-week="1"
-        ></b-datepicker>
       </b-table-column>
 
       <b-table-column numeric v-if="props.row.release">
@@ -51,7 +45,6 @@
       </b-table-column>
       <b-table-column numeric v-else>
         <div class="tool-box">
-          <button class="button" @click="save(props.row.ID)">保存</button>
           <button class="button" @click="scheduleDelete(props.row.ID)" style="color: red;">削除</button>
         </div>
         <button class="button is-danger" @click="open(props.row.ID)">公開する</button>
@@ -174,8 +167,7 @@ export default {
     .then((res) => {
       const schedules = res.data.schedules;
       schedules.map((schedule) => {
-        console.log(moment(schedule.start_time).format("YYYY/MM/DD HH:mm"))
-        schedule.start_time = new Date(schedule.start_time)
+        schedule.start_time = schedule.start_time
       })
       this.schedules = schedules;
     })

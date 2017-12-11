@@ -10,9 +10,9 @@
         <movie-table />
       </b-tab-item>
 
-      <b-tab-item label="メルマガ">
+      <!-- <b-tab-item label="メルマガ">
         <mail-magazine />
-      </b-tab-item>
+      </b-tab-item> -->
 
     </b-tabs>
   </section>
