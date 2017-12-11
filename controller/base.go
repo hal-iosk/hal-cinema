@@ -21,11 +21,11 @@ func Batequest(msg string, c *gin.Context) {
 }
 
 func GetDate(key string, c *gin.Context) (time.Time, error) {
-	return time.Parse(DayFormat, c.PostForm(key))
+	return time.Parse(DayFormat+" MST", c.PostForm(key)+" JST")
 }
 
 func GetDateTime(key string, c *gin.Context) (time.Time, error) {
-	return time.Parse(TimeFormat, c.PostForm(key))
+	return time.Parse(TimeFormat+" MST", c.PostForm(key)+" JST")
 }
 
 func GetInt(key string, c *gin.Context) (uint, bool) {
