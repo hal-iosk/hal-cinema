@@ -103,6 +103,11 @@ class HttpUtils {
     return axios.post(`/api/popcorn?token=${token}`)
   }
 
+  GetUserModel() {
+    const token = CookieDoc.getItem("halCinemaUser")
+    return axios.get(`/api/user?token=${token}`)
+  }
+
 }
 
 export default new HttpUtils;

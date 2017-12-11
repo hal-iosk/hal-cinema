@@ -8,7 +8,7 @@
     <div class="footer">
       <button class="button point is-warning" @click="showModal">{{coin}}コイン</button>
       <div class="user-info" @click="reset">
-        <p class="user-info-name">konojunya</p>
+        <p class="user-info-name">{{name}}</p>
       </div>
     </div>
 
@@ -23,15 +23,22 @@ import HttpUtils from '../../lib/httpUtils'
 
 export default {
   name: "chekcin",
-  date() {
+  data() {
     return {
-      canGeoGet: false
+      canGeoGet: false,
+      name: ""
     }
   },
   computed: {
     coin() {
       return vueStore.state.coin
     }
+  },
+  mounted() {
+    HttpUtils.GetUserModel()
+    .then((res) => {
+      this.name = `${res.data.custome.first_name} ${res.data.custome.last_name}`
+    })
   },
   methods: {
     showModal() {
