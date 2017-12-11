@@ -23,9 +23,7 @@ a{
     position: relative;
     border-bottom:solid 1px #cccccc;
 }
-#welcome h2{
-    text-decoration: underline #CD1111;
-}
+
 #point{
     position: absolute;
     top:5px;
