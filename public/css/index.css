@@ -383,6 +383,7 @@ figure img {
 
 #about {
     width: 74%;
+    min-width: 1000px;
     background-color: #ffffff;
     margin: 0 auto;
     overflow: hidden;
