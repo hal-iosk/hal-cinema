@@ -26,7 +26,6 @@ body{
 
 #fill {
     padding-top: 60px;
-    padding-left: 170px;
     padding-bottom: 60px;
     background-color: #f0f0f0;
 }
@@ -34,7 +33,7 @@ body{
 .center-item {
     width: 1099px;
     height: 500px;
-    
+    margin: 0 auto;
 }
 
 .center-item:before {
