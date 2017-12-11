@@ -5,7 +5,7 @@ $(document).ready(function() {
 //ログイン制御なう
 var isLogin = AuthManager.isLogin();
 
-if(isLogin){
+if(isLogin){//ログインしてるとき
 	var navLogin = document.getElementById("navLogin");
 	navLogin.innerHTML = "<a href='/mypage'><img src='/image/mypage.png' width='auto' height='auto'><span>マイページ</span></a>";
 
