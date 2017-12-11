@@ -28,19 +28,6 @@ window.onload= function () {
             optionAddDate.innerHTML = minDate;
             selectDate.appendChild(optionAddDate);
         }
-        // クレジットカード有効期限月
-        for(var minMonth = 1;minMonth<=12;minMonth++){
-            optionAddMonth= document.createElement("option");
-            optionAddMonth.setAttribute("value", minMonth);
-            optionAddMonth.innerHTML = minMonth;
-            crMonth.appendChild(optionAddMonth);
-        }
-        // クレジットカード有効期限年
-        for(var cr = 17;cr<=36;cr++){
-            optionAddMonth= document.createElement("option");
-            optionAddMonth.setAttribute("value", cr);
-            optionAddMonth.innerHTML = cr;
-            crYear.appendChild(optionAddMonth);
-        }
+        
     }
     

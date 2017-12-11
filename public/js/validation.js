@@ -57,8 +57,7 @@ $(document).ready(function () {
     "address": {
       "rule": [
         "required",
-        "min_length[7]",
-        'numeric'
+        "zenkaku"
       ]
     },
     "credit_card_number": {
@@ -75,6 +74,11 @@ $(document).ready(function () {
         'numeric',
         "required",
         "min_length[3]",
+      ]
+    },
+    "limit": {
+      "rule": [
+        "required",
       ]
     }
   });
@@ -133,9 +137,8 @@ $('form').submit(function ()  {
   var security_code = $('#security_code').val();
   var e_security_code = document.getElementById('e_security_code').innerHTML;
   var limitMonth = $('#limitMonth').val();
-  //   var e_limitMonth = document.getElementById('e_limitMonth').innerHTML;
-  var limitYear = $('#limitYear').val();
-  //   var e_limitYear = document.getElementById('e_limitYear').innerHTML;
+  var credit_card_limit = $('#credit_card_limit').val();
+  var e_credit_card_limit = document.getElementById('e_credit_card_limit').innerHTML;
   validationMsg["birth"] = "";
 
   if (email.length == 0) {
@@ -209,7 +212,7 @@ $('form').submit(function ()  {
     validationMsg["phone"] = "";
   }
   if (address.length == 0) {
-    validationMsg["address"] = "郵便番号を入力してください";
+    validationMsg["address"] = "住所を入力してください";
   } else if (!e_address.length == 0) {
     validationMsg["address"] = e_address;
   } else {
@@ -229,8 +232,10 @@ $('form').submit(function ()  {
   } else {
     validationMsg["security_code"] = "";
   }
-  if (limitMonth.length == 0 || limitYear.length == 0) {
+  if (credit_card_limit.length == 0) {
     validationMsg["limit"] = "有効期限を入力してください";
+  } else if (!e_credit_card_limit.length == 0) {
+    validationMsg["limit"] = credit_card_limit;
   } else {
     validationMsg["limit"] = "";
   }
@@ -248,7 +253,7 @@ $('form').submit(function ()  {
     document.getElementById("e_address").textContent = validationMsg["address"];
     document.getElementById("e_credit_card_number").textContent = validationMsg["credit_card_number"];
     document.getElementById("e_security_code").textContent = validationMsg["security_code"];
-    document.getElementById("e_limit").textContent = validationMsg["limit"];
+    document.getElementById("e_credit_card_limit").textContent = validationMsg["limit"];
     return false;
   } else {
     return submit();

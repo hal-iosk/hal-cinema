@@ -13,10 +13,7 @@ var token = CookieDoc.getItem("halCinemaUser")
 $.get(`/api/user?token=${token}`)
 .done(function (data) {
   var name = `${data.custome.first_name} ${data.custome.last_name}`
-  var birth = data.custome.birth.split('/')
-  var b_year = birth[0]
-  var b_month = birth[1]
-  var b_date = birth[2]
+  var limit = data.custome.credit_card_limit.split("/")
   $("#username").text(name)
   $(".point_count").text(data.custome.point_count)
   $("#email").val(data.custome.email)
@@ -24,14 +21,13 @@ $.get(`/api/user?token=${token}`)
   $("#last_name").val(data.custome.last_name)
   $("#first_name_read").val(data.custome.first_name_read)
   $("#last_name_read").val(data.custome.last_name_read)
-  $("#year").val(data.custome.b_year)
-  $("#month").val(data.custome.b_month)
-  $("#date").val(data.custome.b_date)
+  $("#year").val(moment(data.custome.birthday).format("YYYY"))
+  $("#month").val(moment(data.custome.birthday).format("MM"))
+  $("#date").val(moment(data.custome.birthday).format("DD"))
   $("#phone").val(data.custome.phone)
-  $("#first_name").val(data.custome.first_name)
   $("#address").val(data.custome.address)
   $("#credit_card_number").val(data.custome.credit_card_number)
-  
+  $("#credit_card_limit").val(data.custome.credit_card_limit)
 })
 .fail(function (data, textStatus, jqXHR) {
     alert("error");
@@ -104,6 +100,11 @@ $(document).ready(function () {
         "required",
         "min_length[3]",
       ]
+    },
+    "credit_card_limit": {
+      "rule": [
+        "required"
+      ]
     }
   });
 });
@@ -135,7 +136,7 @@ $(document).ready(function () {
 //バリデーション
 $('#myForm').on('submit', function (event) {
   event.preventDefault(); // 本来のPOSTを打ち消すおまじない
-      var token = "19dda4a6-475a-4a16-b5ff-a045713df4c3";
+       
   var validationMsg = {
     email: '',
     password: '',
@@ -177,10 +178,9 @@ $('#myForm').on('submit', function (event) {
   var e_credit_card_number = document.getElementById('e_credit_card_number').innerHTML;
   var security_code = $('#security_code').val();
   var e_security_code = document.getElementById('e_security_code').innerHTML;
-  var limitMonth = $('#limitMonth').val();
+  var credit_card_limit = $('#credit_card_limit').val();
+  var e_credit_card_limit = document.getElementById('e_credit_card_limit').innerHTML;
   //   var e_limitMonth = document.getElementById('e_limitMonth').innerHTML;
-  var limitYear = $('#limitYear').val();
-  //   var e_limitYear = document.getElementById('e_limitYear').innerHTML;
 
 
   
@@ -278,8 +278,10 @@ $('#myForm').on('submit', function (event) {
   } else {
     validationMsg["security_code"] = "";
   }
-  if (limitMonth.length == 0 || limitYear.length == 0) {
+  if (credit_card_limit.length == 0) {
     validationMsg["limit"] = "有効期限を入力してください";
+  } else if (!e_credit_card_limit.length == 0) {
+    validationMsg["limit"] = e_credit_card_limit;
   } else {
     validationMsg["limit"] = "";
   }
@@ -290,19 +292,9 @@ $('#myForm').on('submit', function (event) {
   if (date.length == 1) {
     date = "0" + date;
   }
-  if (limitYear.length == 1) {
-    limitYear = "0" + limitYear;
-  }
-  if (limitMonth.length == 1) {
-    limitMonth = "0" + limitMonth;
-  }
+
   //生年月日のフォーマット
 var birth =year+'/'+month+'/'+date;
-
-//生年月日のフォーマット
-var credit_card_limit = limitYear+'/'+limitMonth;
-
-var token= "19dda4a6-475a-4a16-b5ff-a045713df4c3";
 
   if (!validationMsg["email"].length == 0 || !validationMsg["password"].length == 0 || !validationMsg["confirmPass"].length == 0 || !validationMsg["first_name"].length == 0 || !validationMsg["last_name"].length == 0 || !validationMsg["first_name_read"].length == 0 || !validationMsg["last_name_read"].length == 0 || !validationMsg["birth"].length == 0 || !validationMsg["phone"].length == 0 || !validationMsg["address"].length == 0 || !validationMsg["credit_card_number"].length == 0 || !validationMsg["security_code"].length == 0 || !validationMsg["limit"].length == 0) {
     document.getElementById("e_email").innerHTML = validationMsg["email"];
@@ -317,12 +309,14 @@ var token= "19dda4a6-475a-4a16-b5ff-a045713df4c3";
     document.getElementById("e_address").innerHTML = validationMsg["address"];
     document.getElementById("e_credit_card_number").innerHTML = validationMsg["credit_card_number"];
     document.getElementById("e_security_code").innerHTML = validationMsg["security_code"];
-    document.getElementById("e_limit").innerHTML = validationMsg["limit"];
+    document.getElementById("e_credit_card_limit").innerHTML = validationMsg["limit"];
+    console.log(birth)
+    console.log(validationMsg["security_code"])
     return false;
   } else {
     $.ajax({
       type: "PUT",
-      url: "/api/user?token="+token,
+      url: `/api/user?token=${token}`,
       data: {
         "email": email,
         "password":password,
@@ -337,8 +331,12 @@ var token= "19dda4a6-475a-4a16-b5ff-a045713df4c3";
         "security_code":security_code,
         "credit_card_limit":credit_card_limit
       }
-    },submit());
-    
+    }).done(function (data, textStatus, jqXHR) {
+      submit();
+    })
+    .fail(function(data, textStatus, jqXHR){
+      alert("編集失敗");
+    })
   }
 });
 
