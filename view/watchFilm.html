@@ -5,10 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/watchFirm.css">
+  <script src="/js/common.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/iscroll.js"></script>
+  <link rel="stylesheet" href="/css/drawer.css">
+  <script src="/js/drawer.min.js"></script>
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
 
-  <title>hal-cinema | 上映中作品一覧</title>
+  <title>上映中作品一覧 | HAL CINEMA</title>
 
   <style>
     body,
@@ -25,33 +31,53 @@
     }
   </style>
 </head>
-<body>
-  <header></header>
+<body class="drawer drawer--left">
+<div id="container">
+
+   <header>
+    <!-- ハンバーガーボタン -->
+   <button type="button" class="drawer-toggle drawer-hamburger">
+      <span class="sr-only">toggle navigation</span>
+      <span class="drawer-hamburger-icon"></span>
+    </button>
+ 
+    <nav class="drawer-nav">
+      <ul class="drawer-menu">
+        <!-- ドロワーメニューの中身 -->
+        <li id="navTop"><a href="/"><img src="/image/top.png" width="auto" height="auto"><span>トップページ</span></a></li>
+        <li id="navLogin"><a href="/login"><img src="/image/login.png" width="auto" height="auto"><span>ログイン</span></a></li>
+        <li id="navMovie"><a href="/watchFilm"><img src="/image/movie.png" width="auto" height="auto"><br><span>上映スケジュール</span></a></li>
+        <li id="navCampaign"><a href="/campaign"><img src="/image/campaign.png" width="auto" height="auto"><br><span>キャンペーン</span></a></li>
+        <li id="navPoppukon"><a href="/shop"><img src="/image/poppukon.png" width="auto" height="auto"><br><span>売店情報</span></a></li>
+        <li id="navPaper"><a href="/login"><img src="/image/paper.png" width="auto" height="auto"><span>予約履歴</span></a></li>
+        <li id="navP"><a href="/login"><img src="/image/p.png" width="auto" height="auto"><br><span>チェックイン</span></a></li>
+      </ul>
+    </nav>
+ 
+    <p id="logoimg"><a href="/"><img src="/image/logo_halcinema.png" width="177" height="46"></a></p>
+    </header>
+
+<div id="main">
 
   <div id="app">
     <movie></movie>
   </div>
 
+</div>
+</div>
   <footer>
-    <p>
-      <a href="">企業情報</a>
-    </p>
-    <p>
-      <a href="">サイトマップ</a>
-    </p>
-    <p>
-      <a href="">個人情報の取り扱いについて</a>
-    </p>
-    <p>
-      <a href="">特定商取引法に基づく表記</a>
-    </p>
-    <p>
-      <a href="">ご利用に際して</a>
-    </p>
-  </footer>
+    <ul id="footerNav">
+        <li><a href="#!">企業情報</a></li>
+        <li><a href="#!">サイトマップ</a></li>
+        <li><a href="#!">個人情報の取扱いについて</a></li>
+        <li><a href="#!">特定商取引法に基づく表記</a></li>
+        <li><a href="#!">ご利用に際して</a></li>
+    </ul>
+</footer>
   <script src="/js/QueryString.js"></script>
   <script src="/js/moment.js"></script>
   <script src="/js/movie.bundle.js"></script>
+  <script src="/js/header.js"></script>
 </body>
 
 </html>
