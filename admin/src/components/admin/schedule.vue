@@ -136,11 +136,17 @@ export default {
             this.schedules.map((schedule) => {
               if(schedule.ID === id) {
                 schedule.release = true
+                schedule.start_time = moment(schedule.start_time).format("YYYY/MM/DD HH:mm:ss")
                 _schedule = schedule;
               }
             });
-
             httpUtils.PutSchedule(_schedule)
+            .then(() => {
+              this.$toast.open({
+                message: "映画を公開しました。",
+                type: "is-success"
+              })
+            })
           }
       })
     },

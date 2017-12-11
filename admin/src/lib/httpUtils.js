@@ -82,7 +82,7 @@ class HttpUtils {
     var params = new URLSearchParams();
     params.append('movie_id', schedule.movie_id)
     params.append('release', schedule.release)
-    params.append('start_time', moment(schedule.start_time).format("YYYY/MM/MM hh:mm:ss"))
+    params.append('start_time', schedule.start_time)
     params.append('theater_number', schedule.theater_number)
 
     return axios.put(`/api/admin/schedule/${schedule.ID}?token=${token}`, params)

@@ -15,6 +15,7 @@
       <ul>
         <li v-for="seat in seats" @click="seatSelect(seat.seatSymbol)">
           <div class="seat-icon purchased" v-if="seat.isSelected"></div>
+          <div class="seat-icon selected" v-else-if="seat.isReserved"></div>
           <div class="seat-icon" v-else></div>
         </li>
       </ul>
@@ -25,6 +26,8 @@
       <button class="button is-primary" @click="next">次へ</button>
     </div>
 
+    <b-loading :active.sync="isLoading" :canCancel="true"></b-loading>
+
   </section>
 </template>
 
@@ -33,6 +36,7 @@ import ReserveNav from './nav.vue'
 import seatsFormat from './seat.format'
 import reservePayload from '../../lib/reserve.class'
 import MovieContent from './movieContent.vue'
+import ReserveHttp from '../../services/reserve'
 
 export default {
   name: "reserve",
@@ -41,14 +45,29 @@ export default {
     MovieContent
   },
   mounted() {
+    this.isLoading = true;
+
     const movie = JSON.parse(sessionStorage.getItem("halCinemaReserve"))
     movie ? this.movie = movie : location.href = "/"
     reservePayload.clear()
+
+    ReserveHttp.GetReservedSeats(movie.scheduleId)
+    .then((res) => {
+      this.isLoading = false;
+      res.data.seats.map((seat) => {
+        this.seats.map((seatFormat) => {
+          if(seatFormat.seatSymbol === seat) {
+            seatFormat.isReserved = true
+          }
+        })
+      })
+    })
   },
   data() {
     return {
       seats: seatsFormat,
-      movie: {}
+      movie: {},
+      isLoading: false
     }
   },
   methods: {

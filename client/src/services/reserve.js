@@ -21,6 +21,10 @@ const ReserveHttp = {
     return axios.post(`/api/reserve?token=${token}`, {
       reserves: JSON.parse(JSON.stringify(params))
     })
+  },
+
+  GetReservedSeats(id) {
+    return axios.get(`http://localhost:2000/api/reserved/${id}`)
   }
 
 }
