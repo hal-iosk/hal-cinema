@@ -43,6 +43,7 @@
 import reservePayload from '../../lib/reserve.class'
 import ReserveNav from './nav.vue'
 import MovieContent from './movieContent.vue'
+import ReserveHttp from '../../services/reserve'
 
 export default {
   name: "reserve-confirm",
@@ -68,14 +69,18 @@ export default {
       })
     },
     reserveComplete() {
-      this.$toast.open({
-        message: "予約しました。",
-        type: "is-success"
+      ReserveHttp.PostReserve(this.movie, this.seats)
+      .then((res) => {
+        console.log(res)
+        this.$toast.open({
+          message: "予約しました。",
+          type: "is-success"
+        })
+        this.clear()
+        setTimeout(() => {
+          location.href = "/"
+        }, 500)
       })
-      this.clear()
-      setTimeout(() => {
-        location.href = "/"
-      }, 500)
     },
     clear() {
       sessionStorage.removeItem("halCinemaReserveSeats")
