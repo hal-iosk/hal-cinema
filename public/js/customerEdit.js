@@ -1,3 +1,25 @@
+if(!CookieDoc.hasItem("halCinemaUser")){
+  location.href = "/login"
+}
+
+function logout() {
+  CookieDoc.removeItem("halCinemaUser")
+  location.href = "/"
+}
+
+
+var token = CookieDoc.getItem("halCinemaUser")
+
+$.get(`/api/user?token=${token}`)
+.done(function (data) {
+  var name = `${data.custome.first_name} ${data.custome.last_name}`
+  $("#username").text(name)
+  $(".point_count").text(data.custome.point_count)
+})
+.fail(function (data, textStatus, jqXHR) {
+    alert("error");
+})
+
 $(document).ready(function () {
   // 入力チェックの初期化
   $.el_valid.init({

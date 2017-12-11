@@ -23,13 +23,13 @@ a {
     top:5px;
     right:150px;
 }
-.logout {
+#logout {
     position: absolute;
     right: 20px;
     top: 20px;
 }
 
-.logout a {
+#logout a {
     padding: 10px;
     background-color: #ffffff;
     border-radius: 5px;

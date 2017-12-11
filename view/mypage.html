@@ -88,15 +88,14 @@
             <div id="welcome">
                 <h2>マイページ</h2>
 
-                <p>ようこそ ○
-                    <!--ここにユーザー名-->様</p>
+                <p>ようこそ <span id="username"></span> 様</p>
                     <div id="point">
                         <p>所持コイン</p>
-                    <p>2コイン</p>
+                    <p><span class="point_count"></span>コイン</p>
                     </div>
-                <div class="logout">
+                <div id="logout">
                     <p>
-                        <a href="">ログアウト</a>
+                        <a href="" onclick="logout()">ログアウト</a>
                     </p>
                 </div>
             </div>
@@ -113,7 +112,7 @@
                 <div id="history_list">
                     <h3>予約履歴</h3>
                     <div id="history">
-                        <table>
+                        <table class="historyTable">
                             <tr>
                                 <th class="">予約日</th>
                                 <th class="">作品名</th>
@@ -122,26 +121,6 @@
                                 <th class="">上映時間</th>
 
                             </tr>
-                            <tr>
-                                <td class="">2017-02-17</td>
-                                <td>あさひなぐ</td>
-                                <td>12/6 12:20</td>
-                                <td>12/6 14:20</td>
-                                <td>120分</td>
-                                <td>
-                                    <a href="" class="cancel">キャンセル</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                    <td class="">2017-02-17</td>
-                                    <td>あさひなぐ</td>
-                                    <td>12/6 12:20</td>
-                                    <td>12/6 14:20</td>
-                                    <td>120分</td>
-                                    <td>
-                                        <a href="" class="cancel">キャンセル</a>
-                                    </td>
-                                </tr>
                         </table>
                     </div>
                 </div>
@@ -166,7 +145,9 @@
                 </li>
             </ul>
         </footer>
+        <script src="/js/moment.js"></script>
         <script src="/js/header.js"></script>
+        <script src="/js/mypage.js"></script>
     </div>
 </body>
 

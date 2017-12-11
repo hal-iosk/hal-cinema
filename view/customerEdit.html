@@ -45,17 +45,16 @@
       <div id="welcome">
         <h2>マイページ</h2>
 
-        <p>ようこそ ○
-          <!--ここにユーザー名-->様</p>
-          <div id="point">
-              <p>所持コイン</p>
-          <p>2コイン</p>
-          </div>
-        <div class="logout">
-          <p>
-            <a href="">ログアウト</a>
-          </p>
+        <p>ようこそ <span id="username"></span> 様</p>
+        <div id="point">
+            <p>所持コイン</p>
+        <p><span class="point_count"></span>コイン</p>
         </div>
+    <div id="logout">
+        <p>
+            <a href="" onclick="logout()">ログアウト</a>
+        </p>
+    </div>
       </div>
       <div id="menu_bar">
         <ul>
