@@ -50,6 +50,8 @@
         </p>
       </b-modal>
 
+      <b-loading :active.sync="isLoading" :canCancel="true"></b-loading>
+
   </section>
 </template>
 
@@ -61,6 +63,7 @@ export default {
   name: "movieTableEdit",
   data() {
     return {
+      isLoading: false,
       movie_name: "",
       details: "",
       image_path: "",
@@ -71,13 +74,17 @@ export default {
     }
   },
   mounted() {
+    this.isLoading = true;
     const id = this.$route.params.id;
     httpUtils.GetMovieDetail(id)
     .then((res) => {
+      this.isLoading = false;
+
       this.movie = res.data;
       this.movie_name = res.data.movie_name
       this.details = res.data.details
       this.image_path = res.data.image_path
+      console.log(res.data.start_date)
       this.start_time = new Date(res.data.start_date)
       this.end_time = new Date(res.data.end_date)
       this.watch_time = res.data.watch_time

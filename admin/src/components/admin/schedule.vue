@@ -37,7 +37,7 @@
       </b-table-column>
 
       <b-table-column label="開始時間" v-if="props.row.release">
-        {{new Date(props.row.start_time).getFullYear()}}/{{new Date(props.row.start_time).getMonth()}}/{{new Date(props.row.start_time).getDay()}} {{new Date(props.row.start_time).getHours()}}:{{new Date(props.row.start_time).getMinutes()}}:{{new Date(props.row.start_time).getSeconds()}}
+        {{moment(props.row.start_time).format("YYYY/MM/DD HH:mm")}}
       </b-table-column>
       <b-table-column label="開始時間" v-else>
         <b-datepicker
@@ -81,13 +81,15 @@
 import httpUtils from '../../lib/httpUtils'
 import validationUtils from '../../lib/validationUtils'
 import vueStore from '../../vuex'
+import moment from 'moment'
 
 export default {
   name: "schedule",
   data() {
     return {
       schedules: [],
-      title: ""
+      title: "",
+      moment
     }
   },
   methods: {
@@ -171,7 +173,10 @@ export default {
     httpUtils.GetSchedule(id)
     .then((res) => {
       const schedules = res.data.schedules;
-      schedules.map((schedule) => { schedule.start_time = new Date(schedule.start_time)})
+      schedules.map((schedule) => {
+        console.log(moment(schedule.start_time).format("YYYY/MM/DD HH:mm"))
+        schedule.start_time = new Date(schedule.start_time)
+      })
       this.schedules = schedules;
     })
     .catch((err) => console.error(err))

@@ -71,7 +71,7 @@ class HttpUtils {
     var params = new URLSearchParams();
     params.append('movie_id', movie_id);
     params.append('theater_number', theater_number);
-    params.append('start_time', moment(start_time).format("YYYY/MM/MM hh:mm:ss"));
+    params.append('start_time', start_time);
 
     return axios.post(`/api/admin/schedule?token=${token}`, params)
   }

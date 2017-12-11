@@ -46,6 +46,8 @@
         </section>
       </template>
     </b-table>
+
+    <b-loading :active.sync="isLoading" :canCancel="true"></b-loading>
   </section>
 </template>
 
@@ -56,12 +58,15 @@ export default {
   name: "movieTable",
   data() {
     return {
-      movies: []
+      movies: [],
+      isLoading: false
     }
   },
   mounted() {
+    this.isLoading = true;
     httpUtils.GetMovies()
     .then((res) => {
+      this.isLoading = false;
       this.movies = res.data.movies;
     })
     .catch((err) => console.error(err))

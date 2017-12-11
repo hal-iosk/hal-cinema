@@ -21,7 +21,7 @@
     </b-field>
 
     <div class="flex-box">
-      <b-datepicker v-model="start_time" inline></b-datepicker>
+      <b-datepicker v-model="start_date" inline></b-datepicker>
 
       <b-field label="映画開始時間">
         <b-timepicker v-model="start_time" inline></b-timepicker>
@@ -49,6 +49,7 @@ export default {
     return {
       title: "",
       theater_number: 1,
+      start_date: new Date(),
       start_time: new Date(),
       end_time: new Date(),
       watch_time: 0
@@ -57,7 +58,7 @@ export default {
   watch: {
     start_time(new_start_time) {
       const d = moment(new_start_time)
-      this.end_time = d.add(120, "minutes").toDate()
+      this.end_time = d.add(this.watch_time, "minutes").toDate()
     }
   },
   mounted() {
@@ -83,7 +84,8 @@ export default {
       // validation
       if(!validationUtils.isNumber(String(this.theater_number))) { validationUtils.pushMessage("シアター番号を数字で入力してください。", this); return }
 
-      httpUtils.CreateSchedule(this.$route.params.id, this.theater_number, this.start_time)
+      const start = `${moment(this.start_date).format("YYYY/MM/DD")} ${moment(this.start_time).format("HH:mm:ss")}`
+      httpUtils.CreateSchedule(this.$route.params.id, this.theater_number, start)
       .then((res) => {
         if(res.status === 201) {
           this.$toast.open({
