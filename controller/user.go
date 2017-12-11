@@ -44,6 +44,14 @@ func Popcorn(c *gin.Context) {
 		"point": p,
 	})
 }
+func GetUser(c *gin.Context) {
+	UserID := GetUserID(c)
+	Custome := service.Customer.Find(UserID)
+	Custome.Password = ""
+	c.JSON(http.StatusOK, gin.H{
+		"custome": Custome,
+	})
+}
 func UpdateUser(c *gin.Context) {
 	userID, _ := c.Get("userID")
 	req, err := CustomerReq{}.create(c)

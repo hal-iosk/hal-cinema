@@ -24,6 +24,7 @@ func apiRouter(api *gin.RouterGroup) {
 
 	authApi.POST("/reserve", controller.CreateReserve)
 	authApi.PUT("/user", controller.UpdateUser)
+	authApi.GET("/user", controller.GetUser)
 	authApi.POST("/checkin", controller.Checkin)
 	authApi.POST("/popcorn", controller.Popcorn)
 	authApi.GET("/user/reserved", controller.GetUserRserved)
