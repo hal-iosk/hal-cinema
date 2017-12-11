@@ -76,9 +76,11 @@ export default {
   mounted() {
     const vm = this
     vm.isLoading = true
+
     MovieHttp.GetOnAirMovies()
     .then((res) => {
       vm.isLoading = false
+      console.log(res.data.movies)
       this.movies = res.data.movies
     })
   },

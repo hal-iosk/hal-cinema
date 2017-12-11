@@ -18,7 +18,9 @@ const ReserveHttp = {
       }
     });
 
-    return axios.post(`/api/reserve?token=${token}`, params)
+    return axios.post(`/api/reserve?token=${token}`, {
+      reserves: params
+    })
   }
 
 }
